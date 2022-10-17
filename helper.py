@@ -1,6 +1,3 @@
-from ropy_types.main import *;
+from ropy_types.main import main;
 
-cookie = Instance.new("Part");
-cookie.Name = "cookie";
-print(cookie.Name);
-print(cookie.Archivable);
+main();

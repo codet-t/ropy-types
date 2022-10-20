@@ -1,4 +1,4 @@
-from typing import List, Literal, TypeAlias, TypedDict
+from typing import Literal, TypeAlias, TypedDict
 
 ThreadSafetyType: TypeAlias = Literal["None", "ReadOnly", "ReadWrite"]
 
@@ -19,7 +19,7 @@ class RobloxMemberProperty(TypedDict):
     Category: str
     Name: str
     Security: RobloxMemberSecurity
-    Tags: List[str]
+    Tags: list[str]
     ThreadSafety: ThreadSafetyType
     ValueType: RobloxType
     Serialization: RobloxSerializationType
@@ -31,7 +31,7 @@ class RobloxClassFunctionParameter(TypedDict):
 class RobloxMemberFunction(TypedDict):
     MemberType: Literal["Function"]
     Name: str
-    Parameters: List[RobloxClassFunctionParameter]
+    Parameters: list[RobloxClassFunctionParameter]
     Security: Literal["None"] | RobloxMemberSecurity
     ThreadSafety: ThreadSafetyType
     ReturnType: RobloxType
@@ -39,24 +39,24 @@ class RobloxMemberFunction(TypedDict):
 class RobloxMemberEvent(TypedDict):
     MemberType: Literal["Event"]
     Name: str
-    Parameters: List[RobloxClassFunctionParameter]
+    Parameters: list[RobloxClassFunctionParameter]
     Security: Literal["None"] | RobloxMemberSecurity
     ThreadSafety: ThreadSafetyType
 
 class RobloxMemberCallback(TypedDict):
     MemberType: Literal["Callback"]
     Name: str
-    Parameters: List[RobloxClassFunctionParameter]
+    Parameters: list[RobloxClassFunctionParameter]
     Security: Literal["None"] | RobloxMemberSecurity
     ThreadSafety: ThreadSafetyType
     ReturnType: RobloxType
 
 class RobloxClass(TypedDict):
-    Members: List[RobloxMemberFunction | RobloxMemberProperty | RobloxMemberCallback | RobloxMemberEvent]
+    Members: list[RobloxMemberFunction | RobloxMemberProperty | RobloxMemberCallback | RobloxMemberEvent]
     MemoryCategory: str
     Name: str
     Superclass: str
-    Tags: List[str] | None
+    Tags: list[str] | None
 
 class SingleEnum(TypedDict):
     Name: str
@@ -64,10 +64,11 @@ class SingleEnum(TypedDict):
 
 class RobloxEnum(TypedDict):
     Name: str
-    Items: List[SingleEnum]
+    Items: list[SingleEnum]
 
 class ApiTracker(TypedDict):
-    Classes: List[RobloxClass]
-    Enums: List[RobloxEnum]
-    DataTypes: List[str]
+    Classes: list[RobloxClass]
+    Enums: list[RobloxEnum]
+    DataTypes: list[str]
+    RemainingClasses: list[str]
     Version: int

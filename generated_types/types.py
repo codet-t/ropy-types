@@ -1,5 +1,6 @@
 from typing_extensions import Self
-from typing import Any, Callable, Tuple
+from typing import Any, Callable
+from abc import abstractmethod
 from enum import Enum
 
 class Vector3:
@@ -72,6 +73,45 @@ class TweenInfo:
 	pass
 
 class UDim:
+	pass
+
+class RBXScriptSignal:
+	pass
+
+class CatalogSearchParams:
+	pass
+
+class FloatCurveKey:
+	pass
+
+class RBXScriptConnection:
+	pass
+
+class Region3:
+	pass
+
+class Map:
+	pass
+
+class Vector3int16:
+	pass
+
+class OverlapParams:
+	pass
+
+class RaycastResult:
+	pass
+
+class RaycastParams:
+	pass
+
+class DockWidgetPluginGuiInfo:
+	pass
+
+class RotationCurveKey:
+	pass
+
+class CoordinateFrame:
 	pass
 
 class AccessoryType(Enum):
@@ -3050,103 +3090,136 @@ class Instance:
 	SourceAssetId: int
 	archivable: bool
 	className: str
-	def ClearAllChildren(self):
+	@abstractmethod
+	def ClearAllChildren(self) -> None:
 		pass
 
-	def Clone(self):
+	@abstractmethod
+	def Clone(self) -> Self:
 		pass
 
-	def Destroy(self):
+	@abstractmethod
+	def Destroy(self) -> None:
 		pass
 
-	def FindFirstAncestor(self, name: str):
+	@abstractmethod
+	def FindFirstAncestor(self, name: str) -> Self:
 		pass
 
-	def FindFirstAncestorOfClass(self, className: str):
+	@abstractmethod
+	def FindFirstAncestorOfClass(self, className: str) -> Self:
 		pass
 
-	def FindFirstAncestorWhichIsA(self, className: str):
+	@abstractmethod
+	def FindFirstAncestorWhichIsA(self, className: str) -> Self:
 		pass
 
-	def FindFirstChild(self, name: str, recursive: bool):
+	@abstractmethod
+	def FindFirstChild(self, name: str, recursive: bool) -> Self:
 		pass
 
-	def FindFirstChildOfClass(self, className: str):
+	@abstractmethod
+	def FindFirstChildOfClass(self, className: str) -> Self:
 		pass
 
-	def FindFirstChildWhichIsA(self, className: str, recursive: bool):
+	@abstractmethod
+	def FindFirstChildWhichIsA(self, className: str, recursive: bool) -> Self:
 		pass
 
-	def FindFirstDescendant(self, name: str):
+	@abstractmethod
+	def FindFirstDescendant(self, name: str) -> Self:
 		pass
 
-	def GetActor(self):
+	@abstractmethod
+	def GetActor(self) -> 'Actor':
 		pass
 
-	def GetAttribute(self, attribute: str):
+	@abstractmethod
+	def GetAttribute(self, attribute: str) -> Any:
 		pass
 
-	def GetAttributeChangedSignal(self, attribute: str):
+	@abstractmethod
+	def GetAttributeChangedSignal(self, attribute: str) -> 'RBXScriptSignal':
 		pass
 
-	def GetAttributes(self):
+	@abstractmethod
+	def GetAttributes(self) -> dict[Any, Any]:
 		pass
 
-	def GetChildren(self):
+	@abstractmethod
+	def GetChildren(self) -> dict[int, Self]:
 		pass
 
-	def GetDebugId(self, scopeLength: int):
+	@abstractmethod
+	def GetDebugId(self, scopeLength: int) -> str:
 		pass
 
-	def GetDescendants(self):
+	@abstractmethod
+	def GetDescendants(self) -> list[Any]:
 		pass
 
-	def GetFullName(self):
+	@abstractmethod
+	def GetFullName(self) -> str:
 		pass
 
-	def GetPropertyChangedSignal(self, property: str):
+	@abstractmethod
+	def GetPropertyChangedSignal(self, property: str) -> 'RBXScriptSignal':
 		pass
 
-	def IsA(self, className: str):
+	@abstractmethod
+	def IsA(self, className: str) -> bool:
 		pass
 
-	def IsAncestorOf(self, descendant: Self):
+	@abstractmethod
+	def IsAncestorOf(self, descendant: Self) -> bool:
 		pass
 
-	def IsDescendantOf(self, ancestor: Self):
+	@abstractmethod
+	def IsDescendantOf(self, ancestor: Self) -> bool:
 		pass
 
-	def Remove(self):
+	@abstractmethod
+	def Remove(self) -> None:
 		pass
 
-	def SetAttribute(self, attribute: str, value: Any):
+	@abstractmethod
+	def SetAttribute(self, attribute: str, value: Any) -> None:
 		pass
 
-	def WaitForChild(self, childName: str, timeOut: float):
+	@abstractmethod
+	def WaitForChild(self, childName: str, timeOut: float) -> Self:
 		pass
 
-	def children(self):
+	@abstractmethod
+	def children(self) -> dict[int, Self]:
 		pass
 
-	def clone(self):
+	@abstractmethod
+	def clone(self) -> Self:
 		pass
 
-	def destroy(self):
+	@abstractmethod
+	def destroy(self) -> None:
 		pass
 
-	def findFirstChild(self, name: str, recursive: bool):
+	@abstractmethod
+	def findFirstChild(self, name: str, recursive: bool) -> Self:
 		pass
 
-	def getChildren(self):
+	@abstractmethod
+	def getChildren(self) -> dict[int, Self]:
 		pass
 
-	def isA(self, className: str):
+	@abstractmethod
+	def isA(self, className: str) -> bool:
 		pass
 
-	def isDescendantOf(self, ancestor: Self):
+	@abstractmethod
+	def isDescendantOf(self, ancestor: Self) -> bool:
 		pass
 
-	def remove(self):
+	@abstractmethod
+	def remove(self) -> None:
 		pass
 
 
@@ -3179,7 +3252,8 @@ class AdPortal:
 	pass
 
 class AdService:
-	def ShowVideoAd(self):
+	@abstractmethod
+	def ShowVideoAd(self) -> None:
 		pass
 
 
@@ -3191,19 +3265,24 @@ class AdvancedDragger:
 
 class AnalyticsService:
 	ApiKey: str
-	def FireCustomEvent(self, player: Instance, eventCategory: str, customData: Any):
+	@abstractmethod
+	def FireCustomEvent(self, player: Instance, eventCategory: str, customData: Any) -> None:
 		pass
 
-	def FireEvent(self, category: str, value: Any):
+	@abstractmethod
+	def FireEvent(self, category: str, value: Any) -> None:
 		pass
 
-	def FireInGameEconomyEvent(self, player: Instance, itemName: str, economyAction: AnalyticsEconomyAction, itemCategory: str, amount: int, currency: str, location: Any, customData: Any):
+	@abstractmethod
+	def FireInGameEconomyEvent(self, player: Instance, itemName: str, economyAction: AnalyticsEconomyAction, itemCategory: str, amount: int, currency: str, location: Any, customData: Any) -> None:
 		pass
 
-	def FireLogEvent(self, player: Instance, logLevel: AnalyticsLogLevel, message: str, debugInfo: Any, customData: Any):
+	@abstractmethod
+	def FireLogEvent(self, player: Instance, logLevel: AnalyticsLogLevel, message: str, debugInfo: Any, customData: Any) -> None:
 		pass
 
-	def FirePlayerProgressionEvent(self, player: Instance, category: str, progressionStatus: AnalyticsProgressionStatus, location: Any, statistics: Any, customData: Any):
+	@abstractmethod
+	def FirePlayerProgressionEvent(self, player: Instance, category: str, progressionStatus: AnalyticsProgressionStatus, location: Any, statistics: Any, customData: Any) -> None:
 		pass
 
 
@@ -3226,105 +3305,129 @@ class CurveAnimation:
 
 class KeyframeSequence:
 	AuthoredHipHeight: float
-	def AddKeyframe(self, keyframe: Instance):
+	@abstractmethod
+	def AddKeyframe(self, keyframe: Instance) -> None:
 		pass
 
-	def GetKeyframes(self):
+	@abstractmethod
+	def GetKeyframes(self) -> dict[int, Instance]:
 		pass
 
-	def RemoveKeyframe(self, keyframe: Instance):
+	@abstractmethod
+	def RemoveKeyframe(self, keyframe: Instance) -> None:
 		pass
 
 
 	pass
 
 class AnimationClipProvider:
-	def GetAnimationClip(self, assetId: Content):
+	@abstractmethod
+	def GetAnimationClip(self, assetId: Content) -> AnimationClip:
 		pass
 
-	def GetAnimationClipById(self, assetId: int, useCache: bool):
+	@abstractmethod
+	def GetAnimationClipById(self, assetId: int, useCache: bool) -> AnimationClip:
 		pass
 
-	def GetMemStats(self):
+	@abstractmethod
+	def GetMemStats(self) -> dict[Any, Any]:
 		pass
 
-	def RegisterActiveAnimationClip(self, animationClip: AnimationClip):
+	@abstractmethod
+	def RegisterActiveAnimationClip(self, animationClip: AnimationClip) -> Content:
 		pass
 
-	def RegisterAnimationClip(self, animationClip: AnimationClip):
+	@abstractmethod
+	def RegisterAnimationClip(self, animationClip: AnimationClip) -> Content:
 		pass
 
-	def GetAnimationClipAsync(self, assetId: Content):
+	@abstractmethod
+	def GetAnimationClipAsync(self, assetId: Content) -> AnimationClip:
 		pass
 
-	def GetAnimations(self, userId: int):
+	@abstractmethod
+	def GetAnimations(self, userId: int) -> Instance:
 		pass
 
 
 	pass
 
 class AnimationController:
-	def GetPlayingAnimationTracks(self):
+	@abstractmethod
+	def GetPlayingAnimationTracks(self) -> list[Any]:
 		pass
 
-	def LoadAnimation(self, animation: Animation):
+	@abstractmethod
+	def LoadAnimation(self, animation: Animation) -> 'AnimationTrack':
 		pass
 
 
 	pass
 
 class AnimationFromVideoCreatorService:
-	def CreateJob(self, filePath: str):
+	@abstractmethod
+	def CreateJob(self, filePath: str) -> str:
 		pass
 
-	def DownloadJobResult(self, jobId: str, outputFilePath: str):
+	@abstractmethod
+	def DownloadJobResult(self, jobId: str, outputFilePath: str) -> str:
 		pass
 
-	def FullProcess(self, videoFilePath: str, progressCallback: Callable[..., Any]):
+	@abstractmethod
+	def FullProcess(self, videoFilePath: str, progressCallback: Callable[..., Any]) -> str:
 		pass
 
-	def GetJobStatus(self, jobId: str):
+	@abstractmethod
+	def GetJobStatus(self, jobId: str) -> str:
 		pass
 
 
 	pass
 
 class AnimationFromVideoCreatorStudioService:
-	def IsAgeRestricted(self):
+	@abstractmethod
+	def IsAgeRestricted(self) -> bool:
 		pass
 
-	def CreateAnimationByUploadingVideo(self, progressCallback: Callable[..., Any]):
+	@abstractmethod
+	def CreateAnimationByUploadingVideo(self, progressCallback: Callable[..., Any]) -> str:
 		pass
 
-	def ImportVideoWithPrompt(self):
+	@abstractmethod
+	def ImportVideoWithPrompt(self) -> str:
 		pass
 
 
 	pass
 
 class AnimationRigData:
-	def LoadFromHumanoid(self, humanoid: Instance):
+	@abstractmethod
+	def LoadFromHumanoid(self, humanoid: Instance) -> bool:
 		pass
 
 
 	pass
 
 class AnimationStreamTrack:
-	Animation: TrackerStreamAnimation
+	Animation: 'TrackerStreamAnimation'
 	IsPlaying: bool
 	Priority: AnimationPriority
 	WeightCurrent: float
 	WeightTarget: float
-	def AdjustWeight(self, weight: float, fadeTime: float):
+	@abstractmethod
+	def AdjustWeight(self, weight: float, fadeTime: float) -> None:
 		pass
 
-	def GetTrackerData(self):
+	@abstractmethod
+	def GetTrackerData(self) -> tuple[Any]:
 		pass
 
-	def Play(self, fadeTime: float, weight: float):
+	@abstractmethod
+	def Play(self, fadeTime: float, weight: float) -> None:
 		pass
 
-	def Stop(self, fadeTime: float):
+	@abstractmethod
+	def Stop(self, fadeTime: float) -> None:
 		pass
 
 
@@ -3340,22 +3443,28 @@ class AnimationTrack:
 	WeightCurrent: float
 	WeightTarget: float
 	Animation: Animation
-	def AdjustSpeed(self, speed: float):
+	@abstractmethod
+	def AdjustSpeed(self, speed: float) -> None:
 		pass
 
-	def AdjustWeight(self, weight: float, fadeTime: float):
+	@abstractmethod
+	def AdjustWeight(self, weight: float, fadeTime: float) -> None:
 		pass
 
-	def GetMarkerReachedSignal(self, name: str):
+	@abstractmethod
+	def GetMarkerReachedSignal(self, name: str) -> 'RBXScriptSignal':
 		pass
 
-	def GetTimeOfKeyframe(self, keyframeName: str):
+	@abstractmethod
+	def GetTimeOfKeyframe(self, keyframeName: str) -> float:
 		pass
 
-	def Play(self, fadeTime: float, weight: float, speed: float):
+	@abstractmethod
+	def Play(self, fadeTime: float, weight: float, speed: float) -> None:
 		pass
 
-	def Stop(self, fadeTime: float):
+	@abstractmethod
+	def Stop(self, fadeTime: float) -> None:
 		pass
 
 
@@ -3363,41 +3472,52 @@ class AnimationTrack:
 
 class Animator:
 	PreferLodEnabled: bool
-	def ApplyJointVelocities(self, motors: Any):
+	@abstractmethod
+	def ApplyJointVelocities(self, motors: Any) -> None:
 		pass
 
-	def GetPlayingAnimationTracks(self):
+	@abstractmethod
+	def GetPlayingAnimationTracks(self) -> list[Any]:
 		pass
 
-	def GetPlayingAnimationTracksCoreScript(self):
+	@abstractmethod
+	def GetPlayingAnimationTracksCoreScript(self) -> list[Any]:
 		pass
 
-	def LoadAnimation(self, animation: Animation):
+	@abstractmethod
+	def LoadAnimation(self, animation: Animation) -> AnimationTrack:
 		pass
 
-	def LoadAnimationCoreScript(self, animation: Animation):
+	@abstractmethod
+	def LoadAnimationCoreScript(self, animation: Animation) -> AnimationTrack:
 		pass
 
-	def LoadStreamAnimation(self, animation: TrackerStreamAnimation):
+	@abstractmethod
+	def LoadStreamAnimation(self, animation: 'TrackerStreamAnimation') -> AnimationStreamTrack:
 		pass
 
-	def StepAnimations(self, deltaTime: float):
+	@abstractmethod
+	def StepAnimations(self, deltaTime: float) -> None:
 		pass
 
 
 	pass
 
 class AppUpdateService:
-	def CheckForUpdate(self, handler: Callable[..., Any]):
+	@abstractmethod
+	def CheckForUpdate(self, handler: Callable[..., Any]) -> None:
 		pass
 
-	def DisableDUAR(self):
+	@abstractmethod
+	def DisableDUAR(self) -> None:
 		pass
 
-	def DisableDUARAndOpenSurvey(self, surveyUrl: str):
+	@abstractmethod
+	def DisableDUARAndOpenSurvey(self, surveyUrl: str) -> None:
 		pass
 
-	def PerformManagedUpdate(self):
+	@abstractmethod
+	def PerformManagedUpdate(self) -> bool:
 		pass
 
 
@@ -3415,129 +3535,168 @@ class AssetDeliveryProxy:
 	pass
 
 class AssetImportService:
-	def PickFileWithPrompt(self):
+	@abstractmethod
+	def PickFileWithPrompt(self) -> str:
 		pass
 
-	def StartSessionWithPrompt(self):
+	@abstractmethod
+	def StartSessionWithPrompt(self) -> 'AssetImportSession':
 		pass
 
 
 	pass
 
 class AssetImportSession:
-	def Cancel(self):
+	@abstractmethod
+	def Cancel(self) -> None:
 		pass
 
-	def GetCurrentStatusTable(self):
+	@abstractmethod
+	def GetCurrentStatusTable(self) -> dict[Any, Any]:
 		pass
 
-	def GetFilename(self):
+	@abstractmethod
+	def GetFilename(self) -> str:
 		pass
 
-	def GetInstance(self, nodeId: int):
+	@abstractmethod
+	def GetInstance(self, nodeId: int) -> Instance:
 		pass
 
-	def GetSettingsRoot(self):
+	@abstractmethod
+	def GetSettingsRoot(self) -> Instance:
 		pass
 
-	def IsAvatar(self):
+	@abstractmethod
+	def IsAvatar(self) -> bool:
 		pass
 
-	def Upload(self):
+	@abstractmethod
+	def Upload(self) -> None:
 		pass
 
 
 	pass
 
 class AssetManagerService:
-	def GetMeshIdFromAliasName(self, aliasName: str):
+	@abstractmethod
+	def GetMeshIdFromAliasName(self, aliasName: str) -> int:
 		pass
 
-	def GetMeshIdFromAssetId(self, assetId: int):
+	@abstractmethod
+	def GetMeshIdFromAssetId(self, assetId: int) -> int:
 		pass
 
-	def GetTextureIdFromAliasName(self, aliasName: str):
+	@abstractmethod
+	def GetTextureIdFromAliasName(self, aliasName: str) -> int:
 		pass
 
-	def GetTextureIdFromAssetId(self, assetId: int):
+	@abstractmethod
+	def GetTextureIdFromAssetId(self, assetId: int) -> int:
 		pass
 
-	def HasUnpublishedChangesForLinkedSource(self, aliasName: str):
+	@abstractmethod
+	def HasUnpublishedChangesForLinkedSource(self, aliasName: str) -> bool:
 		pass
 
-	def InsertAudio(self, assetId: int, assetName: str):
+	@abstractmethod
+	def InsertAudio(self, assetId: int, assetName: str) -> None:
 		pass
 
-	def InsertImage(self, assetId: int):
+	@abstractmethod
+	def InsertImage(self, assetId: int) -> None:
 		pass
 
-	def InsertLinkedSourceAsLocalScript(self, aliasName: str):
+	@abstractmethod
+	def InsertLinkedSourceAsLocalScript(self, aliasName: str) -> None:
 		pass
 
-	def InsertLinkedSourceAsModuleScript(self, aliasName: str):
+	@abstractmethod
+	def InsertLinkedSourceAsModuleScript(self, aliasName: str) -> None:
 		pass
 
-	def InsertLinkedSourceAsScript(self, aliasName: str):
+	@abstractmethod
+	def InsertLinkedSourceAsScript(self, aliasName: str) -> None:
 		pass
 
-	def InsertMesh(self, aliasName: str, insertWithLocation: bool):
+	@abstractmethod
+	def InsertMesh(self, aliasName: str, insertWithLocation: bool) -> None:
 		pass
 
-	def InsertMeshesWithLocation(self, aliasNames: list[Any]):
+	@abstractmethod
+	def InsertMeshesWithLocation(self, aliasNames: list[Any]) -> None:
 		pass
 
-	def InsertModel(self, modelId: int):
+	@abstractmethod
+	def InsertModel(self, modelId: int) -> None:
 		pass
 
-	def InsertPackage(self, packageId: int):
+	@abstractmethod
+	def InsertPackage(self, packageId: int) -> None:
 		pass
 
-	def InsertVideo(self, assetId: int, assetName: str):
+	@abstractmethod
+	def InsertVideo(self, assetId: int, assetName: str) -> None:
 		pass
 
-	def OpenLinkedSource(self, aliasName: str):
+	@abstractmethod
+	def OpenLinkedSource(self, aliasName: str) -> None:
 		pass
 
-	def OpenPlace(self, placeId: int):
+	@abstractmethod
+	def OpenPlace(self, placeId: int) -> None:
 		pass
 
-	def RefreshLinkedSource(self, aliasName: str):
+	@abstractmethod
+	def RefreshLinkedSource(self, aliasName: str) -> None:
 		pass
 
-	def RevertLinkedSourceToLastPublishedVersion(self, aliasName: str):
+	@abstractmethod
+	def RevertLinkedSourceToLastPublishedVersion(self, aliasName: str) -> None:
 		pass
 
-	def ShowPackageDetails(self, packageId: int):
+	@abstractmethod
+	def ShowPackageDetails(self, packageId: int) -> None:
 		pass
 
-	def UpdateAllPackages(self, packageId: int):
+	@abstractmethod
+	def UpdateAllPackages(self, packageId: int) -> None:
 		pass
 
-	def ViewPackageOnWebsite(self, packageId: int):
+	@abstractmethod
+	def ViewPackageOnWebsite(self, packageId: int) -> None:
 		pass
 
-	def AddNewPlace(self):
+	@abstractmethod
+	def AddNewPlace(self) -> int:
 		pass
 
-	def CreateAlias(self, assetType: int, assetId: int, aliasName: str):
+	@abstractmethod
+	def CreateAlias(self, assetType: int, assetId: int, aliasName: str) -> None:
 		pass
 
-	def DeleteAlias(self, aliasName: str):
+	@abstractmethod
+	def DeleteAlias(self, aliasName: str) -> None:
 		pass
 
-	def PublishLinkedSource(self, assetId: int, aliasName: str):
+	@abstractmethod
+	def PublishLinkedSource(self, assetId: int, aliasName: str) -> None:
 		pass
 
-	def RemovePlace(self, placeId: int):
+	@abstractmethod
+	def RemovePlace(self, placeId: int) -> None:
 		pass
 
-	def RenameAlias(self, assetType: int, assetId: int, oldAliasName: str, newAliasName: str):
+	@abstractmethod
+	def RenameAlias(self, assetType: int, assetId: int, oldAliasName: str, newAliasName: str) -> None:
 		pass
 
-	def RenameModel(self, modelId: int, newName: str):
+	@abstractmethod
+	def RenameModel(self, modelId: int, newName: str) -> None:
 		pass
 
-	def RenamePlace(self, placeId: int, newName: str):
+	@abstractmethod
+	def RenamePlace(self, placeId: int, newName: str) -> None:
 		pass
 
 
@@ -3551,31 +3710,40 @@ class AssetPatchSettings:
 	pass
 
 class AssetService:
-	def GetBundleDetailsSync(self, bundleId: int):
+	@abstractmethod
+	def GetBundleDetailsSync(self, bundleId: int) -> dict[Any, Any]:
 		pass
 
-	def CreatePlaceAsync(self, placeName: str, templatePlaceID: int, description: str):
+	@abstractmethod
+	def CreatePlaceAsync(self, placeName: str, templatePlaceID: int, description: str) -> int:
 		pass
 
-	def CreatePlaceInPlayerInventoryAsync(self, player: Instance, placeName: str, templatePlaceID: int, description: str):
+	@abstractmethod
+	def CreatePlaceInPlayerInventoryAsync(self, player: Instance, placeName: str, templatePlaceID: int, description: str) -> int:
 		pass
 
-	def GetAssetIdsForPackage(self, packageAssetId: int):
+	@abstractmethod
+	def GetAssetIdsForPackage(self, packageAssetId: int) -> list[Any]:
 		pass
 
-	def GetAssetThumbnailAsync(self, assetId: int, thumbnailSize: Vector2, assetType: int):
+	@abstractmethod
+	def GetAssetThumbnailAsync(self, assetId: int, thumbnailSize: Vector2, assetType: int) -> tuple[Any]:
 		pass
 
-	def GetBundleDetailsAsync(self, bundleId: int):
+	@abstractmethod
+	def GetBundleDetailsAsync(self, bundleId: int) -> dict[Any, Any]:
 		pass
 
-	def GetCreatorAssetID(self, creationID: int):
+	@abstractmethod
+	def GetCreatorAssetID(self, creationID: int) -> int:
 		pass
 
-	def GetGamePlacesAsync(self):
+	@abstractmethod
+	def GetGamePlacesAsync(self) -> Instance:
 		pass
 
-	def SavePlaceAsync(self):
+	@abstractmethod
+	def SavePlaceAsync(self) -> None:
 		pass
 
 
@@ -3605,16 +3773,20 @@ class Attachment:
 	WorldRotation: Vector3
 	WorldSecondaryAxis: Vector3
 	CFrame: CFrame
-	def GetAxis(self):
+	@abstractmethod
+	def GetAxis(self) -> Vector3:
 		pass
 
-	def GetSecondaryAxis(self):
+	@abstractmethod
+	def GetSecondaryAxis(self) -> Vector3:
 		pass
 
-	def SetAxis(self, axis: Vector3):
+	@abstractmethod
+	def SetAxis(self, axis: Vector3) -> None:
 		pass
 
-	def SetSecondaryAxis(self, axis: Vector3):
+	@abstractmethod
+	def SetSecondaryAxis(self, axis: Vector3) -> None:
 		pass
 
 
@@ -3629,161 +3801,212 @@ class Bone:
 	pass
 
 class AvatarEditorService:
-	def GetAccessoryType(self, avatarAssetType: AvatarAssetType):
+	@abstractmethod
+	def GetAccessoryType(self, avatarAssetType: AvatarAssetType) -> AccessoryType:
 		pass
 
-	def NoPromptCreateOutfit(self, humanoidDescription: HumanoidDescription, rigType: HumanoidRigType, name: str):
+	@abstractmethod
+	def NoPromptCreateOutfit(self, humanoidDescription: 'HumanoidDescription', rigType: HumanoidRigType, name: str) -> bool:
 		pass
 
-	def NoPromptDeleteOutfit(self, outfitId: int):
+	@abstractmethod
+	def NoPromptDeleteOutfit(self, outfitId: int) -> bool:
 		pass
 
-	def NoPromptRenameOutfit(self, outfitId: int, name: str):
+	@abstractmethod
+	def NoPromptRenameOutfit(self, outfitId: int, name: str) -> bool:
 		pass
 
-	def NoPromptSaveAvatar(self, humanoidDescription: HumanoidDescription, rigType: HumanoidRigType, saveDict: Dictionary, gearAssetId: int):
+	@abstractmethod
+	def NoPromptSaveAvatar(self, humanoidDescription: 'HumanoidDescription', rigType: HumanoidRigType, saveDict: dict[Any, Any], gearAssetId: int) -> bool:
 		pass
 
-	def NoPromptSetFavorite(self, itemId: int, itemType: AvatarItemType, shouldFavorite: bool):
+	@abstractmethod
+	def NoPromptSetFavorite(self, itemId: int, itemType: AvatarItemType, shouldFavorite: bool) -> bool:
 		pass
 
-	def NoPromptUpdateOutfit(self, outfitId: int, humanoidDescription: HumanoidDescription, rigType: HumanoidRigType):
+	@abstractmethod
+	def NoPromptUpdateOutfit(self, outfitId: int, humanoidDescription: 'HumanoidDescription', rigType: HumanoidRigType) -> bool:
 		pass
 
-	def PerformCreateOutfitWithDescription(self, humanoidDescription: HumanoidDescription, name: str):
+	@abstractmethod
+	def PerformCreateOutfitWithDescription(self, humanoidDescription: 'HumanoidDescription', name: str) -> None:
 		pass
 
-	def PerformDeleteOutfit(self):
+	@abstractmethod
+	def PerformDeleteOutfit(self) -> None:
 		pass
 
-	def PerformRenameOutfit(self, name: str):
+	@abstractmethod
+	def PerformRenameOutfit(self, name: str) -> None:
 		pass
 
-	def PerformSaveAvatarWithDescription(self, humanoidDescription: HumanoidDescription, addedAssets: list[Any], removedAssets: list[Any]):
+	@abstractmethod
+	def PerformSaveAvatarWithDescription(self, humanoidDescription: 'HumanoidDescription', addedAssets: list[Any], removedAssets: list[Any]) -> None:
 		pass
 
-	def PerformSetFavorite(self):
+	@abstractmethod
+	def PerformSetFavorite(self) -> None:
 		pass
 
-	def PerformUpdateOutfit(self, humanoidDescription: HumanoidDescription):
+	@abstractmethod
+	def PerformUpdateOutfit(self, humanoidDescription: 'HumanoidDescription') -> None:
 		pass
 
-	def PromptAllowInventoryReadAccess(self):
+	@abstractmethod
+	def PromptAllowInventoryReadAccess(self) -> None:
 		pass
 
-	def PromptCreateOutfit(self, outfit: HumanoidDescription, rigType: HumanoidRigType):
+	@abstractmethod
+	def PromptCreateOutfit(self, outfit: 'HumanoidDescription', rigType: HumanoidRigType) -> None:
 		pass
 
-	def PromptDeleteOutfit(self, outfitId: int):
+	@abstractmethod
+	def PromptDeleteOutfit(self, outfitId: int) -> None:
 		pass
 
-	def PromptRenameOutfit(self, outfitId: int):
+	@abstractmethod
+	def PromptRenameOutfit(self, outfitId: int) -> None:
 		pass
 
-	def PromptSaveAvatar(self, humanoidDescription: HumanoidDescription, rigType: HumanoidRigType):
+	@abstractmethod
+	def PromptSaveAvatar(self, humanoidDescription: 'HumanoidDescription', rigType: HumanoidRigType) -> None:
 		pass
 
-	def PromptSetFavorite(self, itemId: int, itemType: AvatarItemType, shouldFavorite: bool):
+	@abstractmethod
+	def PromptSetFavorite(self, itemId: int, itemType: AvatarItemType, shouldFavorite: bool) -> None:
 		pass
 
-	def PromptUpdateOutfit(self, outfitId: int, updatedOutfit: HumanoidDescription, rigType: HumanoidRigType):
+	@abstractmethod
+	def PromptUpdateOutfit(self, outfitId: int, updatedOutfit: 'HumanoidDescription', rigType: HumanoidRigType) -> None:
 		pass
 
-	def SetAllowInventoryReadAccess(self, inventoryReadAccessGranted: bool):
+	@abstractmethod
+	def SetAllowInventoryReadAccess(self, inventoryReadAccessGranted: bool) -> None:
 		pass
 
-	def SignalCreateOutfitFailed(self):
+	@abstractmethod
+	def SignalCreateOutfitFailed(self) -> None:
 		pass
 
-	def SignalCreateOutfitPermissionDenied(self):
+	@abstractmethod
+	def SignalCreateOutfitPermissionDenied(self) -> None:
 		pass
 
-	def SignalDeleteOutfitFailed(self):
+	@abstractmethod
+	def SignalDeleteOutfitFailed(self) -> None:
 		pass
 
-	def SignalDeleteOutfitPermissionDenied(self):
+	@abstractmethod
+	def SignalDeleteOutfitPermissionDenied(self) -> None:
 		pass
 
-	def SignalRenameOutfitFailed(self):
+	@abstractmethod
+	def SignalRenameOutfitFailed(self) -> None:
 		pass
 
-	def SignalRenameOutfitPermissionDenied(self):
+	@abstractmethod
+	def SignalRenameOutfitPermissionDenied(self) -> None:
 		pass
 
-	def SignalSaveAvatarFailed(self):
+	@abstractmethod
+	def SignalSaveAvatarFailed(self) -> None:
 		pass
 
-	def SignalSaveAvatarPermissionDenied(self):
+	@abstractmethod
+	def SignalSaveAvatarPermissionDenied(self) -> None:
 		pass
 
-	def SignalSetFavoriteFailed(self):
+	@abstractmethod
+	def SignalSetFavoriteFailed(self) -> None:
 		pass
 
-	def SignalSetFavoritePermissionDenied(self):
+	@abstractmethod
+	def SignalSetFavoritePermissionDenied(self) -> None:
 		pass
 
-	def SignalUpdateOutfitFailed(self):
+	@abstractmethod
+	def SignalUpdateOutfitFailed(self) -> None:
 		pass
 
-	def SignalUpdateOutfitPermissionDenied(self):
+	@abstractmethod
+	def SignalUpdateOutfitPermissionDenied(self) -> None:
 		pass
 
-	def CheckApplyDefaultClothing(self, humanoidDescription: HumanoidDescription):
+	@abstractmethod
+	def CheckApplyDefaultClothing(self, humanoidDescription: 'HumanoidDescription') -> 'HumanoidDescription':
 		pass
 
-	def ConformToAvatarRules(self, humanoidDescription: HumanoidDescription):
+	@abstractmethod
+	def ConformToAvatarRules(self, humanoidDescription: 'HumanoidDescription') -> 'HumanoidDescription':
 		pass
 
-	def GetAvatarRules(self):
+	@abstractmethod
+	def GetAvatarRules(self) -> dict[Any, Any]:
 		pass
 
-	def GetBatchItemDetails(self, itemIds: list[Any], itemType: AvatarItemType):
+	@abstractmethod
+	def GetBatchItemDetails(self, itemIds: list[Any], itemType: AvatarItemType) -> list[Any]:
 		pass
 
-	def GetFavorite(self, itemId: int, itemType: AvatarItemType):
+	@abstractmethod
+	def GetFavorite(self, itemId: int, itemType: AvatarItemType) -> bool:
 		pass
 
-	def GetInventory(self, assetTypes: list[Any]):
+	@abstractmethod
+	def GetInventory(self, assetTypes: list[Any]) -> 'InventoryPages':
 		pass
 
-	def GetItemDetails(self, itemId: int, itemType: AvatarItemType):
+	@abstractmethod
+	def GetItemDetails(self, itemId: int, itemType: AvatarItemType) -> dict[Any, Any]:
 		pass
 
-	def GetOutfits(self, outfitSource: OutfitSource, outfitType: OutfitType):
+	@abstractmethod
+	def GetOutfits(self, outfitSource: OutfitSource, outfitType: OutfitType) -> 'OutfitPages':
 		pass
 
-	def GetRecommendedAssets(self, assetType: AvatarAssetType, contextAssetId: int):
+	@abstractmethod
+	def GetRecommendedAssets(self, assetType: AvatarAssetType, contextAssetId: int) -> list[Any]:
 		pass
 
-	def GetRecommendedAssetsV2(self, assetType: AvatarAssetType, assetId: int, numItems: int, includeDetails: bool):
+	@abstractmethod
+	def GetRecommendedAssetsV2(self, assetType: AvatarAssetType, assetId: int, numItems: int, includeDetails: bool) -> list[Any]:
 		pass
 
-	def GetRecommendedBundles(self, bundleId: int):
+	@abstractmethod
+	def GetRecommendedBundles(self, bundleId: int) -> list[Any]:
 		pass
 
-	def GetRecommendedBundlesV2(self, bundleType: BundleType, bundleId: int, numItems: int, includeDetails: bool):
+	@abstractmethod
+	def GetRecommendedBundlesV2(self, bundleType: BundleType, bundleId: int, numItems: int, includeDetails: bool) -> list[Any]:
 		pass
 
-	def SearchCatalog(self, searchParameters: CatalogSearchParams):
+	@abstractmethod
+	def SearchCatalog(self, searchParameters: 'CatalogSearchParams') -> 'CatalogPages':
 		pass
 
 
 	pass
 
 class AvatarImportService:
-	def ImportFBXAnimationFromFilePathUserMayChooseModel(self, fbxFilePath: str, selectedRig: Instance, userChooseModelThenImportCB: Callable[..., Any]):
+	@abstractmethod
+	def ImportFBXAnimationFromFilePathUserMayChooseModel(self, fbxFilePath: str, selectedRig: Instance, userChooseModelThenImportCB: Callable[..., Any]) -> Instance:
 		pass
 
-	def ImportFBXAnimationUserMayChooseModel(self, selectedRig: Instance, userChooseModelThenImportCB: Callable[..., Any]):
+	@abstractmethod
+	def ImportFBXAnimationUserMayChooseModel(self, selectedRig: Instance, userChooseModelThenImportCB: Callable[..., Any]) -> Instance:
 		pass
 
-	def ImportFbxRigWithoutSceneLoad(self, isR15: bool):
+	@abstractmethod
+	def ImportFbxRigWithoutSceneLoad(self, isR15: bool) -> Instance:
 		pass
 
-	def ImportLoadedFBXAnimation(self, useFBXModel: bool):
+	@abstractmethod
+	def ImportLoadedFBXAnimation(self, useFBXModel: bool) -> Instance:
 		pass
 
-	def LoadRigAndDetectType(self, promptR15Callback: Callable[..., Any]):
+	@abstractmethod
+	def LoadRigAndDetectType(self, promptR15Callback: Callable[..., Any]) -> Instance:
 		pass
 
 
@@ -3801,10 +4024,12 @@ class BackpackItem:
 class HopperBin:
 	Active: bool
 	BinType: BinType
-	def Disable(self):
+	@abstractmethod
+	def Disable(self) -> None:
 		pass
 
-	def ToggleSelect(self):
+	@abstractmethod
+	def ToggleSelect(self) -> None:
 		pass
 
 
@@ -3821,10 +4046,12 @@ class Tool:
 	ManualActivationOnly: bool
 	RequiresHandle: bool
 	ToolTip: str
-	def Activate(self):
+	@abstractmethod
+	def Activate(self) -> None:
 		pass
 
-	def Deactivate(self):
+	@abstractmethod
+	def Deactivate(self) -> None:
 		pass
 
 
@@ -3836,47 +4063,58 @@ class Flag:
 	pass
 
 class BadgeService:
-	def AwardBadge(self, userId: int, badgeId: int):
+	@abstractmethod
+	def AwardBadge(self, userId: int, badgeId: int) -> bool:
 		pass
 
-	def GetBadgeInfoAsync(self, badgeId: int):
+	@abstractmethod
+	def GetBadgeInfoAsync(self, badgeId: int) -> dict[Any, Any]:
 		pass
 
-	def IsDisabled(self, badgeId: int):
+	@abstractmethod
+	def IsDisabled(self, badgeId: int) -> bool:
 		pass
 
-	def IsLegal(self, badgeId: int):
+	@abstractmethod
+	def IsLegal(self, badgeId: int) -> bool:
 		pass
 
-	def UserHasBadge(self, userId: int, badgeId: int):
+	@abstractmethod
+	def UserHasBadge(self, userId: int, badgeId: int) -> bool:
 		pass
 
-	def UserHasBadgeAsync(self, userId: int, badgeId: int):
+	@abstractmethod
+	def UserHasBadgeAsync(self, userId: int, badgeId: int) -> bool:
 		pass
 
 
 	pass
 
 class BasePlayerGui:
-	def GetGuiObjectsAtPosition(self, x: int, y: int):
+	@abstractmethod
+	def GetGuiObjectsAtPosition(self, x: int, y: int) -> dict[int, Instance]:
 		pass
 
-	def GetGuiObjectsInCircle(self, position: Vector2, radius: float):
+	@abstractmethod
+	def GetGuiObjectsInCircle(self, position: Vector2, radius: float) -> dict[int, Instance]:
 		pass
 
 
 	pass
 
 class CoreGui:
-	SelectionImageObject: GuiObject
+	SelectionImageObject: 'GuiObject'
 	Version: int
-	def SetUserGuiRendering(self, enabled: bool, guiAdornee: Instance, faceId: NormalId):
+	@abstractmethod
+	def SetUserGuiRendering(self, enabled: bool, guiAdornee: Instance, faceId: NormalId) -> None:
 		pass
 
-	def TakeScreenshot(self):
+	@abstractmethod
+	def TakeScreenshot(self) -> None:
 		pass
 
-	def ToggleRecording(self):
+	@abstractmethod
+	def ToggleRecording(self) -> None:
 		pass
 
 
@@ -3884,12 +4122,14 @@ class CoreGui:
 
 class PlayerGui:
 	CurrentScreenOrientation: ScreenOrientation
-	SelectionImageObject: GuiObject
+	SelectionImageObject: 'GuiObject'
 	ScreenOrientation: ScreenOrientation
-	def GetTopbarTransparency(self):
+	@abstractmethod
+	def GetTopbarTransparency(self) -> float:
 		pass
 
-	def SetTopbarTransparency(self, transparency: float):
+	@abstractmethod
+	def SetTopbarTransparency(self, transparency: float) -> None:
 		pass
 
 
@@ -3901,22 +4141,28 @@ class StarterGui:
 	ShowDevelopmentGui: bool
 	ScreenOrientation: ScreenOrientation
 	VirtualCursorMode: VirtualCursorMode
-	def GetCoreGuiEnabled(self, coreGuiType: CoreGuiType):
+	@abstractmethod
+	def GetCoreGuiEnabled(self, coreGuiType: CoreGuiType) -> bool:
 		pass
 
-	def RegisterGetCore(self, parameterName: str, getFunction: Callable[..., Any]):
+	@abstractmethod
+	def RegisterGetCore(self, parameterName: str, getFunction: Callable[..., Any]) -> None:
 		pass
 
-	def RegisterSetCore(self, parameterName: str, setFunction: Callable[..., Any]):
+	@abstractmethod
+	def RegisterSetCore(self, parameterName: str, setFunction: Callable[..., Any]) -> None:
 		pass
 
-	def SetCore(self, parameterName: str, value: Any):
+	@abstractmethod
+	def SetCore(self, parameterName: str, value: Any) -> None:
 		pass
 
-	def SetCoreGuiEnabled(self, coreGuiType: CoreGuiType, enabled: bool):
+	@abstractmethod
+	def SetCoreGuiEnabled(self, coreGuiType: CoreGuiType, enabled: bool) -> None:
 		pass
 
-	def GetCore(self, parameterName: str):
+	@abstractmethod
+	def GetCore(self, parameterName: str) -> Any:
 		pass
 
 
@@ -3929,16 +4175,20 @@ class BaseWrap:
 	HSRAssetId: Content
 	ImportOrigin: CFrame
 	ImportOriginWorld: CFrame
-	def GetFaces(self, cageType: CageType):
+	@abstractmethod
+	def GetFaces(self, cageType: CageType) -> list[Any]:
 		pass
 
-	def GetVertices(self, cageType: CageType):
+	@abstractmethod
+	def GetVertices(self, cageType: CageType) -> list[Any]:
 		pass
 
-	def IsHSRReady(self):
+	@abstractmethod
+	def IsHSRReady(self) -> bool:
 		pass
 
-	def ModifyVertices(self, cageType: CageType, vertices: list[Any]):
+	@abstractmethod
+	def ModifyVertices(self, cageType: CageType, vertices: list[Any]) -> None:
 		pass
 
 
@@ -3986,21 +4236,24 @@ class Beam:
 	Width1: float
 	ZOffset: float
 	TextureMode: TextureMode
-	def SetTextureOffset(self, offset: float):
+	@abstractmethod
+	def SetTextureOffset(self, offset: float) -> None:
 		pass
 
 
 	pass
 
 class BindableEvent:
-	def Fire(self, arguments: tuple[Any]):
+	@abstractmethod
+	def Fire(self, arguments: tuple[Any]) -> None:
 		pass
 
 
 	pass
 
 class BindableFunction:
-	def Invoke(self, arguments: tuple[Any]):
+	@abstractmethod
+	def Invoke(self, arguments: tuple[Any]) -> tuple[Any]:
 		pass
 
 
@@ -4042,10 +4295,12 @@ class BodyPosition:
 	Position: Vector3
 	maxForce: Vector3
 	position: Vector3
-	def GetLastForce(self):
+	@abstractmethod
+	def GetLastForce(self) -> Vector3:
 		pass
 
-	def lastForce(self):
+	@abstractmethod
+	def lastForce(self) -> Vector3:
 		pass
 
 
@@ -4065,10 +4320,12 @@ class BodyVelocity:
 	Velocity: Vector3
 	maxForce: Vector3
 	velocity: Vector3
-	def GetLastForce(self):
+	@abstractmethod
+	def GetLastForce(self) -> Vector3:
 		pass
 
-	def lastForce(self):
+	@abstractmethod
+	def lastForce(self) -> Vector3:
 		pass
 
 
@@ -4079,20 +4336,23 @@ class RocketPropulsion:
 	MaxSpeed: float
 	MaxThrust: float
 	MaxTorque: Vector3
-	Target: BasePart
+	Target: 'BasePart'
 	TargetOffset: Vector3
 	TargetRadius: float
 	ThrustD: float
 	ThrustP: float
 	TurnD: float
 	TurnP: float
-	def Abort(self):
+	@abstractmethod
+	def Abort(self) -> None:
 		pass
 
-	def Fire(self):
+	@abstractmethod
+	def Fire(self) -> None:
 		pass
 
-	def fire(self):
+	@abstractmethod
+	def fire(self) -> None:
 		pass
 
 
@@ -4113,41 +4373,52 @@ class Breakpoint:
 	pass
 
 class BrowserService:
-	def CloseBrowserWindow(self):
+	@abstractmethod
+	def CloseBrowserWindow(self) -> None:
 		pass
 
-	def CopyAuthCookieFromBrowserToEngine(self):
+	@abstractmethod
+	def CopyAuthCookieFromBrowserToEngine(self) -> None:
 		pass
 
-	def EmitHybridEvent(self, moduleName: str, eventName: str, params: str):
+	@abstractmethod
+	def EmitHybridEvent(self, moduleName: str, eventName: str, params: str) -> None:
 		pass
 
-	def ExecuteJavaScript(self, javascript: str):
+	@abstractmethod
+	def ExecuteJavaScript(self, javascript: str) -> None:
 		pass
 
-	def OpenBrowserWindow(self, url: str):
+	@abstractmethod
+	def OpenBrowserWindow(self, url: str) -> None:
 		pass
 
-	def OpenNativeOverlay(self, title: str, url: str):
+	@abstractmethod
+	def OpenNativeOverlay(self, title: str, url: str) -> None:
 		pass
 
-	def OpenWeChatAuthWindow(self):
+	@abstractmethod
+	def OpenWeChatAuthWindow(self) -> None:
 		pass
 
-	def ReturnToJavaScript(self, callbackId: str, success: bool, params: str):
+	@abstractmethod
+	def ReturnToJavaScript(self, callbackId: str, success: bool, params: str) -> None:
 		pass
 
-	def SendCommand(self, command: str):
+	@abstractmethod
+	def SendCommand(self, command: str) -> None:
 		pass
 
 
 	pass
 
 class BulkImportService:
-	def LaunchBulkImport(self, assetTypeToImport: int):
+	@abstractmethod
+	def LaunchBulkImport(self, assetTypeToImport: int) -> None:
 		pass
 
-	def ShowBulkImportView(self):
+	@abstractmethod
+	def ShowBulkImportView(self) -> None:
 		pass
 
 
@@ -4162,7 +4433,8 @@ class HSRDataContentProvider:
 	pass
 
 class MeshContentProvider:
-	def GetContentMemoryData(self):
+	@abstractmethod
+	def GetContentMemoryData(self) -> dict[Any, Any]:
 		pass
 
 
@@ -4173,13 +4445,16 @@ class SolidModelContentProvider:
 	pass
 
 class CalloutService:
-	def AttachCallout(self, definitionId: str, locationId: str, target: Instance):
+	@abstractmethod
+	def AttachCallout(self, definitionId: str, locationId: str, target: Instance) -> None:
 		pass
 
-	def DefineCallout(self, definitionId: str, title: str, description: str, learnMoreURL: str):
+	@abstractmethod
+	def DefineCallout(self, definitionId: str, title: str, description: str, learnMoreURL: str) -> None:
 		pass
 
-	def DetachCalloutsByDefinitionId(self, definitionId: str):
+	@abstractmethod
+	def DetachCalloutsByDefinitionId(self, definitionId: str) -> None:
 		pass
 
 
@@ -4200,80 +4475,104 @@ class Camera:
 	CFrame: CFrame
 	CameraType: CameraType
 	FieldOfViewMode: FieldOfViewMode
-	def GetLargestCutoffDistance(self, ignoreList: Objects):
+	@abstractmethod
+	def GetLargestCutoffDistance(self, ignoreList: dict[int, Instance]) -> float:
 		pass
 
-	def GetPanSpeed(self):
+	@abstractmethod
+	def GetPanSpeed(self) -> float:
 		pass
 
-	def GetPartsObscuringTarget(self, castPoints: list[Any], ignoreList: Objects):
+	@abstractmethod
+	def GetPartsObscuringTarget(self, castPoints: list[Any], ignoreList: dict[int, Instance]) -> dict[int, Instance]:
 		pass
 
-	def GetRenderCFrame(self):
+	@abstractmethod
+	def GetRenderCFrame(self) -> 'CFrame':
 		pass
 
-	def GetRoll(self):
+	@abstractmethod
+	def GetRoll(self) -> float:
 		pass
 
-	def GetTiltSpeed(self):
+	@abstractmethod
+	def GetTiltSpeed(self) -> float:
 		pass
 
-	def Interpolate(self, endPos: CFrame, endFocus: CFrame, duration: float):
+	@abstractmethod
+	def Interpolate(self, endPos: 'CFrame', endFocus: 'CFrame', duration: float) -> None:
 		pass
 
-	def PanUnits(self, units: int):
+	@abstractmethod
+	def PanUnits(self, units: int) -> None:
 		pass
 
-	def ScreenPointToRay(self, x: float, y: float, depth: float):
+	@abstractmethod
+	def ScreenPointToRay(self, x: float, y: float, depth: float) -> Ray:
 		pass
 
-	def SetCameraPanMode(self, mode: CameraPanMode):
+	@abstractmethod
+	def SetCameraPanMode(self, mode: CameraPanMode) -> None:
 		pass
 
-	def SetImageServerView(self, modelCoord: CFrame):
+	@abstractmethod
+	def SetImageServerView(self, modelCoord: 'CFrame') -> None:
 		pass
 
-	def SetRoll(self, rollAngle: float):
+	@abstractmethod
+	def SetRoll(self, rollAngle: float) -> None:
 		pass
 
-	def TiltUnits(self, units: int):
+	@abstractmethod
+	def TiltUnits(self, units: int) -> bool:
 		pass
 
-	def ViewportPointToRay(self, x: float, y: float, depth: float):
+	@abstractmethod
+	def ViewportPointToRay(self, x: float, y: float, depth: float) -> Ray:
 		pass
 
-	def WorldToScreenPoint(self, worldPoint: Vector3):
+	@abstractmethod
+	def WorldToScreenPoint(self, worldPoint: Vector3) -> tuple[Any]:
 		pass
 
-	def WorldToViewportPoint(self, worldPoint: Vector3):
+	@abstractmethod
+	def WorldToViewportPoint(self, worldPoint: Vector3) -> tuple[Any]:
 		pass
 
-	def Zoom(self, distance: float):
+	@abstractmethod
+	def Zoom(self, distance: float) -> bool:
 		pass
 
 
 	pass
 
 class ChangeHistoryService:
-	def GetCanRedo(self):
+	@abstractmethod
+	def GetCanRedo(self) -> tuple[Any]:
 		pass
 
-	def GetCanUndo(self):
+	@abstractmethod
+	def GetCanUndo(self) -> tuple[Any]:
 		pass
 
-	def Redo(self):
+	@abstractmethod
+	def Redo(self) -> None:
 		pass
 
-	def ResetWaypoints(self):
+	@abstractmethod
+	def ResetWaypoints(self) -> None:
 		pass
 
-	def SetEnabled(self, state: bool):
+	@abstractmethod
+	def SetEnabled(self, state: bool) -> None:
 		pass
 
-	def SetWaypoint(self, name: str):
+	@abstractmethod
+	def SetWaypoint(self, name: str) -> None:
 		pass
 
-	def Undo(self):
+	@abstractmethod
+	def Undo(self) -> None:
 		pass
 
 
@@ -4336,37 +4635,48 @@ class Skin:
 class Chat:
 	BubbleChatEnabled: bool
 	LoadDefaultChat: bool
-	def Chat(self, partOrCharacter: Instance, message: str, color: ChatColor):
+	@abstractmethod
+	def Chat(self, partOrCharacter: Instance, message: str, color: ChatColor) -> None:
 		pass
 
-	def ChatLocal(self, partOrCharacter: Instance, message: str, color: ChatColor):
+	@abstractmethod
+	def ChatLocal(self, partOrCharacter: Instance, message: str, color: ChatColor) -> None:
 		pass
 
-	def GetShouldUseLuaChat(self):
+	@abstractmethod
+	def GetShouldUseLuaChat(self) -> bool:
 		pass
 
-	def InvokeChatCallback(self, callbackType: ChatCallbackType, callbackArguments: tuple[Any]):
+	@abstractmethod
+	def InvokeChatCallback(self, callbackType: ChatCallbackType, callbackArguments: tuple[Any]) -> tuple[Any]:
 		pass
 
-	def RegisterChatCallback(self, callbackType: ChatCallbackType, callbackFunction: Callable[..., Any]):
+	@abstractmethod
+	def RegisterChatCallback(self, callbackType: ChatCallbackType, callbackFunction: Callable[..., Any]) -> None:
 		pass
 
-	def SetBubbleChatSettings(self, settings: Any):
+	@abstractmethod
+	def SetBubbleChatSettings(self, settings: Any) -> None:
 		pass
 
-	def CanUserChatAsync(self, userId: int):
+	@abstractmethod
+	def CanUserChatAsync(self, userId: int) -> bool:
 		pass
 
-	def CanUsersChatAsync(self, userIdFrom: int, userIdTo: int):
+	@abstractmethod
+	def CanUsersChatAsync(self, userIdFrom: int, userIdTo: int) -> bool:
 		pass
 
-	def FilterStringAsync(self, stringToFilter: str, playerFrom: Player, playerTo: Player):
+	@abstractmethod
+	def FilterStringAsync(self, stringToFilter: str, playerFrom: 'Player', playerTo: 'Player') -> str:
 		pass
 
-	def FilterStringForBroadcast(self, stringToFilter: str, playerFrom: Player):
+	@abstractmethod
+	def FilterStringForBroadcast(self, stringToFilter: str, playerFrom: 'Player') -> str:
 		pass
 
-	def FilterStringForPlayerAsync(self, stringToFilter: str, playerToFilterFor: Player):
+	@abstractmethod
+	def FilterStringForPlayerAsync(self, stringToFilter: str, playerToFilterFor: 'Player') -> str:
 		pass
 
 
@@ -4391,31 +4701,40 @@ class ClusterPacketCache:
 	pass
 
 class CollectionService:
-	def AddTag(self, instance: Instance, tag: str):
+	@abstractmethod
+	def AddTag(self, instance: Instance, tag: str) -> None:
 		pass
 
-	def GetAllTags(self):
+	@abstractmethod
+	def GetAllTags(self) -> list[Any]:
 		pass
 
-	def GetCollection(self, class: str):
+	@abstractmethod
+	def GetCollection(self, className: str) -> dict[int, Instance]:
 		pass
 
-	def GetInstanceAddedSignal(self, tag: str):
+	@abstractmethod
+	def GetInstanceAddedSignal(self, tag: str) -> 'RBXScriptSignal':
 		pass
 
-	def GetInstanceRemovedSignal(self, tag: str):
+	@abstractmethod
+	def GetInstanceRemovedSignal(self, tag: str) -> 'RBXScriptSignal':
 		pass
 
-	def GetTagged(self, tag: str):
+	@abstractmethod
+	def GetTagged(self, tag: str) -> dict[int, Instance]:
 		pass
 
-	def GetTags(self, instance: Instance):
+	@abstractmethod
+	def GetTags(self, instance: Instance) -> list[Any]:
 		pass
 
-	def HasTag(self, instance: Instance, tag: str):
+	@abstractmethod
+	def HasTag(self, instance: Instance, tag: str) -> bool:
 		pass
 
-	def RemoveTag(self, instance: Instance, tag: str):
+	@abstractmethod
+	def RemoveTag(self, instance: Instance, tag: str) -> None:
 		pass
 
 
@@ -4431,20 +4750,24 @@ class CommandInstance:
 	Name: str
 	Permission: CommandPermission
 	StatusTip: str
-	def EnableGuiAccess(self, displayName: str, statusTip: str, defaultShortcut: str):
+	@abstractmethod
+	def EnableGuiAccess(self, displayName: str, statusTip: str, defaultShortcut: str) -> None:
 		pass
 
-	def RegisterExecutionCallback(self, callbackFunction: Callable[..., Any]):
+	@abstractmethod
+	def RegisterExecutionCallback(self, callbackFunction: Callable[..., Any]) -> None:
 		pass
 
 
 	pass
 
 class CommandService:
-	def Execute(self, name: str, params: Any):
+	@abstractmethod
+	def Execute(self, name: str, params: Any) -> Any:
 		pass
 
-	def RegisterCommand(self, plugin: Plugin, name: str, context: str, permission: CommandPermission):
+	@abstractmethod
+	def RegisterCommand(self, plugin: 'Plugin', name: str, context: str, permission: CommandPermission) -> CommandInstance:
 		pass
 
 
@@ -4692,135 +5015,176 @@ class VectorForce:
 class ContentProvider:
 	BaseUrl: str
 	RequestQueueSize: int
-	def CalculateNumTrianglesInMeshSync(self, meshId: str):
+	@abstractmethod
+	def CalculateNumTrianglesInMeshSync(self, meshId: str) -> int:
 		pass
 
-	def GetDetailedFailedRequests(self):
+	@abstractmethod
+	def GetDetailedFailedRequests(self) -> list[Any]:
 		pass
 
-	def GetFailedRequests(self):
+	@abstractmethod
+	def GetFailedRequests(self) -> list[Any]:
 		pass
 
-	def ListEncryptedAssets(self):
+	@abstractmethod
+	def ListEncryptedAssets(self) -> list[Any]:
 		pass
 
-	def Preload(self, contentId: Content):
+	@abstractmethod
+	def Preload(self, contentId: Content) -> None:
 		pass
 
-	def RegisterDefaultEncryptionKey(self, encryptionKey: str):
+	@abstractmethod
+	def RegisterDefaultEncryptionKey(self, encryptionKey: str) -> None:
 		pass
 
-	def RegisterDefaultSessionKey(self, sessionKey: str):
+	@abstractmethod
+	def RegisterDefaultSessionKey(self, sessionKey: str) -> None:
 		pass
 
-	def RegisterEncryptedAsset(self, assetId: Content, encryptionKey: str):
+	@abstractmethod
+	def RegisterEncryptedAsset(self, assetId: Content, encryptionKey: str) -> None:
 		pass
 
-	def RegisterSessionEncryptedAsset(self, contentId: Content, sessionKey: str):
+	@abstractmethod
+	def RegisterSessionEncryptedAsset(self, contentId: Content, sessionKey: str) -> None:
 		pass
 
-	def SetBaseUrl(self, url: str):
+	@abstractmethod
+	def SetBaseUrl(self, url: str) -> None:
 		pass
 
-	def UnregisterDefaultEncryptionKey(self):
+	@abstractmethod
+	def UnregisterDefaultEncryptionKey(self) -> None:
 		pass
 
-	def UnregisterEncryptedAsset(self, assetId: Content):
+	@abstractmethod
+	def UnregisterEncryptedAsset(self, assetId: Content) -> None:
 		pass
 
-	def CalculateNumTrianglesInMesh(self, meshId: str):
+	@abstractmethod
+	def CalculateNumTrianglesInMesh(self, meshId: str) -> int:
 		pass
 
-	def PreloadAsync(self, contentIdList: list[Any], callbackFunction: Callable[..., Any]):
+	@abstractmethod
+	def PreloadAsync(self, contentIdList: list[Any], callbackFunction: Callable[..., Any]) -> None:
 		pass
 
 
 	pass
 
 class ContextActionService:
-	def BindAction(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, inputTypes: tuple[Any]):
+	@abstractmethod
+	def BindAction(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, inputTypes: tuple[Any]) -> None:
 		pass
 
-	def BindActionAtPriority(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, priorityLevel: int, inputTypes: tuple[Any]):
+	@abstractmethod
+	def BindActionAtPriority(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, priorityLevel: int, inputTypes: tuple[Any]) -> None:
 		pass
 
-	def BindActionToInputTypes(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, inputTypes: tuple[Any]):
+	@abstractmethod
+	def BindActionToInputTypes(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, inputTypes: tuple[Any]) -> None:
 		pass
 
-	def BindActivate(self, userInputTypeForActivation: UserInputType, keyCodesForActivation: tuple[Any]):
+	@abstractmethod
+	def BindActivate(self, userInputTypeForActivation: UserInputType, keyCodesForActivation: tuple[Any]) -> None:
 		pass
 
-	def BindCoreAction(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, inputTypes: tuple[Any]):
+	@abstractmethod
+	def BindCoreAction(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, inputTypes: tuple[Any]) -> None:
 		pass
 
-	def BindCoreActionAtPriority(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, priorityLevel: int, inputTypes: tuple[Any]):
+	@abstractmethod
+	def BindCoreActionAtPriority(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, priorityLevel: int, inputTypes: tuple[Any]) -> None:
 		pass
 
-	def CallFunction(self, actionName: str, state: UserInputState, inputObject: Instance):
+	@abstractmethod
+	def CallFunction(self, actionName: str, state: UserInputState, inputObject: Instance) -> tuple[Any]:
 		pass
 
-	def FireActionButtonFoundSignal(self, actionName: str, actionButton: Instance):
+	@abstractmethod
+	def FireActionButtonFoundSignal(self, actionName: str, actionButton: Instance) -> None:
 		pass
 
-	def GetAllBoundActionInfo(self):
+	@abstractmethod
+	def GetAllBoundActionInfo(self) -> dict[Any, Any]:
 		pass
 
-	def GetAllBoundCoreActionInfo(self):
+	@abstractmethod
+	def GetAllBoundCoreActionInfo(self) -> dict[Any, Any]:
 		pass
 
-	def GetBoundActionInfo(self, actionName: str):
+	@abstractmethod
+	def GetBoundActionInfo(self, actionName: str) -> dict[Any, Any]:
 		pass
 
-	def GetBoundCoreActionInfo(self, actionName: str):
+	@abstractmethod
+	def GetBoundCoreActionInfo(self, actionName: str) -> dict[Any, Any]:
 		pass
 
-	def GetCurrentLocalToolIcon(self):
+	@abstractmethod
+	def GetCurrentLocalToolIcon(self) -> str:
 		pass
 
-	def SetDescription(self, actionName: str, description: str):
+	@abstractmethod
+	def SetDescription(self, actionName: str, description: str) -> None:
 		pass
 
-	def SetImage(self, actionName: str, image: str):
+	@abstractmethod
+	def SetImage(self, actionName: str, image: str) -> None:
 		pass
 
-	def SetPosition(self, actionName: str, position: UDim2):
+	@abstractmethod
+	def SetPosition(self, actionName: str, position: UDim2) -> None:
 		pass
 
-	def SetTitle(self, actionName: str, title: str):
+	@abstractmethod
+	def SetTitle(self, actionName: str, title: str) -> None:
 		pass
 
-	def UnbindAction(self, actionName: str):
+	@abstractmethod
+	def UnbindAction(self, actionName: str) -> None:
 		pass
 
-	def UnbindActivate(self, userInputTypeForActivation: UserInputType, keyCodeForActivation: KeyCode):
+	@abstractmethod
+	def UnbindActivate(self, userInputTypeForActivation: UserInputType, keyCodeForActivation: KeyCode) -> None:
 		pass
 
-	def UnbindAllActions(self):
+	@abstractmethod
+	def UnbindAllActions(self) -> None:
 		pass
 
-	def UnbindCoreAction(self, actionName: str):
+	@abstractmethod
+	def UnbindCoreAction(self, actionName: str) -> None:
 		pass
 
-	def GetButton(self, actionName: str):
+	@abstractmethod
+	def GetButton(self, actionName: str) -> Instance:
 		pass
 
 
 	pass
 
 class Controller:
-	def BindButton(self, button: Button, caption: str):
+	@abstractmethod
+	def BindButton(self, button: Button, caption: str) -> None:
 		pass
 
-	def GetButton(self, button: Button):
+	@abstractmethod
+	def GetButton(self, button: Button) -> bool:
 		pass
 
-	def UnbindButton(self, button: Button):
+	@abstractmethod
+	def UnbindButton(self, button: Button) -> None:
 		pass
 
-	def bindButton(self, button: Button, caption: str):
+	@abstractmethod
+	def bindButton(self, button: Button, caption: str) -> None:
 		pass
 
-	def getButton(self, button: Button):
+	@abstractmethod
+	def getButton(self, button: Button) -> bool:
 		pass
 
 
@@ -4895,7 +5259,8 @@ class ControllerManager:
 	FacingDirection: Vector3
 	HipHeight: float
 	MovingDirection: Vector3
-	def GetControllers(self):
+	@abstractmethod
+	def GetControllers(self) -> dict[int, Instance]:
 		pass
 
 
@@ -4914,27 +5279,32 @@ class CorePackages:
 	pass
 
 class CoreScriptSyncService:
-	def GetScriptFilePath(self, script: Instance):
+	@abstractmethod
+	def GetScriptFilePath(self, script: Instance) -> Any:
 		pass
 
 
 	pass
 
 class CrossDMScriptChangeListener:
-	def IsWatchingScriptLine(self, scriptRef: str, lineNumber: int):
+	@abstractmethod
+	def IsWatchingScriptLine(self, scriptRef: str, lineNumber: int) -> bool:
 		pass
 
-	def StartWatchingScriptLine(self, scriptRef: str, debuggerConnectionId: int, lineNumber: int):
+	@abstractmethod
+	def StartWatchingScriptLine(self, scriptRef: str, debuggerConnectionId: int, lineNumber: int) -> None:
 		pass
 
 
 	pass
 
 class CustomEvent:
-	def GetAttachedReceivers(self):
+	@abstractmethod
+	def GetAttachedReceivers(self) -> dict[int, Instance]:
 		pass
 
-	def SetValue(self, newValue: float):
+	@abstractmethod
+	def SetValue(self, newValue: float) -> None:
 		pass
 
 
@@ -4942,7 +5312,8 @@ class CustomEvent:
 
 class CustomEventReceiver:
 	Source: Instance
-	def GetCurrentValue(self):
+	@abstractmethod
+	def GetCurrentValue(self) -> float:
 		pass
 
 
@@ -4979,13 +5350,16 @@ class SpecialMesh:
 	pass
 
 class DataModelPatchService:
-	def GetPatch(self, patchName: str):
+	@abstractmethod
+	def GetPatch(self, patchName: str) -> Instance:
 		pass
 
-	def RegisterPatch(self, patchName: str, behaviorName: str, localConfigPath: str, userId: int):
+	@abstractmethod
+	def RegisterPatch(self, patchName: str, behaviorName: str, localConfigPath: str, userId: int) -> None:
 		pass
 
-	def UpdatePatch(self, userId: int, patchName: str, callbackFunction: Callable[..., Any]):
+	@abstractmethod
+	def UpdatePatch(self, userId: int, patchName: str, callbackFunction: Callable[..., Any]) -> None:
 		pass
 
 
@@ -4998,10 +5372,12 @@ class DataModelSession:
 	pass
 
 class DataStoreIncrementOptions:
-	def GetMetadata(self):
+	@abstractmethod
+	def GetMetadata(self) -> dict[Any, Any]:
 		pass
 
-	def SetMetadata(self, attributes: Dictionary):
+	@abstractmethod
+	def SetMetadata(self, attributes: dict[Any, Any]) -> None:
 		pass
 
 
@@ -5023,10 +5399,12 @@ class DataStoreKeyInfo:
 	CreatedTime: int
 	UpdatedTime: int
 	Version: str
-	def GetMetadata(self):
+	@abstractmethod
+	def GetMetadata(self) -> dict[Any, Any]:
 		pass
 
-	def GetUserIds(self):
+	@abstractmethod
+	def GetUserIds(self) -> list[Any]:
 		pass
 
 
@@ -5041,7 +5419,8 @@ class DataStoreObjectVersionInfo:
 
 class DataStoreOptions:
 	AllScopes: bool
-	def SetExperimentalFeatures(self, experimentalFeatures: Dictionary):
+	@abstractmethod
+	def SetExperimentalFeatures(self, experimentalFeatures: dict[Any, Any]) -> None:
 		pass
 
 
@@ -5050,29 +5429,36 @@ class DataStoreOptions:
 class DataStoreService:
 	AutomaticRetry: bool
 	LegacyNamingScheme: bool
-	def GetDataStore(self, name: str, scope: str, options: Instance):
+	@abstractmethod
+	def GetDataStore(self, name: str, scope: str, options: Instance) -> 'GlobalDataStore':
 		pass
 
-	def GetGlobalDataStore(self):
+	@abstractmethod
+	def GetGlobalDataStore(self) -> 'GlobalDataStore':
 		pass
 
-	def GetOrderedDataStore(self, name: str, scope: str):
+	@abstractmethod
+	def GetOrderedDataStore(self, name: str, scope: str) -> 'OrderedDataStore':
 		pass
 
-	def GetRequestBudgetForRequestType(self, requestType: DataStoreRequestType):
+	@abstractmethod
+	def GetRequestBudgetForRequestType(self, requestType: DataStoreRequestType) -> int:
 		pass
 
-	def ListDataStoresAsync(self, prefix: str, pageSize: int, cursor: str):
+	@abstractmethod
+	def ListDataStoresAsync(self, prefix: str, pageSize: int, cursor: str) -> 'DataStoreListingPages':
 		pass
 
 
 	pass
 
 class DataStoreSetOptions:
-	def GetMetadata(self):
+	@abstractmethod
+	def GetMetadata(self) -> dict[Any, Any]:
 		pass
 
-	def SetMetadata(self, attributes: Dictionary):
+	@abstractmethod
+	def SetMetadata(self, attributes: dict[Any, Any]) -> None:
 		pass
 
 
@@ -5080,13 +5466,16 @@ class DataStoreSetOptions:
 
 class Debris:
 	MaxItems: int
-	def AddItem(self, item: Instance, lifetime: float):
+	@abstractmethod
+	def AddItem(self, item: Instance, lifetime: float) -> None:
 		pass
 
-	def SetLegacyMaxItems(self, enabled: bool):
+	@abstractmethod
+	def SetLegacyMaxItems(self, enabled: bool) -> None:
 		pass
 
-	def addItem(self, item: Instance, lifetime: float):
+	@abstractmethod
+	def addItem(self, item: Instance, lifetime: float) -> None:
 		pass
 
 
@@ -5123,58 +5512,76 @@ class DebuggerConnection:
 	HasError: bool
 	Id: int
 	IsPaused: bool
-	def AddBreakpoint(self, script: str, line: int, breakpoint: Breakpoint):
+	@abstractmethod
+	def AddBreakpoint(self, script: str, line: int, breakpoint: Breakpoint) -> None:
 		pass
 
-	def Close(self):
+	@abstractmethod
+	def Close(self) -> None:
 		pass
 
-	def EvaluateWatch(self, expression: str, frame: StackFrame, callback: Callable[..., Any]):
+	@abstractmethod
+	def EvaluateWatch(self, expression: str, frame: 'StackFrame', callback: Callable[..., Any]) -> int:
 		pass
 
-	def GetFrameById(self, id: int):
+	@abstractmethod
+	def GetFrameById(self, id: int) -> 'StackFrame':
 		pass
 
-	def GetSource(self, scriptRef: str, status: Callable[..., Any]):
+	@abstractmethod
+	def GetSource(self, scriptRef: str, status: Callable[..., Any]) -> int:
 		pass
 
-	def GetThreadById(self, id: int):
+	@abstractmethod
+	def GetThreadById(self, id: int) -> 'ThreadState':
 		pass
 
-	def GetThreads(self, callback: Callable[..., Any]):
+	@abstractmethod
+	def GetThreads(self, callback: Callable[..., Any]) -> int:
 		pass
 
-	def GetVariableById(self, id: int):
+	@abstractmethod
+	def GetVariableById(self, id: int) -> 'DebuggerVariable':
 		pass
 
-	def Pause(self, thread: ThreadState, status: Callable[..., Any]):
+	@abstractmethod
+	def Pause(self, thread: 'ThreadState', status: Callable[..., Any]) -> int:
 		pass
 
-	def Populate(self, instance: Instance, callback: Callable[..., Any]):
+	@abstractmethod
+	def Populate(self, instance: Instance, callback: Callable[..., Any]) -> int:
 		pass
 
-	def RemoveBreakpoint(self, breakpoint: Breakpoint):
+	@abstractmethod
+	def RemoveBreakpoint(self, breakpoint: Breakpoint) -> None:
 		pass
 
-	def Resume(self, thread: ThreadState, status: Callable[..., Any]):
+	@abstractmethod
+	def Resume(self, thread: 'ThreadState', status: Callable[..., Any]) -> int:
 		pass
 
-	def SetExceptionBreakMode(self, breakMode: DebuggerExceptionBreakMode, callback: Callable[..., Any]):
+	@abstractmethod
+	def SetExceptionBreakMode(self, breakMode: DebuggerExceptionBreakMode, callback: Callable[..., Any]) -> int:
 		pass
 
-	def SetVariable(self, variable: DebuggerVariable, value: str, callback: Callable[..., Any]):
+	@abstractmethod
+	def SetVariable(self, variable: 'DebuggerVariable', value: str, callback: Callable[..., Any]) -> int:
 		pass
 
-	def Step(self, thread: ThreadState, callback: Callable[..., Any]):
+	@abstractmethod
+	def Step(self, thread: 'ThreadState', callback: Callable[..., Any]) -> int:
 		pass
 
-	def StepIn(self, thread: ThreadState, callback: Callable[..., Any]):
+	@abstractmethod
+	def StepIn(self, thread: 'ThreadState', callback: Callable[..., Any]) -> int:
 		pass
 
-	def StepOut(self, thread: ThreadState, callback: Callable[..., Any]):
+	@abstractmethod
+	def StepOut(self, thread: 'ThreadState', callback: Callable[..., Any]) -> int:
 		pass
 
-	def UpdateSelectedFrame(self, threadId: int, frameNumber: int):
+	@abstractmethod
+	def UpdateSelectedFrame(self, threadId: int, frameNumber: int) -> None:
 		pass
 
 
@@ -5186,16 +5593,20 @@ class LocalDebuggerConnection:
 
 class DebuggerConnectionManager:
 	Timeout: float
-	def ConnectLocal(self, dataModel: DataModel):
+	@abstractmethod
+	def ConnectLocal(self, dataModel: 'DataModel') -> int:
 		pass
 
-	def ConnectRemote(self, host: str, port: int):
+	@abstractmethod
+	def ConnectRemote(self, host: str, port: int) -> int:
 		pass
 
-	def FocusConnection(self, connection: DebuggerConnection):
+	@abstractmethod
+	def FocusConnection(self, connection: DebuggerConnection) -> None:
 		pass
 
-	def GetConnectionById(self, id: int):
+	@abstractmethod
+	def GetConnectionById(self, id: int) -> DebuggerConnection:
 		pass
 
 
@@ -5207,7 +5618,8 @@ class DebuggerLuaResponse:
 	Message: str
 	RequestId: int
 	Status: DebuggerStatus
-	def GetArg(self):
+	@abstractmethod
+	def GetArg(self) -> Any:
 		pass
 
 
@@ -5215,59 +5627,76 @@ class DebuggerLuaResponse:
 
 class DebuggerManager:
 	DebuggingEnabled: bool
-	def AddDebugger(self, script: Instance):
+	@abstractmethod
+	def AddDebugger(self, script: Instance) -> Instance:
 		pass
 
-	def EnableDebugging(self):
+	@abstractmethod
+	def EnableDebugging(self) -> None:
 		pass
 
-	def GetDebuggers(self):
+	@abstractmethod
+	def GetDebuggers(self) -> dict[int, Instance]:
 		pass
 
-	def Resume(self):
+	@abstractmethod
+	def Resume(self) -> None:
 		pass
 
-	def StepIn(self):
+	@abstractmethod
+	def StepIn(self) -> None:
 		pass
 
-	def StepOut(self):
+	@abstractmethod
+	def StepOut(self) -> None:
 		pass
 
-	def StepOver(self):
+	@abstractmethod
+	def StepOver(self) -> None:
 		pass
 
 
 	pass
 
 class DebuggerUIService:
-	def EditBreakpoint(self, metaBreakpointId: int):
+	@abstractmethod
+	def EditBreakpoint(self, metaBreakpointId: int) -> None:
 		pass
 
-	def EditWatch(self, expression: str):
+	@abstractmethod
+	def EditWatch(self, expression: str) -> None:
 		pass
 
-	def IsConnectionForPlayDataModel(self, debuggerConnectionId: int):
+	@abstractmethod
+	def IsConnectionForPlayDataModel(self, debuggerConnectionId: int) -> bool:
 		pass
 
-	def OpenScriptAtLine(self, guid: str, debuggerConnectionId: int, line: int, showErrorOnFail: bool):
+	@abstractmethod
+	def OpenScriptAtLine(self, guid: str, debuggerConnectionId: int, line: int, showErrorOnFail: bool) -> None:
 		pass
 
-	def Pause(self):
+	@abstractmethod
+	def Pause(self) -> None:
 		pass
 
-	def RemoveScriptLineMarkers(self, debuggerConnectionId: int, allMarkers: bool):
+	@abstractmethod
+	def RemoveScriptLineMarkers(self, debuggerConnectionId: int, allMarkers: bool) -> None:
 		pass
 
-	def Resume(self):
+	@abstractmethod
+	def Resume(self) -> None:
 		pass
 
-	def SetCurrentFrameId(self, debuggerThreadId: int, debuggerFrameId: int):
+	@abstractmethod
+	def SetCurrentFrameId(self, debuggerThreadId: int, debuggerFrameId: int) -> None:
 		pass
 
-	def SetCurrentThreadId(self, debuggerThreadId: int):
+	@abstractmethod
+	def SetCurrentThreadId(self, debuggerThreadId: int) -> None:
 		pass
 
-	def SetScriptLineMarker(self, guid: str, debuggerConnectionId: int, line: int, lineMarkerType: bool):
+	@abstractmethod
+	def SetScriptLineMarker(self, guid: str, debuggerConnectionId: int, line: int, lineMarkerType: bool) -> None:
 		pass
 
 
@@ -5280,10 +5709,12 @@ class DebuggerVariable:
 	Value: str
 	VariableId: int
 	VariablesCount: int
-	def GetVariableByIndex(self, index: int):
+	@abstractmethod
+	def GetVariableByIndex(self, index: int) -> Self:
 		pass
 
-	def GetVariableByName(self, name: str):
+	@abstractmethod
+	def GetVariableByName(self, name: str) -> Self:
 		pass
 
 
@@ -5295,7 +5726,8 @@ class DebuggerWatch:
 	pass
 
 class DeviceIdService:
-	def GetDeviceId(self):
+	@abstractmethod
+	def GetDeviceId(self) -> str:
 		pass
 
 
@@ -5312,13 +5744,16 @@ class Dialog:
 	Tone: DialogTone
 	TriggerDistance: float
 	TriggerOffset: Vector3
-	def GetCurrentPlayers(self):
+	@abstractmethod
+	def GetCurrentPlayers(self) -> dict[int, Instance]:
 		pass
 
-	def SetPlayerIsUsing(self, player: Instance, isUsing: bool):
+	@abstractmethod
+	def SetPlayerIsUsing(self, player: Instance, isUsing: bool) -> None:
 		pass
 
-	def SignalDialogChoiceSelected(self, player: Instance, dialogChoice: Instance):
+	@abstractmethod
+	def SignalDialogChoiceSelected(self, player: Instance, dialogChoice: Instance) -> None:
 		pass
 
 
@@ -5333,47 +5768,60 @@ class DialogChoice:
 	pass
 
 class DraftsService:
-	def DiscardEdits(self, scripts: Objects):
+	@abstractmethod
+	def DiscardEdits(self, scripts: dict[int, Instance]) -> None:
 		pass
 
-	def GetDraftStatus(self, script: Instance):
+	@abstractmethod
+	def GetDraftStatus(self, script: Instance) -> DraftStatusCode:
 		pass
 
-	def GetEditors(self, script: Instance):
+	@abstractmethod
+	def GetEditors(self, script: Instance) -> dict[int, Instance]:
 		pass
 
-	def RestoreScripts(self, scripts: Objects):
+	@abstractmethod
+	def RestoreScripts(self, scripts: dict[int, Instance]) -> None:
 		pass
 
-	def ShowDiffsAgainstBase(self, scripts: Objects):
+	@abstractmethod
+	def ShowDiffsAgainstBase(self, scripts: dict[int, Instance]) -> None:
 		pass
 
-	def ShowDiffsAgainstServer(self, scripts: Objects):
+	@abstractmethod
+	def ShowDiffsAgainstServer(self, scripts: dict[int, Instance]) -> None:
 		pass
 
-	def CommitEdits(self, scripts: Objects):
+	@abstractmethod
+	def CommitEdits(self, scripts: dict[int, Instance]) -> None:
 		pass
 
-	def GetDrafts(self):
+	@abstractmethod
+	def GetDrafts(self) -> dict[int, Instance]:
 		pass
 
-	def UpdateToLatestVersion(self, scripts: Objects):
+	@abstractmethod
+	def UpdateToLatestVersion(self, scripts: dict[int, Instance]) -> None:
 		pass
 
 
 	pass
 
 class Dragger:
-	def AxisRotate(self, axis: Axis):
+	@abstractmethod
+	def AxisRotate(self, axis: Axis) -> None:
 		pass
 
-	def MouseDown(self, mousePart: Instance, pointOnMousePart: Vector3, parts: Objects):
+	@abstractmethod
+	def MouseDown(self, mousePart: Instance, pointOnMousePart: Vector3, parts: dict[int, Instance]) -> None:
 		pass
 
-	def MouseMove(self, mouseRay: Ray):
+	@abstractmethod
+	def MouseMove(self, mouseRay: Ray) -> None:
 		pass
 
-	def MouseUp(self):
+	@abstractmethod
+	def MouseUp(self) -> None:
 		pass
 
 
@@ -5402,35 +5850,44 @@ class DraggerService:
 
 class EulerRotationCurve:
 	RotationOrder: RotationOrder
-	def GetAnglesAtTime(self, time: float):
+	@abstractmethod
+	def GetAnglesAtTime(self, time: float) -> list[Any]:
 		pass
 
-	def GetRotationAtTime(self, time: float):
+	@abstractmethod
+	def GetRotationAtTime(self, time: float) -> CFrame:
 		pass
 
-	def X(self):
+	@abstractmethod
+	def X(self) -> 'FloatCurve':
 		pass
 
-	def Y(self):
+	@abstractmethod
+	def Y(self) -> 'FloatCurve':
 		pass
 
-	def Z(self):
+	@abstractmethod
+	def Z(self) -> 'FloatCurve':
 		pass
 
 
 	pass
 
 class EventIngestService:
-	def SendEventDeferred(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SendEventDeferred(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
-	def SendEventImmediately(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SendEventImmediately(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
-	def SetRBXEvent(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SetRBXEvent(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
-	def SetRBXEventStream(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SetRBXEventStream(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
 
@@ -5459,22 +5916,28 @@ class FaceAnimatorService:
 	AudioAnimationEnabled: bool
 	FlipHeadOrientation: bool
 	VideoAnimationEnabled: bool
-	def GetTrackerLodController(self):
+	@abstractmethod
+	def GetTrackerLodController(self) -> 'TrackerLodController':
 		pass
 
-	def Init(self, videoEnabled: bool, audioEnabled: bool):
+	@abstractmethod
+	def Init(self, videoEnabled: bool, audioEnabled: bool) -> None:
 		pass
 
-	def IsStarted(self):
+	@abstractmethod
+	def IsStarted(self) -> bool:
 		pass
 
-	def Start(self):
+	@abstractmethod
+	def Start(self) -> None:
 		pass
 
-	def Step(self):
+	@abstractmethod
+	def Step(self) -> None:
 		pass
 
-	def Stop(self):
+	@abstractmethod
+	def Stop(self) -> None:
 		pass
 
 
@@ -5560,10 +6023,12 @@ class Texture:
 
 class FacialAnimationRecordingService:
 	BiometricDataConsent: bool
-	def IsAgeRestricted(self):
+	@abstractmethod
+	def IsAgeRestricted(self) -> bool:
 		pass
 
-	def CheckOrRequestCameraPermission(self):
+	@abstractmethod
+	def CheckOrRequestCameraPermission(self) -> str:
 		pass
 
 
@@ -5577,19 +6042,24 @@ class FacialAnimationStreamingService:
 
 class FacialAnimationStreamingServiceV2:
 	ServiceState: int
-	def IsAudioEnabled(self, mask: int):
+	@abstractmethod
+	def IsAudioEnabled(self, mask: int) -> bool:
 		pass
 
-	def IsPlaceEnabled(self, mask: int):
+	@abstractmethod
+	def IsPlaceEnabled(self, mask: int) -> bool:
 		pass
 
-	def IsServerEnabled(self, mask: int):
+	@abstractmethod
+	def IsServerEnabled(self, mask: int) -> bool:
 		pass
 
-	def IsVideoEnabled(self, mask: int):
+	@abstractmethod
+	def IsVideoEnabled(self, mask: int) -> bool:
 		pass
 
-	def ResolveStateForUser(self, userId: int):
+	@abstractmethod
+	def ResolveStateForUser(self, userId: int) -> int:
 		pass
 
 
@@ -5613,10 +6083,12 @@ class MotorFeature:
 
 class File:
 	Size: int
-	def GetBinaryContents(self):
+	@abstractmethod
+	def GetBinaryContents(self) -> str:
 		pass
 
-	def GetTemporaryId(self):
+	@abstractmethod
+	def GetTemporaryId(self) -> Content:
 		pass
 
 
@@ -5630,7 +6102,8 @@ class Fire:
 	Size: float
 	TimeScale: float
 	size: float
-	def FastForward(self, numFrames: int):
+	@abstractmethod
+	def FastForward(self, numFrames: int) -> None:
 		pass
 
 
@@ -5642,25 +6115,32 @@ class FlagStandService:
 
 class FloatCurve:
 	Length: int
-	def GetKeyAtIndex(self, index: int):
+	@abstractmethod
+	def GetKeyAtIndex(self, index: int) -> 'FloatCurveKey':
 		pass
 
-	def GetKeyIndicesAtTime(self, time: float):
+	@abstractmethod
+	def GetKeyIndicesAtTime(self, time: float) -> list[Any]:
 		pass
 
-	def GetKeys(self):
+	@abstractmethod
+	def GetKeys(self) -> list[Any]:
 		pass
 
-	def GetValueAtTime(self, time: float):
+	@abstractmethod
+	def GetValueAtTime(self, time: float) -> float| None:
 		pass
 
-	def InsertKey(self, key: FloatCurveKey):
+	@abstractmethod
+	def InsertKey(self, key: 'FloatCurveKey') -> list[Any]:
 		pass
 
-	def RemoveKeyAtIndex(self, startingIndex: int, count: int):
+	@abstractmethod
+	def RemoveKeyAtIndex(self, startingIndex: int, count: int) -> int:
 		pass
 
-	def SetKeys(self, keys: list[Any]):
+	@abstractmethod
+	def SetKeys(self, keys: list[Any]) -> int:
 		pass
 
 
@@ -5688,7 +6168,8 @@ class ForceField:
 	pass
 
 class FriendService:
-	def GetPlatformFriends(self):
+	@abstractmethod
+	def GetPlatformFriends(self) -> list[Any]:
 		pass
 
 
@@ -5696,26 +6177,32 @@ class FriendService:
 
 class FunctionalTest:
 	Description: str
-	def Error(self, message: str):
+	@abstractmethod
+	def Error(self, message: str) -> None:
 		pass
 
-	def Failed(self, message: str):
+	@abstractmethod
+	def Failed(self, message: str) -> None:
 		pass
 
-	def Pass(self, message: str):
+	@abstractmethod
+	def Pass(self, message: str) -> None:
 		pass
 
-	def Passed(self, message: str):
+	@abstractmethod
+	def Passed(self, message: str) -> None:
 		pass
 
-	def Warn(self, message: str):
+	@abstractmethod
+	def Warn(self, message: str) -> None:
 		pass
 
 
 	pass
 
 class GamePassService:
-	def PlayerHasPass(self, player: Player, gamePassId: int):
+	@abstractmethod
+	def PlayerHasPass(self, player: 'Player', gamePassId: int) -> bool:
 		pass
 
 
@@ -5729,16 +6216,20 @@ class GameSettings:
 
 class GamepadService:
 	GamepadCursorEnabled: bool
-	def DisableGamepadCursor(self):
+	@abstractmethod
+	def DisableGamepadCursor(self) -> None:
 		pass
 
-	def EnableGamepadCursor(self, guiObject: Instance):
+	@abstractmethod
+	def EnableGamepadCursor(self, guiObject: Instance) -> None:
 		pass
 
-	def GetGamepadCursorPosition(self):
+	@abstractmethod
+	def GetGamepadCursorPosition(self) -> Vector2:
 		pass
 
-	def SetGamepadCursorPosition(self, position: Vector2):
+	@abstractmethod
+	def SetGamepadCursorPosition(self, position: Vector2) -> None:
 		pass
 
 
@@ -5757,45 +6248,56 @@ class GetTextBoundsParams:
 	pass
 
 class GlobalDataStore:
-	def OnUpdate(self, key: str, callback: Callable[..., Any]):
+	@abstractmethod
+	def OnUpdate(self, key: str, callback: Callable[..., Any]) -> 'RBXScriptConnection':
 		pass
 
-	def GetAsync(self, key: str):
+	@abstractmethod
+	def GetAsync(self, key: str) -> tuple[Any]:
 		pass
 
-	def IncrementAsync(self, key: str, delta: int, userIds: list[Any], options: DataStoreIncrementOptions):
+	@abstractmethod
+	def IncrementAsync(self, key: str, delta: int, userIds: list[Any], options: DataStoreIncrementOptions) -> Any:
 		pass
 
-	def RemoveAsync(self, key: str):
+	@abstractmethod
+	def RemoveAsync(self, key: str) -> tuple[Any]:
 		pass
 
-	def SetAsync(self, key: str, value: Any, userIds: list[Any], options: DataStoreSetOptions):
+	@abstractmethod
+	def SetAsync(self, key: str, value: Any, userIds: list[Any], options: DataStoreSetOptions) -> Any:
 		pass
 
-	def UpdateAsync(self, key: str, transformFunction: Callable[..., Any]):
+	@abstractmethod
+	def UpdateAsync(self, key: str, transformFunction: Callable[..., Any]) -> tuple[Any]:
 		pass
 
 
 	pass
 
 class DataStore:
-	def GetVersionAsync(self, key: str, version: str):
+	@abstractmethod
+	def GetVersionAsync(self, key: str, version: str) -> tuple[Any]:
 		pass
 
-	def ListKeysAsync(self, prefix: str, pageSize: int, cursor: str):
+	@abstractmethod
+	def ListKeysAsync(self, prefix: str, pageSize: int, cursor: str) -> 'DataStoreKeyPages':
 		pass
 
-	def ListVersionsAsync(self, key: str, sortDirection: SortDirection, minDate: int, maxDate: int, pageSize: int):
+	@abstractmethod
+	def ListVersionsAsync(self, key: str, sortDirection: SortDirection, minDate: int, maxDate: int, pageSize: int) -> 'DataStoreVersionPages':
 		pass
 
-	def RemoveVersionAsync(self, key: str, version: str):
+	@abstractmethod
+	def RemoveVersionAsync(self, key: str, version: str) -> None:
 		pass
 
 
 	pass
 
 class OrderedDataStore:
-	def GetSortedAsync(self, ascending: bool, pagesize: int, minValue: Any, maxValue: Any):
+	@abstractmethod
+	def GetSortedAsync(self, ascending: bool, pagesize: int, minValue: Any, maxValue: Any) -> Instance:
 		pass
 
 
@@ -5806,16 +6308,20 @@ class GoogleAnalyticsConfiguration:
 	pass
 
 class GroupService:
-	def GetAlliesAsync(self, groupId: int):
+	@abstractmethod
+	def GetAlliesAsync(self, groupId: int) -> 'StandardPages':
 		pass
 
-	def GetEnemiesAsync(self, groupId: int):
+	@abstractmethod
+	def GetEnemiesAsync(self, groupId: int) -> 'StandardPages':
 		pass
 
-	def GetGroupInfoAsync(self, groupId: int):
+	@abstractmethod
+	def GetGroupInfoAsync(self, groupId: int) -> Any:
 		pass
 
-	def GetGroupsAsync(self, userId: int):
+	@abstractmethod
+	def GetGroupsAsync(self, userId: int) -> list[Any]:
 		pass
 
 
@@ -5834,7 +6340,7 @@ class GuiBase2d:
 	IsNotOccluded: bool
 	Localize: bool
 	RawRect2D: Rect
-	RootLocalizationTable: LocalizationTable
+	RootLocalizationTable: 'LocalizationTable'
 	SelectionBehaviorDown: SelectionBehavior
 	SelectionBehaviorLeft: SelectionBehavior
 	SelectionBehaviorRight: SelectionBehavior
@@ -5872,13 +6378,16 @@ class GuiObject:
 	AutomaticSize: AutomaticSize
 	BorderMode: BorderMode
 	SizeConstraint: SizeConstraint
-	def TweenPosition(self, endPosition: UDim2, easingDirection: EasingDirection, easingStyle: EasingStyle, time: float, override: bool, callback: Callable[..., Any]):
+	@abstractmethod
+	def TweenPosition(self, endPosition: UDim2, easingDirection: EasingDirection, easingStyle: EasingStyle, time: float, override: bool, callback: Callable[..., Any]) -> bool:
 		pass
 
-	def TweenSize(self, endSize: UDim2, easingDirection: EasingDirection, easingStyle: EasingStyle, time: float, override: bool, callback: Callable[..., Any]):
+	@abstractmethod
+	def TweenSize(self, endSize: UDim2, easingDirection: EasingDirection, easingStyle: EasingStyle, time: float, override: bool, callback: Callable[..., Any]) -> bool:
 		pass
 
-	def TweenSizeAndPosition(self, endSize: UDim2, endPosition: UDim2, easingDirection: EasingDirection, easingStyle: EasingStyle, time: float, override: bool, callback: Callable[..., Any]):
+	@abstractmethod
+	def TweenSizeAndPosition(self, endSize: UDim2, endPosition: UDim2, easingDirection: EasingDirection, easingStyle: EasingStyle, time: float, override: bool, callback: Callable[..., Any]) -> bool:
 		pass
 
 
@@ -5918,7 +6427,8 @@ class ImageButton:
 	SliceScale: float
 	TileSize: UDim2
 	ScaleType: ScaleType
-	def SetEnableContentImageSizeChangedEvents(self, enabled: bool):
+	@abstractmethod
+	def SetEnableContentImageSizeChangedEvents(self, enabled: bool) -> None:
 		pass
 
 
@@ -5948,7 +6458,8 @@ class TextButton:
 	TextTruncate: TextTruncate
 	TextXAlignment: TextXAlignment
 	TextYAlignment: TextYAlignment
-	def SetTextFromInput(self, text: str):
+	@abstractmethod
+	def SetTextFromInput(self, text: str) -> None:
 		pass
 
 
@@ -5971,7 +6482,8 @@ class ImageLabel:
 	SliceScale: float
 	TileSize: UDim2
 	ScaleType: ScaleType
-	def SetEnableContentImageSizeChangedEvents(self, enabled: bool):
+	@abstractmethod
+	def SetEnableContentImageSizeChangedEvents(self, enabled: bool) -> None:
 		pass
 
 
@@ -6001,7 +6513,8 @@ class TextLabel:
 	TextTruncate: TextTruncate
 	TextXAlignment: TextXAlignment
 	TextYAlignment: TextYAlignment
-	def SetTextFromInput(self, text: str):
+	@abstractmethod
+	def SetTextFromInput(self, text: str) -> None:
 		pass
 
 
@@ -6029,13 +6542,16 @@ class ScrollingFrame:
 	ElasticBehavior: ElasticBehavior
 	ScrollingDirection: ScrollingDirection
 	VerticalScrollBarPosition: VerticalScrollBarPosition
-	def ClearInertialScrolling(self):
+	@abstractmethod
+	def ClearInertialScrolling(self) -> None:
 		pass
 
-	def GetSampledInertialVelocity(self):
+	@abstractmethod
+	def GetSampledInertialVelocity(self) -> Vector2:
 		pass
 
-	def ScrollToTop(self):
+	@abstractmethod
+	def ScrollToTop(self) -> None:
 		pass
 
 
@@ -6076,19 +6592,24 @@ class TextBox:
 	TextTruncate: TextTruncate
 	TextXAlignment: TextXAlignment
 	TextYAlignment: TextYAlignment
-	def CaptureFocus(self):
+	@abstractmethod
+	def CaptureFocus(self) -> None:
 		pass
 
-	def IsFocused(self):
+	@abstractmethod
+	def IsFocused(self) -> bool:
 		pass
 
-	def ReleaseFocus(self, submitted: bool):
+	@abstractmethod
+	def ReleaseFocus(self, submitted: bool) -> None:
 		pass
 
-	def ResetKeyboardMode(self):
+	@abstractmethod
+	def ResetKeyboardMode(self) -> None:
 		pass
 
-	def SetTextFromInput(self, text: str):
+	@abstractmethod
+	def SetTextFromInput(self, text: str) -> None:
 		pass
 
 
@@ -6103,10 +6624,12 @@ class VideoFrame:
 	TimePosition: float
 	Video: Content
 	Volume: float
-	def Pause(self):
+	@abstractmethod
+	def Pause(self) -> None:
 		pass
 
-	def Play(self):
+	@abstractmethod
+	def Play(self) -> None:
 		pass
 
 
@@ -6127,7 +6650,8 @@ class LayerCollector:
 	Enabled: bool
 	ResetOnSpawn: bool
 	ZIndexBehavior: ZIndexBehavior
-	def GetLayoutNodeTree(self):
+	@abstractmethod
+	def GetLayoutNodeTree(self) -> dict[Any, Any]:
 		pass
 
 
@@ -6152,7 +6676,8 @@ class BillboardGui:
 	SizeOffset: Vector2
 	StudsOffset: Vector3
 	StudsOffsetWorldSpace: Vector3
-	def GetScreenSpaceBounds(self):
+	@abstractmethod
+	def GetScreenSpaceBounds(self) -> Any:
 		pass
 
 
@@ -6160,10 +6685,12 @@ class BillboardGui:
 
 class PluginGui:
 	Title: str
-	def BindToClose(self, function: Callable[..., Any]):
+	@abstractmethod
+	def BindToClose(self, function: Callable[..., Any]) -> None:
 		pass
 
-	def GetRelativeMousePosition(self):
+	@abstractmethod
+	def GetRelativeMousePosition(self) -> Vector2:
 		pass
 
 
@@ -6171,7 +6698,8 @@ class PluginGui:
 
 class DockWidgetPluginGui:
 	HostWidgetWasRestored: bool
-	def RequestRaise(self):
+	@abstractmethod
+	def RequestRaise(self) -> None:
 		pass
 
 
@@ -6229,11 +6757,11 @@ class GuiBase3d:
 
 class FloorWire:
 	CycleOffset: float
-	From: BasePart
+	From: 'BasePart'
 	StudsBetweenTextures: float
 	Texture: Content
 	TextureSize: Vector2
-	To: BasePart
+	To: 'BasePart'
 	Velocity: float
 	WireRadius: float
 
@@ -6253,7 +6781,7 @@ class SelectionBox:
 	pass
 
 class PVAdornment:
-	Adornee: PVInstance
+	Adornee: 'PVInstance'
 
 	pass
 
@@ -6303,16 +6831,20 @@ class SphereHandleAdornment:
 	pass
 
 class WireframeHandleAdornment:
-	def AddLine(self, from: Vector3, to: Vector3):
+	@abstractmethod
+	def AddLine(self, from_: Vector3, to: Vector3) -> None:
 		pass
 
-	def AddLines(self, points: list[Any]):
+	@abstractmethod
+	def AddLines(self, points: list[Any]) -> None:
 		pass
 
-	def AddPath(self, points: list[Any], loop: bool):
+	@abstractmethod
+	def AddPath(self, points: list[Any], loop: bool) -> None:
 		pass
 
-	def Clear(self):
+	@abstractmethod
+	def Clear(self) -> None:
 		pass
 
 
@@ -6324,7 +6856,8 @@ class ParabolaAdornment:
 	C: float
 	Range: float
 	Thickness: float
-	def FindPartOnParabola(self, ignoreDescendentsTable: Objects):
+	@abstractmethod
+	def FindPartOnParabola(self, ignoreDescendentsTable: dict[int, Instance]) -> tuple[Any]:
 		pass
 
 
@@ -6338,7 +6871,7 @@ class SelectionSphere:
 	pass
 
 class PartAdornment:
-	Adornee: BasePart
+	Adornee: 'BasePart'
 
 	pass
 
@@ -6363,12 +6896,12 @@ class SurfaceSelection:
 	pass
 
 class SelectionLasso:
-	Humanoid: Humanoid
+	Humanoid: 'Humanoid'
 
 	pass
 
 class SelectionPartLasso:
-	Part: BasePart
+	Part: 'BasePart'
 
 	pass
 
@@ -6389,148 +6922,196 @@ class GuiService:
 	SelectedCoreObject: GuiObject
 	SelectedObject: GuiObject
 	TouchControlsEnabled: bool
-	def AddCenterDialog(self, dialog: Instance, centerDialogType: CenterDialogType, showFunction: Callable[..., Any], hideFunction: Callable[..., Any]):
+	@abstractmethod
+	def AddCenterDialog(self, dialog: Instance, centerDialogType: CenterDialogType, showFunction: Callable[..., Any], hideFunction: Callable[..., Any]) -> None:
 		pass
 
-	def AddKey(self, key: str):
+	@abstractmethod
+	def AddKey(self, key: str) -> None:
 		pass
 
-	def AddSelectionParent(self, selectionName: str, selectionParent: Instance):
+	@abstractmethod
+	def AddSelectionParent(self, selectionName: str, selectionParent: Instance) -> None:
 		pass
 
-	def AddSelectionTuple(self, selectionName: str, selections: tuple[Any]):
+	@abstractmethod
+	def AddSelectionTuple(self, selectionName: str, selections: tuple[Any]) -> None:
 		pass
 
-	def AddSpecialKey(self, key: SpecialKey):
+	@abstractmethod
+	def AddSpecialKey(self, key: SpecialKey) -> None:
 		pass
 
-	def BroadcastNotification(self, data: str, notificationType: int):
+	@abstractmethod
+	def BroadcastNotification(self, data: str, notificationType: int) -> None:
 		pass
 
-	def ClearError(self):
+	@abstractmethod
+	def ClearError(self) -> None:
 		pass
 
-	def CloseInspectMenu(self):
+	@abstractmethod
+	def CloseInspectMenu(self) -> None:
 		pass
 
-	def CloseStatsBasedOnInputString(self, input: str):
+	@abstractmethod
+	def CloseStatsBasedOnInputString(self, input: str) -> bool:
 		pass
 
-	def ForceTenFootInterface(self, isForced: bool):
+	@abstractmethod
+	def ForceTenFootInterface(self, isForced: bool) -> None:
 		pass
 
-	def GetBrickCount(self):
+	@abstractmethod
+	def GetBrickCount(self) -> int:
 		pass
 
-	def GetClosestDialogToPosition(self, position: Vector3):
+	@abstractmethod
+	def GetClosestDialogToPosition(self, position: Vector3) -> Instance:
 		pass
 
-	def GetEmotesMenuOpen(self):
+	@abstractmethod
+	def GetEmotesMenuOpen(self) -> bool:
 		pass
 
-	def GetErrorCode(self):
+	@abstractmethod
+	def GetErrorCode(self) -> ConnectionError:
 		pass
 
-	def GetErrorMessage(self):
+	@abstractmethod
+	def GetErrorMessage(self) -> str:
 		pass
 
-	def GetErrorType(self):
+	@abstractmethod
+	def GetErrorType(self) -> ConnectionError:
 		pass
 
-	def GetGameplayPausedNotificationEnabled(self):
+	@abstractmethod
+	def GetGameplayPausedNotificationEnabled(self) -> bool:
 		pass
 
-	def GetGuiInset(self):
+	@abstractmethod
+	def GetGuiInset(self) -> tuple[Any]:
 		pass
 
-	def GetGuiIsVisible(self, guiType: GuiType):
+	@abstractmethod
+	def GetGuiIsVisible(self, guiType: GuiType) -> bool:
 		pass
 
-	def GetInspectMenuEnabled(self):
+	@abstractmethod
+	def GetInspectMenuEnabled(self) -> bool:
 		pass
 
-	def GetNotificationTypeList(self):
+	@abstractmethod
+	def GetNotificationTypeList(self) -> dict[Any, Any]:
 		pass
 
-	def GetResolutionScale(self):
+	@abstractmethod
+	def GetResolutionScale(self) -> int:
 		pass
 
-	def GetSafeZoneOffsets(self):
+	@abstractmethod
+	def GetSafeZoneOffsets(self) -> dict[Any, Any]:
 		pass
 
-	def GetUiMessage(self):
+	@abstractmethod
+	def GetUiMessage(self) -> str:
 		pass
 
-	def InspectPlayerFromHumanoidDescription(self, humanoidDescription: Instance, name: str):
+	@abstractmethod
+	def InspectPlayerFromHumanoidDescription(self, humanoidDescription: Instance, name: str) -> None:
 		pass
 
-	def InspectPlayerFromUserId(self, userId: int):
+	@abstractmethod
+	def InspectPlayerFromUserId(self, userId: int) -> None:
 		pass
 
-	def InspectPlayerFromUserIdWithCtx(self, userId: int, ctx: str):
+	@abstractmethod
+	def InspectPlayerFromUserIdWithCtx(self, userId: int, ctx: str) -> None:
 		pass
 
-	def IsMemoryTrackerEnabled(self):
+	@abstractmethod
+	def IsMemoryTrackerEnabled(self) -> bool:
 		pass
 
-	def IsTenFootInterface(self):
+	@abstractmethod
+	def IsTenFootInterface(self) -> bool:
 		pass
 
-	def OpenBrowserWindow(self, url: str):
+	@abstractmethod
+	def OpenBrowserWindow(self, url: str) -> None:
 		pass
 
-	def OpenNativeOverlay(self, title: str, url: str):
+	@abstractmethod
+	def OpenNativeOverlay(self, title: str, url: str) -> None:
 		pass
 
-	def RemoveCenterDialog(self, dialog: Instance):
+	@abstractmethod
+	def RemoveCenterDialog(self, dialog: Instance) -> None:
 		pass
 
-	def RemoveKey(self, key: str):
+	@abstractmethod
+	def RemoveKey(self, key: str) -> None:
 		pass
 
-	def RemoveSelectionGroup(self, selectionName: str):
+	@abstractmethod
+	def RemoveSelectionGroup(self, selectionName: str) -> None:
 		pass
 
-	def RemoveSpecialKey(self, key: SpecialKey):
+	@abstractmethod
+	def RemoveSpecialKey(self, key: SpecialKey) -> None:
 		pass
 
-	def Select(self, selectionParent: Instance):
+	@abstractmethod
+	def Select(self, selectionParent: Instance) -> None:
 		pass
 
-	def SetEmotesMenuOpen(self, isOpen: bool):
+	@abstractmethod
+	def SetEmotesMenuOpen(self, isOpen: bool) -> None:
 		pass
 
-	def SetGameplayPausedNotificationEnabled(self, enabled: bool):
+	@abstractmethod
+	def SetGameplayPausedNotificationEnabled(self, enabled: bool) -> None:
 		pass
 
-	def SetGlobalGuiInset(self, x1: int, y1: int, x2: int, y2: int):
+	@abstractmethod
+	def SetGlobalGuiInset(self, x1: int, y1: int, x2: int, y2: int) -> None:
 		pass
 
-	def SetHardwareSafeAreaInsets(self, left: float, top: float, right: float, bottom: float):
+	@abstractmethod
+	def SetHardwareSafeAreaInsets(self, left: float, top: float, right: float, bottom: float) -> None:
 		pass
 
-	def SetInspectMenuEnabled(self, enabled: bool):
+	@abstractmethod
+	def SetInspectMenuEnabled(self, enabled: bool) -> None:
 		pass
 
-	def SetMenuIsOpen(self, open: bool, menuName: str):
+	@abstractmethod
+	def SetMenuIsOpen(self, open: bool, menuName: str) -> None:
 		pass
 
-	def SetSafeZoneOffsets(self, top: float, bottom: float, left: float, right: float):
+	@abstractmethod
+	def SetSafeZoneOffsets(self, top: float, bottom: float, left: float, right: float) -> None:
 		pass
 
-	def SetUiMessage(self, msgType: UiMessageType, uiMessage: str):
+	@abstractmethod
+	def SetUiMessage(self, msgType: UiMessageType, uiMessage: str) -> None:
 		pass
 
-	def ShowStatsBasedOnInputString(self, input: str):
+	@abstractmethod
+	def ShowStatsBasedOnInputString(self, input: str) -> bool:
 		pass
 
-	def ToggleFullscreen(self):
+	@abstractmethod
+	def ToggleFullscreen(self) -> None:
 		pass
 
-	def ToggleGuiIsVisibleIfAllowed(self, guiType: GuiType):
+	@abstractmethod
+	def ToggleGuiIsVisibleIfAllowed(self, guiType: GuiType) -> None:
 		pass
 
-	def GetScreenResolution(self):
+	@abstractmethod
+	def GetScreenResolution(self) -> Vector2:
 		pass
 
 
@@ -6541,38 +7122,48 @@ class GuidRegistryService:
 	pass
 
 class HapticService:
-	def GetMotor(self, inputType: UserInputType, vibrationMotor: VibrationMotor):
+	@abstractmethod
+	def GetMotor(self, inputType: UserInputType, vibrationMotor: VibrationMotor) -> tuple[Any]:
 		pass
 
-	def IsMotorSupported(self, inputType: UserInputType, vibrationMotor: VibrationMotor):
+	@abstractmethod
+	def IsMotorSupported(self, inputType: UserInputType, vibrationMotor: VibrationMotor) -> bool:
 		pass
 
-	def IsVibrationSupported(self, inputType: UserInputType):
+	@abstractmethod
+	def IsVibrationSupported(self, inputType: UserInputType) -> bool:
 		pass
 
-	def SetMotor(self, inputType: UserInputType, vibrationMotor: VibrationMotor, vibrationValues: tuple[Any]):
+	@abstractmethod
+	def SetMotor(self, inputType: UserInputType, vibrationMotor: VibrationMotor, vibrationValues: tuple[Any]) -> None:
 		pass
 
 
 	pass
 
 class HeightmapImporterService:
-	def CancelImportHeightmap(self):
+	@abstractmethod
+	def CancelImportHeightmap(self) -> None:
 		pass
 
-	def IsValidColormap(self, colormapAssetId: Content):
+	@abstractmethod
+	def IsValidColormap(self, colormapAssetId: Content) -> tuple[Any]:
 		pass
 
-	def IsValidHeightmap(self, heightmapAssetId: Content):
+	@abstractmethod
+	def IsValidHeightmap(self, heightmapAssetId: Content) -> tuple[Any]:
 		pass
 
-	def SetImportHeightmapPaused(self, paused: bool):
+	@abstractmethod
+	def SetImportHeightmapPaused(self, paused: bool) -> None:
 		pass
 
-	def GetHeightmapPreviewAsync(self, heightmapAssetId: Content):
+	@abstractmethod
+	def GetHeightmapPreviewAsync(self, heightmapAssetId: Content) -> tuple[Any]:
 		pass
 
-	def ImportHeightmap(self, region: Region3, heightmapAssetId: Content, colormapAssetId: Content, defaultMaterial: Material):
+	@abstractmethod
+	def ImportHeightmap(self, region: 'Region3', heightmapAssetId: Content, colormapAssetId: Content, defaultMaterial: Material) -> None:
 		pass
 
 
@@ -6600,35 +7191,44 @@ class Hopper:
 	pass
 
 class HttpRbxApiService:
-	def GetDocumentationUrl(self, partialUrl: str):
+	@abstractmethod
+	def GetDocumentationUrl(self, partialUrl: str) -> str:
 		pass
 
-	def GetAsync(self, apiUrlPath: str, priority: ThrottlingPriority, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def GetAsync(self, apiUrlPath: str, priority: ThrottlingPriority, httpRequestType: HttpRequestType) -> str:
 		pass
 
-	def GetAsyncFullUrl(self, apiUrl: str, priority: ThrottlingPriority, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def GetAsyncFullUrl(self, apiUrl: str, priority: ThrottlingPriority, httpRequestType: HttpRequestType) -> str:
 		pass
 
-	def PostAsync(self, apiUrlPath: str, data: str, priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def PostAsync(self, apiUrlPath: str, data: str, priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType) -> str:
 		pass
 
-	def PostAsyncFullUrl(self, apiUrl: str, data: str, priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def PostAsyncFullUrl(self, apiUrl: str, data: str, priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType) -> str:
 		pass
 
-	def RequestAsync(self, requestOptions: Dictionary, priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def RequestAsync(self, requestOptions: dict[Any, Any], priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType) -> str:
 		pass
 
-	def RequestLimitedAsync(self, requestOptions: Dictionary, priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def RequestLimitedAsync(self, requestOptions: dict[Any, Any], priority: ThrottlingPriority, content_type: HttpContentType, httpRequestType: HttpRequestType) -> str:
 		pass
 
 
 	pass
 
 class HttpRequest:
-	def Cancel(self):
+	@abstractmethod
+	def Cancel(self) -> None:
 		pass
 
-	def Start(self, callback: Callable[..., Any]):
+	@abstractmethod
+	def Start(self, callback: Callable[..., Any]) -> None:
 		pass
 
 
@@ -6636,37 +7236,48 @@ class HttpRequest:
 
 class HttpService:
 	HttpEnabled: bool
-	def GenerateGUID(self, wrapInCurlyBraces: bool):
+	@abstractmethod
+	def GenerateGUID(self, wrapInCurlyBraces: bool) -> str:
 		pass
 
-	def GetHttpEnabled(self):
+	@abstractmethod
+	def GetHttpEnabled(self) -> bool:
 		pass
 
-	def GetUserAgent(self):
+	@abstractmethod
+	def GetUserAgent(self) -> str:
 		pass
 
-	def JSONDecode(self, input: str):
+	@abstractmethod
+	def JSONDecode(self, input: str) -> Any:
 		pass
 
-	def JSONEncode(self, input: Any):
+	@abstractmethod
+	def JSONEncode(self, input: Any) -> str:
 		pass
 
-	def RequestInternal(self, options: Dictionary):
+	@abstractmethod
+	def RequestInternal(self, options: dict[Any, Any]) -> Instance:
 		pass
 
-	def SetHttpEnabled(self, enabled: bool):
+	@abstractmethod
+	def SetHttpEnabled(self, enabled: bool) -> None:
 		pass
 
-	def UrlEncode(self, input: str):
+	@abstractmethod
+	def UrlEncode(self, input: str) -> str:
 		pass
 
-	def GetAsync(self, url: str, nocache: bool, headers: Any):
+	@abstractmethod
+	def GetAsync(self, url: str, nocache: bool, headers: Any) -> str:
 		pass
 
-	def PostAsync(self, url: str, data: str, content_type: HttpContentType, compress: bool, headers: Any):
+	@abstractmethod
+	def PostAsync(self, url: str, data: str, content_type: HttpContentType, compress: bool, headers: Any) -> str:
 		pass
 
-	def RequestAsync(self, requestOptions: Dictionary):
+	@abstractmethod
+	def RequestAsync(self, requestOptions: dict[Any, Any]) -> dict[Any, Any]:
 		pass
 
 
@@ -6690,7 +7301,7 @@ class Humanoid:
 	Jump: bool
 	JumpHeight: float
 	JumpPower: float
-	LeftLeg: BasePart
+	LeftLeg: 'BasePart'
 	MaxHealth: float
 	MaxSlopeAngle: float
 	MoveDirection: Vector3
@@ -6698,127 +7309,164 @@ class Humanoid:
 	PlatformStand: bool
 	RequiresNeck: bool
 	RigType: HumanoidRigType
-	RightLeg: BasePart
-	RootPart: BasePart
-	SeatPart: BasePart
+	RightLeg: 'BasePart'
+	RootPart: 'BasePart'
+	SeatPart: 'BasePart'
 	Sit: bool
 	TargetPoint: Vector3
-	Torso: BasePart
+	Torso: 'BasePart'
 	UseJumpPower: bool
 	WalkSpeed: float
-	WalkToPart: BasePart
+	WalkToPart: 'BasePart'
 	WalkToPoint: Vector3
 	maxHealth: float
 	NameOcclusion: NameOcclusion
-	def AddAccessory(self, accessory: Instance):
+	@abstractmethod
+	def AddAccessory(self, accessory: Instance) -> None:
 		pass
 
-	def AddCustomStatus(self, status: str):
+	@abstractmethod
+	def AddCustomStatus(self, status: str) -> bool:
 		pass
 
-	def AddStatus(self, status: Status):
+	@abstractmethod
+	def AddStatus(self, status: 'Status') -> bool:
 		pass
 
-	def ApplyDescriptionBlocking(self, humanoidDescription: HumanoidDescription):
+	@abstractmethod
+	def ApplyDescriptionBlocking(self, humanoidDescription: 'HumanoidDescription') -> None:
 		pass
 
-	def BuildRigFromAttachments(self):
+	@abstractmethod
+	def BuildRigFromAttachments(self) -> None:
 		pass
 
-	def CacheDefaults(self):
+	@abstractmethod
+	def CacheDefaults(self) -> None:
 		pass
 
-	def ChangeState(self, state: HumanoidStateType):
+	@abstractmethod
+	def ChangeState(self, state: HumanoidStateType) -> None:
 		pass
 
-	def EquipTool(self, tool: Instance):
+	@abstractmethod
+	def EquipTool(self, tool: Instance) -> None:
 		pass
 
-	def GetAccessories(self):
+	@abstractmethod
+	def GetAccessories(self) -> list[Any]:
 		pass
 
-	def GetAccessoryHandleScale(self, instance: Instance, partType: BodyPartR15):
+	@abstractmethod
+	def GetAccessoryHandleScale(self, instance: Instance, partType: BodyPartR15) -> Vector3:
 		pass
 
-	def GetAppliedDescription(self):
+	@abstractmethod
+	def GetAppliedDescription(self) -> 'HumanoidDescription':
 		pass
 
-	def GetBodyPartR15(self, part: Instance):
+	@abstractmethod
+	def GetBodyPartR15(self, part: Instance) -> BodyPartR15:
 		pass
 
-	def GetLimb(self, part: Instance):
+	@abstractmethod
+	def GetLimb(self, part: Instance) -> Limb:
 		pass
 
-	def GetPlayingAnimationTracks(self):
+	@abstractmethod
+	def GetPlayingAnimationTracks(self) -> list[Any]:
 		pass
 
-	def GetState(self):
+	@abstractmethod
+	def GetState(self) -> HumanoidStateType:
 		pass
 
-	def GetStateEnabled(self, state: HumanoidStateType):
+	@abstractmethod
+	def GetStateEnabled(self, state: HumanoidStateType) -> bool:
 		pass
 
-	def GetStatuses(self):
+	@abstractmethod
+	def GetStatuses(self) -> list[Any]:
 		pass
 
-	def HasCustomStatus(self, status: str):
+	@abstractmethod
+	def HasCustomStatus(self, status: str) -> bool:
 		pass
 
-	def HasStatus(self, status: Status):
+	@abstractmethod
+	def HasStatus(self, status: 'Status') -> bool:
 		pass
 
-	def LoadAnimation(self, animation: Animation):
+	@abstractmethod
+	def LoadAnimation(self, animation: Animation) -> AnimationTrack:
 		pass
 
-	def Move(self, moveDirection: Vector3, relativeToCamera: bool):
+	@abstractmethod
+	def Move(self, moveDirection: Vector3, relativeToCamera: bool) -> None:
 		pass
 
-	def MoveTo(self, location: Vector3, part: Instance):
+	@abstractmethod
+	def MoveTo(self, location: Vector3, part: Instance) -> None:
 		pass
 
-	def RemoveAccessories(self):
+	@abstractmethod
+	def RemoveAccessories(self) -> None:
 		pass
 
-	def RemoveCustomStatus(self, status: str):
+	@abstractmethod
+	def RemoveCustomStatus(self, status: str) -> bool:
 		pass
 
-	def RemoveStatus(self, status: Status):
+	@abstractmethod
+	def RemoveStatus(self, status: 'Status') -> bool:
 		pass
 
-	def ReplaceBodyPartR15(self, bodyPart: BodyPartR15, part: BasePart):
+	@abstractmethod
+	def ReplaceBodyPartR15(self, bodyPart: BodyPartR15, part: 'BasePart') -> bool:
 		pass
 
-	def SetClickToWalkEnabled(self, enabled: bool):
+	@abstractmethod
+	def SetClickToWalkEnabled(self, enabled: bool) -> None:
 		pass
 
-	def SetStateEnabled(self, state: HumanoidStateType, enabled: bool):
+	@abstractmethod
+	def SetStateEnabled(self, state: HumanoidStateType, enabled: bool) -> None:
 		pass
 
-	def TakeDamage(self, amount: float):
+	@abstractmethod
+	def TakeDamage(self, amount: float) -> None:
 		pass
 
-	def UnequipTools(self):
+	@abstractmethod
+	def UnequipTools(self) -> None:
 		pass
 
-	def loadAnimation(self, animation: Animation):
+	@abstractmethod
+	def loadAnimation(self, animation: Animation) -> AnimationTrack:
 		pass
 
-	def takeDamage(self, amount: float):
+	@abstractmethod
+	def takeDamage(self, amount: float) -> None:
 		pass
 
-	def ApplyDescription(self, humanoidDescription: HumanoidDescription, assetTypeVerification: AssetTypeVerification):
+	@abstractmethod
+	def ApplyDescription(self, humanoidDescription: 'HumanoidDescription', assetTypeVerification: AssetTypeVerification) -> None:
 		pass
 
-	def ApplyDescriptionClientServer(self, humanoidDescription: HumanoidDescription):
+	@abstractmethod
+	def ApplyDescriptionClientServer(self, humanoidDescription: 'HumanoidDescription') -> None:
 		pass
 
-	def ApplyDescriptionReset(self, humanoidDescription: HumanoidDescription, assetTypeVerification: AssetTypeVerification):
+	@abstractmethod
+	def ApplyDescriptionReset(self, humanoidDescription: 'HumanoidDescription', assetTypeVerification: AssetTypeVerification) -> None:
 		pass
 
-	def PlayEmote(self, emoteName: str):
+	@abstractmethod
+	def PlayEmote(self, emoteName: str) -> bool:
 		pass
 
-	def PlayEmoteAndGetAnimTrackById(self, emoteId: int):
+	@abstractmethod
+	def PlayEmoteAndGetAnimTrackById(self, emoteId: int) -> tuple[Any]:
 		pass
 
 
@@ -6865,28 +7513,36 @@ class HumanoidDescription:
 	WaistAccessory: str
 	WalkAnimation: int
 	WidthScale: float
-	def AddEmote(self, name: str, assetId: int):
+	@abstractmethod
+	def AddEmote(self, name: str, assetId: int) -> None:
 		pass
 
-	def GetAccessories(self, includeRigidAccessories: bool):
+	@abstractmethod
+	def GetAccessories(self, includeRigidAccessories: bool) -> list[Any]:
 		pass
 
-	def GetEmotes(self):
+	@abstractmethod
+	def GetEmotes(self) -> dict[Any, Any]:
 		pass
 
-	def GetEquippedEmotes(self):
+	@abstractmethod
+	def GetEquippedEmotes(self) -> list[Any]:
 		pass
 
-	def RemoveEmote(self, name: str):
+	@abstractmethod
+	def RemoveEmote(self, name: str) -> None:
 		pass
 
-	def SetAccessories(self, accessories: list[Any], includeRigidAccessories: bool):
+	@abstractmethod
+	def SetAccessories(self, accessories: list[Any], includeRigidAccessories: bool) -> None:
 		pass
 
-	def SetEmotes(self, emotes: Dictionary):
+	@abstractmethod
+	def SetEmotes(self, emotes: dict[Any, Any]) -> None:
 		pass
 
-	def SetEquippedEmotes(self, equippedEmotes: list[Any]):
+	@abstractmethod
+	def SetEquippedEmotes(self, equippedEmotes: list[Any]) -> None:
 		pass
 
 
@@ -6915,40 +7571,52 @@ class LegacyStudioBridge:
 	pass
 
 class IXPService:
-	def ClearUserLayers(self):
+	@abstractmethod
+	def ClearUserLayers(self) -> None:
 		pass
 
-	def GetBrowserTrackerLayerLoadingStatus(self):
+	@abstractmethod
+	def GetBrowserTrackerLayerLoadingStatus(self) -> IXPLoadingStatus:
 		pass
 
-	def GetBrowserTrackerLayerVariables(self, layerName: str):
+	@abstractmethod
+	def GetBrowserTrackerLayerVariables(self, layerName: str) -> dict[Any, Any]:
 		pass
 
-	def GetBrowserTrackerStatusForLayer(self, layerName: str):
+	@abstractmethod
+	def GetBrowserTrackerStatusForLayer(self, layerName: str) -> IXPLoadingStatus| None:
 		pass
 
-	def GetRegisteredUserLayersToStatus(self):
+	@abstractmethod
+	def GetRegisteredUserLayersToStatus(self) -> dict[Any, Any]:
 		pass
 
-	def GetUserLayerLoadingStatus(self):
+	@abstractmethod
+	def GetUserLayerLoadingStatus(self) -> IXPLoadingStatus:
 		pass
 
-	def GetUserLayerVariables(self, layerName: str):
+	@abstractmethod
+	def GetUserLayerVariables(self, layerName: str) -> dict[Any, Any]:
 		pass
 
-	def GetUserStatusForLayer(self, layerName: str):
+	@abstractmethod
+	def GetUserStatusForLayer(self, layerName: str) -> IXPLoadingStatus| None:
 		pass
 
-	def InitializeUserLayers(self, userId: int):
+	@abstractmethod
+	def InitializeUserLayers(self, userId: int) -> None:
 		pass
 
-	def LogBrowserTrackerLayerExposure(self, layerName: str):
+	@abstractmethod
+	def LogBrowserTrackerLayerExposure(self, layerName: str) -> None:
 		pass
 
-	def LogUserLayerExposure(self, layerName: str):
+	@abstractmethod
+	def LogUserLayerExposure(self, layerName: str) -> None:
 		pass
 
-	def RegisterUserLayers(self, userLayers: Any):
+	@abstractmethod
+	def RegisterUserLayers(self, userLayers: Any) -> None:
 		pass
 
 
@@ -6958,7 +7626,8 @@ class ImporterBaseSettings:
 	Id: str
 	ImportName: str
 	ShouldImport: bool
-	def GetStatuses(self):
+	@abstractmethod
+	def GetStatuses(self) -> dict[Any, Any]:
 		pass
 
 
@@ -7045,7 +7714,8 @@ class InputObject:
 	KeyCode: KeyCode
 	UserInputState: UserInputState
 	UserInputType: UserInputType
-	def IsModifierKeyDown(self, modifierKey: ModifierKey):
+	@abstractmethod
+	def IsModifierKeyDown(self, modifierKey: ModifierKey) -> bool:
 		pass
 
 
@@ -7054,58 +7724,76 @@ class InputObject:
 class InsertService:
 	AllowClientInsertModels: bool
 	AllowInsertFreeModels: bool
-	def ApproveAssetId(self, assetId: int):
+	@abstractmethod
+	def ApproveAssetId(self, assetId: int) -> None:
 		pass
 
-	def ApproveAssetVersionId(self, assetVersionId: int):
+	@abstractmethod
+	def ApproveAssetVersionId(self, assetVersionId: int) -> None:
 		pass
 
-	def Insert(self, instance: Instance):
+	@abstractmethod
+	def Insert(self, instance: Instance) -> None:
 		pass
 
-	def LoadLocalAsset(self, assetPath: str):
+	@abstractmethod
+	def LoadLocalAsset(self, assetPath: str) -> Instance:
 		pass
 
-	def LoadPackageAsset(self, url: Content):
+	@abstractmethod
+	def LoadPackageAsset(self, url: Content) -> dict[int, Instance]:
 		pass
 
-	def CreateMeshPartAsync(self, meshId: Content, collisionFidelity: CollisionFidelity, renderFidelity: RenderFidelity):
+	@abstractmethod
+	def CreateMeshPartAsync(self, meshId: Content, collisionFidelity: CollisionFidelity, renderFidelity: RenderFidelity) -> 'MeshPart':
 		pass
 
-	def GetBaseCategories(self):
+	@abstractmethod
+	def GetBaseCategories(self) -> list[Any]:
 		pass
 
-	def GetBaseSets(self):
+	@abstractmethod
+	def GetBaseSets(self) -> list[Any]:
 		pass
 
-	def GetCollection(self, categoryId: int):
+	@abstractmethod
+	def GetCollection(self, categoryId: int) -> list[Any]:
 		pass
 
-	def GetFreeDecals(self, searchText: str, pageNum: int):
+	@abstractmethod
+	def GetFreeDecals(self, searchText: str, pageNum: int) -> list[Any]:
 		pass
 
-	def GetFreeModels(self, searchText: str, pageNum: int):
+	@abstractmethod
+	def GetFreeModels(self, searchText: str, pageNum: int) -> list[Any]:
 		pass
 
-	def GetLatestAssetVersionAsync(self, assetId: int):
+	@abstractmethod
+	def GetLatestAssetVersionAsync(self, assetId: int) -> int:
 		pass
 
-	def GetUserCategories(self, userId: int):
+	@abstractmethod
+	def GetUserCategories(self, userId: int) -> list[Any]:
 		pass
 
-	def GetUserSets(self, userId: int):
+	@abstractmethod
+	def GetUserSets(self, userId: int) -> list[Any]:
 		pass
 
-	def LoadAsset(self, assetId: int):
+	@abstractmethod
+	def LoadAsset(self, assetId: int) -> Instance:
 		pass
 
-	def LoadAssetVersion(self, assetVersionId: int):
+	@abstractmethod
+	def LoadAssetVersion(self, assetVersionId: int) -> Instance:
 		pass
 
-	def LoadPackageAssetAsync(self, url: Content):
+	@abstractmethod
+	def LoadPackageAssetAsync(self, url: Content) -> dict[int, Instance]:
 		pass
 
-	def loadAsset(self, assetId: int):
+	@abstractmethod
+	def loadAsset(self, assetId: int) -> Instance:
 		pass
 
 
@@ -7116,9 +7804,9 @@ class JointInstance:
 	C0: CFrame
 	C1: CFrame
 	Enabled: bool
-	Part0: BasePart
-	Part1: BasePart
-	part1: BasePart
+	Part0: 'BasePart'
+	Part1: 'BasePart'
+	part1: 'BasePart'
 
 	pass
 
@@ -7159,7 +7847,8 @@ class Motor:
 	CurrentAngle: float
 	DesiredAngle: float
 	MaxVelocity: float
-	def SetDesiredAngle(self, value: float):
+	@abstractmethod
+	def SetDesiredAngle(self, value: float) -> None:
 		pass
 
 
@@ -7193,19 +7882,24 @@ class Weld:
 	pass
 
 class JointsService:
-	def ClearJoinAfterMoveJoints(self):
+	@abstractmethod
+	def ClearJoinAfterMoveJoints(self) -> None:
 		pass
 
-	def CreateJoinAfterMoveJoints(self):
+	@abstractmethod
+	def CreateJoinAfterMoveJoints(self) -> None:
 		pass
 
-	def SetJoinAfterMoveInstance(self, joinInstance: Instance):
+	@abstractmethod
+	def SetJoinAfterMoveInstance(self, joinInstance: Instance) -> None:
 		pass
 
-	def SetJoinAfterMoveTarget(self, joinTarget: Instance):
+	@abstractmethod
+	def SetJoinAfterMoveTarget(self, joinTarget: Instance) -> None:
 		pass
 
-	def ShowPermissibleJoints(self):
+	@abstractmethod
+	def ShowPermissibleJoints(self) -> None:
 		pass
 
 
@@ -7217,22 +7911,28 @@ class KeyboardService:
 
 class Keyframe:
 	Time: float
-	def AddMarker(self, marker: Instance):
+	@abstractmethod
+	def AddMarker(self, marker: Instance) -> None:
 		pass
 
-	def AddPose(self, pose: Instance):
+	@abstractmethod
+	def AddPose(self, pose: Instance) -> None:
 		pass
 
-	def GetMarkers(self):
+	@abstractmethod
+	def GetMarkers(self) -> dict[int, Instance]:
 		pass
 
-	def GetPoses(self):
+	@abstractmethod
+	def GetPoses(self) -> dict[int, Instance]:
 		pass
 
-	def RemoveMarker(self, marker: Instance):
+	@abstractmethod
+	def RemoveMarker(self, marker: Instance) -> None:
 		pass
 
-	def RemovePose(self, pose: Instance):
+	@abstractmethod
+	def RemovePose(self, pose: Instance) -> None:
 		pass
 
 
@@ -7244,25 +7944,32 @@ class KeyframeMarker:
 	pass
 
 class KeyframeSequenceProvider:
-	def GetKeyframeSequence(self, assetId: Content):
+	@abstractmethod
+	def GetKeyframeSequence(self, assetId: Content) -> Instance:
 		pass
 
-	def GetKeyframeSequenceById(self, assetId: int, useCache: bool):
+	@abstractmethod
+	def GetKeyframeSequenceById(self, assetId: int, useCache: bool) -> Instance:
 		pass
 
-	def GetMemStats(self):
+	@abstractmethod
+	def GetMemStats(self) -> dict[Any, Any]:
 		pass
 
-	def RegisterActiveKeyframeSequence(self, keyframeSequence: Instance):
+	@abstractmethod
+	def RegisterActiveKeyframeSequence(self, keyframeSequence: Instance) -> Content:
 		pass
 
-	def RegisterKeyframeSequence(self, keyframeSequence: Instance):
+	@abstractmethod
+	def RegisterKeyframeSequence(self, keyframeSequence: Instance) -> Content:
 		pass
 
-	def GetAnimations(self, userId: int):
+	@abstractmethod
+	def GetAnimations(self, userId: int) -> Instance:
 		pass
 
-	def GetKeyframeSequenceAsync(self, assetId: Content):
+	@abstractmethod
+	def GetKeyframeSequenceAsync(self, assetId: Content) -> Instance:
 		pass
 
 
@@ -7324,41 +8031,52 @@ class Lighting:
 	TempUseNewSkyRemovalBehaviour: bool
 	TimeOfDay: str
 	Technology: Technology
-	def GetMinutesAfterMidnight(self):
+	@abstractmethod
+	def GetMinutesAfterMidnight(self) -> float:
 		pass
 
-	def GetMoonDirection(self):
+	@abstractmethod
+	def GetMoonDirection(self) -> Vector3:
 		pass
 
-	def GetMoonPhase(self):
+	@abstractmethod
+	def GetMoonPhase(self) -> float:
 		pass
 
-	def GetSunDirection(self):
+	@abstractmethod
+	def GetSunDirection(self) -> Vector3:
 		pass
 
-	def SetMinutesAfterMidnight(self, minutes: float):
+	@abstractmethod
+	def SetMinutesAfterMidnight(self, minutes: float) -> None:
 		pass
 
-	def getMinutesAfterMidnight(self):
+	@abstractmethod
+	def getMinutesAfterMidnight(self) -> float:
 		pass
 
-	def setMinutesAfterMidnight(self, minutes: float):
+	@abstractmethod
+	def setMinutesAfterMidnight(self, minutes: float) -> None:
 		pass
 
 
 	pass
 
 class LocalStorageService:
-	def Flush(self):
+	@abstractmethod
+	def Flush(self) -> None:
 		pass
 
-	def GetItem(self, key: str):
+	@abstractmethod
+	def GetItem(self, key: str) -> str:
 		pass
 
-	def SetItem(self, key: str, value: str):
+	@abstractmethod
+	def SetItem(self, key: str, value: str) -> None:
 		pass
 
-	def WhenLoaded(self, callback: Callable[..., Any]):
+	@abstractmethod
+	def WhenLoaded(self, callback: Callable[..., Any]) -> None:
 		pass
 
 
@@ -7380,43 +8098,56 @@ class LocalizationService:
 	RobloxForcePlayModeRobloxLocaleId: str
 	RobloxLocaleId: str
 	SystemLocaleId: str
-	def GetCorescriptLocalizations(self):
+	@abstractmethod
+	def GetCorescriptLocalizations(self) -> dict[int, Instance]:
 		pass
 
-	def GetTableEntries(self, instance: Instance):
+	@abstractmethod
+	def GetTableEntries(self, instance: Instance) -> list[Any]:
 		pass
 
-	def GetTranslatorForPlayer(self, player: Instance):
+	@abstractmethod
+	def GetTranslatorForPlayer(self, player: Instance) -> Instance:
 		pass
 
-	def SetRobloxLocaleId(self, locale: str):
+	@abstractmethod
+	def SetRobloxLocaleId(self, locale: str) -> None:
 		pass
 
-	def StartTextScraper(self):
+	@abstractmethod
+	def StartTextScraper(self) -> None:
 		pass
 
-	def StopTextScraper(self):
+	@abstractmethod
+	def StopTextScraper(self) -> None:
 		pass
 
-	def GetCountryRegionForPlayerAsync(self, player: Instance):
+	@abstractmethod
+	def GetCountryRegionForPlayerAsync(self, player: Instance) -> str:
 		pass
 
-	def GetTranslatorForLocaleAsync(self, locale: str):
+	@abstractmethod
+	def GetTranslatorForLocaleAsync(self, locale: str) -> Instance:
 		pass
 
-	def GetTranslatorForPlayerAsync(self, player: Instance):
+	@abstractmethod
+	def GetTranslatorForPlayerAsync(self, player: Instance) -> Instance:
 		pass
 
-	def PromptDownloadGameTableToCSV(self, table: Instance):
+	@abstractmethod
+	def PromptDownloadGameTableToCSV(self, table: Instance) -> None:
 		pass
 
-	def PromptExportToCSVs(self):
+	@abstractmethod
+	def PromptExportToCSVs(self) -> None:
 		pass
 
-	def PromptImportFromCSVs(self):
+	@abstractmethod
+	def PromptImportFromCSVs(self) -> None:
 		pass
 
-	def PromptUploadCSVToGameTable(self):
+	@abstractmethod
+	def PromptUploadCSVToGameTable(self) -> Instance:
 		pass
 
 
@@ -7426,55 +8157,72 @@ class LocalizationTable:
 	DevelopmentLanguage: str
 	Root: Instance
 	SourceLocaleId: str
-	def GetContents(self):
+	@abstractmethod
+	def GetContents(self) -> str:
 		pass
 
-	def GetEntries(self):
+	@abstractmethod
+	def GetEntries(self) -> list[Any]:
 		pass
 
-	def GetString(self, targetLocaleId: str, key: str):
+	@abstractmethod
+	def GetString(self, targetLocaleId: str, key: str) -> str:
 		pass
 
-	def GetTranslator(self, localeId: str):
+	@abstractmethod
+	def GetTranslator(self, localeId: str) -> Instance:
 		pass
 
-	def RemoveEntry(self, key: str, source: str, context: str):
+	@abstractmethod
+	def RemoveEntry(self, key: str, source: str, context: str) -> None:
 		pass
 
-	def RemoveEntryValue(self, key: str, source: str, context: str, localeId: str):
+	@abstractmethod
+	def RemoveEntryValue(self, key: str, source: str, context: str, localeId: str) -> None:
 		pass
 
-	def RemoveKey(self, key: str):
+	@abstractmethod
+	def RemoveKey(self, key: str) -> None:
 		pass
 
-	def RemoveTargetLocale(self, localeId: str):
+	@abstractmethod
+	def RemoveTargetLocale(self, localeId: str) -> None:
 		pass
 
-	def SetContents(self, contents: str):
+	@abstractmethod
+	def SetContents(self, contents: str) -> None:
 		pass
 
-	def SetEntries(self, entries: Any):
+	@abstractmethod
+	def SetEntries(self, entries: Any) -> None:
 		pass
 
-	def SetEntry(self, key: str, targetLocaleId: str, text: str):
+	@abstractmethod
+	def SetEntry(self, key: str, targetLocaleId: str, text: str) -> None:
 		pass
 
-	def SetEntryContext(self, key: str, source: str, context: str, newContext: str):
+	@abstractmethod
+	def SetEntryContext(self, key: str, source: str, context: str, newContext: str) -> None:
 		pass
 
-	def SetEntryExample(self, key: str, source: str, context: str, example: str):
+	@abstractmethod
+	def SetEntryExample(self, key: str, source: str, context: str, example: str) -> None:
 		pass
 
-	def SetEntryKey(self, key: str, source: str, context: str, newKey: str):
+	@abstractmethod
+	def SetEntryKey(self, key: str, source: str, context: str, newKey: str) -> None:
 		pass
 
-	def SetEntrySource(self, key: str, source: str, context: str, newSource: str):
+	@abstractmethod
+	def SetEntrySource(self, key: str, source: str, context: str, newSource: str) -> None:
 		pass
 
-	def SetEntryValue(self, key: str, source: str, context: str, localeId: str, text: str):
+	@abstractmethod
+	def SetEntryValue(self, key: str, source: str, context: str, localeId: str, text: str) -> None:
 		pass
 
-	def SetIsExemptFromUGCAnalytics(self, value: bool):
+	@abstractmethod
+	def SetIsExemptFromUGCAnalytics(self, value: bool) -> None:
 		pass
 
 
@@ -7494,32 +8242,40 @@ class LodDataService:
 	pass
 
 class LogService:
-	def ExecuteScript(self, source: str):
+	@abstractmethod
+	def ExecuteScript(self, source: str) -> None:
 		pass
 
-	def GetHttpResultHistory(self):
+	@abstractmethod
+	def GetHttpResultHistory(self) -> list[Any]:
 		pass
 
-	def GetLogHistory(self):
+	@abstractmethod
+	def GetLogHistory(self) -> list[Any]:
 		pass
 
-	def RequestHttpResultApproved(self):
+	@abstractmethod
+	def RequestHttpResultApproved(self) -> None:
 		pass
 
-	def RequestServerHttpResult(self):
+	@abstractmethod
+	def RequestServerHttpResult(self) -> None:
 		pass
 
-	def RequestServerOutput(self):
+	@abstractmethod
+	def RequestServerOutput(self) -> None:
 		pass
 
 
 	pass
 
 class LoginService:
-	def Logout(self):
+	@abstractmethod
+	def Logout(self) -> None:
 		pass
 
-	def PromptLogin(self):
+	@abstractmethod
+	def PromptLogin(self) -> None:
 		pass
 
 
@@ -7548,7 +8304,8 @@ class CoreScript:
 
 class Script:
 	Source: ProtectedString
-	def GetHash(self):
+	@abstractmethod
+	def GetHash(self) -> str:
 		pass
 
 
@@ -7574,119 +8331,156 @@ class LuauScriptAnalyzerService:
 
 class MarkerCurve:
 	Length: int
-	def GetMarkerAtIndex(self, index: int):
+	@abstractmethod
+	def GetMarkerAtIndex(self, index: int) -> dict[Any, Any]:
 		pass
 
-	def GetMarkers(self):
+	@abstractmethod
+	def GetMarkers(self) -> list[Any]:
 		pass
 
-	def InsertMarkerAtTime(self, time: float, marker: str):
+	@abstractmethod
+	def InsertMarkerAtTime(self, time: float, marker: str) -> list[Any]:
 		pass
 
-	def RemoveMarkerAtIndex(self, startingIndex: int, count: int):
+	@abstractmethod
+	def RemoveMarkerAtIndex(self, startingIndex: int, count: int) -> int:
 		pass
 
 
 	pass
 
 class MarketplaceService:
-	def PlayerCanMakePurchases(self, player: Instance):
+	@abstractmethod
+	def PlayerCanMakePurchases(self, player: Instance) -> bool:
 		pass
 
-	def PromptBundlePurchase(self, player: Instance, bundleId: int):
+	@abstractmethod
+	def PromptBundlePurchase(self, player: Instance, bundleId: int) -> None:
 		pass
 
-	def PromptGamePassPurchase(self, player: Instance, gamePassId: int):
+	@abstractmethod
+	def PromptGamePassPurchase(self, player: Instance, gamePassId: int) -> None:
 		pass
 
-	def PromptNativePurchase(self, player: Instance, productId: str):
+	@abstractmethod
+	def PromptNativePurchase(self, player: Instance, productId: str) -> None:
 		pass
 
-	def PromptNativePurchaseWithLocalPlayer(self, productId: str):
+	@abstractmethod
+	def PromptNativePurchaseWithLocalPlayer(self, productId: str) -> None:
 		pass
 
-	def PromptPremiumPurchase(self, player: Instance):
+	@abstractmethod
+	def PromptPremiumPurchase(self, player: Instance) -> None:
 		pass
 
-	def PromptProductPurchase(self, player: Instance, productId: int, equipIfPurchased: bool, currencyType: CurrencyType):
+	@abstractmethod
+	def PromptProductPurchase(self, player: Instance, productId: int, equipIfPurchased: bool, currencyType: CurrencyType) -> None:
 		pass
 
-	def PromptPurchase(self, player: Instance, assetId: int, equipIfPurchased: bool, currencyType: CurrencyType):
+	@abstractmethod
+	def PromptPurchase(self, player: Instance, assetId: int, equipIfPurchased: bool, currencyType: CurrencyType) -> None:
 		pass
 
-	def PromptRobloxPurchase(self, assetId: int, equipIfPurchased: bool):
+	@abstractmethod
+	def PromptRobloxPurchase(self, assetId: int, equipIfPurchased: bool) -> None:
 		pass
 
-	def PromptSubscriptionCancellation(self, player: Instance, subscriptionId: int):
+	@abstractmethod
+	def PromptSubscriptionCancellation(self, player: Instance, subscriptionId: int) -> None:
 		pass
 
-	def PromptSubscriptionPurchase(self, player: Instance, subscriptionId: int):
+	@abstractmethod
+	def PromptSubscriptionPurchase(self, player: Instance, subscriptionId: int) -> None:
 		pass
 
-	def PromptThirdPartyPurchase(self, player: Instance, productId: str):
+	@abstractmethod
+	def PromptThirdPartyPurchase(self, player: Instance, productId: str) -> None:
 		pass
 
-	def ReportAssetSale(self, assetId: str, robuxAmount: int):
+	@abstractmethod
+	def ReportAssetSale(self, assetId: str, robuxAmount: int) -> None:
 		pass
 
-	def ReportRobuxUpsellStarted(self):
+	@abstractmethod
+	def ReportRobuxUpsellStarted(self) -> None:
 		pass
 
-	def SignalAssetTypePurchased(self, player: Instance, assetType: AssetType):
+	@abstractmethod
+	def SignalAssetTypePurchased(self, player: Instance, assetType: AssetType) -> None:
 		pass
 
-	def SignalClientPurchaseSuccess(self, ticket: str, playerId: int, productId: int):
+	@abstractmethod
+	def SignalClientPurchaseSuccess(self, ticket: str, playerId: int, productId: int) -> None:
 		pass
 
-	def SignalMockPurchasePremium(self):
+	@abstractmethod
+	def SignalMockPurchasePremium(self) -> None:
 		pass
 
-	def SignalPromptBundlePurchaseFinished(self, player: Instance, bundleId: int, success: bool):
+	@abstractmethod
+	def SignalPromptBundlePurchaseFinished(self, player: Instance, bundleId: int, success: bool) -> None:
 		pass
 
-	def SignalPromptGamePassPurchaseFinished(self, player: Instance, gamePassId: int, success: bool):
+	@abstractmethod
+	def SignalPromptGamePassPurchaseFinished(self, player: Instance, gamePassId: int, success: bool) -> None:
 		pass
 
-	def SignalPromptPremiumPurchaseFinished(self, didTryPurchasing: bool):
+	@abstractmethod
+	def SignalPromptPremiumPurchaseFinished(self, didTryPurchasing: bool) -> None:
 		pass
 
-	def SignalPromptProductPurchaseFinished(self, userId: int, productId: int, success: bool):
+	@abstractmethod
+	def SignalPromptProductPurchaseFinished(self, userId: int, productId: int, success: bool) -> None:
 		pass
 
-	def SignalPromptPurchaseFinished(self, player: Instance, assetId: int, success: bool):
+	@abstractmethod
+	def SignalPromptPurchaseFinished(self, player: Instance, assetId: int, success: bool) -> None:
 		pass
 
-	def SignalPromptSubscriptionCancellationFinished(self, player: Instance, subscriptionId: int, wasCanceled: bool):
+	@abstractmethod
+	def SignalPromptSubscriptionCancellationFinished(self, player: Instance, subscriptionId: int, wasCanceled: bool) -> None:
 		pass
 
-	def SignalPromptSubscriptionPurchaseFinished(self, player: Instance, subscriptionId: int, wasPurchased: bool):
+	@abstractmethod
+	def SignalPromptSubscriptionPurchaseFinished(self, player: Instance, subscriptionId: int, wasPurchased: bool) -> None:
 		pass
 
-	def SignalServerLuaDialogClosed(self, value: bool):
+	@abstractmethod
+	def SignalServerLuaDialogClosed(self, value: bool) -> None:
 		pass
 
-	def GetDeveloperProductsAsync(self):
+	@abstractmethod
+	def GetDeveloperProductsAsync(self) -> Instance:
 		pass
 
-	def GetProductInfo(self, assetId: int, infoType: InfoType):
+	@abstractmethod
+	def GetProductInfo(self, assetId: int, infoType: InfoType) -> dict[Any, Any]:
 		pass
 
-	def GetRobuxBalance(self):
+	@abstractmethod
+	def GetRobuxBalance(self) -> int:
 		pass
 
-	def IsPlayerSubscribed(self, player: Instance, subscriptionId: int):
+	@abstractmethod
+	def IsPlayerSubscribed(self, player: Instance, subscriptionId: int) -> bool:
 		pass
 
-	def PerformPurchase(self, infoType: InfoType, productId: int, expectedPrice: int, requestId: str, isRobloxPurchase: bool):
+	@abstractmethod
+	def PerformPurchase(self, infoType: InfoType, productId: int, expectedPrice: int, requestId: str, isRobloxPurchase: bool) -> dict[Any, Any]:
 		pass
 
-	def PlayerOwnsAsset(self, player: Instance, assetId: int):
+	@abstractmethod
+	def PlayerOwnsAsset(self, player: Instance, assetId: int) -> bool:
 		pass
 
-	def PlayerOwnsBundle(self, player: Player, bundleId: int):
+	@abstractmethod
+	def PlayerOwnsBundle(self, player: 'Player', bundleId: int) -> bool:
 		pass
 
-	def UserOwnsGamePassAsync(self, userId: int, gamePassId: int):
+	@abstractmethod
+	def UserOwnsGamePassAsync(self, userId: int, gamePassId: int) -> bool:
 		pass
 
 
@@ -7726,19 +8520,24 @@ class MaterialService:
 	Use2022Materials: bool
 	WoodName: str
 	WoodPlanksName: str
-	def GetBaseMaterialOverride(self, material: Material):
+	@abstractmethod
+	def GetBaseMaterialOverride(self, material: Material) -> str:
 		pass
 
-	def GetMaterialOverrideChanged(self, material: Material):
+	@abstractmethod
+	def GetMaterialOverrideChanged(self, material: Material) -> 'RBXScriptSignal':
 		pass
 
-	def GetMaterialVariant(self, material: Material, name: str):
+	@abstractmethod
+	def GetMaterialVariant(self, material: Material, name: str) -> 'MaterialVariant':
 		pass
 
-	def GetOverrideStatus(self, material: Material):
+	@abstractmethod
+	def GetOverrideStatus(self, material: Material) -> PropertyStatus:
 		pass
 
-	def SetBaseMaterialOverride(self, material: Material, name: str):
+	@abstractmethod
+	def SetBaseMaterialOverride(self, material: Material, name: str) -> None:
 		pass
 
 
@@ -7757,77 +8556,96 @@ class MaterialVariant:
 	pass
 
 class MemStorageConnection:
-	def Disconnect(self):
+	@abstractmethod
+	def Disconnect(self) -> None:
 		pass
 
 
 	pass
 
 class MemStorageService:
-	def Bind(self, key: str, callback: Callable[..., Any]):
+	@abstractmethod
+	def Bind(self, key: str, callback: Callable[..., Any]) -> MemStorageConnection:
 		pass
 
-	def BindAndFire(self, key: str, callback: Callable[..., Any]):
+	@abstractmethod
+	def BindAndFire(self, key: str, callback: Callable[..., Any]) -> MemStorageConnection:
 		pass
 
-	def Call(self, key: str, input: Any):
+	@abstractmethod
+	def Call(self, key: str, input: Any) -> Any:
 		pass
 
-	def Fire(self, key: str, value: str):
+	@abstractmethod
+	def Fire(self, key: str, value: str) -> None:
 		pass
 
-	def GetItem(self, key: str, defaultValue: str):
+	@abstractmethod
+	def GetItem(self, key: str, defaultValue: str) -> str:
 		pass
 
-	def HasItem(self, key: str):
+	@abstractmethod
+	def HasItem(self, key: str) -> bool:
 		pass
 
-	def RemoveItem(self, key: str):
+	@abstractmethod
+	def RemoveItem(self, key: str) -> bool:
 		pass
 
-	def SetItem(self, key: str, value: str):
+	@abstractmethod
+	def SetItem(self, key: str, value: str) -> None:
 		pass
 
 
 	pass
 
 class MemoryStoreQueue:
-	def AddAsync(self, value: Any, expiration: int, priority: float):
+	@abstractmethod
+	def AddAsync(self, value: Any, expiration: int, priority: float) -> None:
 		pass
 
-	def ReadAsync(self, count: int, allOrNothing: bool, waitTimeout: float):
+	@abstractmethod
+	def ReadAsync(self, count: int, allOrNothing: bool, waitTimeout: float) -> tuple[Any]:
 		pass
 
-	def RemoveAsync(self, id: str):
+	@abstractmethod
+	def RemoveAsync(self, id: str) -> None:
 		pass
 
 
 	pass
 
 class MemoryStoreService:
-	def GetQueue(self, name: str, invisibilityTimeout: int):
+	@abstractmethod
+	def GetQueue(self, name: str, invisibilityTimeout: int) -> MemoryStoreQueue:
 		pass
 
-	def GetSortedMap(self, name: str):
+	@abstractmethod
+	def GetSortedMap(self, name: str) -> 'MemoryStoreSortedMap':
 		pass
 
 
 	pass
 
 class MemoryStoreSortedMap:
-	def GetAsync(self, key: str):
+	@abstractmethod
+	def GetAsync(self, key: str) -> Any:
 		pass
 
-	def GetRangeAsync(self, direction: SortDirection, count: int, exclusiveLowerBound: str, exclusiveUpperBound: str):
+	@abstractmethod
+	def GetRangeAsync(self, direction: SortDirection, count: int, exclusiveLowerBound: str, exclusiveUpperBound: str) -> list[Any]:
 		pass
 
-	def RemoveAsync(self, key: str):
+	@abstractmethod
+	def RemoveAsync(self, key: str) -> None:
 		pass
 
-	def SetAsync(self, key: str, value: Any, expiration: int):
+	@abstractmethod
+	def SetAsync(self, key: str, value: Any, expiration: int) -> bool:
 		pass
 
-	def UpdateAsync(self, key: str, transformFunction: Callable[..., Any], expiration: int):
+	@abstractmethod
+	def UpdateAsync(self, key: str, transformFunction: Callable[..., Any], expiration: int) -> Any:
 		pass
 
 
@@ -7843,54 +8661,68 @@ class Hint:
 	pass
 
 class MessageBusConnection:
-	def Disconnect(self):
+	@abstractmethod
+	def Disconnect(self) -> None:
 		pass
 
 
 	pass
 
 class MessageBusService:
-	def Call(self, key: str, input: Any):
+	@abstractmethod
+	def Call(self, key: str, input: Any) -> Any:
 		pass
 
-	def GetLast(self, mid: str):
+	@abstractmethod
+	def GetLast(self, mid: str) -> Any:
 		pass
 
-	def GetMessageId(self, domainName: str, messageName: str):
+	@abstractmethod
+	def GetMessageId(self, domainName: str, messageName: str) -> str:
 		pass
 
-	def GetProtocolMethodRequestMessageId(self, protocolName: str, methodName: str):
+	@abstractmethod
+	def GetProtocolMethodRequestMessageId(self, protocolName: str, methodName: str) -> str:
 		pass
 
-	def GetProtocolMethodResponseMessageId(self, protocolName: str, methodName: str):
+	@abstractmethod
+	def GetProtocolMethodResponseMessageId(self, protocolName: str, methodName: str) -> str:
 		pass
 
-	def Publish(self, mid: str, params: Any):
+	@abstractmethod
+	def Publish(self, mid: str, params: Any) -> None:
 		pass
 
-	def PublishProtocolMethodRequest(self, protocolName: str, methodName: str, message: Any, customTelemetryData: Any):
+	@abstractmethod
+	def PublishProtocolMethodRequest(self, protocolName: str, methodName: str, message: Any, customTelemetryData: Any) -> None:
 		pass
 
-	def PublishProtocolMethodResponse(self, protocolName: str, methodName: str, message: Any, responseCode: int, customTelemetryData: Any):
+	@abstractmethod
+	def PublishProtocolMethodResponse(self, protocolName: str, methodName: str, message: Any, responseCode: int, customTelemetryData: Any) -> None:
 		pass
 
-	def Subscribe(self, mid: str, callback: Callable[..., Any], once: bool, sticky: bool):
+	@abstractmethod
+	def Subscribe(self, mid: str, callback: Callable[..., Any], once: bool, sticky: bool) -> Instance:
 		pass
 
-	def SubscribeToProtocolMethodRequest(self, protocolName: str, methodName: str, callback: Callable[..., Any], once: bool, sticky: bool):
+	@abstractmethod
+	def SubscribeToProtocolMethodRequest(self, protocolName: str, methodName: str, callback: Callable[..., Any], once: bool, sticky: bool) -> Instance:
 		pass
 
-	def SubscribeToProtocolMethodResponse(self, protocolName: str, methodName: str, callback: Callable[..., Any], once: bool, sticky: bool):
+	@abstractmethod
+	def SubscribeToProtocolMethodResponse(self, protocolName: str, methodName: str, callback: Callable[..., Any], once: bool, sticky: bool) -> Instance:
 		pass
 
 
 	pass
 
 class MessagingService:
-	def PublishAsync(self, topic: str, message: Any):
+	@abstractmethod
+	def PublishAsync(self, topic: str, message: Any) -> None:
 		pass
 
-	def SubscribeAsync(self, topic: str, callback: Callable[..., Any]):
+	@abstractmethod
+	def SubscribeAsync(self, topic: str, callback: Callable[..., Any]) -> 'RBXScriptConnection':
 		pass
 
 
@@ -7906,25 +8738,32 @@ class MetaBreakpoint:
 	LogMessage: str
 	Script: str
 	Valid: bool
-	def GetContextBreakpoints(self):
+	@abstractmethod
+	def GetContextBreakpoints(self) -> dict[Any, Any]:
 		pass
 
-	def Remove(self, status: Callable[..., Any]):
+	@abstractmethod
+	def Remove(self, status: Callable[..., Any]) -> int:
 		pass
 
-	def SetChildBreakpointEnabledByScriptAndContext(self, script: str, contextGST: int, enabled: bool):
+	@abstractmethod
+	def SetChildBreakpointEnabledByScriptAndContext(self, script: str, contextGST: int, enabled: bool) -> None:
 		pass
 
-	def SetContextEnabled(self, context: int, enabled: bool):
+	@abstractmethod
+	def SetContextEnabled(self, context: int, enabled: bool) -> None:
 		pass
 
-	def SetContinueExecution(self, enabled: bool):
+	@abstractmethod
+	def SetContinueExecution(self, enabled: bool) -> None:
 		pass
 
-	def SetEnabled(self, enabled: bool):
+	@abstractmethod
+	def SetEnabled(self, enabled: bool) -> None:
 		pass
 
-	def SetLine(self, line: int, status: Callable[..., Any]):
+	@abstractmethod
+	def SetLine(self, line: int, status: Callable[..., Any]) -> int:
 		pass
 
 
@@ -7935,13 +8774,16 @@ class MetaBreakpointContext:
 	pass
 
 class MetaBreakpointManager:
-	def AddBreakpoint(self, script: Instance, line: int, condition: Instance):
+	@abstractmethod
+	def AddBreakpoint(self, script: Instance, line: int, condition: Instance) -> Instance:
 		pass
 
-	def GetBreakpointById(self, metaBreakpointId: int):
+	@abstractmethod
+	def GetBreakpointById(self, metaBreakpointId: int) -> MetaBreakpoint:
 		pass
 
-	def RemoveBreakpointById(self, metaBreakpointId: int):
+	@abstractmethod
+	def RemoveBreakpointById(self, metaBreakpointId: int) -> None:
 		pass
 
 
@@ -7951,7 +8793,7 @@ class Mouse:
 	Hit: CFrame
 	Icon: Content
 	Origin: CFrame
-	Target: BasePart
+	Target: 'BasePart'
 	TargetFilter: Instance
 	TargetSurface: NormalId
 	UnitRay: Ray
@@ -7960,7 +8802,7 @@ class Mouse:
 	X: int
 	Y: int
 	hit: CFrame
-	target: BasePart
+	target: 'BasePart'
 
 	pass
 
@@ -7986,7 +8828,8 @@ class NetworkMarker:
 	pass
 
 class NetworkPeer:
-	def SetOutgoingKBPSLimit(self, limit: int):
+	@abstractmethod
+	def SetOutgoingKBPSLimit(self, limit: int) -> None:
 		pass
 
 
@@ -7997,27 +8840,32 @@ class NetworkClient:
 	pass
 
 class NetworkServer:
-	def EncryptStringForPlayerId(self, toEncrypt: str, playerId: int):
+	@abstractmethod
+	def EncryptStringForPlayerId(self, toEncrypt: str, playerId: int) -> str:
 		pass
 
 
 	pass
 
 class NetworkReplicator:
-	def GetPlayer(self):
+	@abstractmethod
+	def GetPlayer(self) -> Instance:
 		pass
 
 
 	pass
 
 class ClientReplicator:
-	def RequestRCCProfilerData(self, frameRate: int, timeFrame: int):
+	@abstractmethod
+	def RequestRCCProfilerData(self, frameRate: int, timeFrame: int) -> None:
 		pass
 
-	def RequestServerScriptProfiling(self, start: bool):
+	@abstractmethod
+	def RequestServerScriptProfiling(self, start: bool) -> None:
 		pass
 
-	def RequestServerStats(self, request: bool):
+	@abstractmethod
+	def RequestServerStats(self, request: bool) -> None:
 		pass
 
 
@@ -8044,8 +8892,8 @@ class NetworkSettings:
 
 class NoCollisionConstraint:
 	Enabled: bool
-	Part0: BasePart
-	Part1: BasePart
+	Part0: 'BasePart'
+	Part1: 'BasePart'
 
 	pass
 
@@ -8054,25 +8902,32 @@ class NotificationService:
 	IsLuaChatEnabled: bool
 	IsLuaGameDetailsEnabled: bool
 	SelectedTheme: str
-	def ActionEnabled(self, actionType: AppShellActionType):
+	@abstractmethod
+	def ActionEnabled(self, actionType: AppShellActionType) -> None:
 		pass
 
-	def ActionTaken(self, actionType: AppShellActionType):
+	@abstractmethod
+	def ActionTaken(self, actionType: AppShellActionType) -> None:
 		pass
 
-	def CancelAllNotification(self, userId: int):
+	@abstractmethod
+	def CancelAllNotification(self, userId: int) -> None:
 		pass
 
-	def CancelNotification(self, userId: int, alertId: int):
+	@abstractmethod
+	def CancelNotification(self, userId: int, alertId: int) -> None:
 		pass
 
-	def ScheduleNotification(self, userId: int, alertId: int, alertMsg: str, minutesToFire: int):
+	@abstractmethod
+	def ScheduleNotification(self, userId: int, alertId: int, alertMsg: str, minutesToFire: int) -> None:
 		pass
 
-	def SwitchedToAppShellFeature(self, appShellFeature: AppShellFeature):
+	@abstractmethod
+	def SwitchedToAppShellFeature(self, appShellFeature: AppShellFeature) -> None:
 		pass
 
-	def GetScheduledNotifications(self, userId: int):
+	@abstractmethod
+	def GetScheduledNotifications(self, userId: int) -> list[Any]:
 		pass
 
 
@@ -8083,10 +8938,12 @@ class PVInstance:
 	OriginPosition: Vector3
 	PivotOffsetOrientation: Vector3
 	PivotOffsetPosition: Vector3
-	def GetPivot(self):
+	@abstractmethod
+	def GetPivot(self) -> CFrame:
 		pass
 
-	def PivotTo(self, targetCFrame: CFrame):
+	@abstractmethod
+	def PivotTo(self, targetCFrame: CFrame) -> None:
 		pass
 
 
@@ -8158,82 +9015,108 @@ class BasePart:
 	BrickColor: BrickColor
 	CFrame: CFrame
 	Material: Material
-	def ApplyAngularImpulse(self, impulse: Vector3):
+	@abstractmethod
+	def ApplyAngularImpulse(self, impulse: Vector3) -> None:
 		pass
 
-	def ApplyImpulse(self, impulse: Vector3):
+	@abstractmethod
+	def ApplyImpulse(self, impulse: Vector3) -> None:
 		pass
 
-	def ApplyImpulseAtPosition(self, impulse: Vector3, position: Vector3):
+	@abstractmethod
+	def ApplyImpulseAtPosition(self, impulse: Vector3, position: Vector3) -> None:
 		pass
 
-	def BreakJoints(self):
+	@abstractmethod
+	def BreakJoints(self) -> None:
 		pass
 
-	def CanCollideWith(self, part: Self):
+	@abstractmethod
+	def CanCollideWith(self, part: Self) -> bool:
 		pass
 
-	def CanSetNetworkOwnership(self):
+	@abstractmethod
+	def CanSetNetworkOwnership(self) -> tuple[Any]:
 		pass
 
-	def GetConnectedParts(self, recursive: bool):
+	@abstractmethod
+	def GetConnectedParts(self, recursive: bool) -> dict[int, Instance]:
 		pass
 
-	def GetJoints(self):
+	@abstractmethod
+	def GetJoints(self) -> dict[int, Instance]:
 		pass
 
-	def GetMass(self):
+	@abstractmethod
+	def GetMass(self) -> float:
 		pass
 
-	def GetNetworkOwner(self):
+	@abstractmethod
+	def GetNetworkOwner(self) -> Instance:
 		pass
 
-	def GetNetworkOwnershipAuto(self):
+	@abstractmethod
+	def GetNetworkOwnershipAuto(self) -> bool:
 		pass
 
-	def GetRenderCFrame(self):
+	@abstractmethod
+	def GetRenderCFrame(self) -> 'CFrame':
 		pass
 
-	def GetRootPart(self):
+	@abstractmethod
+	def GetRootPart(self) -> Instance:
 		pass
 
-	def GetTouchingParts(self):
+	@abstractmethod
+	def GetTouchingParts(self) -> dict[int, Instance]:
 		pass
 
-	def GetVelocityAtPosition(self, position: Vector3):
+	@abstractmethod
+	def GetVelocityAtPosition(self, position: Vector3) -> Vector3:
 		pass
 
-	def IsGrounded(self):
+	@abstractmethod
+	def IsGrounded(self) -> bool:
 		pass
 
-	def MakeJoints(self):
+	@abstractmethod
+	def MakeJoints(self) -> None:
 		pass
 
-	def Resize(self, normalId: NormalId, deltaAmount: int):
+	@abstractmethod
+	def Resize(self, normalId: NormalId, deltaAmount: int) -> bool:
 		pass
 
-	def SetNetworkOwner(self, playerInstance: Player):
+	@abstractmethod
+	def SetNetworkOwner(self, playerInstance: 'Player') -> None:
 		pass
 
-	def SetNetworkOwnershipAuto(self):
+	@abstractmethod
+	def SetNetworkOwnershipAuto(self) -> None:
 		pass
 
-	def breakJoints(self):
+	@abstractmethod
+	def breakJoints(self) -> None:
 		pass
 
-	def getMass(self):
+	@abstractmethod
+	def getMass(self) -> float:
 		pass
 
-	def makeJoints(self):
+	@abstractmethod
+	def makeJoints(self) -> None:
 		pass
 
-	def resize(self, normalId: NormalId, deltaAmount: int):
+	@abstractmethod
+	def resize(self, normalId: NormalId, deltaAmount: int) -> bool:
 		pass
 
-	def SubtractAsync(self, parts: Objects, collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity):
+	@abstractmethod
+	def SubtractAsync(self, parts: dict[int, Instance], collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity) -> Instance:
 		pass
 
-	def UnionAsync(self, parts: Objects, collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity):
+	@abstractmethod
+	def UnionAsync(self, parts: dict[int, Instance], collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity) -> Instance:
 		pass
 
 
@@ -8266,7 +9149,8 @@ class Platform:
 class Seat:
 	Disabled: bool
 	Occupant: Humanoid
-	def Sit(self, humanoid: Instance):
+	@abstractmethod
+	def Sit(self, humanoid: Instance) -> None:
 		pass
 
 
@@ -8278,7 +9162,8 @@ class SkateboardPlatform:
 	Steer: int
 	StickyWheels: bool
 	Throttle: int
-	def ApplySpecificImpulse(self, impulseWorld: Vector3):
+	@abstractmethod
+	def ApplySpecificImpulse(self, impulseWorld: Vector3) -> None:
 		pass
 
 
@@ -8308,97 +9193,128 @@ class Terrain:
 	WaterTransparency: float
 	WaterWaveSize: float
 	WaterWaveSpeed: float
-	def AutowedgeCell(self, x: int, y: int, z: int):
+	@abstractmethod
+	def AutowedgeCell(self, x: int, y: int, z: int) -> bool:
 		pass
 
-	def AutowedgeCells(self, region: Region3int16):
+	@abstractmethod
+	def AutowedgeCells(self, region: Region3int16) -> None:
 		pass
 
-	def CellCenterToWorld(self, x: int, y: int, z: int):
+	@abstractmethod
+	def CellCenterToWorld(self, x: int, y: int, z: int) -> Vector3:
 		pass
 
-	def CellCornerToWorld(self, x: int, y: int, z: int):
+	@abstractmethod
+	def CellCornerToWorld(self, x: int, y: int, z: int) -> Vector3:
 		pass
 
-	def Clear(self):
+	@abstractmethod
+	def Clear(self) -> None:
 		pass
 
-	def ConvertToSmooth(self):
+	@abstractmethod
+	def ConvertToSmooth(self) -> None:
 		pass
 
-	def CopyRegion(self, region: Region3int16):
+	@abstractmethod
+	def CopyRegion(self, region: Region3int16) -> 'TerrainRegion':
 		pass
 
-	def CountCells(self):
+	@abstractmethod
+	def CountCells(self) -> int:
 		pass
 
-	def FillBall(self, center: Vector3, radius: float, material: Material):
+	@abstractmethod
+	def FillBall(self, center: Vector3, radius: float, material: Material) -> None:
 		pass
 
-	def FillBlock(self, cframe: CFrame, size: Vector3, material: Material):
+	@abstractmethod
+	def FillBlock(self, cframe: CFrame, size: Vector3, material: Material) -> None:
 		pass
 
-	def FillCylinder(self, cframe: CFrame, height: float, radius: float, material: Material):
+	@abstractmethod
+	def FillCylinder(self, cframe: CFrame, height: float, radius: float, material: Material) -> None:
 		pass
 
-	def FillRegion(self, region: Region3, resolution: float, material: Material):
+	@abstractmethod
+	def FillRegion(self, region: 'Region3', resolution: float, material: Material) -> None:
 		pass
 
-	def FillWedge(self, cframe: CFrame, size: Vector3, material: Material):
+	@abstractmethod
+	def FillWedge(self, cframe: CFrame, size: Vector3, material: Material) -> None:
 		pass
 
-	def GetCell(self, x: int, y: int, z: int):
+	@abstractmethod
+	def GetCell(self, x: int, y: int, z: int) -> tuple[Any]:
 		pass
 
-	def GetMaterialColor(self, material: Material):
+	@abstractmethod
+	def GetMaterialColor(self, material: Material) -> Color3:
 		pass
 
-	def GetWaterCell(self, x: int, y: int, z: int):
+	@abstractmethod
+	def GetWaterCell(self, x: int, y: int, z: int) -> tuple[Any]:
 		pass
 
-	def HideTerrainRegion(self):
+	@abstractmethod
+	def HideTerrainRegion(self) -> None:
 		pass
 
-	def PasteRegion(self, region: TerrainRegion, corner: Vector3int16, pasteEmptyCells: bool):
+	@abstractmethod
+	def PasteRegion(self, region: 'TerrainRegion', corner: 'Vector3int16', pasteEmptyCells: bool) -> None:
 		pass
 
-	def ReadVoxels(self, region: Region3, resolution: float):
+	@abstractmethod
+	def ReadVoxels(self, region: 'Region3', resolution: float) -> tuple[Any]:
 		pass
 
-	def ReplaceMaterial(self, region: Region3, resolution: float, sourceMaterial: Material, targetMaterial: Material):
+	@abstractmethod
+	def ReplaceMaterial(self, region: 'Region3', resolution: float, sourceMaterial: Material, targetMaterial: Material) -> None:
 		pass
 
-	def SetCell(self, x: int, y: int, z: int, material: CellMaterial, block: CellBlock, orientation: CellOrientation):
+	@abstractmethod
+	def SetCell(self, x: int, y: int, z: int, material: CellMaterial, block: CellBlock, orientation: CellOrientation) -> None:
 		pass
 
-	def SetCells(self, region: Region3int16, material: CellMaterial, block: CellBlock, orientation: CellOrientation):
+	@abstractmethod
+	def SetCells(self, region: Region3int16, material: CellMaterial, block: CellBlock, orientation: CellOrientation) -> None:
 		pass
 
-	def SetMaterialColor(self, material: Material, value: Color3):
+	@abstractmethod
+	def SetMaterialColor(self, material: Material, value: Color3) -> None:
 		pass
 
-	def SetTerrainRegion(self, cframe: CFrame, size: Vector3):
+	@abstractmethod
+	def SetTerrainRegion(self, cframe: CFrame, size: Vector3) -> None:
 		pass
 
-	def SetWaterCell(self, x: int, y: int, z: int, force: WaterForce, direction: WaterDirection):
+	@abstractmethod
+	def SetWaterCell(self, x: int, y: int, z: int, force: WaterForce, direction: WaterDirection) -> None:
 		pass
 
-	def SetWireframeRegion(self, cframe: CFrame, size: Vector3):
+	@abstractmethod
+	def SetWireframeRegion(self, cframe: CFrame, size: Vector3) -> None:
 		pass
 
-	def ShowTerrainRegion(self):
+	@abstractmethod
+	def ShowTerrainRegion(self) -> None:
 		pass
 
-	def WorldToCell(self, position: Vector3):
+	@abstractmethod
+	def WorldToCell(self, position: Vector3) -> Vector3:
 		pass
 
-	def WorldToCellPreferEmpty(self, position: Vector3):
+	@abstractmethod
+	def WorldToCellPreferEmpty(self, position: Vector3) -> Vector3:
 		pass
 
-	def WorldToCellPreferSolid(self, position: Vector3):
+	@abstractmethod
+	def WorldToCellPreferSolid(self, position: Vector3) -> Vector3:
 		pass
 
-	def WriteVoxels(self, region: Region3, resolution: float, materials: list[Any], occupancy: list[Any]):
+	@abstractmethod
+	def WriteVoxels(self, region: 'Region3', resolution: float, materials: list[Any], occupancy: list[Any]) -> None:
 		pass
 
 
@@ -8418,7 +9334,8 @@ class MeshPart:
 	MeshId: Content
 	TextureID: Content
 	RenderFidelity: RenderFidelity
-	def ApplyMesh(self, meshPart: Instance):
+	@abstractmethod
+	def ApplyMesh(self, meshPart: Instance) -> None:
 		pass
 
 
@@ -8457,7 +9374,8 @@ class VehicleSeat:
 	ThrottleFloat: float
 	Torque: float
 	TurnSpeed: float
-	def Sit(self, humanoid: Instance):
+	@abstractmethod
+	def Sit(self, humanoid: Instance) -> None:
 		pass
 
 
@@ -8470,52 +9388,68 @@ class Model:
 	WorldPivotPosition: Vector3
 	WorldPivot: CFrame
 	ModelStreamingMode: ModelStreamingMode
-	def BreakJoints(self):
+	@abstractmethod
+	def BreakJoints(self) -> None:
 		pass
 
-	def GetBoundingBox(self):
+	@abstractmethod
+	def GetBoundingBox(self) -> tuple[Any]:
 		pass
 
-	def GetExtentsSize(self):
+	@abstractmethod
+	def GetExtentsSize(self) -> Vector3:
 		pass
 
-	def GetModelCFrame(self):
+	@abstractmethod
+	def GetModelCFrame(self) -> CFrame:
 		pass
 
-	def GetModelSize(self):
+	@abstractmethod
+	def GetModelSize(self) -> Vector3:
 		pass
 
-	def GetPrimaryPartCFrame(self):
+	@abstractmethod
+	def GetPrimaryPartCFrame(self) -> CFrame:
 		pass
 
-	def MakeJoints(self):
+	@abstractmethod
+	def MakeJoints(self) -> None:
 		pass
 
-	def MoveTo(self, position: Vector3):
+	@abstractmethod
+	def MoveTo(self, position: Vector3) -> None:
 		pass
 
-	def ResetOrientationToIdentity(self):
+	@abstractmethod
+	def ResetOrientationToIdentity(self) -> None:
 		pass
 
-	def SetIdentityOrientation(self):
+	@abstractmethod
+	def SetIdentityOrientation(self) -> None:
 		pass
 
-	def SetPrimaryPartCFrame(self, cframe: CFrame):
+	@abstractmethod
+	def SetPrimaryPartCFrame(self, cframe: CFrame) -> None:
 		pass
 
-	def TranslateBy(self, delta: Vector3):
+	@abstractmethod
+	def TranslateBy(self, delta: Vector3) -> None:
 		pass
 
-	def breakJoints(self):
+	@abstractmethod
+	def breakJoints(self) -> None:
 		pass
 
-	def makeJoints(self):
+	@abstractmethod
+	def makeJoints(self) -> None:
 		pass
 
-	def move(self, location: Vector3):
+	@abstractmethod
+	def move(self, location: Vector3) -> None:
 		pass
 
-	def moveTo(self, location: Vector3):
+	@abstractmethod
+	def moveTo(self, location: Vector3) -> None:
 		pass
 
 
@@ -8530,58 +9464,76 @@ class Status:
 	pass
 
 class WorldRoot:
-	def ArePartsTouchingOthers(self, partList: Objects, overlapIgnored: float):
+	@abstractmethod
+	def ArePartsTouchingOthers(self, partList: dict[int, Instance], overlapIgnored: float) -> bool:
 		pass
 
-	def BulkMoveTo(self, partList: Objects, cframeList: list[Any], eventMode: BulkMoveMode):
+	@abstractmethod
+	def BulkMoveTo(self, partList: dict[int, Instance], cframeList: list[Any], eventMode: BulkMoveMode) -> None:
 		pass
 
-	def FindPartOnRay(self, ray: Ray, ignoreDescendantsInstance: Instance, terrainCellsAreCubes: bool, ignoreWater: bool):
+	@abstractmethod
+	def FindPartOnRay(self, ray: Ray, ignoreDescendantsInstance: Instance, terrainCellsAreCubes: bool, ignoreWater: bool) -> tuple[Any]:
 		pass
 
-	def FindPartOnRayWithIgnoreList(self, ray: Ray, ignoreDescendantsTable: Objects, terrainCellsAreCubes: bool, ignoreWater: bool):
+	@abstractmethod
+	def FindPartOnRayWithIgnoreList(self, ray: Ray, ignoreDescendantsTable: dict[int, Instance], terrainCellsAreCubes: bool, ignoreWater: bool) -> tuple[Any]:
 		pass
 
-	def FindPartOnRayWithWhitelist(self, ray: Ray, whitelistDescendantsTable: Objects, ignoreWater: bool):
+	@abstractmethod
+	def FindPartOnRayWithWhitelist(self, ray: Ray, whitelistDescendantsTable: dict[int, Instance], ignoreWater: bool) -> tuple[Any]:
 		pass
 
-	def FindPartsInRegion3(self, region: Region3, ignoreDescendantsInstance: Instance, maxParts: int):
+	@abstractmethod
+	def FindPartsInRegion3(self, region: 'Region3', ignoreDescendantsInstance: Instance, maxParts: int) -> dict[int, Instance]:
 		pass
 
-	def FindPartsInRegion3WithIgnoreList(self, region: Region3, ignoreDescendantsTable: Objects, maxParts: int):
+	@abstractmethod
+	def FindPartsInRegion3WithIgnoreList(self, region: 'Region3', ignoreDescendantsTable: dict[int, Instance], maxParts: int) -> dict[int, Instance]:
 		pass
 
-	def FindPartsInRegion3WithWhiteList(self, region: Region3, whitelistDescendantsTable: Objects, maxParts: int):
+	@abstractmethod
+	def FindPartsInRegion3WithWhiteList(self, region: 'Region3', whitelistDescendantsTable: dict[int, Instance], maxParts: int) -> dict[int, Instance]:
 		pass
 
-	def GetPartBoundsInBox(self, cframe: CFrame, size: Vector3, overlapParams: OverlapParams):
+	@abstractmethod
+	def GetPartBoundsInBox(self, cframe: CFrame, size: Vector3, overlapParams: 'OverlapParams') -> dict[int, Instance]:
 		pass
 
-	def GetPartBoundsInRadius(self, position: Vector3, radius: float, overlapParams: OverlapParams):
+	@abstractmethod
+	def GetPartBoundsInRadius(self, position: Vector3, radius: float, overlapParams: 'OverlapParams') -> dict[int, Instance]:
 		pass
 
-	def GetPartsInPart(self, part: BasePart, overlapParams: OverlapParams):
+	@abstractmethod
+	def GetPartsInPart(self, part: BasePart, overlapParams: 'OverlapParams') -> dict[int, Instance]:
 		pass
 
-	def IKMoveTo(self, part: BasePart, target: CFrame, translateStiffness: float, rotateStiffness: float, collisionsMode: IKCollisionsMode):
+	@abstractmethod
+	def IKMoveTo(self, part: BasePart, target: CFrame, translateStiffness: float, rotateStiffness: float, collisionsMode: IKCollisionsMode) -> None:
 		pass
 
-	def IsRegion3Empty(self, region: Region3, ignoreDescendentsInstance: Instance):
+	@abstractmethod
+	def IsRegion3Empty(self, region: 'Region3', ignoreDescendentsInstance: Instance) -> bool:
 		pass
 
-	def IsRegion3EmptyWithIgnoreList(self, region: Region3, ignoreDescendentsTable: Objects):
+	@abstractmethod
+	def IsRegion3EmptyWithIgnoreList(self, region: 'Region3', ignoreDescendentsTable: dict[int, Instance]) -> bool:
 		pass
 
-	def Raycast(self, origin: Vector3, direction: Vector3, raycastParams: RaycastParams):
+	@abstractmethod
+	def Raycast(self, origin: Vector3, direction: Vector3, raycastParams: 'RaycastParams') -> 'RaycastResult':
 		pass
 
-	def SetInsertPoint(self, point: Vector3, ignoreGrid: bool):
+	@abstractmethod
+	def SetInsertPoint(self, point: Vector3, ignoreGrid: bool) -> None:
 		pass
 
-	def findPartOnRay(self, ray: Ray, ignoreDescendantsInstance: Instance, terrainCellsAreCubes: bool, ignoreWater: bool):
+	@abstractmethod
+	def findPartOnRay(self, ray: Ray, ignoreDescendantsInstance: Instance, terrainCellsAreCubes: bool, ignoreWater: bool) -> tuple[Any]:
 		pass
 
-	def findPartsInRegion3(self, region: Region3, ignoreDescendantsInstance: Instance, maxParts: int):
+	@abstractmethod
+	def findPartsInRegion3(self, region: 'Region3', ignoreDescendantsInstance: Instance, maxParts: int) -> dict[int, Instance]:
 		pass
 
 
@@ -8612,52 +9564,68 @@ class Workspace:
 	StreamingIntegrityMode: StreamingIntegrityMode
 	Terrain: Terrain
 	UnionsScaleNonuniformly: UnionsScaleNonuniformly
-	def BreakJoints(self, objects: Objects):
+	@abstractmethod
+	def BreakJoints(self, objects: dict[int, Instance]) -> None:
 		pass
 
-	def CalculateJumpDistance(self, gravity: float, jumpPower: float, walkSpeed: float):
+	@abstractmethod
+	def CalculateJumpDistance(self, gravity: float, jumpPower: float, walkSpeed: float) -> float:
 		pass
 
-	def CalculateJumpHeight(self, gravity: float, jumpPower: float):
+	@abstractmethod
+	def CalculateJumpHeight(self, gravity: float, jumpPower: float) -> float:
 		pass
 
-	def CalculateJumpPower(self, gravity: float, jumpHeight: float):
+	@abstractmethod
+	def CalculateJumpPower(self, gravity: float, jumpHeight: float) -> float:
 		pass
 
-	def ExperimentalSolverIsEnabled(self):
+	@abstractmethod
+	def ExperimentalSolverIsEnabled(self) -> bool:
 		pass
 
-	def GetNumAwakeParts(self):
+	@abstractmethod
+	def GetNumAwakeParts(self) -> int:
 		pass
 
-	def GetPhysicsThrottling(self):
+	@abstractmethod
+	def GetPhysicsThrottling(self) -> int:
 		pass
 
-	def GetRealPhysicsFPS(self):
+	@abstractmethod
+	def GetRealPhysicsFPS(self) -> float:
 		pass
 
-	def GetServerTimeNow(self):
+	@abstractmethod
+	def GetServerTimeNow(self) -> float:
 		pass
 
-	def JoinToOutsiders(self, objects: Objects, jointType: JointCreationMode):
+	@abstractmethod
+	def JoinToOutsiders(self, objects: dict[int, Instance], jointType: JointCreationMode) -> None:
 		pass
 
-	def MakeJoints(self, objects: Objects):
+	@abstractmethod
+	def MakeJoints(self, objects: dict[int, Instance]) -> None:
 		pass
 
-	def PGSIsEnabled(self):
+	@abstractmethod
+	def PGSIsEnabled(self) -> bool:
 		pass
 
-	def SetMeshPartHeadsAndAccessories(self, value: MeshPartHeadsAndAccessories):
+	@abstractmethod
+	def SetMeshPartHeadsAndAccessories(self, value: 'MeshPartHeadsAndAccessories') -> None:
 		pass
 
-	def SetPhysicsThrottleEnabled(self, value: bool):
+	@abstractmethod
+	def SetPhysicsThrottleEnabled(self, value: bool) -> None:
 		pass
 
-	def UnjoinFromOutsiders(self, objects: Objects):
+	@abstractmethod
+	def UnjoinFromOutsiders(self, objects: dict[int, Instance]) -> None:
 		pass
 
-	def ZoomToExtents(self):
+	@abstractmethod
+	def ZoomToExtents(self) -> None:
 		pass
 
 
@@ -8683,16 +9651,20 @@ class PackageService:
 	pass
 
 class PackageUIService:
-	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: Objects, originalInstances: Objects):
+	@abstractmethod
+	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: dict[int, Instance], originalInstances: dict[int, Instance]) -> None:
 		pass
 
-	def GetPackageInfo(self, packageAssetId: int):
+	@abstractmethod
+	def GetPackageInfo(self, packageAssetId: int) -> dict[Any, Any]:
 		pass
 
-	def PublishPackage(self, packageInstance: Instance):
+	@abstractmethod
+	def PublishPackage(self, packageInstance: Instance) -> None:
 		pass
 
-	def SetPackageVersion(self, packageInstance: Instance, versionNumber: int):
+	@abstractmethod
+	def SetPackageVersion(self, packageInstance: Instance, versionNumber: int) -> Instance:
 		pass
 
 
@@ -8700,10 +9672,12 @@ class PackageUIService:
 
 class Pages:
 	IsFinished: bool
-	def GetCurrentPage(self):
+	@abstractmethod
+	def GetCurrentPage(self) -> list[Any]:
 		pass
 
-	def AdvanceToNextPageAsync(self):
+	@abstractmethod
+	def AdvanceToNextPageAsync(self) -> None:
 		pass
 
 
@@ -8789,13 +9763,16 @@ class ParticleEmitter:
 	VelocityInheritance: float
 	VelocitySpread: float
 	ZOffset: float
-	def Clear(self):
+	@abstractmethod
+	def Clear(self) -> None:
 		pass
 
-	def Emit(self, particleCount: int):
+	@abstractmethod
+	def Emit(self, particleCount: int) -> None:
 		pass
 
-	def FastForward(self, numFrames: int):
+	@abstractmethod
+	def FastForward(self, numFrames: int) -> None:
 		pass
 
 
@@ -8803,16 +9780,20 @@ class ParticleEmitter:
 
 class Path:
 	Status: PathStatus
-	def GetPointCoordinates(self):
+	@abstractmethod
+	def GetPointCoordinates(self) -> list[Any]:
 		pass
 
-	def GetWaypoints(self):
+	@abstractmethod
+	def GetWaypoints(self) -> list[Any]:
 		pass
 
-	def CheckOcclusionAsync(self, start: int):
+	@abstractmethod
+	def CheckOcclusionAsync(self, start: int) -> int:
 		pass
 
-	def ComputeAsync(self, start: Vector3, finish: Vector3):
+	@abstractmethod
+	def ComputeAsync(self, start: Vector3, finish: Vector3) -> None:
 		pass
 
 
@@ -8834,16 +9815,20 @@ class PathfindingModifier:
 
 class PathfindingService:
 	EmptyCutoff: float
-	def CreatePath(self, agentParameters: Dictionary):
+	@abstractmethod
+	def CreatePath(self, agentParameters: dict[Any, Any]) -> Instance:
 		pass
 
-	def ComputeRawPathAsync(self, start: Vector3, finish: Vector3, maxDistance: float):
+	@abstractmethod
+	def ComputeRawPathAsync(self, start: Vector3, finish: Vector3, maxDistance: float) -> Instance:
 		pass
 
-	def ComputeSmoothPathAsync(self, start: Vector3, finish: Vector3, maxDistance: float):
+	@abstractmethod
+	def ComputeSmoothPathAsync(self, start: Vector3, finish: Vector3, maxDistance: float) -> Instance:
 		pass
 
-	def FindPathAsync(self, start: Vector3, finish: Vector3):
+	@abstractmethod
+	def FindPathAsync(self, start: Vector3, finish: Vector3) -> Instance:
 		pass
 
 
@@ -8867,74 +9852,96 @@ class PausedStateException:
 	pass
 
 class PermissionsService:
-	def GetIsThirdPartyAssetAllowed(self):
+	@abstractmethod
+	def GetIsThirdPartyAssetAllowed(self) -> bool:
 		pass
 
-	def GetIsThirdPartyPurchaseAllowed(self):
+	@abstractmethod
+	def GetIsThirdPartyPurchaseAllowed(self) -> bool:
 		pass
 
-	def GetIsThirdPartyTeleportAllowed(self):
+	@abstractmethod
+	def GetIsThirdPartyTeleportAllowed(self) -> bool:
 		pass
 
-	def GetPermissions(self, assetId: str):
+	@abstractmethod
+	def GetPermissions(self, assetId: str) -> list[Any]:
 		pass
 
-	def SetPermissions(self, assetId: str, permissions: list[Any]):
+	@abstractmethod
+	def SetPermissions(self, assetId: str, permissions: list[Any]) -> None:
 		pass
 
 
 	pass
 
 class PhysicsService:
-	def CollisionGroupContainsPart(self, name: str, part: BasePart):
+	@abstractmethod
+	def CollisionGroupContainsPart(self, name: str, part: BasePart) -> bool:
 		pass
 
-	def CollisionGroupSetCollidable(self, name1: str, name2: str, collidable: bool):
+	@abstractmethod
+	def CollisionGroupSetCollidable(self, name1: str, name2: str, collidable: bool) -> None:
 		pass
 
-	def CollisionGroupsAreCollidable(self, name1: str, name2: str):
+	@abstractmethod
+	def CollisionGroupsAreCollidable(self, name1: str, name2: str) -> bool:
 		pass
 
-	def CreateCollisionGroup(self, name: str):
+	@abstractmethod
+	def CreateCollisionGroup(self, name: str) -> int:
 		pass
 
-	def GetCollisionGroupId(self, name: str):
+	@abstractmethod
+	def GetCollisionGroupId(self, name: str) -> int:
 		pass
 
-	def GetCollisionGroupName(self, name: int):
+	@abstractmethod
+	def GetCollisionGroupName(self, name: int) -> str:
 		pass
 
-	def GetCollisionGroups(self):
+	@abstractmethod
+	def GetCollisionGroups(self) -> list[Any]:
 		pass
 
-	def GetMaxCollisionGroups(self):
+	@abstractmethod
+	def GetMaxCollisionGroups(self) -> int:
 		pass
 
-	def GetRegisteredCollisionGroups(self):
+	@abstractmethod
+	def GetRegisteredCollisionGroups(self) -> list[Any]:
 		pass
 
-	def IkSolve(self, part: BasePart, target: CFrame, translateStiffness: float, rotateStiffness: float):
+	@abstractmethod
+	def IkSolve(self, part: BasePart, target: CFrame, translateStiffness: float, rotateStiffness: float) -> None:
 		pass
 
-	def IsCollisionGroupRegistered(self, name: str):
+	@abstractmethod
+	def IsCollisionGroupRegistered(self, name: str) -> bool:
 		pass
 
-	def LocalIkSolve(self, part: BasePart, target: CFrame, translateStiffness: float, rotateStiffness: float):
+	@abstractmethod
+	def LocalIkSolve(self, part: BasePart, target: CFrame, translateStiffness: float, rotateStiffness: float) -> None:
 		pass
 
-	def RegisterCollisionGroup(self, name: str):
+	@abstractmethod
+	def RegisterCollisionGroup(self, name: str) -> None:
 		pass
 
-	def RemoveCollisionGroup(self, name: str):
+	@abstractmethod
+	def RemoveCollisionGroup(self, name: str) -> None:
 		pass
 
-	def RenameCollisionGroup(self, from: str, to: str):
+	@abstractmethod
+	def RenameCollisionGroup(self, from_: str, to: str) -> None:
 		pass
 
-	def SetPartCollisionGroup(self, part: BasePart, name: str):
+	@abstractmethod
+	def SetPartCollisionGroup(self, part: BasePart, name: str) -> None:
 		pass
 
-	def UnregisterCollisionGroup(self, name: str):
+	@abstractmethod
+	def UnregisterCollisionGroup(self, name: str) -> None:
 		pass
 
 
@@ -9000,6 +10007,7 @@ class Player:
 	ReplicationFocus: Instance
 	RespawnLocation: SpawnLocation
 	SimulationRadius: float
+	Team: 'Team'
 	TeamColor: BrickColor
 	Teleported: bool
 	TeleportedIn: bool
@@ -9013,170 +10021,224 @@ class Player:
 	DevComputerMovementMode: DevComputerMovementMode
 	DevTouchMovementMode: DevTouchMovementMode
 	MembershipType: MembershipType
-	Team: Team
-	def AddToBlockList(self, userIds: list[Any]):
+	@abstractmethod
+	def AddToBlockList(self, userIds: list[Any]) -> None:
 		pass
 
-	def ClearCharacterAppearance(self):
+	@abstractmethod
+	def ClearCharacterAppearance(self) -> None:
 		pass
 
-	def DistanceFromCharacter(self, point: Vector3):
+	@abstractmethod
+	def DistanceFromCharacter(self, point: Vector3) -> float:
 		pass
 
-	def GetFriendStatus(self, player: Self):
+	@abstractmethod
+	def GetFriendStatus(self, player: Self) -> FriendStatus:
 		pass
 
-	def GetGameSessionID(self):
+	@abstractmethod
+	def GetGameSessionID(self) -> str:
 		pass
 
-	def GetJoinData(self):
+	@abstractmethod
+	def GetJoinData(self) -> dict[Any, Any]:
 		pass
 
-	def GetMouse(self):
+	@abstractmethod
+	def GetMouse(self) -> Mouse:
 		pass
 
-	def GetNetworkPing(self):
+	@abstractmethod
+	def GetNetworkPing(self) -> float:
 		pass
 
-	def GetUnder13(self):
+	@abstractmethod
+	def GetUnder13(self) -> bool:
 		pass
 
-	def HasAppearanceLoaded(self):
+	@abstractmethod
+	def HasAppearanceLoaded(self) -> bool:
 		pass
 
-	def Kick(self, message: str):
+	@abstractmethod
+	def Kick(self, message: str) -> None:
 		pass
 
-	def LoadBoolean(self, key: str):
+	@abstractmethod
+	def LoadBoolean(self, key: str) -> bool:
 		pass
 
-	def LoadCharacterAppearance(self, assetInstance: Instance):
+	@abstractmethod
+	def LoadCharacterAppearance(self, assetInstance: Instance) -> None:
 		pass
 
-	def LoadData(self):
+	@abstractmethod
+	def LoadData(self) -> None:
 		pass
 
-	def LoadInstance(self, key: str):
+	@abstractmethod
+	def LoadInstance(self, key: str) -> Instance:
 		pass
 
-	def LoadNumber(self, key: str):
+	@abstractmethod
+	def LoadNumber(self, key: str) -> float:
 		pass
 
-	def LoadString(self, key: str):
+	@abstractmethod
+	def LoadString(self, key: str) -> str:
 		pass
 
-	def Move(self, walkDirection: Vector3, relativeToCamera: bool):
+	@abstractmethod
+	def Move(self, walkDirection: Vector3, relativeToCamera: bool) -> None:
 		pass
 
-	def RemoveCharacter(self):
+	@abstractmethod
+	def RemoveCharacter(self) -> None:
 		pass
 
-	def RequestFriendship(self, player: Self):
+	@abstractmethod
+	def RequestFriendship(self, player: Self) -> None:
 		pass
 
-	def RevokeFriendship(self, player: Self):
+	@abstractmethod
+	def RevokeFriendship(self, player: Self) -> None:
 		pass
 
-	def SaveBoolean(self, key: str, value: bool):
+	@abstractmethod
+	def SaveBoolean(self, key: str, value: bool) -> None:
 		pass
 
-	def SaveData(self):
+	@abstractmethod
+	def SaveData(self) -> None:
 		pass
 
-	def SaveInstance(self, key: str, value: Instance):
+	@abstractmethod
+	def SaveInstance(self, key: str, value: Instance) -> None:
 		pass
 
-	def SaveNumber(self, key: str, value: float):
+	@abstractmethod
+	def SaveNumber(self, key: str, value: float) -> None:
 		pass
 
-	def SaveString(self, key: str, value: str):
+	@abstractmethod
+	def SaveString(self, key: str, value: str) -> None:
 		pass
 
-	def SetAccountAge(self, accountAge: int):
+	@abstractmethod
+	def SetAccountAge(self, accountAge: int) -> None:
 		pass
 
-	def SetCharacterAppearanceJson(self, jsonBlob: str):
+	@abstractmethod
+	def SetCharacterAppearanceJson(self, jsonBlob: str) -> None:
 		pass
 
-	def SetExperienceSettingsLocaleId(self, locale: str):
+	@abstractmethod
+	def SetExperienceSettingsLocaleId(self, locale: str) -> None:
 		pass
 
-	def SetMembershipType(self, membershipType: MembershipType):
+	@abstractmethod
+	def SetMembershipType(self, membershipType: 'MembershipType') -> None:
 		pass
 
-	def SetModerationAccessKey(self, moderationAccessKey: str):
+	@abstractmethod
+	def SetModerationAccessKey(self, moderationAccessKey: str) -> None:
 		pass
 
-	def SetSuperSafeChat(self, value: bool):
+	@abstractmethod
+	def SetSuperSafeChat(self, value: bool) -> None:
 		pass
 
-	def SetUnder13(self, value: bool):
+	@abstractmethod
+	def SetUnder13(self, value: bool) -> None:
 		pass
 
-	def UpdatePlayerBlocked(self, userId: int, blocked: bool):
+	@abstractmethod
+	def UpdatePlayerBlocked(self, userId: int, blocked: bool) -> None:
 		pass
 
-	def loadBoolean(self, key: str):
+	@abstractmethod
+	def loadBoolean(self, key: str) -> bool:
 		pass
 
-	def loadInstance(self, key: str):
+	@abstractmethod
+	def loadInstance(self, key: str) -> Instance:
 		pass
 
-	def loadNumber(self, key: str):
+	@abstractmethod
+	def loadNumber(self, key: str) -> float:
 		pass
 
-	def loadString(self, key: str):
+	@abstractmethod
+	def loadString(self, key: str) -> str:
 		pass
 
-	def saveBoolean(self, key: str, value: bool):
+	@abstractmethod
+	def saveBoolean(self, key: str, value: bool) -> None:
 		pass
 
-	def saveInstance(self, key: str, value: Instance):
+	@abstractmethod
+	def saveInstance(self, key: str, value: Instance) -> None:
 		pass
 
-	def saveNumber(self, key: str, value: float):
+	@abstractmethod
+	def saveNumber(self, key: str, value: float) -> None:
 		pass
 
-	def saveString(self, key: str, value: str):
+	@abstractmethod
+	def saveString(self, key: str, value: str) -> None:
 		pass
 
-	def GetFriendsOnline(self, maxFriends: int):
+	@abstractmethod
+	def GetFriendsOnline(self, maxFriends: int) -> list[Any]:
 		pass
 
-	def GetRankInGroup(self, groupId: int):
+	@abstractmethod
+	def GetRankInGroup(self, groupId: int) -> int:
 		pass
 
-	def GetRoleInGroup(self, groupId: int):
+	@abstractmethod
+	def GetRoleInGroup(self, groupId: int) -> str:
 		pass
 
-	def IsBestFriendsWith(self, userId: int):
+	@abstractmethod
+	def IsBestFriendsWith(self, userId: int) -> bool:
 		pass
 
-	def IsFriendsWith(self, userId: int):
+	@abstractmethod
+	def IsFriendsWith(self, userId: int) -> bool:
 		pass
 
-	def IsInGroup(self, groupId: int):
+	@abstractmethod
+	def IsInGroup(self, groupId: int) -> bool:
 		pass
 
-	def LoadCharacter(self):
+	@abstractmethod
+	def LoadCharacter(self) -> None:
 		pass
 
-	def LoadCharacterBlocking(self):
+	@abstractmethod
+	def LoadCharacterBlocking(self) -> None:
 		pass
 
-	def LoadCharacterWithHumanoidDescription(self, humanoidDescription: HumanoidDescription):
+	@abstractmethod
+	def LoadCharacterWithHumanoidDescription(self, humanoidDescription: HumanoidDescription) -> None:
 		pass
 
-	def RequestStreamAroundAsync(self, position: Vector3, timeOut: float):
+	@abstractmethod
+	def RequestStreamAroundAsync(self, position: Vector3, timeOut: float) -> None:
 		pass
 
-	def WaitForDataReady(self):
+	@abstractmethod
+	def WaitForDataReady(self) -> bool:
 		pass
 
-	def isFriendsWith(self, userId: int):
+	@abstractmethod
+	def isFriendsWith(self, userId: int) -> bool:
 		pass
 
-	def waitForDataReady(self):
+	@abstractmethod
+	def waitForDataReady(self) -> bool:
 		pass
 
 
@@ -9188,53 +10250,68 @@ class PlayerEmulatorService:
 	EmulatedGameLocale: str
 	PlayerEmulationEnabled: bool
 	SerializedEmulatedPolicyInfo: BinaryString
-	def GetEmulatedPolicyInfo(self):
+	@abstractmethod
+	def GetEmulatedPolicyInfo(self) -> dict[Any, Any]:
 		pass
 
-	def RegionCodeWillHaveAutomaticNonCustomPolicies(self, regionCode: str):
+	@abstractmethod
+	def RegionCodeWillHaveAutomaticNonCustomPolicies(self, regionCode: str) -> bool:
 		pass
 
-	def SetEmulatedPolicyInfo(self, emulatedPolicyInfo: Dictionary):
+	@abstractmethod
+	def SetEmulatedPolicyInfo(self, emulatedPolicyInfo: dict[Any, Any]) -> None:
 		pass
 
 
 	pass
 
 class PlayerScripts:
-	def ClearComputerCameraMovementModes(self):
+	@abstractmethod
+	def ClearComputerCameraMovementModes(self) -> None:
 		pass
 
-	def ClearComputerMovementModes(self):
+	@abstractmethod
+	def ClearComputerMovementModes(self) -> None:
 		pass
 
-	def ClearTouchCameraMovementModes(self):
+	@abstractmethod
+	def ClearTouchCameraMovementModes(self) -> None:
 		pass
 
-	def ClearTouchMovementModes(self):
+	@abstractmethod
+	def ClearTouchMovementModes(self) -> None:
 		pass
 
-	def GetRegisteredComputerCameraMovementModes(self):
+	@abstractmethod
+	def GetRegisteredComputerCameraMovementModes(self) -> list[Any]:
 		pass
 
-	def GetRegisteredComputerMovementModes(self):
+	@abstractmethod
+	def GetRegisteredComputerMovementModes(self) -> list[Any]:
 		pass
 
-	def GetRegisteredTouchCameraMovementModes(self):
+	@abstractmethod
+	def GetRegisteredTouchCameraMovementModes(self) -> list[Any]:
 		pass
 
-	def GetRegisteredTouchMovementModes(self):
+	@abstractmethod
+	def GetRegisteredTouchMovementModes(self) -> list[Any]:
 		pass
 
-	def RegisterComputerCameraMovementMode(self, cameraMovementMode: ComputerCameraMovementMode):
+	@abstractmethod
+	def RegisterComputerCameraMovementMode(self, cameraMovementMode: ComputerCameraMovementMode) -> None:
 		pass
 
-	def RegisterComputerMovementMode(self, movementMode: ComputerMovementMode):
+	@abstractmethod
+	def RegisterComputerMovementMode(self, movementMode: ComputerMovementMode) -> None:
 		pass
 
-	def RegisterTouchCameraMovementMode(self, cameraMovementMode: TouchCameraMovementMode):
+	@abstractmethod
+	def RegisterTouchCameraMovementMode(self, cameraMovementMode: TouchCameraMovementMode) -> None:
 		pass
 
-	def RegisterTouchMovementMode(self, movementMode: TouchMovementMode):
+	@abstractmethod
+	def RegisterTouchMovementMode(self, movementMode: TouchMovementMode) -> None:
 		pass
 
 
@@ -9253,76 +10330,100 @@ class Players:
 	RespawnTime: float
 	localPlayer: Player
 	numPlayers: int
-	def Chat(self, message: str):
+	@abstractmethod
+	def Chat(self, message: str) -> None:
 		pass
 
-	def CreateLocalPlayer(self):
+	@abstractmethod
+	def CreateLocalPlayer(self) -> Player:
 		pass
 
-	def GetPlayerByUserId(self, userId: int):
+	@abstractmethod
+	def GetPlayerByUserId(self, userId: int) -> Player:
 		pass
 
-	def GetPlayerFromCharacter(self, character: Model):
+	@abstractmethod
+	def GetPlayerFromCharacter(self, character: Model) -> Player:
 		pass
 
-	def GetPlayers(self):
+	@abstractmethod
+	def GetPlayers(self) -> dict[int, Instance]:
 		pass
 
-	def ReportAbuse(self, player: Player, reason: str, optionalMessage: str):
+	@abstractmethod
+	def ReportAbuse(self, player: Player, reason: str, optionalMessage: str) -> None:
 		pass
 
-	def ReportAbuseV3(self, player: Player, jsonTags: str):
+	@abstractmethod
+	def ReportAbuseV3(self, player: Player, jsonTags: str) -> None:
 		pass
 
-	def SetChatStyle(self, style: ChatStyle):
+	@abstractmethod
+	def SetChatStyle(self, style: ChatStyle) -> None:
 		pass
 
-	def SetLocalPlayerInfo(self, userId: int, userName: str, displayName: str, membershipType: MembershipType, isUnder13: bool):
+	@abstractmethod
+	def SetLocalPlayerInfo(self, userId: int, userName: str, displayName: str, membershipType: MembershipType, isUnder13: bool) -> None:
 		pass
 
-	def TeamChat(self, message: str):
+	@abstractmethod
+	def TeamChat(self, message: str) -> None:
 		pass
 
-	def WhisperChat(self, message: str, player: Instance):
+	@abstractmethod
+	def WhisperChat(self, message: str, player: Instance) -> None:
 		pass
 
-	def getPlayers(self):
+	@abstractmethod
+	def getPlayers(self) -> dict[int, Instance]:
 		pass
 
-	def playerFromCharacter(self, character: Model):
+	@abstractmethod
+	def playerFromCharacter(self, character: Model) -> Player:
 		pass
 
-	def players(self):
+	@abstractmethod
+	def players(self) -> dict[int, Instance]:
 		pass
 
-	def CreateHumanoidModelFromDescription(self, description: HumanoidDescription, rigType: HumanoidRigType, assetTypeVerification: AssetTypeVerification):
+	@abstractmethod
+	def CreateHumanoidModelFromDescription(self, description: HumanoidDescription, rigType: HumanoidRigType, assetTypeVerification: AssetTypeVerification) -> Model:
 		pass
 
-	def CreateHumanoidModelFromUserId(self, userId: int):
+	@abstractmethod
+	def CreateHumanoidModelFromUserId(self, userId: int) -> Model:
 		pass
 
-	def GetCharacterAppearanceAsync(self, userId: int):
+	@abstractmethod
+	def GetCharacterAppearanceAsync(self, userId: int) -> Model:
 		pass
 
-	def GetCharacterAppearanceInfoAsync(self, userId: int):
+	@abstractmethod
+	def GetCharacterAppearanceInfoAsync(self, userId: int) -> dict[Any, Any]:
 		pass
 
-	def GetFriendsAsync(self, userId: int):
+	@abstractmethod
+	def GetFriendsAsync(self, userId: int) -> FriendPages:
 		pass
 
-	def GetHumanoidDescriptionFromOutfitId(self, outfitId: int):
+	@abstractmethod
+	def GetHumanoidDescriptionFromOutfitId(self, outfitId: int) -> HumanoidDescription:
 		pass
 
-	def GetHumanoidDescriptionFromUserId(self, userId: int):
+	@abstractmethod
+	def GetHumanoidDescriptionFromUserId(self, userId: int) -> HumanoidDescription:
 		pass
 
-	def GetNameFromUserIdAsync(self, userId: int):
+	@abstractmethod
+	def GetNameFromUserIdAsync(self, userId: int) -> str:
 		pass
 
-	def GetUserIdFromNameAsync(self, userName: str):
+	@abstractmethod
+	def GetUserIdFromNameAsync(self, userName: str) -> int:
 		pass
 
-	def GetUserThumbnailAsync(self, userId: int, thumbnailType: ThumbnailType, thumbnailSize: ThumbnailSize):
+	@abstractmethod
+	def GetUserThumbnailAsync(self, userId: int, thumbnailType: ThumbnailType, thumbnailSize: ThumbnailSize) -> tuple[Any]:
 		pass
 
 
@@ -9335,118 +10436,156 @@ class Plugin:
 	HostDataModelTypeIsCurrent: bool
 	UsesAssetInsertionDrag: bool
 	MultipleDocumentInterfaceInstance: MultipleDocumentInterfaceInstance
-	def Activate(self, exclusiveMouse: bool):
+	@abstractmethod
+	def Activate(self, exclusiveMouse: bool) -> None:
 		pass
 
-	def CreatePluginAction(self, actionId: str, text: str, statusTip: str, iconName: str, allowBinding: bool):
+	@abstractmethod
+	def CreatePluginAction(self, actionId: str, text: str, statusTip: str, iconName: str, allowBinding: bool) -> 'PluginAction':
 		pass
 
-	def CreatePluginMenu(self, id: str, title: str, icon: str):
+	@abstractmethod
+	def CreatePluginMenu(self, id: str, title: str, icon: str) -> 'PluginMenu':
 		pass
 
-	def CreateToolbar(self, name: str):
+	@abstractmethod
+	def CreateToolbar(self, name: str) -> 'PluginToolbar':
 		pass
 
-	def Deactivate(self):
+	@abstractmethod
+	def Deactivate(self) -> None:
 		pass
 
-	def GetItem(self, key: str, defaultValue: Any):
+	@abstractmethod
+	def GetItem(self, key: str, defaultValue: Any) -> Any:
 		pass
 
-	def GetJoinMode(self):
+	@abstractmethod
+	def GetJoinMode(self) -> JointCreationMode:
 		pass
 
-	def GetMouse(self):
+	@abstractmethod
+	def GetMouse(self) -> PluginMouse:
 		pass
 
-	def GetSelectedRibbonTool(self):
+	@abstractmethod
+	def GetSelectedRibbonTool(self) -> RibbonTool:
 		pass
 
-	def GetSetting(self, key: str):
+	@abstractmethod
+	def GetSetting(self, key: str) -> Any:
 		pass
 
-	def GetStudioUserId(self):
+	@abstractmethod
+	def GetStudioUserId(self) -> int:
 		pass
 
-	def Invoke(self, key: str, arguments: tuple[Any]):
+	@abstractmethod
+	def Invoke(self, key: str, arguments: tuple[Any]) -> None:
 		pass
 
-	def IsActivated(self):
+	@abstractmethod
+	def IsActivated(self) -> bool:
 		pass
 
-	def IsActivatedWithExclusiveMouse(self):
+	@abstractmethod
+	def IsActivatedWithExclusiveMouse(self) -> bool:
 		pass
 
-	def Negate(self, objects: Objects):
+	@abstractmethod
+	def Negate(self, objects: dict[int, Instance]) -> dict[int, Instance]:
 		pass
 
-	def OnInvoke(self, key: str, callback: Callable[..., Any]):
+	@abstractmethod
+	def OnInvoke(self, key: str, callback: Callable[..., Any]) -> Instance:
 		pass
 
-	def OnSetItem(self, key: str, callback: Callable[..., Any]):
+	@abstractmethod
+	def OnSetItem(self, key: str, callback: Callable[..., Any]) -> Instance:
 		pass
 
-	def OpenScript(self, script: LuaSourceContainer, lineNumber: int):
+	@abstractmethod
+	def OpenScript(self, script: LuaSourceContainer, lineNumber: int) -> None:
 		pass
 
-	def OpenWikiPage(self, url: str):
+	@abstractmethod
+	def OpenWikiPage(self, url: str) -> None:
 		pass
 
-	def PauseSound(self, sound: Instance):
+	@abstractmethod
+	def PauseSound(self, sound: Instance) -> None:
 		pass
 
-	def PlaySound(self, sound: Instance, normalizedTimePosition: float):
+	@abstractmethod
+	def PlaySound(self, sound: Instance, normalizedTimePosition: float) -> None:
 		pass
 
-	def ResumeSound(self, sound: Instance):
+	@abstractmethod
+	def ResumeSound(self, sound: Instance) -> None:
 		pass
 
-	def SaveSelectedToRoblox(self):
+	@abstractmethod
+	def SaveSelectedToRoblox(self) -> None:
 		pass
 
-	def SelectRibbonTool(self, tool: RibbonTool, position: UDim2):
+	@abstractmethod
+	def SelectRibbonTool(self, tool: RibbonTool, position: UDim2) -> None:
 		pass
 
-	def Separate(self, objects: Objects):
+	@abstractmethod
+	def Separate(self, objects: dict[int, Instance]) -> dict[int, Instance]:
 		pass
 
-	def SetItem(self, key: str, value: Any):
+	@abstractmethod
+	def SetItem(self, key: str, value: Any) -> None:
 		pass
 
-	def SetReady(self):
+	@abstractmethod
+	def SetReady(self) -> None:
 		pass
 
-	def SetSetting(self, key: str, value: Any):
+	@abstractmethod
+	def SetSetting(self, key: str, value: Any) -> None:
 		pass
 
-	def StartDecalDrag(self, decal: Instance):
+	@abstractmethod
+	def StartDecalDrag(self, decal: Instance) -> None:
 		pass
 
-	def StartDrag(self, dragData: Dictionary):
+	@abstractmethod
+	def StartDrag(self, dragData: dict[Any, Any]) -> None:
 		pass
 
-	def StopAllSounds(self):
+	@abstractmethod
+	def StopAllSounds(self) -> None:
 		pass
 
-	def Union(self, objects: Objects):
+	@abstractmethod
+	def Union(self, objects: dict[int, Instance]) -> Instance:
 		pass
 
-	def CreateDockWidgetPluginGui(self, pluginGuiId: str, dockWidgetPluginGuiInfo: DockWidgetPluginGuiInfo):
+	@abstractmethod
+	def CreateDockWidgetPluginGui(self, pluginGuiId: str, dockWidgetPluginGuiInfo: 'DockWidgetPluginGuiInfo') -> DockWidgetPluginGui:
 		pass
 
-	def CreateQWidgetPluginGui(self, pluginGuiId: str, pluginGuiOptions: Dictionary):
+	@abstractmethod
+	def CreateQWidgetPluginGui(self, pluginGuiId: str, pluginGuiOptions: dict[Any, Any]) -> QWidgetPluginGui:
 		pass
 
-	def ImportFbxAnimation(self, rigModel: Instance, isR15: bool):
+	@abstractmethod
+	def ImportFbxAnimation(self, rigModel: Instance, isR15: bool) -> Instance:
 		pass
 
-	def ImportFbxRig(self, isR15: bool):
+	@abstractmethod
+	def ImportFbxRig(self, isR15: bool) -> Instance:
 		pass
 
-	def PromptForExistingAssetId(self, assetType: str):
+	@abstractmethod
+	def PromptForExistingAssetId(self, assetType: str) -> int:
 		pass
 
-	def PromptSaveSelection(self, suggestedFileName: str):
+	@abstractmethod
+	def PromptSaveSelection(self, suggestedFileName: str) -> bool:
 		pass
 
 
@@ -9480,33 +10619,40 @@ class PluginGuiService:
 	pass
 
 class PluginManagementService:
-	def SetAutoUpdate(self, pluginId: int, state: bool):
+	@abstractmethod
+	def SetAutoUpdate(self, pluginId: int, state: bool) -> None:
 		pass
 
 
 	pass
 
 class PluginManager:
-	def CreatePlugin(self):
+	@abstractmethod
+	def CreatePlugin(self) -> Instance:
 		pass
 
-	def ExportPlace(self, filePath: str):
+	@abstractmethod
+	def ExportPlace(self, filePath: str) -> None:
 		pass
 
-	def ExportSelection(self, filePath: str):
+	@abstractmethod
+	def ExportSelection(self, filePath: str) -> None:
 		pass
 
 
 	pass
 
 class PluginManagerInterface:
-	def CreatePlugin(self):
+	@abstractmethod
+	def CreatePlugin(self) -> Instance:
 		pass
 
-	def ExportPlace(self, filePath: str):
+	@abstractmethod
+	def ExportPlace(self, filePath: str) -> None:
 		pass
 
-	def ExportSelection(self, filePath: str):
+	@abstractmethod
+	def ExportSelection(self, filePath: str) -> None:
 		pass
 
 
@@ -9515,36 +10661,44 @@ class PluginManagerInterface:
 class PluginMenu:
 	Icon: str
 	Title: str
-	def AddAction(self, action: Instance):
+	@abstractmethod
+	def AddAction(self, action: Instance) -> None:
 		pass
 
-	def AddMenu(self, menu: Instance):
+	@abstractmethod
+	def AddMenu(self, menu: Instance) -> None:
 		pass
 
-	def AddNewAction(self, actionId: str, text: str, icon: str):
+	@abstractmethod
+	def AddNewAction(self, actionId: str, text: str, icon: str) -> Instance:
 		pass
 
-	def AddSeparator(self):
+	@abstractmethod
+	def AddSeparator(self) -> None:
 		pass
 
-	def Clear(self):
+	@abstractmethod
+	def Clear(self) -> None:
 		pass
 
-	def ShowAsync(self):
+	@abstractmethod
+	def ShowAsync(self) -> Instance:
 		pass
 
 
 	pass
 
 class PluginPolicyService:
-	def GetPluginPolicy(self, pluginName: str):
+	@abstractmethod
+	def GetPluginPolicy(self, pluginName: str) -> dict[Any, Any]:
 		pass
 
 
 	pass
 
 class PluginToolbar:
-	def CreateButton(self, buttonId: str, tooltip: str, iconname: str, text: str):
+	@abstractmethod
+	def CreateButton(self, buttonId: str, tooltip: str, iconname: str, text: str) -> Instance:
 		pass
 
 
@@ -9554,23 +10708,28 @@ class PluginToolbarButton:
 	ClickableWhenViewportHidden: bool
 	Enabled: bool
 	Icon: Content
-	def SetActive(self, active: bool):
+	@abstractmethod
+	def SetActive(self, active: bool) -> None:
 		pass
 
 
 	pass
 
 class PointsService:
-	def GetAwardablePoints(self):
+	@abstractmethod
+	def GetAwardablePoints(self) -> int:
 		pass
 
-	def AwardPoints(self, userId: int, amount: int):
+	@abstractmethod
+	def AwardPoints(self, userId: int, amount: int) -> tuple[Any]:
 		pass
 
-	def GetGamePointBalance(self, userId: int):
+	@abstractmethod
+	def GetGamePointBalance(self, userId: int) -> int:
 		pass
 
-	def GetPointBalance(self, userId: int):
+	@abstractmethod
+	def GetPointBalance(self, userId: int) -> int:
 		pass
 
 
@@ -9579,10 +10738,12 @@ class PointsService:
 class PolicyService:
 	IsLuobuServer: TriStateBoolean
 	LuobuWhitelisted: TriStateBoolean
-	def GetPolicyInfoForPlayerAsync(self, player: Instance):
+	@abstractmethod
+	def GetPolicyInfoForPlayerAsync(self, player: Instance) -> dict[Any, Any]:
 		pass
 
-	def GetPolicyInfoForServerRobloxOnlyAsync(self):
+	@abstractmethod
+	def GetPolicyInfoForServerRobloxOnlyAsync(self) -> dict[Any, Any]:
 		pass
 
 
@@ -9603,13 +10764,16 @@ class NumberPose:
 class Pose:
 	MaskWeight: float
 	CFrame: CFrame
-	def AddSubPose(self, pose: Instance):
+	@abstractmethod
+	def AddSubPose(self, pose: Instance) -> None:
 		pass
 
-	def GetSubPoses(self):
+	@abstractmethod
+	def GetSubPoses(self) -> dict[int, Instance]:
 		pass
 
-	def RemoveSubPose(self, pose: Instance):
+	@abstractmethod
+	def RemoveSubPose(self, pose: Instance) -> None:
 		pass
 
 
@@ -9673,10 +10837,12 @@ class ProximityPrompt:
 	RootLocalizationTable: LocalizationTable
 	Style: ProximityPromptStyle
 	UIOffset: Vector2
-	def InputHoldBegin(self):
+	@abstractmethod
+	def InputHoldBegin(self) -> None:
 		pass
 
-	def InputHoldEnd(self):
+	@abstractmethod
+	def InputHoldEnd(self) -> None:
 		pass
 
 
@@ -9689,74 +10855,96 @@ class ProximityPromptService:
 	pass
 
 class PublishService:
-	def PublishDescendantAssets(self, instance: Instance):
+	@abstractmethod
+	def PublishDescendantAssets(self, instance: Instance) -> bool:
 		pass
 
-	def PublishCageMeshAsync(self, wrap: Instance, cageType: CageType):
+	@abstractmethod
+	def PublishCageMeshAsync(self, wrap: Instance, cageType: CageType) -> Content:
 		pass
 
 
 	pass
 
 class RbxAnalyticsService:
-	def AddGlobalPointsField(self, key: str, value: int):
+	@abstractmethod
+	def AddGlobalPointsField(self, key: str, value: int) -> None:
 		pass
 
-	def AddGlobalPointsTag(self, key: str, value: str):
+	@abstractmethod
+	def AddGlobalPointsTag(self, key: str, value: str) -> None:
 		pass
 
-	def DEPRECATED_TrackEvent(self, category: str, action: str, label: str, value: int):
+	@abstractmethod
+	def DEPRECATED_TrackEvent(self, category: str, action: str, label: str, value: int) -> None:
 		pass
 
-	def DEPRECATED_TrackEventWithArgs(self, category: str, action: str, label: str, args: Dictionary, value: int):
+	@abstractmethod
+	def DEPRECATED_TrackEventWithArgs(self, category: str, action: str, label: str, args: dict[Any, Any], value: int) -> None:
 		pass
 
-	def GetClientId(self):
+	@abstractmethod
+	def GetClientId(self) -> str:
 		pass
 
-	def GetSessionId(self):
+	@abstractmethod
+	def GetSessionId(self) -> str:
 		pass
 
-	def ReleaseRBXEventStream(self, target: str):
+	@abstractmethod
+	def ReleaseRBXEventStream(self, target: str) -> None:
 		pass
 
-	def RemoveGlobalPointsField(self, key: str):
+	@abstractmethod
+	def RemoveGlobalPointsField(self, key: str) -> None:
 		pass
 
-	def RemoveGlobalPointsTag(self, key: str):
+	@abstractmethod
+	def RemoveGlobalPointsTag(self, key: str) -> None:
 		pass
 
-	def ReportCounter(self, counterName: str, amount: int):
+	@abstractmethod
+	def ReportCounter(self, counterName: str, amount: int) -> None:
 		pass
 
-	def ReportInfluxSeries(self, seriesName: str, points: Dictionary, throttlingPercentage: int):
+	@abstractmethod
+	def ReportInfluxSeries(self, seriesName: str, points: dict[Any, Any], throttlingPercentage: int) -> None:
 		pass
 
-	def ReportStats(self, category: str, value: float):
+	@abstractmethod
+	def ReportStats(self, category: str, value: float) -> None:
 		pass
 
-	def ReportToDiagByCountryCode(self, featureName: str, measureName: str, seconds: float):
+	@abstractmethod
+	def ReportToDiagByCountryCode(self, featureName: str, measureName: str, seconds: float) -> None:
 		pass
 
-	def SendEventDeferred(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SendEventDeferred(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
-	def SendEventImmediately(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SendEventImmediately(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
-	def SetRBXEvent(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SetRBXEvent(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
-	def SetRBXEventStream(self, target: str, eventContext: str, eventName: str, additionalArgs: Dictionary):
+	@abstractmethod
+	def SetRBXEventStream(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
 
-	def TrackEvent(self, category: str, action: str, label: str, value: int):
+	@abstractmethod
+	def TrackEvent(self, category: str, action: str, label: str, value: int) -> None:
 		pass
 
-	def TrackEventWithArgs(self, category: str, action: str, label: str, args: Dictionary, value: int):
+	@abstractmethod
+	def TrackEventWithArgs(self, category: str, action: str, label: str, args: dict[Any, Any], value: int) -> None:
 		pass
 
-	def UpdateHeartbeatObject(self, args: Dictionary):
+	@abstractmethod
+	def UpdateHeartbeatObject(self, args: dict[Any, Any]) -> None:
 		pass
 
 
@@ -9839,23 +11027,28 @@ class RemoteDebuggerServer:
 	pass
 
 class RemoteEvent:
-	def FireAllClients(self, arguments: tuple[Any]):
+	@abstractmethod
+	def FireAllClients(self, arguments: tuple[Any]) -> None:
 		pass
 
-	def FireClient(self, player: Player, arguments: tuple[Any]):
+	@abstractmethod
+	def FireClient(self, player: Player, arguments: tuple[Any]) -> None:
 		pass
 
-	def FireServer(self, arguments: tuple[Any]):
+	@abstractmethod
+	def FireServer(self, arguments: tuple[Any]) -> None:
 		pass
 
 
 	pass
 
 class RemoteFunction:
-	def InvokeClient(self, player: Player, arguments: tuple[Any]):
+	@abstractmethod
+	def InvokeClient(self, player: Player, arguments: tuple[Any]) -> tuple[Any]:
 		pass
 
-	def InvokeServer(self, arguments: tuple[Any]):
+	@abstractmethod
+	def InvokeServer(self, arguments: tuple[Any]) -> tuple[Any]:
 		pass
 
 
@@ -9875,7 +11068,8 @@ class RenderSettings:
 	GraphicsMode: GraphicsMode
 	MeshPartDetailLevel: MeshPartDetailLevel
 	QualityLevel: QualityLevel
-	def GetMaxQualityLevel(self):
+	@abstractmethod
+	def GetMaxQualityLevel(self) -> int:
 		pass
 
 
@@ -9893,23 +11087,28 @@ class RenderingTest:
 	ShouldSkip: bool
 	Ticket: str
 	CFrame: CFrame
-	def RenderdocTriggerCapture(self):
+	@abstractmethod
+	def RenderdocTriggerCapture(self) -> None:
 		pass
 
 
 	pass
 
 class ReplicatedFirst:
-	def IsDefaultLoadingGuiRemoved(self):
+	@abstractmethod
+	def IsDefaultLoadingGuiRemoved(self) -> bool:
 		pass
 
-	def IsFinishedReplicating(self):
+	@abstractmethod
+	def IsFinishedReplicating(self) -> bool:
 		pass
 
-	def RemoveDefaultLoadingScreen(self):
+	@abstractmethod
+	def RemoveDefaultLoadingScreen(self) -> None:
 		pass
 
-	def SetDefaultLoadingGuiRemoved(self):
+	@abstractmethod
+	def SetDefaultLoadingGuiRemoved(self) -> None:
 		pass
 
 
@@ -9929,25 +11128,32 @@ class RobloxReplicatedStorage:
 
 class RotationCurve:
 	Length: int
-	def GetKeyAtIndex(self, index: int):
+	@abstractmethod
+	def GetKeyAtIndex(self, index: int) -> 'RotationCurveKey':
 		pass
 
-	def GetKeyIndicesAtTime(self, time: float):
+	@abstractmethod
+	def GetKeyIndicesAtTime(self, time: float) -> list[Any]:
 		pass
 
-	def GetKeys(self):
+	@abstractmethod
+	def GetKeys(self) -> list[Any]:
 		pass
 
-	def GetValueAtTime(self, time: float):
+	@abstractmethod
+	def GetValueAtTime(self, time: float) -> CoordinateFrame| None:
 		pass
 
-	def InsertKey(self, key: RotationCurveKey):
+	@abstractmethod
+	def InsertKey(self, key: 'RotationCurveKey') -> list[Any]:
 		pass
 
-	def RemoveKeyAtIndex(self, startingIndex: int, count: int):
+	@abstractmethod
+	def RemoveKeyAtIndex(self, startingIndex: int, count: int) -> int:
 		pass
 
-	def SetKeys(self, keys: list[Any]):
+	@abstractmethod
+	def SetKeys(self, keys: list[Any]) -> int:
 		pass
 
 
@@ -9959,58 +11165,76 @@ class RtMessagingService:
 
 class RunService:
 	ClientGitHash: str
-	def BindToRenderStep(self, name: str, priority: int, function: Callable[..., Any]):
+	@abstractmethod
+	def BindToRenderStep(self, name: str, priority: int, function: Callable[..., Any]) -> None:
 		pass
 
-	def GetCoreScriptVersion(self):
+	@abstractmethod
+	def GetCoreScriptVersion(self) -> str:
 		pass
 
-	def GetRobloxClientChannel(self):
+	@abstractmethod
+	def GetRobloxClientChannel(self) -> str:
 		pass
 
-	def GetRobloxVersion(self):
+	@abstractmethod
+	def GetRobloxVersion(self) -> str:
 		pass
 
-	def IsClient(self):
+	@abstractmethod
+	def IsClient(self) -> bool:
 		pass
 
-	def IsEdit(self):
+	@abstractmethod
+	def IsEdit(self) -> bool:
 		pass
 
-	def IsRunMode(self):
+	@abstractmethod
+	def IsRunMode(self) -> bool:
 		pass
 
-	def IsRunning(self):
+	@abstractmethod
+	def IsRunning(self) -> bool:
 		pass
 
-	def IsServer(self):
+	@abstractmethod
+	def IsServer(self) -> bool:
 		pass
 
-	def IsStudio(self):
+	@abstractmethod
+	def IsStudio(self) -> bool:
 		pass
 
-	def Pause(self):
+	@abstractmethod
+	def Pause(self) -> None:
 		pass
 
-	def Reset(self):
+	@abstractmethod
+	def Reset(self) -> None:
 		pass
 
-	def Run(self):
+	@abstractmethod
+	def Run(self) -> None:
 		pass
 
-	def Set3dRenderingEnabled(self, enable: bool):
+	@abstractmethod
+	def Set3dRenderingEnabled(self, enable: bool) -> None:
 		pass
 
-	def SetRobloxGuiFocused(self, focus: bool):
+	@abstractmethod
+	def SetRobloxGuiFocused(self, focus: bool) -> None:
 		pass
 
-	def Stop(self):
+	@abstractmethod
+	def Stop(self) -> None:
 		pass
 
-	def UnbindFromRenderStep(self, name: str):
+	@abstractmethod
+	def UnbindFromRenderStep(self, name: str) -> None:
 		pass
 
-	def setThrottleFramerateEnabled(self, enable: bool):
+	@abstractmethod
+	def setThrottleFramerateEnabled(self, enable: bool) -> None:
 		pass
 
 
@@ -10054,28 +11278,36 @@ class ScriptCloneWatcherHelper:
 
 class ScriptContext:
 	ScriptsDisabled: bool
-	def AddCoreScriptLocal(self, name: str, parent: Instance):
+	@abstractmethod
+	def AddCoreScriptLocal(self, name: str, parent: Instance) -> None:
 		pass
 
-	def ClearScriptProfilingData(self):
+	@abstractmethod
+	def ClearScriptProfilingData(self) -> None:
 		pass
 
-	def DeserializeScriptProfilerString(self, jsonString: str):
+	@abstractmethod
+	def DeserializeScriptProfilerString(self, jsonString: str) -> dict[Any, Any]:
 		pass
 
-	def GetCoverageStats(self):
+	@abstractmethod
+	def GetCoverageStats(self) -> list[Any]:
 		pass
 
-	def SaveScriptProfilingData(self, filename: str):
+	@abstractmethod
+	def SaveScriptProfilingData(self, filename: str) -> None:
 		pass
 
-	def SetTimeout(self, seconds: float):
+	@abstractmethod
+	def SetTimeout(self, seconds: float) -> None:
 		pass
 
-	def StartScriptProfiling(self):
+	@abstractmethod
+	def StartScriptProfiling(self) -> None:
 		pass
 
-	def StopScriptProfiling(self):
+	@abstractmethod
+	def StopScriptProfiling(self) -> dict[Any, Any]:
 		pass
 
 
@@ -10086,118 +11318,152 @@ class ScriptDebugger:
 	IsDebugging: bool
 	IsPaused: bool
 	Script: Instance
-	def AddWatch(self, expression: str):
+	@abstractmethod
+	def AddWatch(self, expression: str) -> Instance:
 		pass
 
-	def GetBreakpoints(self):
+	@abstractmethod
+	def GetBreakpoints(self) -> dict[int, Instance]:
 		pass
 
-	def GetGlobals(self, stackFrame: int):
+	@abstractmethod
+	def GetGlobals(self, stackFrame: int) -> 'Map':
 		pass
 
-	def GetLocals(self, stackFrame: int):
+	@abstractmethod
+	def GetLocals(self, stackFrame: int) -> 'Map':
 		pass
 
-	def GetStack(self):
+	@abstractmethod
+	def GetStack(self) -> list[Any]:
 		pass
 
-	def GetUpvalues(self, stackFrame: int):
+	@abstractmethod
+	def GetUpvalues(self, stackFrame: int) -> 'Map':
 		pass
 
-	def GetWatchValue(self, watch: Instance):
+	@abstractmethod
+	def GetWatchValue(self, watch: Instance) -> Any:
 		pass
 
-	def GetWatches(self):
+	@abstractmethod
+	def GetWatches(self) -> dict[int, Instance]:
 		pass
 
-	def SetBreakpoint(self, line: int, isContextDependentBreakpoint: bool):
+	@abstractmethod
+	def SetBreakpoint(self, line: int, isContextDependentBreakpoint: bool) -> Instance:
 		pass
 
-	def SetGlobal(self, name: str, value: Any, stackFrame: int):
+	@abstractmethod
+	def SetGlobal(self, name: str, value: Any, stackFrame: int) -> None:
 		pass
 
-	def SetLocal(self, name: str, value: Any, stackFrame: int):
+	@abstractmethod
+	def SetLocal(self, name: str, value: Any, stackFrame: int) -> None:
 		pass
 
-	def SetUpvalue(self, name: str, value: Any, stackFrame: int):
+	@abstractmethod
+	def SetUpvalue(self, name: str, value: Any, stackFrame: int) -> None:
 		pass
 
 
 	pass
 
 class ScriptDocument:
-	def GetInternalUri(self):
+	@abstractmethod
+	def GetInternalUri(self) -> str:
 		pass
 
-	def GetLine(self, lineIndex: int?):
+	@abstractmethod
+	def GetLine(self, lineIndex: int| None) -> str:
 		pass
 
-	def GetLineCount(self):
+	@abstractmethod
+	def GetLineCount(self) -> int:
 		pass
 
-	def GetScript(self):
+	@abstractmethod
+	def GetScript(self) -> LuaSourceContainer:
 		pass
 
-	def GetSelectedText(self):
+	@abstractmethod
+	def GetSelectedText(self) -> str:
 		pass
 
-	def GetSelection(self):
+	@abstractmethod
+	def GetSelection(self) -> tuple[Any]:
 		pass
 
-	def GetSelectionEnd(self):
+	@abstractmethod
+	def GetSelectionEnd(self) -> tuple[Any]:
 		pass
 
-	def GetSelectionStart(self):
+	@abstractmethod
+	def GetSelectionStart(self) -> tuple[Any]:
 		pass
 
-	def GetText(self, startLine: int?, startCharacter: int?, endLine: int?, endCharacter: int?):
+	@abstractmethod
+	def GetText(self, startLine: int| None, startCharacter: int| None, endLine: int| None, endCharacter: int| None) -> str:
 		pass
 
-	def GetViewport(self):
+	@abstractmethod
+	def GetViewport(self) -> tuple[Any]:
 		pass
 
-	def HasSelectedText(self):
+	@abstractmethod
+	def HasSelectedText(self) -> bool:
 		pass
 
-	def IsCommandBar(self):
+	@abstractmethod
+	def IsCommandBar(self) -> bool:
 		pass
 
-	def CloseAsync(self):
+	@abstractmethod
+	def CloseAsync(self) -> tuple[Any]:
 		pass
 
-	def EditTextAsync(self, newText: str, startLine: int, startCharacter: int, endLine: int, endCharacter: int):
+	@abstractmethod
+	def EditTextAsync(self, newText: str, startLine: int, startCharacter: int, endLine: int, endCharacter: int) -> tuple[Any]:
 		pass
 
-	def ForceSetSelectionAsync(self, cursorLine: int, cursorCharacter: int, anchorLine: int?, anchorCharacter: int?):
+	@abstractmethod
+	def ForceSetSelectionAsync(self, cursorLine: int, cursorCharacter: int, anchorLine: int| None, anchorCharacter: int| None) -> tuple[Any]:
 		pass
 
-	def RequestSetSelectionAsync(self, cursorLine: int, cursorCharacter: int, anchorLine: int?, anchorCharacter: int?):
+	@abstractmethod
+	def RequestSetSelectionAsync(self, cursorLine: int, cursorCharacter: int, anchorLine: int| None, anchorCharacter: int| None) -> tuple[Any]:
 		pass
 
 
 	pass
 
 class ScriptEditorService:
-	def DeregisterAutocompleteCallback(self, name: str):
+	@abstractmethod
+	def DeregisterAutocompleteCallback(self, name: str) -> None:
 		pass
 
-	def FindScriptDocument(self, script: LuaSourceContainer):
+	@abstractmethod
+	def FindScriptDocument(self, script: LuaSourceContainer) -> ScriptDocument:
 		pass
 
-	def GetScriptDocuments(self):
+	@abstractmethod
+	def GetScriptDocuments(self) -> dict[int, Instance]:
 		pass
 
-	def RegisterAutocompleteCallback(self, name: str, priority: int, callbackFunction: Callable[..., Any]):
+	@abstractmethod
+	def RegisterAutocompleteCallback(self, name: str, priority: int, callbackFunction: Callable[..., Any]) -> None:
 		pass
 
-	def OpenScriptDocumentAsync(self, script: LuaSourceContainer):
+	@abstractmethod
+	def OpenScriptDocumentAsync(self, script: LuaSourceContainer) -> tuple[Any]:
 		pass
 
 
 	pass
 
 class ScriptRegistrationService:
-	def GetSourceContainerByScriptGuid(self, guid: str):
+	@abstractmethod
+	def GetSourceContainerByScriptGuid(self, guid: str) -> LuaSourceContainer:
 		pass
 
 
@@ -10211,22 +11477,28 @@ class Selection:
 	ActiveInstance: Instance
 	SelectionLineThickness: int
 	SelectionThickness: float
-	def Add(self, instancesToAdd: Objects):
+	@abstractmethod
+	def Add(self, instancesToAdd: dict[int, Instance]) -> None:
 		pass
 
-	def ClearTerrainSelectionHack(self):
+	@abstractmethod
+	def ClearTerrainSelectionHack(self) -> None:
 		pass
 
-	def Get(self):
+	@abstractmethod
+	def Get(self) -> dict[int, Instance]:
 		pass
 
-	def Remove(self, instancesToRemove: Objects):
+	@abstractmethod
+	def Remove(self, instancesToRemove: dict[int, Instance]) -> None:
 		pass
 
-	def Set(self, selection: Objects):
+	@abstractmethod
+	def Set(self, selection: dict[int, Instance]) -> None:
 		pass
 
-	def SetTerrainSelectionHack(self, center: Vector3, size: Vector3):
+	@abstractmethod
+	def SetTerrainSelectionHack(self, center: Vector3, size: Vector3) -> None:
 		pass
 
 
@@ -10242,16 +11514,20 @@ class ServerStorage:
 	pass
 
 class ServiceProvider:
-	def FindService(self, className: str):
+	@abstractmethod
+	def FindService(self, className: str) -> Instance:
 		pass
 
-	def GetService(self, className: str):
+	@abstractmethod
+	def GetService(self, className: str) -> Instance:
 		pass
 
-	def getService(self, className: str):
+	@abstractmethod
+	def getService(self, className: str) -> Instance:
 		pass
 
-	def service(self, className: str):
+	@abstractmethod
+	def service(self, className: str) -> Instance:
 		pass
 
 
@@ -10274,97 +11550,128 @@ class DataModel:
 	GearGenreSetting: GearGenreSetting
 	Genre: Genre
 	Workspace: Workspace
-	def BindToClose(self, function: Callable[..., Any]):
+	@abstractmethod
+	def BindToClose(self, function: Callable[..., Any]) -> None:
 		pass
 
-	def DefineFastFlag(self, name: str, defaultValue: bool):
+	@abstractmethod
+	def DefineFastFlag(self, name: str, defaultValue: bool) -> bool:
 		pass
 
-	def DefineFastInt(self, name: str, defaultValue: int):
+	@abstractmethod
+	def DefineFastInt(self, name: str, defaultValue: int) -> int:
 		pass
 
-	def DefineFastString(self, name: str, defaultValue: str):
+	@abstractmethod
+	def DefineFastString(self, name: str, defaultValue: str) -> str:
 		pass
 
-	def GetEngineFeature(self, name: str):
+	@abstractmethod
+	def GetEngineFeature(self, name: str) -> bool:
 		pass
 
-	def GetFastFlag(self, name: str):
+	@abstractmethod
+	def GetFastFlag(self, name: str) -> bool:
 		pass
 
-	def GetFastInt(self, name: str):
+	@abstractmethod
+	def GetFastInt(self, name: str) -> int:
 		pass
 
-	def GetFastString(self, name: str):
+	@abstractmethod
+	def GetFastString(self, name: str) -> str:
 		pass
 
-	def GetJobsInfo(self):
+	@abstractmethod
+	def GetJobsInfo(self) -> list[Any]:
 		pass
 
-	def GetMessage(self):
+	@abstractmethod
+	def GetMessage(self) -> str:
 		pass
 
-	def GetObjects(self, url: Content):
+	@abstractmethod
+	def GetObjects(self, url: Content) -> dict[int, Instance]:
 		pass
 
-	def GetObjectsAllOrNone(self, url: Content):
+	@abstractmethod
+	def GetObjectsAllOrNone(self, url: Content) -> dict[int, Instance]:
 		pass
 
-	def GetObjectsList(self, urls: list[Any]):
+	@abstractmethod
+	def GetObjectsList(self, urls: list[Any]) -> list[Any]:
 		pass
 
-	def GetRemoteBuildMode(self):
+	@abstractmethod
+	def GetRemoteBuildMode(self) -> bool:
 		pass
 
-	def IsGearTypeAllowed(self, gearType: GearType):
+	@abstractmethod
+	def IsGearTypeAllowed(self, gearType: GearType) -> bool:
 		pass
 
-	def IsLoaded(self):
+	@abstractmethod
+	def IsLoaded(self) -> bool:
 		pass
 
-	def Load(self, url: Content):
+	@abstractmethod
+	def Load(self, url: Content) -> None:
 		pass
 
-	def OpenScreenshotsFolder(self):
+	@abstractmethod
+	def OpenScreenshotsFolder(self) -> None:
 		pass
 
-	def OpenVideosFolder(self):
+	@abstractmethod
+	def OpenVideosFolder(self) -> None:
 		pass
 
-	def ReportInGoogleAnalytics(self, category: str, action: str, label: str, value: int):
+	@abstractmethod
+	def ReportInGoogleAnalytics(self, category: str, action: str, label: str, value: int) -> None:
 		pass
 
-	def SetFastFlagForTesting(self, name: str, newValue: bool):
+	@abstractmethod
+	def SetFastFlagForTesting(self, name: str, newValue: bool) -> bool:
 		pass
 
-	def SetFastIntForTesting(self, name: str, newValue: int):
+	@abstractmethod
+	def SetFastIntForTesting(self, name: str, newValue: int) -> int:
 		pass
 
-	def SetFastStringForTesting(self, name: str, newValue: str):
+	@abstractmethod
+	def SetFastStringForTesting(self, name: str, newValue: str) -> str:
 		pass
 
-	def SetPlaceId(self, placeId: int):
+	@abstractmethod
+	def SetPlaceId(self, placeId: int) -> None:
 		pass
 
-	def SetUniverseId(self, universeId: int):
+	@abstractmethod
+	def SetUniverseId(self, universeId: int) -> None:
 		pass
 
-	def Shutdown(self):
+	@abstractmethod
+	def Shutdown(self) -> None:
 		pass
 
-	def GetObjectsAsync(self, url: Content):
+	@abstractmethod
+	def GetObjectsAsync(self, url: Content) -> dict[int, Instance]:
 		pass
 
-	def HttpGetAsync(self, url: str, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def HttpGetAsync(self, url: str, httpRequestType: HttpRequestType) -> str:
 		pass
 
-	def HttpPostAsync(self, url: str, data: str, contentType: str, httpRequestType: HttpRequestType):
+	@abstractmethod
+	def HttpPostAsync(self, url: str, data: str, contentType: str, httpRequestType: HttpRequestType) -> str:
 		pass
 
-	def InsertObjectsAndJoinIfLegacyAsync(self, url: Content):
+	@abstractmethod
+	def InsertObjectsAndJoinIfLegacyAsync(self, url: Content) -> dict[int, Instance]:
 		pass
 
-	def SavePlace(self, saveFilter: SaveFilter):
+	@abstractmethod
+	def SavePlace(self, saveFilter: SaveFilter) -> bool:
 		pass
 
 
@@ -10379,54 +11686,68 @@ class AnalysticsSettings:
 	pass
 
 class GlobalSettings:
-	def GetFFlag(self, name: str):
+	@abstractmethod
+	def GetFFlag(self, name: str) -> bool:
 		pass
 
-	def GetFVariable(self, name: str):
+	@abstractmethod
+	def GetFVariable(self, name: str) -> str:
 		pass
 
 
 	pass
 
 class UserSettings:
-	def IsUserFeatureEnabled(self, name: str):
+	@abstractmethod
+	def IsUserFeatureEnabled(self, name: str) -> bool:
 		pass
 
-	def Reset(self):
+	@abstractmethod
+	def Reset(self) -> None:
 		pass
 
 
 	pass
 
 class SessionService:
-	def GetCreatedTimestampUtcMs(self, sid: str):
+	@abstractmethod
+	def GetCreatedTimestampUtcMs(self, sid: str) -> int:
 		pass
 
-	def GetMetadata(self, sid: str, key: str):
+	@abstractmethod
+	def GetMetadata(self, sid: str, key: str) -> Any:
 		pass
 
-	def GetRootSID(self):
+	@abstractmethod
+	def GetRootSID(self) -> str:
 		pass
 
-	def RemoveMetadata(self, sid: str, key: str):
+	@abstractmethod
+	def RemoveMetadata(self, sid: str, key: str) -> None:
 		pass
 
-	def RemoveSession(self, sid: str):
+	@abstractmethod
+	def RemoveSession(self, sid: str) -> None:
 		pass
 
-	def RemoveSessionsWithMetadataKey(self, key: str):
+	@abstractmethod
+	def RemoveSessionsWithMetadataKey(self, key: str) -> None:
 		pass
 
-	def ReplaceSession(self, sid: str, tag: str):
+	@abstractmethod
+	def ReplaceSession(self, sid: str, tag: str) -> None:
 		pass
 
-	def SessionExists(self, sid: str):
+	@abstractmethod
+	def SessionExists(self, sid: str) -> bool:
 		pass
 
-	def SetMetadata(self, sid: str, key: str, value: Any):
+	@abstractmethod
+	def SetMetadata(self, sid: str, key: str, value: Any) -> None:
 		pass
 
-	def SetSession(self, parentSid: str, childSid: str, tag: str):
+	@abstractmethod
+	def SetSession(self, parentSid: str, childSid: str, tag: str) -> None:
 		pass
 
 
@@ -10455,7 +11776,8 @@ class Smoke:
 	RiseVelocity: float
 	Size: float
 	TimeScale: float
-	def FastForward(self, numFrames: int):
+	@abstractmethod
+	def FastForward(self, numFrames: int) -> None:
 		pass
 
 
@@ -10466,13 +11788,16 @@ class SnippetService:
 	pass
 
 class SocialService:
-	def InvokeGameInvitePromptClosed(self, player: Instance, recipientIds: list[Any]):
+	@abstractmethod
+	def InvokeGameInvitePromptClosed(self, player: Instance, recipientIds: list[Any]) -> None:
 		pass
 
-	def PromptGameInvite(self, player: Instance):
+	@abstractmethod
+	def PromptGameInvite(self, player: Instance) -> None:
 		pass
 
-	def CanSendGameInviteAsync(self, player: Instance, recipientId: int):
+	@abstractmethod
+	def CanSendGameInviteAsync(self, player: Instance, recipientId: int) -> bool:
 		pass
 
 
@@ -10497,6 +11822,7 @@ class Sound:
 	Playing: bool
 	RollOffMaxDistance: float
 	RollOffMinDistance: float
+	SoundGroup: 'SoundGroup'
 	SoundId: Content
 	TimeLength: float
 	TimePosition: float
@@ -10504,26 +11830,32 @@ class Sound:
 	Volume: float
 	isPlaying: bool
 	RollOffMode: RollOffMode
-	SoundGroup: SoundGroup
-	def Pause(self):
+	@abstractmethod
+	def Pause(self) -> None:
 		pass
 
-	def Play(self):
+	@abstractmethod
+	def Play(self) -> None:
 		pass
 
-	def Resume(self):
+	@abstractmethod
+	def Resume(self) -> None:
 		pass
 
-	def Stop(self):
+	@abstractmethod
+	def Stop(self) -> None:
 		pass
 
-	def pause(self):
+	@abstractmethod
+	def pause(self) -> None:
 		pass
 
-	def play(self):
+	@abstractmethod
+	def play(self) -> None:
 		pass
 
-	def stop(self):
+	@abstractmethod
+	def stop(self) -> None:
 		pass
 
 
@@ -10625,37 +11957,48 @@ class SoundService:
 	RespectFilteringEnabled: bool
 	RolloffScale: float
 	VolumetricAudio: VolumetricAudio
-	def BeginRecording(self):
+	@abstractmethod
+	def BeginRecording(self) -> bool:
 		pass
 
-	def GetListener(self):
+	@abstractmethod
+	def GetListener(self) -> tuple[Any]:
 		pass
 
-	def GetOutputDevice(self):
+	@abstractmethod
+	def GetOutputDevice(self) -> tuple[Any]:
 		pass
 
-	def GetOutputDevices(self):
+	@abstractmethod
+	def GetOutputDevices(self) -> tuple[Any]:
 		pass
 
-	def GetSoundMemoryData(self):
+	@abstractmethod
+	def GetSoundMemoryData(self) -> dict[Any, Any]:
 		pass
 
-	def PlayLocalSound(self, sound: Instance):
+	@abstractmethod
+	def PlayLocalSound(self, sound: Instance) -> None:
 		pass
 
-	def SetListener(self, listenerType: ListenerType, listener: tuple[Any]):
+	@abstractmethod
+	def SetListener(self, listenerType: ListenerType, listener: tuple[Any]) -> None:
 		pass
 
-	def SetOutputDevice(self, name: str, guid: str):
+	@abstractmethod
+	def SetOutputDevice(self, name: str, guid: str) -> None:
 		pass
 
-	def SetRecordingDevice(self, deviceIndex: int):
+	@abstractmethod
+	def SetRecordingDevice(self, deviceIndex: int) -> bool:
 		pass
 
-	def EndRecording(self):
+	@abstractmethod
+	def EndRecording(self) -> dict[Any, Any]:
 		pass
 
-	def GetRecordingDevices(self):
+	@abstractmethod
+	def GetRecordingDevices(self) -> dict[Any, Any]:
 		pass
 
 
@@ -10666,7 +12009,8 @@ class Sparkles:
 	Enabled: bool
 	SparkleColor: Color3
 	TimeScale: float
-	def FastForward(self, numFrames: int):
+	@abstractmethod
+	def FastForward(self, numFrames: int) -> None:
 		pass
 
 
@@ -10754,7 +12098,8 @@ class StarterPlayer:
 	DevTouchCameraMovementMode: DevTouchCameraMovementMode
 	DevTouchMovementMode: DevTouchMovementMode
 	HumanoidStateMachineMode: HumanoidStateMachineMode
-	def ClearDefaults(self):
+	@abstractmethod
+	def ClearDefaults(self) -> None:
 		pass
 
 
@@ -10779,16 +12124,20 @@ class Stats:
 	PhysicsSendKbps: float
 	PhysicsStepTimeMs: float
 	PrimitivesCount: int
-	def GetBrowserTrackerId(self):
+	@abstractmethod
+	def GetBrowserTrackerId(self) -> str:
 		pass
 
-	def GetMemoryUsageMbForTag(self, tag: DeveloperMemoryTag):
+	@abstractmethod
+	def GetMemoryUsageMbForTag(self, tag: DeveloperMemoryTag) -> float:
 		pass
 
-	def GetTotalMemoryUsageMb(self):
+	@abstractmethod
+	def GetTotalMemoryUsageMb(self) -> float:
 		pass
 
-	def GetPaginatedMemoryByTexture(self, queryType: TextureQueryType, pageIndex: int, pageSize: int):
+	@abstractmethod
+	def GetPaginatedMemoryByTexture(self, queryType: TextureQueryType, pageIndex: int, pageSize: int) -> dict[Any, Any]:
 		pass
 
 
@@ -10796,10 +12145,12 @@ class Stats:
 
 class StatsItem:
 	DisplayName: str
-	def GetValue(self):
+	@abstractmethod
+	def GetValue(self) -> float:
 		pass
 
-	def GetValueString(self):
+	@abstractmethod
+	def GetValueString(self) -> str:
 		pass
 
 
@@ -10822,13 +12173,16 @@ class TotalCountTimeIntervalItem:
 	pass
 
 class StopWatchReporter:
-	def FinishTask(self, taskId: int):
+	@abstractmethod
+	def FinishTask(self, taskId: int) -> None:
 		pass
 
-	def SendReport(self, reportName: str):
+	@abstractmethod
+	def SendReport(self, reportName: str) -> None:
 		pass
 
-	def StartTask(self, reportName: str, taskName: str):
+	@abstractmethod
+	def StartTask(self, reportName: str, taskName: str) -> int:
 		pass
 
 
@@ -10973,17 +12327,20 @@ class Studio:
 	WhitespaceColor: Color3
 	PermissionLevelShown: PermissionLevelShown
 	RuntimeUndoBehavior: RuntimeUndoBehavior
-	def GetAvailableThemes(self):
+	@abstractmethod
+	def GetAvailableThemes(self) -> list[Any]:
 		pass
 
 
 	pass
 
 class StudioAssetService:
-	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: Objects, originalInstances: Objects):
+	@abstractmethod
+	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: dict[int, Instance], originalInstances: dict[int, Instance]) -> None:
 		pass
 
-	def SerializeInstances(self, instances: Objects):
+	@abstractmethod
+	def SerializeInstances(self, instances: dict[int, Instance]) -> str:
 		pass
 
 
@@ -11001,66 +12358,84 @@ class StudioDeviceEmulatorService:
 	IsMultiTouchEmulationOn: bool
 	IsMultiTouchEnabled: bool
 	PivotPosition: Vector2
-	def GetMaxNumTouches(self):
+	@abstractmethod
+	def GetMaxNumTouches(self) -> int:
 		pass
 
-	def GetTouchInBounds(self, index: int):
+	@abstractmethod
+	def GetTouchInBounds(self, index: int) -> bool:
 		pass
 
-	def GetTouchPosition(self, index: int):
+	@abstractmethod
+	def GetTouchPosition(self, index: int) -> Vector2:
 		pass
 
-	def EmulatePCDeviceWithResolution(self, deviceId: str, resolution: Vector2):
+	@abstractmethod
+	def EmulatePCDeviceWithResolution(self, deviceId: str, resolution: Vector2) -> bool:
 		pass
 
-	def GetCurrentDeviceId(self):
+	@abstractmethod
+	def GetCurrentDeviceId(self) -> str:
 		pass
 
-	def GetCurrentOrientation(self):
+	@abstractmethod
+	def GetCurrentOrientation(self) -> ScreenOrientation:
 		pass
 
-	def HasDeviceWithId(self, deviceId: str):
+	@abstractmethod
+	def HasDeviceWithId(self, deviceId: str) -> bool:
 		pass
 
-	def SetCurrentDeviceId(self, deviceId: str):
+	@abstractmethod
+	def SetCurrentDeviceId(self, deviceId: str) -> None:
 		pass
 
-	def SetCurrentOrientation(self, orientation: ScreenOrientation):
+	@abstractmethod
+	def SetCurrentOrientation(self, orientation: ScreenOrientation) -> None:
 		pass
 
 
 	pass
 
 class StudioHighDpiService:
-	def IsNotHighDPIAwareBuild(self):
+	@abstractmethod
+	def IsNotHighDPIAwareBuild(self) -> bool:
 		pass
 
 
 	pass
 
 class StudioPublishService:
-	def ClearUploadNames(self):
+	@abstractmethod
+	def ClearUploadNames(self) -> None:
 		pass
 
-	def PublishAs(self, universeId: int, placeId: int, groupId: int, isPublish: bool, publishParameters: Any):
+	@abstractmethod
+	def PublishAs(self, universeId: int, placeId: int, groupId: int, isPublish: bool, publishParameters: Any) -> None:
 		pass
 
-	def PublishThenTurnOnTeamCreate(self):
+	@abstractmethod
+	def PublishThenTurnOnTeamCreate(self) -> None:
 		pass
 
-	def RefreshDocumentDisplayName(self):
+	@abstractmethod
+	def RefreshDocumentDisplayName(self) -> None:
 		pass
 
-	def SetTeamCreateOnPublishInfo(self, shouldTurnOnTcOnPublish: bool, newPlaceName: str):
+	@abstractmethod
+	def SetTeamCreateOnPublishInfo(self, shouldTurnOnTcOnPublish: bool, newPlaceName: str) -> None:
 		pass
 
-	def SetUniverseDisplayName(self, newName: str):
+	@abstractmethod
+	def SetUniverseDisplayName(self, newName: str) -> None:
 		pass
 
-	def SetUploadNames(self, placeName: str, universeName: str):
+	@abstractmethod
+	def SetUploadNames(self, placeName: str, universeName: str) -> None:
 		pass
 
-	def ShowSaveOrPublishPlaceToRoblox(self, showGameSelect: bool, isPublish: bool, closeMode: StudioCloseMode):
+	@abstractmethod
+	def ShowSaveOrPublishPlaceToRoblox(self, showGameSelect: bool, isPublish: bool, closeMode: StudioCloseMode) -> None:
 		pass
 
 
@@ -11084,86 +12459,112 @@ class StudioService:
 	ShowConstraintDetails: bool
 	StudioLocaleId: str
 	UseLocalSpace: bool
-	def AnimationIdSelected(self, id: int):
+	@abstractmethod
+	def AnimationIdSelected(self, id: int) -> None:
 		pass
 
-	def CopyToClipboard(self, stringToCopy: str):
+	@abstractmethod
+	def CopyToClipboard(self, stringToCopy: str) -> None:
 		pass
 
-	def GetBadgeConfigureUrl(self, badgeId: int):
+	@abstractmethod
+	def GetBadgeConfigureUrl(self, badgeId: int) -> str:
 		pass
 
-	def GetBadgeUploadUrl(self):
+	@abstractmethod
+	def GetBadgeUploadUrl(self) -> str:
 		pass
 
-	def GetClassIcon(self, className: str):
+	@abstractmethod
+	def GetClassIcon(self, className: str) -> dict[Any, Any]:
 		pass
 
-	def GetPlaceIsPersistedToCloud(self):
+	@abstractmethod
+	def GetPlaceIsPersistedToCloud(self) -> bool:
 		pass
 
-	def GetResourceByCategory(self, category: str):
+	@abstractmethod
+	def GetResourceByCategory(self, category: str) -> dict[Any, Any]:
 		pass
 
-	def GetStartupAssetId(self):
+	@abstractmethod
+	def GetStartupAssetId(self) -> str:
 		pass
 
-	def GetStartupPluginId(self):
+	@abstractmethod
+	def GetStartupPluginId(self) -> str:
 		pass
 
-	def GetTermsOfUseUrl(self):
+	@abstractmethod
+	def GetTermsOfUseUrl(self) -> str:
 		pass
 
-	def GetUserId(self):
+	@abstractmethod
+	def GetUserId(self) -> int:
 		pass
 
-	def GizmoRaycast(self, origin: Vector3, direction: Vector3, raycastParams: RaycastParams):
+	@abstractmethod
+	def GizmoRaycast(self, origin: Vector3, direction: Vector3, raycastParams: 'RaycastParams') -> 'RaycastResult':
 		pass
 
-	def HasInternalPermission(self):
+	@abstractmethod
+	def HasInternalPermission(self) -> bool:
 		pass
 
-	def IsPluginInstalled(self, assetId: int):
+	@abstractmethod
+	def IsPluginInstalled(self, assetId: int) -> bool:
 		pass
 
-	def IsPluginUpToDate(self, assetId: int, currentAssetVersion: int):
+	@abstractmethod
+	def IsPluginUpToDate(self, assetId: int, currentAssetVersion: int) -> bool:
 		pass
 
-	def OpenInBrowser_DONOTUSE(self, url: str):
+	@abstractmethod
+	def OpenInBrowser_DONOTUSE(self, url: str) -> None:
 		pass
 
-	def RequestClose(self, closeMode: StudioCloseMode):
+	@abstractmethod
+	def RequestClose(self, closeMode: StudioCloseMode) -> None:
 		pass
 
-	def SetPluginEnabled(self, assetId: int, state: bool):
+	@abstractmethod
+	def SetPluginEnabled(self, assetId: int, state: bool) -> None:
 		pass
 
-	def ShowPlaceVersionHistoryDialog(self, placeId: int):
+	@abstractmethod
+	def ShowPlaceVersionHistoryDialog(self, placeId: int) -> None:
 		pass
 
-	def ShowPublishToRoblox(self):
+	@abstractmethod
+	def ShowPublishToRoblox(self) -> None:
 		pass
 
-	def UninstallPlugin(self, assetId: int):
+	@abstractmethod
+	def UninstallPlugin(self, assetId: int) -> None:
 		pass
 
-	def UpdatePluginManagement(self):
+	@abstractmethod
+	def UpdatePluginManagement(self) -> None:
 		pass
 
-	def PromptImportFile(self, fileTypeFilter: list[Any]):
+	@abstractmethod
+	def PromptImportFile(self, fileTypeFilter: list[Any]) -> Instance:
 		pass
 
-	def PromptImportFiles(self, fileTypeFilter: list[Any]):
+	@abstractmethod
+	def PromptImportFiles(self, fileTypeFilter: list[Any]) -> dict[int, Instance]:
 		pass
 
-	def TryInstallPlugin(self, assetId: int, assetVersionId: int):
+	@abstractmethod
+	def TryInstallPlugin(self, assetId: int, assetVersionId: int) -> None:
 		pass
 
 
 	pass
 
 class StudioTheme:
-	def GetColor(self, styleguideitem: StudioStyleGuideColor, modifier: StudioStyleGuideModifier):
+	@abstractmethod
+	def GetColor(self, styleguideitem: StudioStyleGuideColor, modifier: StudioStyleGuideModifier) -> Color3:
 		pass
 
 
@@ -11193,24 +12594,28 @@ class Team:
 	ChildOrder: int
 	Score: int
 	TeamColor: BrickColor
-	def GetPlayers(self):
+	@abstractmethod
+	def GetPlayers(self) -> dict[int, Instance]:
 		pass
 
 
 	pass
 
 class TeamCreateService:
-	def SendUnarchiveUniverseAsync(self, universeId: int):
+	@abstractmethod
+	def SendUnarchiveUniverseAsync(self, universeId: int) -> None:
 		pass
 
 
 	pass
 
 class Teams:
-	def GetTeams(self):
+	@abstractmethod
+	def GetTeams(self) -> dict[int, Instance]:
 		pass
 
-	def RebalanceTeams(self):
+	@abstractmethod
+	def RebalanceTeams(self) -> None:
 		pass
 
 
@@ -11226,10 +12631,12 @@ class TeleportOptions:
 	ReservedServerAccessCode: str
 	ServerInstanceId: str
 	ShouldReserveServer: bool
-	def GetTeleportData(self):
+	@abstractmethod
+	def GetTeleportData(self) -> Any:
 		pass
 
-	def SetTeleportData(self, teleportData: Any):
+	@abstractmethod
+	def SetTeleportData(self, teleportData: Any) -> None:
 		pass
 
 
@@ -11237,52 +12644,68 @@ class TeleportOptions:
 
 class TeleportService:
 	CustomizedTeleportUI: bool
-	def Block(self):
+	@abstractmethod
+	def Block(self) -> None:
 		pass
 
-	def GetArrivingTeleportGui(self):
+	@abstractmethod
+	def GetArrivingTeleportGui(self) -> Instance:
 		pass
 
-	def GetLocalPlayerTeleportData(self):
+	@abstractmethod
+	def GetLocalPlayerTeleportData(self) -> Any:
 		pass
 
-	def GetTeleportSetting(self, setting: str):
+	@abstractmethod
+	def GetTeleportSetting(self, setting: str) -> Any:
 		pass
 
-	def SetTeleportGui(self, gui: Instance):
+	@abstractmethod
+	def SetTeleportGui(self, gui: Instance) -> None:
 		pass
 
-	def SetTeleportSetting(self, setting: str, value: Any):
+	@abstractmethod
+	def SetTeleportSetting(self, setting: str, value: Any) -> None:
 		pass
 
-	def Teleport(self, placeId: int, player: Instance, teleportData: Any, customLoadingScreen: Instance):
+	@abstractmethod
+	def Teleport(self, placeId: int, player: Instance, teleportData: Any, customLoadingScreen: Instance) -> None:
 		pass
 
-	def TeleportCancel(self):
+	@abstractmethod
+	def TeleportCancel(self) -> None:
 		pass
 
-	def TeleportToPlaceInstance(self, placeId: int, instanceId: str, player: Instance, spawnName: str, teleportData: Any, customLoadingScreen: Instance):
+	@abstractmethod
+	def TeleportToPlaceInstance(self, placeId: int, instanceId: str, player: Instance, spawnName: str, teleportData: Any, customLoadingScreen: Instance) -> None:
 		pass
 
-	def TeleportToPrivateServer(self, placeId: int, reservedServerAccessCode: str, players: Objects, spawnName: str, teleportData: Any, customLoadingScreen: Instance):
+	@abstractmethod
+	def TeleportToPrivateServer(self, placeId: int, reservedServerAccessCode: str, players: dict[int, Instance], spawnName: str, teleportData: Any, customLoadingScreen: Instance) -> None:
 		pass
 
-	def TeleportToSpawnByName(self, placeId: int, spawnName: str, player: Instance, teleportData: Any, customLoadingScreen: Instance):
+	@abstractmethod
+	def TeleportToSpawnByName(self, placeId: int, spawnName: str, player: Instance, teleportData: Any, customLoadingScreen: Instance) -> None:
 		pass
 
-	def GetPlayerPlaceInstanceAsync(self, userId: int):
+	@abstractmethod
+	def GetPlayerPlaceInstanceAsync(self, userId: int) -> tuple[Any]:
 		pass
 
-	def ReserveServer(self, placeId: int):
+	@abstractmethod
+	def ReserveServer(self, placeId: int) -> tuple[Any]:
 		pass
 
-	def TeleportAsync(self, placeId: int, players: Objects, teleportOptions: Instance):
+	@abstractmethod
+	def TeleportAsync(self, placeId: int, players: dict[int, Instance], teleportOptions: Instance) -> Instance:
 		pass
 
-	def TeleportPartyAsync(self, placeId: int, players: Objects, teleportData: Any, customLoadingScreen: Instance):
+	@abstractmethod
+	def TeleportPartyAsync(self, placeId: int, players: dict[int, Instance], teleportData: Any, customLoadingScreen: Instance) -> str:
 		pass
 
-	def UnblockAsync(self):
+	@abstractmethod
+	def UnblockAsync(self) -> tuple[Any]:
 		pass
 
 
@@ -11310,7 +12733,8 @@ class TerrainDetail:
 class TerrainRegion:
 	IsSmooth: bool
 	SizeInCells: Vector3
-	def ConvertToSmooth(self):
+	@abstractmethod
+	def ConvertToSmooth(self) -> None:
 		pass
 
 
@@ -11329,37 +12753,48 @@ class TestService:
 	TestCount: int
 	Timeout: float
 	WarnCount: int
-	def Check(self, condition: bool, description: str, source: Instance, line: int):
+	@abstractmethod
+	def Check(self, condition: bool, description: str, source: Instance, line: int) -> None:
 		pass
 
-	def Checkpoint(self, text: str, source: Instance, line: int):
+	@abstractmethod
+	def Checkpoint(self, text: str, source: Instance, line: int) -> None:
 		pass
 
-	def Done(self):
+	@abstractmethod
+	def Done(self) -> None:
 		pass
 
-	def Error(self, description: str, source: Instance, line: int):
+	@abstractmethod
+	def Error(self, description: str, source: Instance, line: int) -> None:
 		pass
 
-	def Fail(self, description: str, source: Instance, line: int):
+	@abstractmethod
+	def Fail(self, description: str, source: Instance, line: int) -> None:
 		pass
 
-	def Message(self, text: str, source: Instance, line: int):
+	@abstractmethod
+	def Message(self, text: str, source: Instance, line: int) -> None:
 		pass
 
-	def Require(self, condition: bool, description: str, source: Instance, line: int):
+	@abstractmethod
+	def Require(self, condition: bool, description: str, source: Instance, line: int) -> None:
 		pass
 
-	def ScopeTime(self):
+	@abstractmethod
+	def ScopeTime(self) -> dict[Any, Any]:
 		pass
 
-	def Warn(self, condition: bool, description: str, source: Instance, line: int):
+	@abstractmethod
+	def Warn(self, condition: bool, description: str, source: Instance, line: int) -> None:
 		pass
 
-	def isFeatureEnabled(self, name: str):
+	@abstractmethod
+	def isFeatureEnabled(self, name: str) -> bool:
 		pass
 
-	def Run(self):
+	@abstractmethod
+	def Run(self) -> None:
 		pass
 
 
@@ -11370,13 +12805,16 @@ class TextBoxService:
 	pass
 
 class TextChannel:
-	def DisplaySystemMessage(self, systemMessage: str, metadata: str):
+	@abstractmethod
+	def DisplaySystemMessage(self, systemMessage: str, metadata: str) -> 'TextChatMessage':
 		pass
 
-	def AddUserAsync(self, userId: int):
+	@abstractmethod
+	def AddUserAsync(self, userId: int) -> tuple[Any]:
 		pass
 
-	def SendAsync(self, message: str, metadata: str):
+	@abstractmethod
+	def SendAsync(self, message: str, metadata: str) -> 'TextChatMessage':
 		pass
 
 
@@ -11436,9 +12874,9 @@ class TextChatMessage:
 	PrefixText: str
 	Status: TextChatMessageStatus
 	Text: str
+	TextSource: 'TextSource'
 	Timestamp: DateTime
 	TextChannel: TextChannel
-	TextSource: TextSource
 
 	pass
 
@@ -11456,32 +12894,40 @@ class TextChatService:
 	pass
 
 class TextFilterResult:
-	def GetChatForUserAsync(self, toUserId: int):
+	@abstractmethod
+	def GetChatForUserAsync(self, toUserId: int) -> str:
 		pass
 
-	def GetNonChatStringForBroadcastAsync(self):
+	@abstractmethod
+	def GetNonChatStringForBroadcastAsync(self) -> str:
 		pass
 
-	def GetNonChatStringForUserAsync(self, toUserId: int):
+	@abstractmethod
+	def GetNonChatStringForUserAsync(self, toUserId: int) -> str:
 		pass
 
 
 	pass
 
 class TextService:
-	def GetTextSize(self, string: str, fontSize: int, font: Font, frameSize: Vector2):
+	@abstractmethod
+	def GetTextSize(self, string: str, fontSize: int, font: Font, frameSize: Vector2) -> Vector2:
 		pass
 
-	def SetResolutionScale(self, scale: float):
+	@abstractmethod
+	def SetResolutionScale(self, scale: float) -> None:
 		pass
 
-	def FilterStringAsync(self, stringToFilter: str, fromUserId: int, textContext: TextFilterContext):
+	@abstractmethod
+	def FilterStringAsync(self, stringToFilter: str, fromUserId: int, textContext: TextFilterContext) -> Instance:
 		pass
 
-	def GetFamilyInfoAsync(self, assetId: Content):
+	@abstractmethod
+	def GetFamilyInfoAsync(self, assetId: Content) -> dict[Any, Any]:
 		pass
 
-	def GetTextBoundsAsync(self, params: GetTextBoundsParams):
+	@abstractmethod
+	def GetTextBoundsAsync(self, params: GetTextBoundsParams) -> Vector2:
 		pass
 
 
@@ -11494,22 +12940,28 @@ class TextSource:
 	pass
 
 class ThirdPartyUserService:
-	def GetUserPlatformId(self):
+	@abstractmethod
+	def GetUserPlatformId(self) -> str:
 		pass
 
-	def GetUserPlatformName(self):
+	@abstractmethod
+	def GetUserPlatformName(self) -> str:
 		pass
 
-	def HaveActiveUser(self):
+	@abstractmethod
+	def HaveActiveUser(self) -> bool:
 		pass
 
-	def ReturnToEngagement(self):
+	@abstractmethod
+	def ReturnToEngagement(self) -> None:
 		pass
 
-	def ShowAccountPicker(self):
+	@abstractmethod
+	def ShowAccountPicker(self) -> None:
 		pass
 
-	def RegisterActiveUser(self, gamepadId: UserInputType):
+	@abstractmethod
+	def RegisterActiveUser(self, gamepadId: UserInputType) -> int:
 		pass
 
 
@@ -11520,7 +12972,8 @@ class ThreadState:
 	Populated: bool
 	ThreadId: int
 	ThreadName: str
-	def GetFrame(self, index: int):
+	@abstractmethod
+	def GetFrame(self, index: int) -> Instance:
 		pass
 
 
@@ -11531,10 +12984,12 @@ class TimerService:
 	pass
 
 class ToastNotificationService:
-	def HideNotification(self, notificationId: str):
+	@abstractmethod
+	def HideNotification(self, notificationId: str) -> None:
 		pass
 
-	def ShowNotification(self, message: str, notificationId: str):
+	@abstractmethod
+	def ShowNotification(self, message: str, notificationId: str) -> None:
 		pass
 
 
@@ -11549,10 +13004,12 @@ class TouchTransmitter:
 	pass
 
 class TracerService:
-	def FinishSpan(self, spanId: str):
+	@abstractmethod
+	def FinishSpan(self, spanId: str) -> None:
 		pass
 
-	def StartSpan(self, name: str, parentId: str):
+	@abstractmethod
+	def StartSpan(self, name: str, parentId: str) -> str:
 		pass
 
 
@@ -11563,16 +13020,20 @@ class TrackerLodController:
 	VideoExtrapolationMode: TrackerExtrapolationFlagMode
 	VideoLodMode: TrackerLodValueMode
 	VideoMode: TrackerLodFlagMode
-	def getExtrapolation(self):
+	@abstractmethod
+	def getExtrapolation(self) -> int:
 		pass
 
-	def getVideoLod(self):
+	@abstractmethod
+	def getVideoLod(self) -> int:
 		pass
 
-	def isAudioEnabled(self):
+	@abstractmethod
+	def isAudioEnabled(self) -> bool:
 		pass
 
-	def isVideoEnabled(self):
+	@abstractmethod
+	def isVideoEnabled(self) -> bool:
 		pass
 
 
@@ -11599,7 +13060,8 @@ class Trail:
 	Transparency: NumberSequence
 	WidthScale: NumberSequence
 	TextureMode: TextureMode
-	def Clear(self):
+	@abstractmethod
+	def Clear(self) -> None:
 		pass
 
 
@@ -11607,13 +13069,16 @@ class Trail:
 
 class Translator:
 	LocaleId: str
-	def FormatByKey(self, key: str, args: Any):
+	@abstractmethod
+	def FormatByKey(self, key: str, args: Any) -> str:
 		pass
 
-	def RobloxOnlyTranslate(self, context: Instance, text: str):
+	@abstractmethod
+	def RobloxOnlyTranslate(self, context: Instance, text: str) -> str:
 		pass
 
-	def Translate(self, context: Instance, text: str):
+	@abstractmethod
+	def Translate(self, context: Instance, text: str) -> str:
 		pass
 
 
@@ -11621,13 +13086,16 @@ class Translator:
 
 class TweenBase:
 	PlaybackState: PlaybackState
-	def Cancel(self):
+	@abstractmethod
+	def Cancel(self) -> None:
 		pass
 
-	def Pause(self):
+	@abstractmethod
+	def Pause(self) -> None:
 		pass
 
-	def Play(self):
+	@abstractmethod
+	def Play(self) -> None:
 		pass
 
 
@@ -11640,71 +13108,92 @@ class Tween:
 	pass
 
 class TweenService:
-	def Create(self, instance: Instance, tweenInfo: TweenInfo, propertyTable: Dictionary):
+	@abstractmethod
+	def Create(self, instance: Instance, tweenInfo: TweenInfo, propertyTable: dict[Any, Any]) -> Tween:
 		pass
 
-	def GetValue(self, alpha: float, easingStyle: EasingStyle, easingDirection: EasingDirection):
+	@abstractmethod
+	def GetValue(self, alpha: float, easingStyle: EasingStyle, easingDirection: EasingDirection) -> float:
 		pass
 
 
 	pass
 
 class UGCValidationService:
-	def GetMeshTriCountSync(self, meshId: str):
+	@abstractmethod
+	def GetMeshTriCountSync(self, meshId: str) -> int:
 		pass
 
-	def GetMeshVertsSync(self, meshId: str):
+	@abstractmethod
+	def GetMeshVertsSync(self, meshId: str) -> list[Any]:
 		pass
 
-	def GetTextureSizeSync(self, textureId: str):
+	@abstractmethod
+	def GetTextureSizeSync(self, textureId: str) -> Vector2:
 		pass
 
-	def ResetCollisionFidelity(self, meshPart: Instance):
+	@abstractmethod
+	def ResetCollisionFidelity(self, meshPart: Instance) -> None:
 		pass
 
-	def SetMeshIdBlocking(self, meshPart: Instance, meshId: str):
+	@abstractmethod
+	def SetMeshIdBlocking(self, meshPart: Instance, meshId: str) -> None:
 		pass
 
-	def FetchAssetWithFormat(self, url: Content, assetFormat: str):
+	@abstractmethod
+	def FetchAssetWithFormat(self, url: Content, assetFormat: str) -> dict[int, Instance]:
 		pass
 
-	def GetMeshTriCount(self, meshId: str):
+	@abstractmethod
+	def GetMeshTriCount(self, meshId: str) -> int:
 		pass
 
-	def GetMeshVertColors(self, meshId: str):
+	@abstractmethod
+	def GetMeshVertColors(self, meshId: str) -> list[Any]:
 		pass
 
-	def GetMeshVerts(self, meshId: str):
+	@abstractmethod
+	def GetMeshVerts(self, meshId: str) -> list[Any]:
 		pass
 
-	def GetTextureSize(self, textureId: str):
+	@abstractmethod
+	def GetTextureSize(self, textureId: str) -> Vector2:
 		pass
 
-	def ValidateCageMeshIntersection(self, innerCageMeshId: str, outerCageMeshId: str, refMeshId: str):
+	@abstractmethod
+	def ValidateCageMeshIntersection(self, innerCageMeshId: str, outerCageMeshId: str, refMeshId: str) -> tuple[Any]:
 		pass
 
-	def ValidateCageNonManifoldAndHoles(self, meshId: str):
+	@abstractmethod
+	def ValidateCageNonManifoldAndHoles(self, meshId: str) -> tuple[Any]:
 		pass
 
-	def ValidateFullBodyCageDeletion(self, meshId: str):
+	@abstractmethod
+	def ValidateFullBodyCageDeletion(self, meshId: str) -> bool:
 		pass
 
-	def ValidateMeshTriangles(self, meshId: str):
+	@abstractmethod
+	def ValidateMeshTriangles(self, meshId: str) -> bool:
 		pass
 
-	def ValidateMeshVertColors(self, meshId: str):
+	@abstractmethod
+	def ValidateMeshVertColors(self, meshId: str) -> bool:
 		pass
 
-	def ValidateMisMatchUV(self, innerCageMeshId: str, outerCageMeshId: str):
+	@abstractmethod
+	def ValidateMisMatchUV(self, innerCageMeshId: str, outerCageMeshId: str) -> bool:
 		pass
 
-	def ValidateOverlappingVertices(self, meshId: str):
+	@abstractmethod
+	def ValidateOverlappingVertices(self, meshId: str) -> bool:
 		pass
 
-	def ValidateTextureSize(self, textureId: str):
+	@abstractmethod
+	def ValidateTextureSize(self, textureId: str) -> bool:
 		pass
 
-	def ValidateUVSpace(self, meshId: str):
+	@abstractmethod
+	def ValidateUVSpace(self, meshId: str) -> bool:
 		pass
 
 
@@ -11765,10 +13254,12 @@ class UIGridStyleLayout:
 	HorizontalAlignment: HorizontalAlignment
 	SortOrder: SortOrder
 	VerticalAlignment: VerticalAlignment
-	def ApplyLayout(self):
+	@abstractmethod
+	def ApplyLayout(self) -> None:
 		pass
 
-	def SetCustomSortFunction(self, function: Callable[..., Any]):
+	@abstractmethod
+	def SetCustomSortFunction(self, function: Callable[..., Any]) -> None:
 		pass
 
 
@@ -11800,16 +13291,20 @@ class UIPageLayout:
 	TweenTime: float
 	EasingDirection: EasingDirection
 	EasingStyle: EasingStyle
-	def JumpTo(self, page: Instance):
+	@abstractmethod
+	def JumpTo(self, page: Instance) -> None:
 		pass
 
-	def JumpToIndex(self, index: int):
+	@abstractmethod
+	def JumpToIndex(self, index: int) -> None:
 		pass
 
-	def Next(self):
+	@abstractmethod
+	def Next(self) -> None:
 		pass
 
-	def Previous(self):
+	@abstractmethod
+	def Previous(self) -> None:
 		pass
 
 
@@ -11847,13 +13342,16 @@ class UIStroke:
 	pass
 
 class UnvalidatedAssetService:
-	def AppendTempAssetId(self, userId: int, id: int, lookAt: Vector3, camPos: Vector3, usage: str):
+	@abstractmethod
+	def AppendTempAssetId(self, userId: int, id: int, lookAt: Vector3, camPos: Vector3, usage: str) -> None:
 		pass
 
-	def AppendVantagePoint(self, userId: int, id: int, lookAt: Vector3, camPos: Vector3):
+	@abstractmethod
+	def AppendVantagePoint(self, userId: int, id: int, lookAt: Vector3, camPos: Vector3) -> bool:
 		pass
 
-	def UpgradeTempAssetId(self, userId: int, tempId: int, assetId: int):
+	@abstractmethod
+	def UpgradeTempAssetId(self, userId: int, tempId: int, assetId: int) -> bool:
 		pass
 
 
@@ -11900,34 +13398,44 @@ class UserGameSettings:
 	RotationType: RotationType
 	TouchCameraMovementMode: TouchCameraMovementMode
 	TouchMovementMode: TouchMovementMode
-	def GetCameraYInvertValue(self):
+	@abstractmethod
+	def GetCameraYInvertValue(self) -> int:
 		pass
 
-	def GetOnboardingCompleted(self, onboardingId: str):
+	@abstractmethod
+	def GetOnboardingCompleted(self, onboardingId: str) -> bool:
 		pass
 
-	def GetTutorialState(self, tutorialId: str):
+	@abstractmethod
+	def GetTutorialState(self, tutorialId: str) -> bool:
 		pass
 
-	def InFullScreen(self):
+	@abstractmethod
+	def InFullScreen(self) -> bool:
 		pass
 
-	def InStudioMode(self):
+	@abstractmethod
+	def InStudioMode(self) -> bool:
 		pass
 
-	def ResetOnboardingCompleted(self, onboardingId: str):
+	@abstractmethod
+	def ResetOnboardingCompleted(self, onboardingId: str) -> None:
 		pass
 
-	def SetCameraYInvertVisible(self):
+	@abstractmethod
+	def SetCameraYInvertVisible(self) -> None:
 		pass
 
-	def SetGamepadCameraSensitivityVisible(self):
+	@abstractmethod
+	def SetGamepadCameraSensitivityVisible(self) -> None:
 		pass
 
-	def SetOnboardingCompleted(self, onboardingId: str):
+	@abstractmethod
+	def SetOnboardingCompleted(self, onboardingId: str) -> None:
 		pass
 
-	def SetTutorialState(self, tutorialId: str, value: bool):
+	@abstractmethod
+	def SetTutorialState(self, tutorialId: str, value: bool) -> None:
 		pass
 
 
@@ -11957,89 +13465,116 @@ class UserInputService:
 	VREnabled: bool
 	MouseBehavior: MouseBehavior
 	OverrideMouseIconBehavior: OverrideMouseIconBehavior
-	def GamepadSupports(self, gamepadNum: UserInputType, gamepadKeyCode: KeyCode):
+	@abstractmethod
+	def GamepadSupports(self, gamepadNum: UserInputType, gamepadKeyCode: KeyCode) -> bool:
 		pass
 
-	def GetConnectedGamepads(self):
+	@abstractmethod
+	def GetConnectedGamepads(self) -> list[Any]:
 		pass
 
-	def GetDeviceAcceleration(self):
+	@abstractmethod
+	def GetDeviceAcceleration(self) -> InputObject:
 		pass
 
-	def GetDeviceGravity(self):
+	@abstractmethod
+	def GetDeviceGravity(self) -> InputObject:
 		pass
 
-	def GetDeviceRotation(self):
+	@abstractmethod
+	def GetDeviceRotation(self) -> tuple[Any]:
 		pass
 
-	def GetDeviceType(self):
+	@abstractmethod
+	def GetDeviceType(self) -> DeviceType:
 		pass
 
-	def GetFocusedTextBox(self):
+	@abstractmethod
+	def GetFocusedTextBox(self) -> TextBox:
 		pass
 
-	def GetGamepadConnected(self, gamepadNum: UserInputType):
+	@abstractmethod
+	def GetGamepadConnected(self, gamepadNum: UserInputType) -> bool:
 		pass
 
-	def GetGamepadState(self, gamepadNum: UserInputType):
+	@abstractmethod
+	def GetGamepadState(self, gamepadNum: UserInputType) -> list[Any]:
 		pass
 
-	def GetKeysPressed(self):
+	@abstractmethod
+	def GetKeysPressed(self) -> list[Any]:
 		pass
 
-	def GetLastInputType(self):
+	@abstractmethod
+	def GetLastInputType(self) -> UserInputType:
 		pass
 
-	def GetMouseButtonsPressed(self):
+	@abstractmethod
+	def GetMouseButtonsPressed(self) -> list[Any]:
 		pass
 
-	def GetMouseDelta(self):
+	@abstractmethod
+	def GetMouseDelta(self) -> Vector2:
 		pass
 
-	def GetMouseLocation(self):
+	@abstractmethod
+	def GetMouseLocation(self) -> Vector2:
 		pass
 
-	def GetNavigationGamepads(self):
+	@abstractmethod
+	def GetNavigationGamepads(self) -> list[Any]:
 		pass
 
-	def GetPlatform(self):
+	@abstractmethod
+	def GetPlatform(self) -> Platform:
 		pass
 
-	def GetStringForKeyCode(self, keyCode: KeyCode):
+	@abstractmethod
+	def GetStringForKeyCode(self, keyCode: KeyCode) -> str:
 		pass
 
-	def GetSupportedGamepadKeyCodes(self, gamepadNum: UserInputType):
+	@abstractmethod
+	def GetSupportedGamepadKeyCodes(self, gamepadNum: UserInputType) -> list[Any]:
 		pass
 
-	def GetUserCFrame(self, type: UserCFrame):
+	@abstractmethod
+	def GetUserCFrame(self, type: UserCFrame) -> CFrame:
 		pass
 
-	def IsGamepadButtonDown(self, gamepadNum: UserInputType, gamepadKeyCode: KeyCode):
+	@abstractmethod
+	def IsGamepadButtonDown(self, gamepadNum: UserInputType, gamepadKeyCode: KeyCode) -> bool:
 		pass
 
-	def IsKeyDown(self, keyCode: KeyCode):
+	@abstractmethod
+	def IsKeyDown(self, keyCode: KeyCode) -> bool:
 		pass
 
-	def IsMouseButtonPressed(self, mouseButton: UserInputType):
+	@abstractmethod
+	def IsMouseButtonPressed(self, mouseButton: UserInputType) -> bool:
 		pass
 
-	def IsNavigationGamepad(self, gamepadEnum: UserInputType):
+	@abstractmethod
+	def IsNavigationGamepad(self, gamepadEnum: UserInputType) -> bool:
 		pass
 
-	def RecenterUserHeadCFrame(self):
+	@abstractmethod
+	def RecenterUserHeadCFrame(self) -> None:
 		pass
 
-	def SendAppUISizes(self, statusBarSize: Vector2, navBarSize: Vector2, bottomBarSize: Vector2, rightBarSize: Vector2):
+	@abstractmethod
+	def SendAppUISizes(self, statusBarSize: Vector2, navBarSize: Vector2, bottomBarSize: Vector2, rightBarSize: Vector2) -> None:
 		pass
 
-	def SetNavigationGamepad(self, gamepadEnum: UserInputType, enabled: bool):
+	@abstractmethod
+	def SetNavigationGamepad(self, gamepadEnum: UserInputType, enabled: bool) -> None:
 		pass
 
 
 	pass
 
 class UserService:
-	def GetUserInfosByUserIdsAsync(self, userIds: list[Any]):
+	@abstractmethod
+	def GetUserInfosByUserIdsAsync(self, userIds: list[Any]) -> list[Any]:
 		pass
 
 
@@ -12053,28 +13588,36 @@ class VRService:
 	VRDeviceAvailable: bool
 	VRDeviceName: str
 	VREnabled: bool
-	def GetTouchpadMode(self, pad: VRTouchpad):
+	@abstractmethod
+	def GetTouchpadMode(self, pad: VRTouchpad) -> VRTouchpadMode:
 		pass
 
-	def GetUserCFrame(self, type: UserCFrame):
+	@abstractmethod
+	def GetUserCFrame(self, type: UserCFrame) -> CFrame:
 		pass
 
-	def GetUserCFrameEnabled(self, type: UserCFrame):
+	@abstractmethod
+	def GetUserCFrameEnabled(self, type: UserCFrame) -> bool:
 		pass
 
-	def IsMaquettes(self):
+	@abstractmethod
+	def IsMaquettes(self) -> bool:
 		pass
 
-	def IsVRAppBuild(self):
+	@abstractmethod
+	def IsVRAppBuild(self) -> bool:
 		pass
 
-	def RecenterUserHeadCFrame(self):
+	@abstractmethod
+	def RecenterUserHeadCFrame(self) -> None:
 		pass
 
-	def RequestNavigation(self, cframe: CFrame, inputUserCFrame: UserCFrame):
+	@abstractmethod
+	def RequestNavigation(self, cframe: CFrame, inputUserCFrame: UserCFrame) -> None:
 		pass
 
-	def SetTouchpadMode(self, pad: VRTouchpad, mode: VRTouchpadMode):
+	@abstractmethod
+	def SetTouchpadMode(self, pad: VRTouchpad, mode: VRTouchpadMode) -> None:
 		pass
 
 
@@ -12155,16 +13698,20 @@ class Vector3Value:
 	pass
 
 class Vector3Curve:
-	def GetValueAtTime(self, time: float):
+	@abstractmethod
+	def GetValueAtTime(self, time: float) -> list[Any]:
 		pass
 
-	def X(self):
+	@abstractmethod
+	def X(self) -> FloatCurve:
 		pass
 
-	def Y(self):
+	@abstractmethod
+	def Y(self) -> FloatCurve:
 		pass
 
-	def Z(self):
+	@abstractmethod
+	def Z(self) -> FloatCurve:
 		pass
 
 
@@ -12178,7 +13725,8 @@ class VersionControlService:
 class VideoCaptureService:
 	Active: bool
 	CameraID: str
-	def GetCameraDevices(self):
+	@abstractmethod
+	def GetCameraDevices(self) -> 'Map':
 		pass
 
 
@@ -12186,116 +13734,152 @@ class VideoCaptureService:
 
 class VirtualInputManager:
 	AdditionalLuaState: str
-	def Dump(self):
+	@abstractmethod
+	def Dump(self) -> None:
 		pass
 
-	def HandleGamepadAxisInput(self, objectId: int, keyCode: KeyCode, x: float, y: float, z: float):
+	@abstractmethod
+	def HandleGamepadAxisInput(self, objectId: int, keyCode: KeyCode, x: float, y: float, z: float) -> None:
 		pass
 
-	def HandleGamepadButtonInput(self, deviceId: int, keyCode: KeyCode, buttonState: int):
+	@abstractmethod
+	def HandleGamepadButtonInput(self, deviceId: int, keyCode: KeyCode, buttonState: int) -> None:
 		pass
 
-	def HandleGamepadConnect(self, deviceId: int):
+	@abstractmethod
+	def HandleGamepadConnect(self, deviceId: int) -> None:
 		pass
 
-	def HandleGamepadDisconnect(self, deviceId: int):
+	@abstractmethod
+	def HandleGamepadDisconnect(self, deviceId: int) -> None:
 		pass
 
-	def SendAccelerometerEvent(self, x: float, y: float, z: float):
+	@abstractmethod
+	def SendAccelerometerEvent(self, x: float, y: float, z: float) -> None:
 		pass
 
-	def SendGravityEvent(self, x: float, y: float, z: float):
+	@abstractmethod
+	def SendGravityEvent(self, x: float, y: float, z: float) -> None:
 		pass
 
-	def SendGyroscopeEvent(self, quatX: float, quatY: float, quatZ: float, quatW: float):
+	@abstractmethod
+	def SendGyroscopeEvent(self, quatX: float, quatY: float, quatZ: float, quatW: float) -> None:
 		pass
 
-	def SendKeyEvent(self, isPressed: bool, keyCode: KeyCode, isRepeatedKey: bool, layerCollector: Instance):
+	@abstractmethod
+	def SendKeyEvent(self, isPressed: bool, keyCode: KeyCode, isRepeatedKey: bool, layerCollector: Instance) -> None:
 		pass
 
-	def SendMouseButtonEvent(self, x: int, y: int, mouseButton: int, isDown: bool, layerCollector: Instance, repeatCount: int):
+	@abstractmethod
+	def SendMouseButtonEvent(self, x: int, y: int, mouseButton: int, isDown: bool, layerCollector: Instance, repeatCount: int) -> None:
 		pass
 
-	def SendMouseMoveEvent(self, x: float, y: float, layerCollector: Instance):
+	@abstractmethod
+	def SendMouseMoveEvent(self, x: float, y: float, layerCollector: Instance) -> None:
 		pass
 
-	def SendMouseWheelEvent(self, x: float, y: float, isForwardScroll: bool, layerCollector: Instance):
+	@abstractmethod
+	def SendMouseWheelEvent(self, x: float, y: float, isForwardScroll: bool, layerCollector: Instance) -> None:
 		pass
 
-	def SendTextInputCharacterEvent(self, str: str, layerCollector: Instance):
+	@abstractmethod
+	def SendTextInputCharacterEvent(self, str: str, layerCollector: Instance) -> None:
 		pass
 
-	def SendTouchEvent(self, touchId: int, state: int, x: float, y: float):
+	@abstractmethod
+	def SendTouchEvent(self, touchId: int, state: int, x: float, y: float) -> None:
 		pass
 
-	def SetInputTypesToIgnore(self, inputTypesToIgnore: Any):
+	@abstractmethod
+	def SetInputTypesToIgnore(self, inputTypesToIgnore: Any) -> None:
 		pass
 
-	def StartPlaying(self, fileName: str):
+	@abstractmethod
+	def StartPlaying(self, fileName: str) -> None:
 		pass
 
-	def StartPlayingJSON(self, string: str):
+	@abstractmethod
+	def StartPlayingJSON(self, string: str) -> None:
 		pass
 
-	def StartRecording(self):
+	@abstractmethod
+	def StartRecording(self) -> None:
 		pass
 
-	def StopPlaying(self):
+	@abstractmethod
+	def StopPlaying(self) -> None:
 		pass
 
-	def StopRecording(self):
+	@abstractmethod
+	def StopRecording(self) -> None:
 		pass
 
-	def sendRobloxEvent(self, namespace: str, detail: str, detailType: str):
+	@abstractmethod
+	def sendRobloxEvent(self, namespace: str, detail: str, detailType: str) -> None:
 		pass
 
-	def sendThemeChangeEvent(self, themeName: str):
+	@abstractmethod
+	def sendThemeChangeEvent(self, themeName: str) -> None:
 		pass
 
-	def WaitForInputEventsProcessed(self):
+	@abstractmethod
+	def WaitForInputEventsProcessed(self) -> None:
 		pass
 
 
 	pass
 
 class VirtualUser:
-	def Button1Down(self, position: Vector2, camera: CFrame):
+	@abstractmethod
+	def Button1Down(self, position: Vector2, camera: CFrame) -> None:
 		pass
 
-	def Button1Up(self, position: Vector2, camera: CFrame):
+	@abstractmethod
+	def Button1Up(self, position: Vector2, camera: CFrame) -> None:
 		pass
 
-	def Button2Down(self, position: Vector2, camera: CFrame):
+	@abstractmethod
+	def Button2Down(self, position: Vector2, camera: CFrame) -> None:
 		pass
 
-	def Button2Up(self, position: Vector2, camera: CFrame):
+	@abstractmethod
+	def Button2Up(self, position: Vector2, camera: CFrame) -> None:
 		pass
 
-	def CaptureController(self):
+	@abstractmethod
+	def CaptureController(self) -> None:
 		pass
 
-	def ClickButton1(self, position: Vector2, camera: CFrame):
+	@abstractmethod
+	def ClickButton1(self, position: Vector2, camera: CFrame) -> None:
 		pass
 
-	def ClickButton2(self, position: Vector2, camera: CFrame):
+	@abstractmethod
+	def ClickButton2(self, position: Vector2, camera: CFrame) -> None:
 		pass
 
-	def MoveMouse(self, position: Vector2, camera: CFrame):
+	@abstractmethod
+	def MoveMouse(self, position: Vector2, camera: CFrame) -> None:
 		pass
 
-	def SetKeyDown(self, key: str):
+	@abstractmethod
+	def SetKeyDown(self, key: str) -> None:
 		pass
 
-	def SetKeyUp(self, key: str):
+	@abstractmethod
+	def SetKeyUp(self, key: str) -> None:
 		pass
 
-	def StartRecording(self):
+	@abstractmethod
+	def StartRecording(self) -> None:
 		pass
 
-	def StopRecording(self):
+	@abstractmethod
+	def StopRecording(self) -> str:
 		pass
 
-	def TypeKey(self, key: str):
+	@abstractmethod
+	def TypeKey(self, key: str) -> None:
 		pass
 
 
@@ -12310,7 +13894,8 @@ class Visit:
 	pass
 
 class VoiceChannel:
-	def AddUserAsync(self, userId: int):
+	@abstractmethod
+	def AddUserAsync(self, userId: int) -> 'VoiceSource':
 		pass
 
 
@@ -12318,76 +13903,100 @@ class VoiceChannel:
 
 class VoiceChatInternal:
 	VoiceChatState: VoiceChatState
-	def GetAndClearCallFailureMessage(self):
+	@abstractmethod
+	def GetAndClearCallFailureMessage(self) -> str:
 		pass
 
-	def GetAudioProcessingSettings(self):
+	@abstractmethod
+	def GetAudioProcessingSettings(self) -> tuple[Any]:
 		pass
 
-	def GetChannelId(self):
+	@abstractmethod
+	def GetChannelId(self) -> str:
 		pass
 
-	def GetGroupId(self):
+	@abstractmethod
+	def GetGroupId(self) -> str:
 		pass
 
-	def GetMicDevices(self):
+	@abstractmethod
+	def GetMicDevices(self) -> tuple[Any]:
 		pass
 
-	def GetParticipants(self):
+	@abstractmethod
+	def GetParticipants(self) -> list[Any]:
 		pass
 
-	def GetSpeakerDevices(self):
+	@abstractmethod
+	def GetSpeakerDevices(self) -> tuple[Any]:
 		pass
 
-	def GetVoiceChatApiVersion(self):
+	@abstractmethod
+	def GetVoiceChatApiVersion(self) -> int:
 		pass
 
-	def GetVoiceChatAvailable(self):
+	@abstractmethod
+	def GetVoiceChatAvailable(self) -> int:
 		pass
 
-	def IsContextVoiceEnabled(self):
+	@abstractmethod
+	def IsContextVoiceEnabled(self) -> bool:
 		pass
 
-	def IsPublishPaused(self):
+	@abstractmethod
+	def IsPublishPaused(self) -> bool:
 		pass
 
-	def IsSubscribePaused(self, userId: int):
+	@abstractmethod
+	def IsSubscribePaused(self, userId: int) -> bool:
 		pass
 
-	def JoinByGroupId(self, groupId: str, isMicMuted: bool):
+	@abstractmethod
+	def JoinByGroupId(self, groupId: str, isMicMuted: bool) -> bool:
 		pass
 
-	def JoinByGroupIdToken(self, groupId: str, isMicMuted: bool):
+	@abstractmethod
+	def JoinByGroupIdToken(self, groupId: str, isMicMuted: bool) -> bool:
 		pass
 
-	def Leave(self):
+	@abstractmethod
+	def Leave(self) -> None:
 		pass
 
-	def PublishPause(self, paused: bool):
+	@abstractmethod
+	def PublishPause(self, paused: bool) -> bool:
 		pass
 
-	def SetMicDevice(self, micDeviceName: str, micDeviceGuid: str):
+	@abstractmethod
+	def SetMicDevice(self, micDeviceName: str, micDeviceGuid: str) -> None:
 		pass
 
-	def SetSpeakerDevice(self, speakerDeviceName: str, speakerDeviceGuid: str):
+	@abstractmethod
+	def SetSpeakerDevice(self, speakerDeviceName: str, speakerDeviceGuid: str) -> None:
 		pass
 
-	def SubscribeBlock(self, userId: int):
+	@abstractmethod
+	def SubscribeBlock(self, userId: int) -> bool:
 		pass
 
-	def SubscribePause(self, userId: int, paused: bool):
+	@abstractmethod
+	def SubscribePause(self, userId: int, paused: bool) -> bool:
 		pass
 
-	def SubscribePauseAll(self, paused: bool):
+	@abstractmethod
+	def SubscribePauseAll(self, paused: bool) -> bool:
 		pass
 
-	def SubscribeRetry(self, userId: int):
+	@abstractmethod
+	def SubscribeRetry(self, userId: int) -> bool:
 		pass
 
-	def SubscribeUnblock(self, userId: int):
+	@abstractmethod
+	def SubscribeUnblock(self, userId: int) -> bool:
 		pass
 
-	def IsVoiceEnabledForUserIdAsync(self, userId: int):
+	@abstractmethod
+	def IsVoiceEnabledForUserIdAsync(self, userId: int) -> bool:
 		pass
 
 
@@ -12397,7 +14006,8 @@ class VoiceChatService:
 	EnableDefaultVoice: bool
 	VoiceChatEnabledForPlaceOnRcc: bool
 	VoiceChatEnabledForUniverseOnRcc: bool
-	def IsVoiceEnabledForUserIdAsync(self, userId: int):
+	@abstractmethod
+	def IsVoiceEnabledForUserIdAsync(self, userId: int) -> bool:
 		pass
 
 

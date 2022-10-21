@@ -1,4 +1,4 @@
-from ropy_types.util.ApiTrackerModel import ApiTracker, RobloxClass, RobloxClassFunctionParameter, RobloxEnum, RobloxMemberProperty
+from ropy_types.util.ApiTrackerModel import ApiTracker, RobloxClass, RobloxClassFunctionParameter, RobloxEnum, RobloxMemberFunction, RobloxMemberProperty
 import re
 
 primitive_types: list[str] = [
@@ -20,7 +20,7 @@ pytypes: dict[str, str] = {
     "Tuple": "tuple[Any]",
     "void": "None",
     "Dictionary": "dict[Any, Any]",
-    "Objects": "dict[int, Instance]", # special case because Instance could also be Self,
+    "Objects": "list[Instance]", # special case because Instance could also be Self,
 }
 
 pyenums: dict[str, str] = {
@@ -86,9 +86,17 @@ class Generator:
         return params
 
     @classmethod
-    def generate_class(cls, _class: RobloxClass) -> str:
+    def get_class_by_name(cls, name: str, api_tracker: ApiTracker ) -> RobloxClass | None:
+        return next((roblox_class for roblox_class in api_tracker["Classes"] if roblox_class["Name"] == name), None)
+
+    @classmethod
+    def generate_class(cls, _class: RobloxClass, api_tracker: ApiTracker) -> str:
         # generate the class
-        class_string = f"class {_class['Name']}:\n"
+        class_string = f"class {_class['Name']}"
+        if _class["Superclass"] == "<<<ROOT>>>":
+            class_string += f":\n"
+        else:
+            class_string += f"({_class['Superclass']}):\n"
 
         # check the properties first
         same_name_properties: list[RobloxMemberProperty] = [];
@@ -103,7 +111,7 @@ class Generator:
 
             # generate the property
             if member['ValueType']["Name"] == _class["Name"]:
-                class_string += f"\t{member['Name']}: Self\n"
+                class_string += f"\t{member['Name']}: '{_class['Name']}'\n"
                 continue;
 
             class_string += f"\t{re.sub('[^0-9a-zA-Z]+', '', member['Name'])}: {cls.convert_py_type(member['ValueType']['Name'])}\n"
@@ -114,10 +122,45 @@ class Generator:
             same_name_properties_names.append(member["Name"]);
 
             if member['ValueType']["Name"] == _class["Name"]:
-                class_string += f"\t{member['Name']}: Self\n"
+                class_string += f"\t{member['Name']}: '{_class['Name']}'\n"
                 continue;
 
             class_string += f"\t{re.sub('[^0-9a-zA-Z]+', '', member['Name'])}: {cls.convert_py_type(member['ValueType']['Name'])}\n"
+
+        if(_class["Name"] == "Instance"):
+            # @singledispatchmethod
+            # @classmethod
+            # def new(cls, className: str, parent: Self | None = None) -> None:
+            #   
+
+            class_string += f"\t@singledispatchmethod\n"
+            class_string += f"\t@classmethod\n"
+            class_string += f"\tdef new(cls, className: str, parent: Self | None = None) -> None:\n"
+
+            # loop through all classes with superclass Instance
+            for roblox_class in api_tracker["Classes"]:
+                superclass = cls.get_class_by_name(roblox_class["Superclass"], api_tracker);
+                is_instance = False;
+                
+                while superclass and superclass["Name"] != "Instance":
+                    superclass = cls.get_class_by_name(superclass["Superclass"], api_tracker);
+
+                if superclass and superclass["Name"] == "Instance":
+                    is_instance = True;
+
+                # example for Part:
+                # if isinstance(className, Literal["Part"]):
+                #   a = Part()
+                #   if parent is not None:
+                #       a.Parent = parent
+                #   return a
+
+                if is_instance and superclass:
+                    class_string += f"\t\tif isinstance(className, Literal[\"{roblox_class['Name']}\"]):\n"
+                    class_string += f"\t\t\ta = {roblox_class['Name']}()\n"
+                    class_string += f"\t\t\tif parent is not None:\n"
+                    class_string += f"\t\t\t\ta.Parent = parent\n"
+                    class_string += f"\t\t\treturn a\n\n"
 
         # check the functions
         for member in _class['Members']:
@@ -126,15 +169,20 @@ class Generator:
             
             # generate the function
             class_string += f"\t@abstractmethod\n"
-            class_string += f"\tdef {member['Name']}({cls.generate_params(member['Parameters'], _class, same_name_properties_names)})"
+            class_string += f"\tdef {member['Name']}"
+            
+            if cls.is_method_overloading(_class, api_tracker, member):
+                class_string += f"{_class['Name']}"
+
+            class_string += f"({cls.generate_params(member['Parameters'], _class, same_name_properties_names)})"
 
             # check if member['ReturnType']['Name'] is equal to class name
             # special case:
             if member['ReturnType']['Name'] == "Objects":
                 if _class['Name'] == "Instance":
-                    class_string += f" -> dict[int, Self]"
+                    class_string += f" -> list[Self]"
                 else:
-                    class_string += f" -> dict[int, Instance]"
+                    class_string += f" -> list[Instance]"
             elif member["ReturnType"]["Name"] == _class["Name"]:
                 class_string += f" -> Self"
             else:
@@ -142,7 +190,13 @@ class Generator:
                     class_string += f" -> '{cls.convert_py_type(member['ReturnType']['Name'])}'"
                 else:
                     class_string += f" -> {cls.convert_py_type(member['ReturnType']['Name'])}"
-            class_string += ":\n\t\tpass\n\n"
+
+            class_string += ":"
+
+            if cls.is_method_overloading(_class, api_tracker, member):
+                class_string += f" # Overloading + Overriding"
+
+            class_string += "\n\t\tpass\n\n"
         
 
         # add a pass
@@ -150,6 +204,27 @@ class Generator:
 
         # return the class
         return class_string
+
+    @classmethod
+    def is_method_overloading(cls, _class: RobloxClass, api_tracker: ApiTracker, member: RobloxMemberFunction) -> bool:
+        parent_class = cls.get_class_by_name(_class["Superclass"], api_tracker)
+        parent_method_found = False
+        while parent_class is not None and not parent_method_found:
+            for parent_member in parent_class["Members"]:
+                if parent_member["MemberType"] != "Function":
+                    continue;
+
+                if parent_member["Name"] != member["Name"]:
+                    continue;
+
+                    # check if the parameters are the same of the parent class's function member
+                if len(parent_member["Parameters"]) != len(member["Parameters"]):
+                    parent_method_found = True;
+                    return True;
+                
+            parent_class = cls.get_class_by_name(parent_class["Superclass"], api_tracker)
+
+        return False
 
     @classmethod
     def generate_enum(cls, _enum: RobloxEnum) -> str:
@@ -262,9 +337,10 @@ class Generator:
         # this is the string that will be returned
         api_tracker = cls.sort_model(api_tracker)
         generated_string = "from typing_extensions import Self\n"
-        generated_string += "from typing import Any, Callable\n"
+        generated_string += "from typing import Any, Callable, Literal\n"
         generated_string += "from abc import abstractmethod\n"
-        generated_string += "from enum import Enum\n\n"
+        generated_string += "from enum import Enum\n"
+        generated_string += "from functools import singledispatchmethod\n\n"
 
         # add the datatypes
         for datatype in api_tracker['DataTypes']:
@@ -280,6 +356,6 @@ class Generator:
 
         # add the classes
         for _class in api_tracker["Classes"]:
-            generated_string += cls.generate_class(_class)
+            generated_string += cls.generate_class(_class, api_tracker)
 
         return generated_string;

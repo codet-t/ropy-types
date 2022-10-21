@@ -1,7 +1,8 @@
 from typing_extensions import Self
-from typing import Any, Callable
+from typing import Any, Callable, Literal
 from abc import abstractmethod
 from enum import Enum
+from functools import singledispatchmethod
 
 class Vector3:
 	pass
@@ -3085,11 +3086,3686 @@ class Instance:
 	ClassName: str
 	DataCost: int
 	Name: str
-	Parent: Self
+	Parent: 'Instance'
 	RobloxLocked: bool
 	SourceAssetId: int
 	archivable: bool
 	className: str
+	@singledispatchmethod
+	@classmethod
+	def new(cls, className: str, parent: Self | None = None) -> None:
+		if isinstance(className, Literal["Accoutrement"]):
+			a = Accoutrement()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Accessory"]):
+			a = Accessory()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Hat"]):
+			a = Hat()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AdPortal"]):
+			a = AdPortal()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AdService"]):
+			a = AdService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AdvancedDragger"]):
+			a = AdvancedDragger()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnalyticsService"]):
+			a = AnalyticsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Animation"]):
+			a = Animation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationClip"]):
+			a = AnimationClip()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CurveAnimation"]):
+			a = CurveAnimation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["KeyframeSequence"]):
+			a = KeyframeSequence()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationClipProvider"]):
+			a = AnimationClipProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationController"]):
+			a = AnimationController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationFromVideoCreatorService"]):
+			a = AnimationFromVideoCreatorService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationFromVideoCreatorStudioService"]):
+			a = AnimationFromVideoCreatorStudioService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationRigData"]):
+			a = AnimationRigData()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationStreamTrack"]):
+			a = AnimationStreamTrack()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationTrack"]):
+			a = AnimationTrack()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Animator"]):
+			a = Animator()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AppUpdateService"]):
+			a = AppUpdateService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetCounterService"]):
+			a = AssetCounterService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetDeliveryProxy"]):
+			a = AssetDeliveryProxy()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetImportService"]):
+			a = AssetImportService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetImportSession"]):
+			a = AssetImportSession()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetManagerService"]):
+			a = AssetManagerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetPatchSettings"]):
+			a = AssetPatchSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetService"]):
+			a = AssetService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Atmosphere"]):
+			a = Atmosphere()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Attachment"]):
+			a = Attachment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Bone"]):
+			a = Bone()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AvatarEditorService"]):
+			a = AvatarEditorService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AvatarImportService"]):
+			a = AvatarImportService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Backpack"]):
+			a = Backpack()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BackpackItem"]):
+			a = BackpackItem()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HopperBin"]):
+			a = HopperBin()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Tool"]):
+			a = Tool()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Flag"]):
+			a = Flag()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BadgeService"]):
+			a = BadgeService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BasePlayerGui"]):
+			a = BasePlayerGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CoreGui"]):
+			a = CoreGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PlayerGui"]):
+			a = PlayerGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StarterGui"]):
+			a = StarterGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BaseWrap"]):
+			a = BaseWrap()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["WrapLayer"]):
+			a = WrapLayer()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["WrapTarget"]):
+			a = WrapTarget()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Beam"]):
+			a = Beam()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BindableEvent"]):
+			a = BindableEvent()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BindableFunction"]):
+			a = BindableFunction()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyMover"]):
+			a = BodyMover()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyAngularVelocity"]):
+			a = BodyAngularVelocity()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyForce"]):
+			a = BodyForce()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyGyro"]):
+			a = BodyGyro()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyPosition"]):
+			a = BodyPosition()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyThrust"]):
+			a = BodyThrust()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyVelocity"]):
+			a = BodyVelocity()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RocketPropulsion"]):
+			a = RocketPropulsion()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Breakpoint"]):
+			a = Breakpoint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BrowserService"]):
+			a = BrowserService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BulkImportService"]):
+			a = BulkImportService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CacheableContentProvider"]):
+			a = CacheableContentProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HSRDataContentProvider"]):
+			a = HSRDataContentProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MeshContentProvider"]):
+			a = MeshContentProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SolidModelContentProvider"]):
+			a = SolidModelContentProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CalloutService"]):
+			a = CalloutService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Camera"]):
+			a = Camera()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ChangeHistoryService"]):
+			a = ChangeHistoryService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CharacterAppearance"]):
+			a = CharacterAppearance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BodyColors"]):
+			a = BodyColors()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CharacterMesh"]):
+			a = CharacterMesh()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Clothing"]):
+			a = Clothing()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Pants"]):
+			a = Pants()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Shirt"]):
+			a = Shirt()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ShirtGraphic"]):
+			a = ShirtGraphic()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Skin"]):
+			a = Skin()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Chat"]):
+			a = Chat()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ClickDetector"]):
+			a = ClickDetector()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Clouds"]):
+			a = Clouds()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ClusterPacketCache"]):
+			a = ClusterPacketCache()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CollectionService"]):
+			a = CollectionService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CommandInstance"]):
+			a = CommandInstance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CommandService"]):
+			a = CommandService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Configuration"]):
+			a = Configuration()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ConfigureServerService"]):
+			a = ConfigureServerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Constraint"]):
+			a = Constraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AlignOrientation"]):
+			a = AlignOrientation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AlignPosition"]):
+			a = AlignPosition()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AngularVelocity"]):
+			a = AngularVelocity()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnimationConstraint"]):
+			a = AnimationConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BallSocketConstraint"]):
+			a = BallSocketConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HingeConstraint"]):
+			a = HingeConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LineForce"]):
+			a = LineForce()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LinearVelocity"]):
+			a = LinearVelocity()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PlaneConstraint"]):
+			a = PlaneConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Plane"]):
+			a = Plane()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RigidConstraint"]):
+			a = RigidConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RodConstraint"]):
+			a = RodConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RopeConstraint"]):
+			a = RopeConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SlidingBallConstraint"]):
+			a = SlidingBallConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CylindricalConstraint"]):
+			a = CylindricalConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PrismaticConstraint"]):
+			a = PrismaticConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SpringConstraint"]):
+			a = SpringConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Torque"]):
+			a = Torque()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TorsionSpringConstraint"]):
+			a = TorsionSpringConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UniversalConstraint"]):
+			a = UniversalConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VectorForce"]):
+			a = VectorForce()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ContentProvider"]):
+			a = ContentProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ContextActionService"]):
+			a = ContextActionService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Controller"]):
+			a = Controller()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HumanoidController"]):
+			a = HumanoidController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SkateboardController"]):
+			a = SkateboardController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VehicleController"]):
+			a = VehicleController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ControllerBase"]):
+			a = ControllerBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AirController"]):
+			a = AirController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ClimbController"]):
+			a = ClimbController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GroundController"]):
+			a = GroundController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SwimController"]):
+			a = SwimController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ControllerManager"]):
+			a = ControllerManager()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ControllerService"]):
+			a = ControllerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CookiesService"]):
+			a = CookiesService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CorePackages"]):
+			a = CorePackages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CoreScriptSyncService"]):
+			a = CoreScriptSyncService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CrossDMScriptChangeListener"]):
+			a = CrossDMScriptChangeListener()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CustomEvent"]):
+			a = CustomEvent()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CustomEventReceiver"]):
+			a = CustomEventReceiver()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataModelMesh"]):
+			a = DataModelMesh()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BevelMesh"]):
+			a = BevelMesh()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BlockMesh"]):
+			a = BlockMesh()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CylinderMesh"]):
+			a = CylinderMesh()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FileMesh"]):
+			a = FileMesh()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SpecialMesh"]):
+			a = SpecialMesh()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataModelPatchService"]):
+			a = DataModelPatchService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataModelSession"]):
+			a = DataModelSession()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreIncrementOptions"]):
+			a = DataStoreIncrementOptions()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreInfo"]):
+			a = DataStoreInfo()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreKey"]):
+			a = DataStoreKey()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreKeyInfo"]):
+			a = DataStoreKeyInfo()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreObjectVersionInfo"]):
+			a = DataStoreObjectVersionInfo()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreOptions"]):
+			a = DataStoreOptions()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreService"]):
+			a = DataStoreService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreSetOptions"]):
+			a = DataStoreSetOptions()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Debris"]):
+			a = Debris()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebugSettings"]):
+			a = DebugSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggablePluginWatcher"]):
+			a = DebuggablePluginWatcher()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerBreakpoint"]):
+			a = DebuggerBreakpoint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerConnection"]):
+			a = DebuggerConnection()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LocalDebuggerConnection"]):
+			a = LocalDebuggerConnection()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerConnectionManager"]):
+			a = DebuggerConnectionManager()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerLuaResponse"]):
+			a = DebuggerLuaResponse()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerManager"]):
+			a = DebuggerManager()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerUIService"]):
+			a = DebuggerUIService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerVariable"]):
+			a = DebuggerVariable()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DebuggerWatch"]):
+			a = DebuggerWatch()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DeviceIdService"]):
+			a = DeviceIdService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Dialog"]):
+			a = Dialog()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DialogChoice"]):
+			a = DialogChoice()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DraftsService"]):
+			a = DraftsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Dragger"]):
+			a = Dragger()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DraggerService"]):
+			a = DraggerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["EulerRotationCurve"]):
+			a = EulerRotationCurve()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["EventIngestService"]):
+			a = EventIngestService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ExperienceInviteOptions"]):
+			a = ExperienceInviteOptions()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Explosion"]):
+			a = Explosion()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FaceAnimatorService"]):
+			a = FaceAnimatorService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FaceControls"]):
+			a = FaceControls()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FaceInstance"]):
+			a = FaceInstance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Decal"]):
+			a = Decal()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Texture"]):
+			a = Texture()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FacialAnimationRecordingService"]):
+			a = FacialAnimationRecordingService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FacialAnimationStreamingService"]):
+			a = FacialAnimationStreamingService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FacialAnimationStreamingServiceV2"]):
+			a = FacialAnimationStreamingServiceV2()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Feature"]):
+			a = Feature()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Hole"]):
+			a = Hole()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MotorFeature"]):
+			a = MotorFeature()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["File"]):
+			a = File()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Fire"]):
+			a = Fire()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FlagStandService"]):
+			a = FlagStandService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FloatCurve"]):
+			a = FloatCurve()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FlyweightService"]):
+			a = FlyweightService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CSGDictionaryService"]):
+			a = CSGDictionaryService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NonReplicatedCSGDictionaryService"]):
+			a = NonReplicatedCSGDictionaryService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Folder"]):
+			a = Folder()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ForceField"]):
+			a = ForceField()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FriendService"]):
+			a = FriendService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FunctionalTest"]):
+			a = FunctionalTest()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GamePassService"]):
+			a = GamePassService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GameSettings"]):
+			a = GameSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GamepadService"]):
+			a = GamepadService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Geometry"]):
+			a = Geometry()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GetTextBoundsParams"]):
+			a = GetTextBoundsParams()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GlobalDataStore"]):
+			a = GlobalDataStore()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStore"]):
+			a = DataStore()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["OrderedDataStore"]):
+			a = OrderedDataStore()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GoogleAnalyticsConfiguration"]):
+			a = GoogleAnalyticsConfiguration()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GroupService"]):
+			a = GroupService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiBase"]):
+			a = GuiBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiBase2d"]):
+			a = GuiBase2d()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiObject"]):
+			a = GuiObject()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CanvasGroup"]):
+			a = CanvasGroup()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Frame"]):
+			a = Frame()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiButton"]):
+			a = GuiButton()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImageButton"]):
+			a = ImageButton()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextButton"]):
+			a = TextButton()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiLabel"]):
+			a = GuiLabel()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImageLabel"]):
+			a = ImageLabel()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextLabel"]):
+			a = TextLabel()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScrollingFrame"]):
+			a = ScrollingFrame()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextBox"]):
+			a = TextBox()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VideoFrame"]):
+			a = VideoFrame()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ViewportFrame"]):
+			a = ViewportFrame()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LayerCollector"]):
+			a = LayerCollector()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BillboardGui"]):
+			a = BillboardGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginGui"]):
+			a = PluginGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DockWidgetPluginGui"]):
+			a = DockWidgetPluginGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["QWidgetPluginGui"]):
+			a = QWidgetPluginGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScreenGui"]):
+			a = ScreenGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiMain"]):
+			a = GuiMain()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SurfaceGuiBase"]):
+			a = SurfaceGuiBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AdGui"]):
+			a = AdGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SurfaceGui"]):
+			a = SurfaceGui()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiBase3d"]):
+			a = GuiBase3d()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FloorWire"]):
+			a = FloorWire()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["InstanceAdornment"]):
+			a = InstanceAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SelectionBox"]):
+			a = SelectionBox()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PVAdornment"]):
+			a = PVAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HandleAdornment"]):
+			a = HandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BoxHandleAdornment"]):
+			a = BoxHandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ConeHandleAdornment"]):
+			a = ConeHandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CylinderHandleAdornment"]):
+			a = CylinderHandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImageHandleAdornment"]):
+			a = ImageHandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LineHandleAdornment"]):
+			a = LineHandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SphereHandleAdornment"]):
+			a = SphereHandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["WireframeHandleAdornment"]):
+			a = WireframeHandleAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ParabolaAdornment"]):
+			a = ParabolaAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SelectionSphere"]):
+			a = SelectionSphere()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PartAdornment"]):
+			a = PartAdornment()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HandlesBase"]):
+			a = HandlesBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ArcHandles"]):
+			a = ArcHandles()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Handles"]):
+			a = Handles()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SurfaceSelection"]):
+			a = SurfaceSelection()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SelectionLasso"]):
+			a = SelectionLasso()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SelectionPartLasso"]):
+			a = SelectionPartLasso()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SelectionPointLasso"]):
+			a = SelectionPointLasso()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuiService"]):
+			a = GuiService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GuidRegistryService"]):
+			a = GuidRegistryService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HapticService"]):
+			a = HapticService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HeightmapImporterService"]):
+			a = HeightmapImporterService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HiddenSurfaceRemovalAsset"]):
+			a = HiddenSurfaceRemovalAsset()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Highlight"]):
+			a = Highlight()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Hopper"]):
+			a = Hopper()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HttpRbxApiService"]):
+			a = HttpRbxApiService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HttpRequest"]):
+			a = HttpRequest()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HttpService"]):
+			a = HttpService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Humanoid"]):
+			a = Humanoid()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["HumanoidDescription"]):
+			a = HumanoidDescription()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["IKControl"]):
+			a = IKControl()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ILegacyStudioBridge"]):
+			a = ILegacyStudioBridge()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LegacyStudioBridge"]):
+			a = LegacyStudioBridge()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["IXPService"]):
+			a = IXPService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterBaseSettings"]):
+			a = ImporterBaseSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterAnimationSettings"]):
+			a = ImporterAnimationSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterFacsSettings"]):
+			a = ImporterFacsSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterGroupSettings"]):
+			a = ImporterGroupSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterJointSettings"]):
+			a = ImporterJointSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterMaterialSettings"]):
+			a = ImporterMaterialSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterMeshSettings"]):
+			a = ImporterMeshSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ImporterRootSettings"]):
+			a = ImporterRootSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["IncrementalPatchBuilder"]):
+			a = IncrementalPatchBuilder()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["InputObject"]):
+			a = InputObject()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["InsertService"]):
+			a = InsertService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["JointInstance"]):
+			a = JointInstance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DynamicRotate"]):
+			a = DynamicRotate()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RotateP"]):
+			a = RotateP()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RotateV"]):
+			a = RotateV()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Glue"]):
+			a = Glue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ManualSurfaceJointInstance"]):
+			a = ManualSurfaceJointInstance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ManualGlue"]):
+			a = ManualGlue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ManualWeld"]):
+			a = ManualWeld()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Motor"]):
+			a = Motor()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Motor6D"]):
+			a = Motor6D()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Rotate"]):
+			a = Rotate()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Snap"]):
+			a = Snap()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VelocityMotor"]):
+			a = VelocityMotor()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Weld"]):
+			a = Weld()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["JointsService"]):
+			a = JointsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["KeyboardService"]):
+			a = KeyboardService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Keyframe"]):
+			a = Keyframe()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["KeyframeMarker"]):
+			a = KeyframeMarker()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["KeyframeSequenceProvider"]):
+			a = KeyframeSequenceProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LSPFileSyncService"]):
+			a = LSPFileSyncService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LanguageService"]):
+			a = LanguageService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Light"]):
+			a = Light()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PointLight"]):
+			a = PointLight()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SpotLight"]):
+			a = SpotLight()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SurfaceLight"]):
+			a = SurfaceLight()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Lighting"]):
+			a = Lighting()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LocalStorageService"]):
+			a = LocalStorageService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AppStorageService"]):
+			a = AppStorageService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UserStorageService"]):
+			a = UserStorageService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LocalizationService"]):
+			a = LocalizationService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LocalizationTable"]):
+			a = LocalizationTable()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CloudLocalizationTable"]):
+			a = CloudLocalizationTable()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LodDataEntity"]):
+			a = LodDataEntity()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LodDataService"]):
+			a = LodDataService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LogService"]):
+			a = LogService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LoginService"]):
+			a = LoginService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LuaSettings"]):
+			a = LuaSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LuaSourceContainer"]):
+			a = LuaSourceContainer()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BaseScript"]):
+			a = BaseScript()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CoreScript"]):
+			a = CoreScript()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Script"]):
+			a = Script()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LocalScript"]):
+			a = LocalScript()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ModuleScript"]):
+			a = ModuleScript()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LuaWebService"]):
+			a = LuaWebService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["LuauScriptAnalyzerService"]):
+			a = LuauScriptAnalyzerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MarkerCurve"]):
+			a = MarkerCurve()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MarketplaceService"]):
+			a = MarketplaceService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MaterialService"]):
+			a = MaterialService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MaterialVariant"]):
+			a = MaterialVariant()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MemStorageConnection"]):
+			a = MemStorageConnection()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MemStorageService"]):
+			a = MemStorageService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MemoryStoreQueue"]):
+			a = MemoryStoreQueue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MemoryStoreService"]):
+			a = MemoryStoreService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MemoryStoreSortedMap"]):
+			a = MemoryStoreSortedMap()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Message"]):
+			a = Message()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Hint"]):
+			a = Hint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MessageBusConnection"]):
+			a = MessageBusConnection()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MessageBusService"]):
+			a = MessageBusService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MessagingService"]):
+			a = MessagingService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MetaBreakpoint"]):
+			a = MetaBreakpoint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MetaBreakpointContext"]):
+			a = MetaBreakpointContext()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MetaBreakpointManager"]):
+			a = MetaBreakpointManager()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Mouse"]):
+			a = Mouse()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PlayerMouse"]):
+			a = PlayerMouse()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginMouse"]):
+			a = PluginMouse()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MouseService"]):
+			a = MouseService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MultipleDocumentInterfaceInstance"]):
+			a = MultipleDocumentInterfaceInstance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NetworkMarker"]):
+			a = NetworkMarker()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NetworkPeer"]):
+			a = NetworkPeer()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NetworkClient"]):
+			a = NetworkClient()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NetworkServer"]):
+			a = NetworkServer()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NetworkReplicator"]):
+			a = NetworkReplicator()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ClientReplicator"]):
+			a = ClientReplicator()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ServerReplicator"]):
+			a = ServerReplicator()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NetworkSettings"]):
+			a = NetworkSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NoCollisionConstraint"]):
+			a = NoCollisionConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NotificationService"]):
+			a = NotificationService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PVInstance"]):
+			a = PVInstance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BasePart"]):
+			a = BasePart()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CornerWedgePart"]):
+			a = CornerWedgePart()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FormFactorPart"]):
+			a = FormFactorPart()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Part"]):
+			a = Part()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FlagStand"]):
+			a = FlagStand()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Platform"]):
+			a = Platform()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Seat"]):
+			a = Seat()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SkateboardPlatform"]):
+			a = SkateboardPlatform()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SpawnLocation"]):
+			a = SpawnLocation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["WedgePart"]):
+			a = WedgePart()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Terrain"]):
+			a = Terrain()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TriangleMeshPart"]):
+			a = TriangleMeshPart()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["MeshPart"]):
+			a = MeshPart()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PartOperation"]):
+			a = PartOperation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NegateOperation"]):
+			a = NegateOperation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UnionOperation"]):
+			a = UnionOperation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TrussPart"]):
+			a = TrussPart()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VehicleSeat"]):
+			a = VehicleSeat()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Model"]):
+			a = Model()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Actor"]):
+			a = Actor()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Status"]):
+			a = Status()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["WorldRoot"]):
+			a = WorldRoot()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Workspace"]):
+			a = Workspace()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["WorldModel"]):
+			a = WorldModel()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PackageLink"]):
+			a = PackageLink()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PackageService"]):
+			a = PackageService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PackageUIService"]):
+			a = PackageUIService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Pages"]):
+			a = Pages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CatalogPages"]):
+			a = CatalogPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreKeyPages"]):
+			a = DataStoreKeyPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreListingPages"]):
+			a = DataStoreListingPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStorePages"]):
+			a = DataStorePages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataStoreVersionPages"]):
+			a = DataStoreVersionPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FriendPages"]):
+			a = FriendPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["InventoryPages"]):
+			a = InventoryPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["EmotesPages"]):
+			a = EmotesPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["OutfitPages"]):
+			a = OutfitPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StandardPages"]):
+			a = StandardPages()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PartOperationAsset"]):
+			a = PartOperationAsset()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ParticleEmitter"]):
+			a = ParticleEmitter()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Path"]):
+			a = Path()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PathfindingLink"]):
+			a = PathfindingLink()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PathfindingModifier"]):
+			a = PathfindingModifier()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PathfindingService"]):
+			a = PathfindingService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PausedState"]):
+			a = PausedState()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PausedStateBreakpoint"]):
+			a = PausedStateBreakpoint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PausedStateException"]):
+			a = PausedStateException()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PermissionsService"]):
+			a = PermissionsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PhysicsService"]):
+			a = PhysicsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PhysicsSettings"]):
+			a = PhysicsSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Player"]):
+			a = Player()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PlayerEmulatorService"]):
+			a = PlayerEmulatorService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PlayerScripts"]):
+			a = PlayerScripts()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Players"]):
+			a = Players()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Plugin"]):
+			a = Plugin()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginAction"]):
+			a = PluginAction()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginDebugService"]):
+			a = PluginDebugService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginDragEvent"]):
+			a = PluginDragEvent()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginGuiService"]):
+			a = PluginGuiService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginManagementService"]):
+			a = PluginManagementService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginManager"]):
+			a = PluginManager()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginManagerInterface"]):
+			a = PluginManagerInterface()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginMenu"]):
+			a = PluginMenu()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginPolicyService"]):
+			a = PluginPolicyService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginToolbar"]):
+			a = PluginToolbar()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PluginToolbarButton"]):
+			a = PluginToolbarButton()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PointsService"]):
+			a = PointsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PolicyService"]):
+			a = PolicyService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PoseBase"]):
+			a = PoseBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NumberPose"]):
+			a = NumberPose()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Pose"]):
+			a = Pose()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PostEffect"]):
+			a = PostEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BloomEffect"]):
+			a = BloomEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BlurEffect"]):
+			a = BlurEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ColorCorrectionEffect"]):
+			a = ColorCorrectionEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DepthOfFieldEffect"]):
+			a = DepthOfFieldEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SunRaysEffect"]):
+			a = SunRaysEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ProcessInstancePhysicsService"]):
+			a = ProcessInstancePhysicsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ProximityPrompt"]):
+			a = ProximityPrompt()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ProximityPromptService"]):
+			a = ProximityPromptService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PublishService"]):
+			a = PublishService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RbxAnalyticsService"]):
+			a = RbxAnalyticsService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadata"]):
+			a = ReflectionMetadata()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataCallbacks"]):
+			a = ReflectionMetadataCallbacks()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataClasses"]):
+			a = ReflectionMetadataClasses()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataEnums"]):
+			a = ReflectionMetadataEnums()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataEvents"]):
+			a = ReflectionMetadataEvents()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataFunctions"]):
+			a = ReflectionMetadataFunctions()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataItem"]):
+			a = ReflectionMetadataItem()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataClass"]):
+			a = ReflectionMetadataClass()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataEnum"]):
+			a = ReflectionMetadataEnum()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataEnumItem"]):
+			a = ReflectionMetadataEnumItem()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataMember"]):
+			a = ReflectionMetadataMember()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataProperties"]):
+			a = ReflectionMetadataProperties()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReflectionMetadataYieldFunctions"]):
+			a = ReflectionMetadataYieldFunctions()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RemoteDebuggerServer"]):
+			a = RemoteDebuggerServer()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RemoteEvent"]):
+			a = RemoteEvent()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RemoteFunction"]):
+			a = RemoteFunction()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RenderSettings"]):
+			a = RenderSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RenderingTest"]):
+			a = RenderingTest()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReplicatedFirst"]):
+			a = ReplicatedFirst()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReplicatedStorage"]):
+			a = ReplicatedStorage()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RobloxPluginGuiService"]):
+			a = RobloxPluginGuiService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RobloxReplicatedStorage"]):
+			a = RobloxReplicatedStorage()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RotationCurve"]):
+			a = RotationCurve()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RtMessagingService"]):
+			a = RtMessagingService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RunService"]):
+			a = RunService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RuntimeScriptService"]):
+			a = RuntimeScriptService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScreenshotHud"]):
+			a = ScreenshotHud()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptBuilder"]):
+			a = ScriptBuilder()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CoreScriptBuilder"]):
+			a = CoreScriptBuilder()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptChangeService"]):
+			a = ScriptChangeService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptCloneWatcher"]):
+			a = ScriptCloneWatcher()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptCloneWatcherHelper"]):
+			a = ScriptCloneWatcherHelper()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptContext"]):
+			a = ScriptContext()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptDebugger"]):
+			a = ScriptDebugger()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptDocument"]):
+			a = ScriptDocument()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptEditorService"]):
+			a = ScriptEditorService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptRegistrationService"]):
+			a = ScriptRegistrationService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ScriptService"]):
+			a = ScriptService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Selection"]):
+			a = Selection()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ServerScriptService"]):
+			a = ServerScriptService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ServerStorage"]):
+			a = ServerStorage()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ServiceProvider"]):
+			a = ServiceProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DataModel"]):
+			a = DataModel()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GenericSettings"]):
+			a = GenericSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AnalysticsSettings"]):
+			a = AnalysticsSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["GlobalSettings"]):
+			a = GlobalSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UserSettings"]):
+			a = UserSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SessionService"]):
+			a = SessionService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Sky"]):
+			a = Sky()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Smoke"]):
+			a = Smoke()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SnippetService"]):
+			a = SnippetService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SocialService"]):
+			a = SocialService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Sound"]):
+			a = Sound()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SoundEffect"]):
+			a = SoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["AssetSoundEffect"]):
+			a = AssetSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ChorusSoundEffect"]):
+			a = ChorusSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CompressorSoundEffect"]):
+			a = CompressorSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CustomSoundEffect"]):
+			a = CustomSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ChannelSelectorSoundEffect"]):
+			a = ChannelSelectorSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DistortionSoundEffect"]):
+			a = DistortionSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["EchoSoundEffect"]):
+			a = EchoSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["EqualizerSoundEffect"]):
+			a = EqualizerSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["FlangeSoundEffect"]):
+			a = FlangeSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["PitchShiftSoundEffect"]):
+			a = PitchShiftSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ReverbSoundEffect"]):
+			a = ReverbSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TremoloSoundEffect"]):
+			a = TremoloSoundEffect()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SoundGroup"]):
+			a = SoundGroup()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SoundService"]):
+			a = SoundService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Sparkles"]):
+			a = Sparkles()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SpawnerService"]):
+			a = SpawnerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Speaker"]):
+			a = Speaker()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StackFrame"]):
+			a = StackFrame()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StandalonePluginScripts"]):
+			a = StandalonePluginScripts()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StarterGear"]):
+			a = StarterGear()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StarterPack"]):
+			a = StarterPack()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StarterPlayer"]):
+			a = StarterPlayer()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StarterPlayerScripts"]):
+			a = StarterPlayerScripts()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StarterCharacterScripts"]):
+			a = StarterCharacterScripts()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Stats"]):
+			a = Stats()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StatsItem"]):
+			a = StatsItem()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RunningAverageItemDouble"]):
+			a = RunningAverageItemDouble()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RunningAverageItemInt"]):
+			a = RunningAverageItemInt()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RunningAverageTimeIntervalItem"]):
+			a = RunningAverageTimeIntervalItem()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TotalCountTimeIntervalItem"]):
+			a = TotalCountTimeIntervalItem()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StopWatchReporter"]):
+			a = StopWatchReporter()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Studio"]):
+			a = Studio()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioAssetService"]):
+			a = StudioAssetService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioData"]):
+			a = StudioData()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioDeviceEmulatorService"]):
+			a = StudioDeviceEmulatorService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioHighDpiService"]):
+			a = StudioHighDpiService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioPublishService"]):
+			a = StudioPublishService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioScriptDebugEventListener"]):
+			a = StudioScriptDebugEventListener()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioService"]):
+			a = StudioService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StudioTheme"]):
+			a = StudioTheme()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["SurfaceAppearance"]):
+			a = SurfaceAppearance()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TaskScheduler"]):
+			a = TaskScheduler()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Team"]):
+			a = Team()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TeamCreateService"]):
+			a = TeamCreateService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Teams"]):
+			a = Teams()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TeleportAsyncResult"]):
+			a = TeleportAsyncResult()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TeleportOptions"]):
+			a = TeleportOptions()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TeleportService"]):
+			a = TeleportService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TemporaryCageMeshProvider"]):
+			a = TemporaryCageMeshProvider()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TemporaryScriptService"]):
+			a = TemporaryScriptService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TerrainDetail"]):
+			a = TerrainDetail()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TerrainRegion"]):
+			a = TerrainRegion()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TestService"]):
+			a = TestService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextBoxService"]):
+			a = TextBoxService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextChannel"]):
+			a = TextChannel()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextChatCommand"]):
+			a = TextChatCommand()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextChatConfigurations"]):
+			a = TextChatConfigurations()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BubbleChatConfiguration"]):
+			a = BubbleChatConfiguration()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ChatInputBarConfiguration"]):
+			a = ChatInputBarConfiguration()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ChatWindowConfiguration"]):
+			a = ChatWindowConfiguration()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextChatMessage"]):
+			a = TextChatMessage()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextChatMessageProperties"]):
+			a = TextChatMessageProperties()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextChatService"]):
+			a = TextChatService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextFilterResult"]):
+			a = TextFilterResult()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextService"]):
+			a = TextService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TextSource"]):
+			a = TextSource()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ThirdPartyUserService"]):
+			a = ThirdPartyUserService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ThreadState"]):
+			a = ThreadState()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TimerService"]):
+			a = TimerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ToastNotificationService"]):
+			a = ToastNotificationService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TouchInputService"]):
+			a = TouchInputService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TouchTransmitter"]):
+			a = TouchTransmitter()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TracerService"]):
+			a = TracerService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TrackerLodController"]):
+			a = TrackerLodController()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TrackerStreamAnimation"]):
+			a = TrackerStreamAnimation()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Trail"]):
+			a = Trail()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Translator"]):
+			a = Translator()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TweenBase"]):
+			a = TweenBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Tween"]):
+			a = Tween()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["TweenService"]):
+			a = TweenService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UGCValidationService"]):
+			a = UGCValidationService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIBase"]):
+			a = UIBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIComponent"]):
+			a = UIComponent()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIConstraint"]):
+			a = UIConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIAspectRatioConstraint"]):
+			a = UIAspectRatioConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UISizeConstraint"]):
+			a = UISizeConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UITextSizeConstraint"]):
+			a = UITextSizeConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UICorner"]):
+			a = UICorner()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIGradient"]):
+			a = UIGradient()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UILayout"]):
+			a = UILayout()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIGridStyleLayout"]):
+			a = UIGridStyleLayout()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIGridLayout"]):
+			a = UIGridLayout()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIListLayout"]):
+			a = UIListLayout()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIPageLayout"]):
+			a = UIPageLayout()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UITableLayout"]):
+			a = UITableLayout()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIPadding"]):
+			a = UIPadding()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIScale"]):
+			a = UIScale()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UIStroke"]):
+			a = UIStroke()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UnvalidatedAssetService"]):
+			a = UnvalidatedAssetService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UserGameSettings"]):
+			a = UserGameSettings()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UserInputService"]):
+			a = UserInputService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["UserService"]):
+			a = UserService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VRService"]):
+			a = VRService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ValueBase"]):
+			a = ValueBase()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BinaryStringValue"]):
+			a = BinaryStringValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BoolValue"]):
+			a = BoolValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["BrickColorValue"]):
+			a = BrickColorValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["CFrameValue"]):
+			a = CFrameValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Color3Value"]):
+			a = Color3Value()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["DoubleConstrainedValue"]):
+			a = DoubleConstrainedValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["IntConstrainedValue"]):
+			a = IntConstrainedValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["IntValue"]):
+			a = IntValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["NumberValue"]):
+			a = NumberValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["ObjectValue"]):
+			a = ObjectValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["RayValue"]):
+			a = RayValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["StringValue"]):
+			a = StringValue()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Vector3Value"]):
+			a = Vector3Value()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Vector3Curve"]):
+			a = Vector3Curve()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VersionControlService"]):
+			a = VersionControlService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VideoCaptureService"]):
+			a = VideoCaptureService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VirtualInputManager"]):
+			a = VirtualInputManager()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VirtualUser"]):
+			a = VirtualUser()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VisibilityService"]):
+			a = VisibilityService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["Visit"]):
+			a = Visit()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VoiceChannel"]):
+			a = VoiceChannel()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VoiceChatInternal"]):
+			a = VoiceChatInternal()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VoiceChatService"]):
+			a = VoiceChatService()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["VoiceSource"]):
+			a = VoiceSource()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
+		if isinstance(className, Literal["WeldConstraint"]):
+			a = WeldConstraint()
+			if parent is not None:
+				a.Parent = parent
+			return a
+
 	@abstractmethod
 	def ClearAllChildren(self) -> None:
 		pass
@@ -3147,7 +6823,7 @@ class Instance:
 		pass
 
 	@abstractmethod
-	def GetChildren(self) -> dict[int, Self]:
+	def GetChildren(self) -> list[Self]:
 		pass
 
 	@abstractmethod
@@ -3191,7 +6867,7 @@ class Instance:
 		pass
 
 	@abstractmethod
-	def children(self) -> dict[int, Self]:
+	def children(self) -> list[Self]:
 		pass
 
 	@abstractmethod
@@ -3207,7 +6883,7 @@ class Instance:
 		pass
 
 	@abstractmethod
-	def getChildren(self) -> dict[int, Self]:
+	def getChildren(self) -> list[Self]:
 		pass
 
 	@abstractmethod
@@ -3225,7 +6901,7 @@ class Instance:
 
 	pass
 
-class Accoutrement:
+class Accoutrement(Instance):
 	AttachmentForward: Vector3
 	AttachmentPoint: CFrame
 	AttachmentPos: Vector3
@@ -3234,16 +6910,16 @@ class Accoutrement:
 
 	pass
 
-class Accessory:
+class Accessory(Accoutrement):
 	AccessoryType: AccessoryType
 
 	pass
 
-class Hat:
+class Hat(Accoutrement):
 
 	pass
 
-class AdPortal:
+class AdPortal(Instance):
 	PortalInvalidReason: str
 	PortalStatus: AdPortalStatus
 	PortalType: AdPortalType
@@ -3251,7 +6927,7 @@ class AdPortal:
 
 	pass
 
-class AdService:
+class AdService(Instance):
 	@abstractmethod
 	def ShowVideoAd(self) -> None:
 		pass
@@ -3259,11 +6935,11 @@ class AdService:
 
 	pass
 
-class AdvancedDragger:
+class AdvancedDragger(Instance):
 
 	pass
 
-class AnalyticsService:
+class AnalyticsService(Instance):
 	ApiKey: str
 	@abstractmethod
 	def FireCustomEvent(self, player: Instance, eventCategory: str, customData: Any) -> None:
@@ -3288,29 +6964,29 @@ class AnalyticsService:
 
 	pass
 
-class Animation:
+class Animation(Instance):
 	AnimationId: Content
 
 	pass
 
-class AnimationClip:
+class AnimationClip(Instance):
 	Loop: bool
 	Priority: AnimationPriority
 
 	pass
 
-class CurveAnimation:
+class CurveAnimation(AnimationClip):
 
 	pass
 
-class KeyframeSequence:
+class KeyframeSequence(AnimationClip):
 	AuthoredHipHeight: float
 	@abstractmethod
 	def AddKeyframe(self, keyframe: Instance) -> None:
 		pass
 
 	@abstractmethod
-	def GetKeyframes(self) -> dict[int, Instance]:
+	def GetKeyframes(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -3320,7 +6996,7 @@ class KeyframeSequence:
 
 	pass
 
-class AnimationClipProvider:
+class AnimationClipProvider(Instance):
 	@abstractmethod
 	def GetAnimationClip(self, assetId: Content) -> AnimationClip:
 		pass
@@ -3352,7 +7028,7 @@ class AnimationClipProvider:
 
 	pass
 
-class AnimationController:
+class AnimationController(Instance):
 	@abstractmethod
 	def GetPlayingAnimationTracks(self) -> list[Any]:
 		pass
@@ -3364,7 +7040,7 @@ class AnimationController:
 
 	pass
 
-class AnimationFromVideoCreatorService:
+class AnimationFromVideoCreatorService(Instance):
 	@abstractmethod
 	def CreateJob(self, filePath: str) -> str:
 		pass
@@ -3384,7 +7060,7 @@ class AnimationFromVideoCreatorService:
 
 	pass
 
-class AnimationFromVideoCreatorStudioService:
+class AnimationFromVideoCreatorStudioService(Instance):
 	@abstractmethod
 	def IsAgeRestricted(self) -> bool:
 		pass
@@ -3400,7 +7076,7 @@ class AnimationFromVideoCreatorStudioService:
 
 	pass
 
-class AnimationRigData:
+class AnimationRigData(Instance):
 	@abstractmethod
 	def LoadFromHumanoid(self, humanoid: Instance) -> bool:
 		pass
@@ -3408,7 +7084,7 @@ class AnimationRigData:
 
 	pass
 
-class AnimationStreamTrack:
+class AnimationStreamTrack(Instance):
 	Animation: 'TrackerStreamAnimation'
 	IsPlaying: bool
 	Priority: AnimationPriority
@@ -3433,7 +7109,7 @@ class AnimationStreamTrack:
 
 	pass
 
-class AnimationTrack:
+class AnimationTrack(Instance):
 	IsPlaying: bool
 	Length: float
 	Looped: bool
@@ -3470,7 +7146,7 @@ class AnimationTrack:
 
 	pass
 
-class Animator:
+class Animator(Instance):
 	PreferLodEnabled: bool
 	@abstractmethod
 	def ApplyJointVelocities(self, motors: Any) -> None:
@@ -3503,7 +7179,7 @@ class Animator:
 
 	pass
 
-class AppUpdateService:
+class AppUpdateService(Instance):
 	@abstractmethod
 	def CheckForUpdate(self, handler: Callable[..., Any]) -> None:
 		pass
@@ -3523,18 +7199,18 @@ class AppUpdateService:
 
 	pass
 
-class AssetCounterService:
+class AssetCounterService(Instance):
 
 	pass
 
-class AssetDeliveryProxy:
+class AssetDeliveryProxy(Instance):
 	Interface: str
 	Port: int
 	StartServer: bool
 
 	pass
 
-class AssetImportService:
+class AssetImportService(Instance):
 	@abstractmethod
 	def PickFileWithPrompt(self) -> str:
 		pass
@@ -3546,7 +7222,7 @@ class AssetImportService:
 
 	pass
 
-class AssetImportSession:
+class AssetImportSession(Instance):
 	@abstractmethod
 	def Cancel(self) -> None:
 		pass
@@ -3578,7 +7254,7 @@ class AssetImportSession:
 
 	pass
 
-class AssetManagerService:
+class AssetManagerService(Instance):
 	@abstractmethod
 	def GetMeshIdFromAliasName(self, aliasName: str) -> int:
 		pass
@@ -3702,14 +7378,14 @@ class AssetManagerService:
 
 	pass
 
-class AssetPatchSettings:
+class AssetPatchSettings(Instance):
 	ContentId: str
 	OutputPath: str
 	PatchId: str
 
 	pass
 
-class AssetService:
+class AssetService(Instance):
 	@abstractmethod
 	def GetBundleDetailsSync(self, bundleId: int) -> dict[Any, Any]:
 		pass
@@ -3749,7 +7425,7 @@ class AssetService:
 
 	pass
 
-class Atmosphere:
+class Atmosphere(Instance):
 	Color: Color3
 	Decay: Color3
 	Density: float
@@ -3759,7 +7435,7 @@ class Atmosphere:
 
 	pass
 
-class Attachment:
+class Attachment(Instance):
 	Axis: Vector3
 	Orientation: Vector3
 	Position: Vector3
@@ -3792,7 +7468,7 @@ class Attachment:
 
 	pass
 
-class Bone:
+class Bone(Attachment):
 	IsCFrameDriven: bool
 	Transform: CFrame
 	TransformedCFrame: CFrame
@@ -3800,7 +7476,7 @@ class Bone:
 
 	pass
 
-class AvatarEditorService:
+class AvatarEditorService(Instance):
 	@abstractmethod
 	def GetAccessoryType(self, avatarAssetType: AvatarAssetType) -> AccessoryType:
 		pass
@@ -3988,7 +7664,7 @@ class AvatarEditorService:
 
 	pass
 
-class AvatarImportService:
+class AvatarImportService(Instance):
 	@abstractmethod
 	def ImportFBXAnimationFromFilePathUserMayChooseModel(self, fbxFilePath: str, selectedRig: Instance, userChooseModelThenImportCB: Callable[..., Any]) -> Instance:
 		pass
@@ -4012,16 +7688,16 @@ class AvatarImportService:
 
 	pass
 
-class Backpack:
+class Backpack(Instance):
 
 	pass
 
-class BackpackItem:
+class BackpackItem(Instance):
 	TextureId: Content
 
 	pass
 
-class HopperBin:
+class HopperBin(BackpackItem):
 	Active: bool
 	BinType: BinType
 	@abstractmethod
@@ -4035,7 +7711,7 @@ class HopperBin:
 
 	pass
 
-class Tool:
+class Tool(BackpackItem):
 	CanBeDropped: bool
 	Enabled: bool
 	Grip: CFrame
@@ -4057,12 +7733,12 @@ class Tool:
 
 	pass
 
-class Flag:
+class Flag(Tool):
 	TeamColor: BrickColor
 
 	pass
 
-class BadgeService:
+class BadgeService(Instance):
 	@abstractmethod
 	def AwardBadge(self, userId: int, badgeId: int) -> bool:
 		pass
@@ -4090,19 +7766,19 @@ class BadgeService:
 
 	pass
 
-class BasePlayerGui:
+class BasePlayerGui(Instance):
 	@abstractmethod
-	def GetGuiObjectsAtPosition(self, x: int, y: int) -> dict[int, Instance]:
+	def GetGuiObjectsAtPosition(self, x: int, y: int) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def GetGuiObjectsInCircle(self, position: Vector2, radius: float) -> dict[int, Instance]:
+	def GetGuiObjectsInCircle(self, position: Vector2, radius: float) -> list[Instance]:
 		pass
 
 
 	pass
 
-class CoreGui:
+class CoreGui(BasePlayerGui):
 	SelectionImageObject: 'GuiObject'
 	Version: int
 	@abstractmethod
@@ -4120,7 +7796,7 @@ class CoreGui:
 
 	pass
 
-class PlayerGui:
+class PlayerGui(BasePlayerGui):
 	CurrentScreenOrientation: ScreenOrientation
 	SelectionImageObject: 'GuiObject'
 	ScreenOrientation: ScreenOrientation
@@ -4135,7 +7811,7 @@ class PlayerGui:
 
 	pass
 
-class StarterGui:
+class StarterGui(BasePlayerGui):
 	ProcessUserInput: bool
 	ResetPlayerGuiOnSpawn: bool
 	ShowDevelopmentGui: bool
@@ -4168,7 +7844,7 @@ class StarterGui:
 
 	pass
 
-class BaseWrap:
+class BaseWrap(Instance):
 	CageMeshId: Content
 	CageOrigin: CFrame
 	CageOriginWorld: CFrame
@@ -4194,7 +7870,7 @@ class BaseWrap:
 
 	pass
 
-class WrapLayer:
+class WrapLayer(BaseWrap):
 	AutoSkin: WrapLayerAutoSkin
 	BindOffset: CFrame
 	Color: Color3
@@ -4209,14 +7885,14 @@ class WrapLayer:
 
 	pass
 
-class WrapTarget:
+class WrapTarget(BaseWrap):
 	Color: Color3
 	DebugMode: WrapTargetDebugMode
 	Stiffness: float
 
 	pass
 
-class Beam:
+class Beam(Instance):
 	Attachment0: Attachment
 	Attachment1: Attachment
 	Brightness: float
@@ -4243,7 +7919,7 @@ class Beam:
 
 	pass
 
-class BindableEvent:
+class BindableEvent(Instance):
 	@abstractmethod
 	def Fire(self, arguments: tuple[Any]) -> None:
 		pass
@@ -4251,7 +7927,7 @@ class BindableEvent:
 
 	pass
 
-class BindableFunction:
+class BindableFunction(Instance):
 	@abstractmethod
 	def Invoke(self, arguments: tuple[Any]) -> tuple[Any]:
 		pass
@@ -4259,11 +7935,11 @@ class BindableFunction:
 
 	pass
 
-class BodyMover:
+class BodyMover(Instance):
 
 	pass
 
-class BodyAngularVelocity:
+class BodyAngularVelocity(BodyMover):
 	AngularVelocity: Vector3
 	MaxTorque: Vector3
 	P: float
@@ -4272,13 +7948,13 @@ class BodyAngularVelocity:
 
 	pass
 
-class BodyForce:
+class BodyForce(BodyMover):
 	Force: Vector3
 	force: Vector3
 
 	pass
 
-class BodyGyro:
+class BodyGyro(BodyMover):
 	D: float
 	MaxTorque: Vector3
 	P: float
@@ -4288,7 +7964,7 @@ class BodyGyro:
 
 	pass
 
-class BodyPosition:
+class BodyPosition(BodyMover):
 	D: float
 	MaxForce: Vector3
 	P: float
@@ -4306,7 +7982,7 @@ class BodyPosition:
 
 	pass
 
-class BodyThrust:
+class BodyThrust(BodyMover):
 	Force: Vector3
 	Location: Vector3
 	force: Vector3
@@ -4314,7 +7990,7 @@ class BodyThrust:
 
 	pass
 
-class BodyVelocity:
+class BodyVelocity(BodyMover):
 	MaxForce: Vector3
 	P: float
 	Velocity: Vector3
@@ -4331,7 +8007,7 @@ class BodyVelocity:
 
 	pass
 
-class RocketPropulsion:
+class RocketPropulsion(BodyMover):
 	CartoonFactor: float
 	MaxSpeed: float
 	MaxThrust: float
@@ -4358,7 +8034,7 @@ class RocketPropulsion:
 
 	pass
 
-class Breakpoint:
+class Breakpoint(Instance):
 	Condition: str
 	ContinueExecution: bool
 	Enabled: bool
@@ -4372,7 +8048,7 @@ class Breakpoint:
 
 	pass
 
-class BrowserService:
+class BrowserService(Instance):
 	@abstractmethod
 	def CloseBrowserWindow(self) -> None:
 		pass
@@ -4412,7 +8088,7 @@ class BrowserService:
 
 	pass
 
-class BulkImportService:
+class BulkImportService(Instance):
 	@abstractmethod
 	def LaunchBulkImport(self, assetTypeToImport: int) -> None:
 		pass
@@ -4424,15 +8100,15 @@ class BulkImportService:
 
 	pass
 
-class CacheableContentProvider:
+class CacheableContentProvider(Instance):
 
 	pass
 
-class HSRDataContentProvider:
+class HSRDataContentProvider(CacheableContentProvider):
 
 	pass
 
-class MeshContentProvider:
+class MeshContentProvider(CacheableContentProvider):
 	@abstractmethod
 	def GetContentMemoryData(self) -> dict[Any, Any]:
 		pass
@@ -4440,11 +8116,11 @@ class MeshContentProvider:
 
 	pass
 
-class SolidModelContentProvider:
+class SolidModelContentProvider(CacheableContentProvider):
 
 	pass
 
-class CalloutService:
+class CalloutService(Instance):
 	@abstractmethod
 	def AttachCallout(self, definitionId: str, locationId: str, target: Instance) -> None:
 		pass
@@ -4460,7 +8136,7 @@ class CalloutService:
 
 	pass
 
-class Camera:
+class Camera(Instance):
 	CameraSubject: Instance
 	CoordinateFrame: CFrame
 	DiagonalFieldOfView: float
@@ -4476,7 +8152,7 @@ class Camera:
 	CameraType: CameraType
 	FieldOfViewMode: FieldOfViewMode
 	@abstractmethod
-	def GetLargestCutoffDistance(self, ignoreList: dict[int, Instance]) -> float:
+	def GetLargestCutoffDistance(self, ignoreList: list[Instance]) -> float:
 		pass
 
 	@abstractmethod
@@ -4484,7 +8160,7 @@ class Camera:
 		pass
 
 	@abstractmethod
-	def GetPartsObscuringTarget(self, castPoints: list[Any], ignoreList: dict[int, Instance]) -> dict[int, Instance]:
+	def GetPartsObscuringTarget(self, castPoints: list[Any], ignoreList: list[Instance]) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -4546,7 +8222,7 @@ class Camera:
 
 	pass
 
-class ChangeHistoryService:
+class ChangeHistoryService(Instance):
 	@abstractmethod
 	def GetCanRedo(self) -> tuple[Any]:
 		pass
@@ -4578,11 +8254,11 @@ class ChangeHistoryService:
 
 	pass
 
-class CharacterAppearance:
+class CharacterAppearance(Instance):
 
 	pass
 
-class BodyColors:
+class BodyColors(CharacterAppearance):
 	HeadColor: BrickColor
 	HeadColor3: Color3
 	LeftArmColor: BrickColor
@@ -4598,7 +8274,7 @@ class BodyColors:
 
 	pass
 
-class CharacterMesh:
+class CharacterMesh(CharacterAppearance):
 	BaseTextureId: int
 	MeshId: int
 	OverlayTextureId: int
@@ -4606,33 +8282,33 @@ class CharacterMesh:
 
 	pass
 
-class Clothing:
+class Clothing(CharacterAppearance):
 	Color3: Color3
 
 	pass
 
-class Pants:
+class Pants(Clothing):
 	PantsTemplate: Content
 
 	pass
 
-class Shirt:
+class Shirt(Clothing):
 	ShirtTemplate: Content
 
 	pass
 
-class ShirtGraphic:
+class ShirtGraphic(CharacterAppearance):
 	Graphic: Content
 	Color3: Color3
 
 	pass
 
-class Skin:
+class Skin(CharacterAppearance):
 	SkinColor: BrickColor
 
 	pass
 
-class Chat:
+class Chat(Instance):
 	BubbleChatEnabled: bool
 	LoadDefaultChat: bool
 	@abstractmethod
@@ -4682,13 +8358,13 @@ class Chat:
 
 	pass
 
-class ClickDetector:
+class ClickDetector(Instance):
 	CursorIcon: Content
 	MaxActivationDistance: float
 
 	pass
 
-class Clouds:
+class Clouds(Instance):
 	Color: Color3
 	Cover: float
 	Density: float
@@ -4696,11 +8372,11 @@ class Clouds:
 
 	pass
 
-class ClusterPacketCache:
+class ClusterPacketCache(Instance):
 
 	pass
 
-class CollectionService:
+class CollectionService(Instance):
 	@abstractmethod
 	def AddTag(self, instance: Instance, tag: str) -> None:
 		pass
@@ -4710,7 +8386,7 @@ class CollectionService:
 		pass
 
 	@abstractmethod
-	def GetCollection(self, className: str) -> dict[int, Instance]:
+	def GetCollection(self, className: str) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -4722,7 +8398,7 @@ class CollectionService:
 		pass
 
 	@abstractmethod
-	def GetTagged(self, tag: str) -> dict[int, Instance]:
+	def GetTagged(self, tag: str) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -4740,7 +8416,7 @@ class CollectionService:
 
 	pass
 
-class CommandInstance:
+class CommandInstance(Instance):
 	AllowGUIAccessPoints: bool
 	Checked: bool
 	DefaultShortcut: str
@@ -4761,7 +8437,7 @@ class CommandInstance:
 
 	pass
 
-class CommandService:
+class CommandService(Instance):
 	@abstractmethod
 	def Execute(self, name: str, params: Any) -> Any:
 		pass
@@ -4773,15 +8449,15 @@ class CommandService:
 
 	pass
 
-class Configuration:
+class Configuration(Instance):
 
 	pass
 
-class ConfigureServerService:
+class ConfigureServerService(Instance):
 
 	pass
 
-class Constraint:
+class Constraint(Instance):
 	Active: bool
 	Attachment0: Attachment
 	Attachment1: Attachment
@@ -4791,7 +8467,7 @@ class Constraint:
 
 	pass
 
-class AlignOrientation:
+class AlignOrientation(Constraint):
 	MaxAngularVelocity: float
 	MaxTorque: float
 	Mode: OrientationAlignmentMode
@@ -4806,7 +8482,7 @@ class AlignOrientation:
 
 	pass
 
-class AlignPosition:
+class AlignPosition(Constraint):
 	ApplyAtCenterOfMass: bool
 	MaxForce: float
 	MaxVelocity: float
@@ -4818,7 +8494,7 @@ class AlignPosition:
 
 	pass
 
-class AngularVelocity:
+class AngularVelocity(Constraint):
 	AngularVelocity: Vector3
 	MaxTorque: float
 	ReactionTorqueEnabled: bool
@@ -4826,14 +8502,14 @@ class AngularVelocity:
 
 	pass
 
-class AnimationConstraint:
+class AnimationConstraint(Constraint):
 	MaxForce: float
 	MaxTorque: float
 	Transform: CFrame
 
 	pass
 
-class BallSocketConstraint:
+class BallSocketConstraint(Constraint):
 	LimitsEnabled: bool
 	MaxFrictionTorque: float
 	Radius: float
@@ -4845,7 +8521,7 @@ class BallSocketConstraint:
 
 	pass
 
-class HingeConstraint:
+class HingeConstraint(Constraint):
 	AngularResponsiveness: float
 	AngularSpeed: float
 	AngularVelocity: float
@@ -4863,7 +8539,7 @@ class HingeConstraint:
 
 	pass
 
-class LineForce:
+class LineForce(Constraint):
 	ApplyAtCenterOfMass: bool
 	InverseSquareLaw: bool
 	Magnitude: float
@@ -4872,7 +8548,7 @@ class LineForce:
 
 	pass
 
-class LinearVelocity:
+class LinearVelocity(Constraint):
 	LineDirection: Vector3
 	LineVelocity: float
 	MaxForce: float
@@ -4885,19 +8561,19 @@ class LinearVelocity:
 
 	pass
 
-class PlaneConstraint:
+class PlaneConstraint(Constraint):
 
 	pass
 
-class Plane:
+class Plane(PlaneConstraint):
 
 	pass
 
-class RigidConstraint:
+class RigidConstraint(Constraint):
 
 	pass
 
-class RodConstraint:
+class RodConstraint(Constraint):
 	CurrentDistance: float
 	Length: float
 	LimitAngle0: float
@@ -4907,7 +8583,7 @@ class RodConstraint:
 
 	pass
 
-class RopeConstraint:
+class RopeConstraint(Constraint):
 	CurrentDistance: float
 	Length: float
 	Restitution: float
@@ -4920,7 +8596,7 @@ class RopeConstraint:
 
 	pass
 
-class SlidingBallConstraint:
+class SlidingBallConstraint(Constraint):
 	CurrentPosition: float
 	LimitsEnabled: bool
 	LinearResponsiveness: float
@@ -4938,7 +8614,7 @@ class SlidingBallConstraint:
 
 	pass
 
-class CylindricalConstraint:
+class CylindricalConstraint(SlidingBallConstraint):
 	AngularActuatorType: ActuatorType
 	AngularLimitsEnabled: bool
 	AngularResponsiveness: float
@@ -4958,11 +8634,11 @@ class CylindricalConstraint:
 
 	pass
 
-class PrismaticConstraint:
+class PrismaticConstraint(SlidingBallConstraint):
 
 	pass
 
-class SpringConstraint:
+class SpringConstraint(Constraint):
 	Coils: float
 	CurrentLength: float
 	Damping: float
@@ -4977,13 +8653,13 @@ class SpringConstraint:
 
 	pass
 
-class Torque:
+class Torque(Constraint):
 	RelativeTo: ActuatorRelativeTo
 	Torque: Vector3
 
 	pass
 
-class TorsionSpringConstraint:
+class TorsionSpringConstraint(Constraint):
 	Coils: float
 	CurrentAngle: float
 	Damping: float
@@ -4997,7 +8673,7 @@ class TorsionSpringConstraint:
 
 	pass
 
-class UniversalConstraint:
+class UniversalConstraint(Constraint):
 	LimitsEnabled: bool
 	MaxAngle: float
 	Radius: float
@@ -5005,14 +8681,14 @@ class UniversalConstraint:
 
 	pass
 
-class VectorForce:
+class VectorForce(Constraint):
 	ApplyAtCenterOfMass: bool
 	Force: Vector3
 	RelativeTo: ActuatorRelativeTo
 
 	pass
 
-class ContentProvider:
+class ContentProvider(Instance):
 	BaseUrl: str
 	RequestQueueSize: int
 	@abstractmethod
@@ -5074,7 +8750,7 @@ class ContentProvider:
 
 	pass
 
-class ContextActionService:
+class ContextActionService(Instance):
 	@abstractmethod
 	def BindAction(self, actionName: str, functionToBind: Callable[..., Any], createTouchButton: bool, inputTypes: tuple[Any]) -> None:
 		pass
@@ -5166,7 +8842,7 @@ class ContextActionService:
 
 	pass
 
-class Controller:
+class Controller(Instance):
 	@abstractmethod
 	def BindButton(self, button: Button, caption: str) -> None:
 		pass
@@ -5190,27 +8866,27 @@ class Controller:
 
 	pass
 
-class HumanoidController:
+class HumanoidController(Controller):
 
 	pass
 
-class SkateboardController:
+class SkateboardController(Controller):
 	Steer: float
 	Throttle: float
 
 	pass
 
-class VehicleController:
+class VehicleController(Controller):
 
 	pass
 
-class ControllerBase:
+class ControllerBase(Instance):
 	MoveSpeedFactor: float
 	RigidityEnabled: bool
 
 	pass
 
-class AirController:
+class AirController(ControllerBase):
 	CancelAirMomentum: bool
 	MoveMaxForce: float
 	OrientationMaxTorque: float
@@ -5219,7 +8895,7 @@ class AirController:
 
 	pass
 
-class ClimbController:
+class ClimbController(ControllerBase):
 	AccelerationTime: float
 	MoveMaxForce: float
 	OrientationMaxTorque: float
@@ -5227,7 +8903,7 @@ class ClimbController:
 
 	pass
 
-class GroundController:
+class GroundController(ControllerBase):
 	AccelerationLean: float
 	AccelerationTime: float
 	AlignSpeed: float
@@ -5243,7 +8919,7 @@ class GroundController:
 
 	pass
 
-class SwimController:
+class SwimController(ControllerBase):
 	AccelerationTime: float
 	PitchMaxTorque: float
 	PitchSpeedFactor: float
@@ -5252,7 +8928,7 @@ class SwimController:
 
 	pass
 
-class ControllerManager:
+class ControllerManager(Instance):
 	ActiveController: ControllerBase
 	BaseMoveSpeed: float
 	BaseTurnSpeed: float
@@ -5260,25 +8936,25 @@ class ControllerManager:
 	HipHeight: float
 	MovingDirection: Vector3
 	@abstractmethod
-	def GetControllers(self) -> dict[int, Instance]:
+	def GetControllers(self) -> list[Instance]:
 		pass
 
 
 	pass
 
-class ControllerService:
+class ControllerService(Instance):
 
 	pass
 
-class CookiesService:
+class CookiesService(Instance):
 
 	pass
 
-class CorePackages:
+class CorePackages(Instance):
 
 	pass
 
-class CoreScriptSyncService:
+class CoreScriptSyncService(Instance):
 	@abstractmethod
 	def GetScriptFilePath(self, script: Instance) -> Any:
 		pass
@@ -5286,7 +8962,7 @@ class CoreScriptSyncService:
 
 	pass
 
-class CrossDMScriptChangeListener:
+class CrossDMScriptChangeListener(Instance):
 	@abstractmethod
 	def IsWatchingScriptLine(self, scriptRef: str, lineNumber: int) -> bool:
 		pass
@@ -5298,9 +8974,9 @@ class CrossDMScriptChangeListener:
 
 	pass
 
-class CustomEvent:
+class CustomEvent(Instance):
 	@abstractmethod
-	def GetAttachedReceivers(self) -> dict[int, Instance]:
+	def GetAttachedReceivers(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -5310,7 +8986,7 @@ class CustomEvent:
 
 	pass
 
-class CustomEventReceiver:
+class CustomEventReceiver(Instance):
 	Source: Instance
 	@abstractmethod
 	def GetCurrentValue(self) -> float:
@@ -5319,37 +8995,37 @@ class CustomEventReceiver:
 
 	pass
 
-class DataModelMesh:
+class DataModelMesh(Instance):
 	Offset: Vector3
 	Scale: Vector3
 	VertexColor: Vector3
 
 	pass
 
-class BevelMesh:
+class BevelMesh(DataModelMesh):
 
 	pass
 
-class BlockMesh:
+class BlockMesh(BevelMesh):
 
 	pass
 
-class CylinderMesh:
+class CylinderMesh(BevelMesh):
 
 	pass
 
-class FileMesh:
+class FileMesh(DataModelMesh):
 	MeshId: Content
 	TextureId: Content
 
 	pass
 
-class SpecialMesh:
+class SpecialMesh(FileMesh):
 	MeshType: MeshType
 
 	pass
 
-class DataModelPatchService:
+class DataModelPatchService(Instance):
 	@abstractmethod
 	def GetPatch(self, patchName: str) -> Instance:
 		pass
@@ -5365,13 +9041,13 @@ class DataModelPatchService:
 
 	pass
 
-class DataModelSession:
+class DataModelSession(Instance):
 	CurrentDataModelType: StudioDataModelType
 	SessionId: str
 
 	pass
 
-class DataStoreIncrementOptions:
+class DataStoreIncrementOptions(Instance):
 	@abstractmethod
 	def GetMetadata(self) -> dict[Any, Any]:
 		pass
@@ -5383,19 +9059,19 @@ class DataStoreIncrementOptions:
 
 	pass
 
-class DataStoreInfo:
+class DataStoreInfo(Instance):
 	CreatedTime: int
 	DataStoreName: str
 	UpdatedTime: int
 
 	pass
 
-class DataStoreKey:
+class DataStoreKey(Instance):
 	KeyName: str
 
 	pass
 
-class DataStoreKeyInfo:
+class DataStoreKeyInfo(Instance):
 	CreatedTime: int
 	UpdatedTime: int
 	Version: str
@@ -5410,14 +9086,14 @@ class DataStoreKeyInfo:
 
 	pass
 
-class DataStoreObjectVersionInfo:
+class DataStoreObjectVersionInfo(Instance):
 	CreatedTime: int
 	IsDeleted: bool
 	Version: str
 
 	pass
 
-class DataStoreOptions:
+class DataStoreOptions(Instance):
 	AllScopes: bool
 	@abstractmethod
 	def SetExperimentalFeatures(self, experimentalFeatures: dict[Any, Any]) -> None:
@@ -5426,7 +9102,7 @@ class DataStoreOptions:
 
 	pass
 
-class DataStoreService:
+class DataStoreService(Instance):
 	AutomaticRetry: bool
 	LegacyNamingScheme: bool
 	@abstractmethod
@@ -5452,7 +9128,7 @@ class DataStoreService:
 
 	pass
 
-class DataStoreSetOptions:
+class DataStoreSetOptions(Instance):
 	@abstractmethod
 	def GetMetadata(self) -> dict[Any, Any]:
 		pass
@@ -5464,7 +9140,7 @@ class DataStoreSetOptions:
 
 	pass
 
-class Debris:
+class Debris(Instance):
 	MaxItems: int
 	@abstractmethod
 	def AddItem(self, item: Instance, lifetime: float) -> None:
@@ -5481,7 +9157,7 @@ class Debris:
 
 	pass
 
-class DebugSettings:
+class DebugSettings(Instance):
 	DataModel: int
 	InstanceCount: int
 	IsScriptStackTracingEnabled: bool
@@ -5493,11 +9169,11 @@ class DebugSettings:
 
 	pass
 
-class DebuggablePluginWatcher:
+class DebuggablePluginWatcher(Instance):
 
 	pass
 
-class DebuggerBreakpoint:
+class DebuggerBreakpoint(Instance):
 	Condition: str
 	ContinueExecution: bool
 	IsEnabled: bool
@@ -5507,7 +9183,7 @@ class DebuggerBreakpoint:
 
 	pass
 
-class DebuggerConnection:
+class DebuggerConnection(Instance):
 	ErrorMessage: str
 	HasError: bool
 	Id: int
@@ -5587,11 +9263,11 @@ class DebuggerConnection:
 
 	pass
 
-class LocalDebuggerConnection:
+class LocalDebuggerConnection(DebuggerConnection):
 
 	pass
 
-class DebuggerConnectionManager:
+class DebuggerConnectionManager(Instance):
 	Timeout: float
 	@abstractmethod
 	def ConnectLocal(self, dataModel: 'DataModel') -> int:
@@ -5612,7 +9288,7 @@ class DebuggerConnectionManager:
 
 	pass
 
-class DebuggerLuaResponse:
+class DebuggerLuaResponse(Instance):
 	IsError: bool
 	IsSuccess: bool
 	Message: str
@@ -5625,7 +9301,7 @@ class DebuggerLuaResponse:
 
 	pass
 
-class DebuggerManager:
+class DebuggerManager(Instance):
 	DebuggingEnabled: bool
 	@abstractmethod
 	def AddDebugger(self, script: Instance) -> Instance:
@@ -5636,7 +9312,7 @@ class DebuggerManager:
 		pass
 
 	@abstractmethod
-	def GetDebuggers(self) -> dict[int, Instance]:
+	def GetDebuggers(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -5658,7 +9334,7 @@ class DebuggerManager:
 
 	pass
 
-class DebuggerUIService:
+class DebuggerUIService(Instance):
 	@abstractmethod
 	def EditBreakpoint(self, metaBreakpointId: int) -> None:
 		pass
@@ -5702,7 +9378,7 @@ class DebuggerUIService:
 
 	pass
 
-class DebuggerVariable:
+class DebuggerVariable(Instance):
 	Name: str
 	Populated: bool
 	Type: str
@@ -5720,12 +9396,12 @@ class DebuggerVariable:
 
 	pass
 
-class DebuggerWatch:
+class DebuggerWatch(Instance):
 	Expression: str
 
 	pass
 
-class DeviceIdService:
+class DeviceIdService(Instance):
 	@abstractmethod
 	def GetDeviceId(self) -> str:
 		pass
@@ -5733,7 +9409,7 @@ class DeviceIdService:
 
 	pass
 
-class Dialog:
+class Dialog(Instance):
 	BehaviorType: DialogBehaviorType
 	ConversationDistance: float
 	GoodbyeChoiceActive: bool
@@ -5745,7 +9421,7 @@ class Dialog:
 	TriggerDistance: float
 	TriggerOffset: Vector3
 	@abstractmethod
-	def GetCurrentPlayers(self) -> dict[int, Instance]:
+	def GetCurrentPlayers(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -5759,7 +9435,7 @@ class Dialog:
 
 	pass
 
-class DialogChoice:
+class DialogChoice(Instance):
 	GoodbyeChoiceActive: bool
 	GoodbyeDialog: str
 	ResponseDialog: str
@@ -5767,9 +9443,9 @@ class DialogChoice:
 
 	pass
 
-class DraftsService:
+class DraftsService(Instance):
 	@abstractmethod
-	def DiscardEdits(self, scripts: dict[int, Instance]) -> None:
+	def DiscardEdits(self, scripts: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
@@ -5777,43 +9453,43 @@ class DraftsService:
 		pass
 
 	@abstractmethod
-	def GetEditors(self, script: Instance) -> dict[int, Instance]:
+	def GetEditors(self, script: Instance) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def RestoreScripts(self, scripts: dict[int, Instance]) -> None:
+	def RestoreScripts(self, scripts: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
-	def ShowDiffsAgainstBase(self, scripts: dict[int, Instance]) -> None:
+	def ShowDiffsAgainstBase(self, scripts: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
-	def ShowDiffsAgainstServer(self, scripts: dict[int, Instance]) -> None:
+	def ShowDiffsAgainstServer(self, scripts: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
-	def CommitEdits(self, scripts: dict[int, Instance]) -> None:
+	def CommitEdits(self, scripts: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
-	def GetDrafts(self) -> dict[int, Instance]:
+	def GetDrafts(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def UpdateToLatestVersion(self, scripts: dict[int, Instance]) -> None:
+	def UpdateToLatestVersion(self, scripts: list[Instance]) -> None:
 		pass
 
 
 	pass
 
-class Dragger:
+class Dragger(Instance):
 	@abstractmethod
 	def AxisRotate(self, axis: Axis) -> None:
 		pass
 
 	@abstractmethod
-	def MouseDown(self, mousePart: Instance, pointOnMousePart: Vector3, parts: dict[int, Instance]) -> None:
+	def MouseDown(self, mousePart: Instance, pointOnMousePart: Vector3, parts: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
@@ -5827,7 +9503,7 @@ class Dragger:
 
 	pass
 
-class DraggerService:
+class DraggerService(Instance):
 	AlignDraggedObjects: bool
 	AngleSnapEnabled: bool
 	AngleSnapIncrement: float
@@ -5848,7 +9524,7 @@ class DraggerService:
 
 	pass
 
-class EulerRotationCurve:
+class EulerRotationCurve(Instance):
 	RotationOrder: RotationOrder
 	@abstractmethod
 	def GetAnglesAtTime(self, time: float) -> list[Any]:
@@ -5873,7 +9549,7 @@ class EulerRotationCurve:
 
 	pass
 
-class EventIngestService:
+class EventIngestService(Instance):
 	@abstractmethod
 	def SendEventDeferred(self, target: str, eventContext: str, eventName: str, additionalArgs: dict[Any, Any]) -> None:
 		pass
@@ -5893,7 +9569,7 @@ class EventIngestService:
 
 	pass
 
-class ExperienceInviteOptions:
+class ExperienceInviteOptions(Instance):
 	InviteMessageId: int
 	InviteUser: int
 	LaunchData: str
@@ -5901,7 +9577,7 @@ class ExperienceInviteOptions:
 
 	pass
 
-class Explosion:
+class Explosion(Instance):
 	BlastPressure: float
 	BlastRadius: float
 	DestroyJointRadiusPercent: float
@@ -5912,7 +9588,7 @@ class Explosion:
 
 	pass
 
-class FaceAnimatorService:
+class FaceAnimatorService(Instance):
 	AudioAnimationEnabled: bool
 	FlipHeadOrientation: bool
 	VideoAnimationEnabled: bool
@@ -5943,7 +9619,7 @@ class FaceAnimatorService:
 
 	pass
 
-class FaceControls:
+class FaceControls(Instance):
 	ChinRaiser: float
 	ChinRaiserUpperLip: float
 	Corrugator: float
@@ -5997,12 +9673,12 @@ class FaceControls:
 
 	pass
 
-class FaceInstance:
+class FaceInstance(Instance):
 	Face: NormalId
 
 	pass
 
-class Decal:
+class Decal(FaceInstance):
 	LocalTransparencyModifier: float
 	Shiny: float
 	Specular: float
@@ -6013,7 +9689,7 @@ class Decal:
 
 	pass
 
-class Texture:
+class Texture(Decal):
 	OffsetStudsU: float
 	OffsetStudsV: float
 	StudsPerTileU: float
@@ -6021,7 +9697,7 @@ class Texture:
 
 	pass
 
-class FacialAnimationRecordingService:
+class FacialAnimationRecordingService(Instance):
 	BiometricDataConsent: bool
 	@abstractmethod
 	def IsAgeRestricted(self) -> bool:
@@ -6034,13 +9710,13 @@ class FacialAnimationRecordingService:
 
 	pass
 
-class FacialAnimationStreamingService:
+class FacialAnimationStreamingService(Instance):
 	EnableFlags: FacialAnimationFlags
 	Enabled: bool
 
 	pass
 
-class FacialAnimationStreamingServiceV2:
+class FacialAnimationStreamingServiceV2(Instance):
 	ServiceState: int
 	@abstractmethod
 	def IsAudioEnabled(self, mask: int) -> bool:
@@ -6065,7 +9741,7 @@ class FacialAnimationStreamingServiceV2:
 
 	pass
 
-class Feature:
+class Feature(Instance):
 	FaceId: NormalId
 	InOut: InOut
 	LeftRight: LeftRight
@@ -6073,15 +9749,15 @@ class Feature:
 
 	pass
 
-class Hole:
+class Hole(Feature):
 
 	pass
 
-class MotorFeature:
+class MotorFeature(Feature):
 
 	pass
 
-class File:
+class File(Instance):
 	Size: int
 	@abstractmethod
 	def GetBinaryContents(self) -> str:
@@ -6094,7 +9770,7 @@ class File:
 
 	pass
 
-class Fire:
+class Fire(Instance):
 	Color: Color3
 	Enabled: bool
 	Heat: float
@@ -6109,11 +9785,11 @@ class Fire:
 
 	pass
 
-class FlagStandService:
+class FlagStandService(Instance):
 
 	pass
 
-class FloatCurve:
+class FloatCurve(Instance):
 	Length: int
 	@abstractmethod
 	def GetKeyAtIndex(self, index: int) -> 'FloatCurveKey':
@@ -6146,28 +9822,28 @@ class FloatCurve:
 
 	pass
 
-class FlyweightService:
+class FlyweightService(Instance):
 
 	pass
 
-class CSGDictionaryService:
+class CSGDictionaryService(FlyweightService):
 
 	pass
 
-class NonReplicatedCSGDictionaryService:
+class NonReplicatedCSGDictionaryService(FlyweightService):
 
 	pass
 
-class Folder:
+class Folder(Instance):
 
 	pass
 
-class ForceField:
+class ForceField(Instance):
 	Visible: bool
 
 	pass
 
-class FriendService:
+class FriendService(Instance):
 	@abstractmethod
 	def GetPlatformFriends(self) -> list[Any]:
 		pass
@@ -6175,7 +9851,7 @@ class FriendService:
 
 	pass
 
-class FunctionalTest:
+class FunctionalTest(Instance):
 	Description: str
 	@abstractmethod
 	def Error(self, message: str) -> None:
@@ -6200,7 +9876,7 @@ class FunctionalTest:
 
 	pass
 
-class GamePassService:
+class GamePassService(Instance):
 	@abstractmethod
 	def PlayerHasPass(self, player: 'Player', gamePassId: int) -> bool:
 		pass
@@ -6208,13 +9884,13 @@ class GamePassService:
 
 	pass
 
-class GameSettings:
+class GameSettings(Instance):
 	VideoCaptureEnabled: bool
 	VideoRecording: bool
 
 	pass
 
-class GamepadService:
+class GamepadService(Instance):
 	GamepadCursorEnabled: bool
 	@abstractmethod
 	def DisableGamepadCursor(self) -> None:
@@ -6235,11 +9911,11 @@ class GamepadService:
 
 	pass
 
-class Geometry:
+class Geometry(Instance):
 
 	pass
 
-class GetTextBoundsParams:
+class GetTextBoundsParams(Instance):
 	Size: float
 	Text: str
 	Width: float
@@ -6247,7 +9923,7 @@ class GetTextBoundsParams:
 
 	pass
 
-class GlobalDataStore:
+class GlobalDataStore(Instance):
 	@abstractmethod
 	def OnUpdate(self, key: str, callback: Callable[..., Any]) -> 'RBXScriptConnection':
 		pass
@@ -6275,7 +9951,7 @@ class GlobalDataStore:
 
 	pass
 
-class DataStore:
+class DataStore(GlobalDataStore):
 	@abstractmethod
 	def GetVersionAsync(self, key: str, version: str) -> tuple[Any]:
 		pass
@@ -6295,7 +9971,7 @@ class DataStore:
 
 	pass
 
-class OrderedDataStore:
+class OrderedDataStore(GlobalDataStore):
 	@abstractmethod
 	def GetSortedAsync(self, ascending: bool, pagesize: int, minValue: Any, maxValue: Any) -> Instance:
 		pass
@@ -6303,11 +9979,11 @@ class OrderedDataStore:
 
 	pass
 
-class GoogleAnalyticsConfiguration:
+class GoogleAnalyticsConfiguration(Instance):
 
 	pass
 
-class GroupService:
+class GroupService(Instance):
 	@abstractmethod
 	def GetAlliesAsync(self, groupId: int) -> 'StandardPages':
 		pass
@@ -6327,11 +10003,11 @@ class GroupService:
 
 	pass
 
-class GuiBase:
+class GuiBase(Instance):
 
 	pass
 
-class GuiBase2d:
+class GuiBase2d(GuiBase):
 	AbsolutePosition: Vector2
 	AbsoluteRotation: float
 	AbsoluteSize: Vector2
@@ -6350,7 +10026,7 @@ class GuiBase2d:
 
 	pass
 
-class GuiObject:
+class GuiObject(GuiBase2d):
 	Active: bool
 	AnchorPoint: Vector2
 	BackgroundColor: BrickColor
@@ -6362,14 +10038,14 @@ class GuiObject:
 	ClipsDescendants: bool
 	Draggable: bool
 	LayoutOrder: int
-	NextSelectionDown: Self
-	NextSelectionLeft: Self
-	NextSelectionRight: Self
-	NextSelectionUp: Self
+	NextSelectionDown: 'GuiObject'
+	NextSelectionLeft: 'GuiObject'
+	NextSelectionRight: 'GuiObject'
+	NextSelectionUp: 'GuiObject'
 	Position: UDim2
 	Rotation: float
 	Selectable: bool
-	SelectionImageObject: Self
+	SelectionImageObject: 'GuiObject'
 	SelectionOrder: int
 	Size: UDim2
 	Transparency: float
@@ -6393,18 +10069,18 @@ class GuiObject:
 
 	pass
 
-class CanvasGroup:
+class CanvasGroup(GuiObject):
 	GroupColor3: Color3
 	GroupTransparency: float
 
 	pass
 
-class Frame:
+class Frame(GuiObject):
 	Style: FrameStyle
 
 	pass
 
-class GuiButton:
+class GuiButton(GuiObject):
 	AutoButtonColor: bool
 	Modal: bool
 	Selected: bool
@@ -6412,7 +10088,7 @@ class GuiButton:
 
 	pass
 
-class ImageButton:
+class ImageButton(GuiButton):
 	ContentImageSize: Vector2
 	HoverImage: Content
 	Image: Content
@@ -6434,7 +10110,7 @@ class ImageButton:
 
 	pass
 
-class TextButton:
+class TextButton(GuiButton):
 	ContentText: str
 	FontFace: Font
 	LineHeight: float
@@ -6465,11 +10141,11 @@ class TextButton:
 
 	pass
 
-class GuiLabel:
+class GuiLabel(GuiObject):
 
 	pass
 
-class ImageLabel:
+class ImageLabel(GuiLabel):
 	ContentImageSize: Vector2
 	Image: Content
 	ImageColor3: Color3
@@ -6489,7 +10165,7 @@ class ImageLabel:
 
 	pass
 
-class TextLabel:
+class TextLabel(GuiLabel):
 	ContentText: str
 	FontFace: Font
 	LineHeight: float
@@ -6520,7 +10196,7 @@ class TextLabel:
 
 	pass
 
-class ScrollingFrame:
+class ScrollingFrame(GuiObject):
 	AbsoluteCanvasSize: Vector2
 	AbsoluteWindowSize: Vector2
 	AutomaticCanvasSize: AutomaticSize
@@ -6557,7 +10233,7 @@ class ScrollingFrame:
 
 	pass
 
-class TextBox:
+class TextBox(GuiObject):
 	ClearTextOnFocus: bool
 	ContentText: str
 	CursorPosition: int
@@ -6615,7 +10291,7 @@ class TextBox:
 
 	pass
 
-class VideoFrame:
+class VideoFrame(GuiObject):
 	IsLoaded: bool
 	Looped: bool
 	Playing: bool
@@ -6635,7 +10311,7 @@ class VideoFrame:
 
 	pass
 
-class ViewportFrame:
+class ViewportFrame(GuiObject):
 	Ambient: Color3
 	CurrentCamera: Camera
 	ImageColor3: Color3
@@ -6646,7 +10322,7 @@ class ViewportFrame:
 
 	pass
 
-class LayerCollector:
+class LayerCollector(GuiBase2d):
 	Enabled: bool
 	ResetOnSpawn: bool
 	ZIndexBehavior: ZIndexBehavior
@@ -6657,7 +10333,7 @@ class LayerCollector:
 
 	pass
 
-class BillboardGui:
+class BillboardGui(LayerCollector):
 	Active: bool
 	Adornee: Instance
 	AlwaysOnTop: bool
@@ -6683,7 +10359,7 @@ class BillboardGui:
 
 	pass
 
-class PluginGui:
+class PluginGui(LayerCollector):
 	Title: str
 	@abstractmethod
 	def BindToClose(self, function: Callable[..., Any]) -> None:
@@ -6696,7 +10372,7 @@ class PluginGui:
 
 	pass
 
-class DockWidgetPluginGui:
+class DockWidgetPluginGui(PluginGui):
 	HostWidgetWasRestored: bool
 	@abstractmethod
 	def RequestRaise(self) -> None:
@@ -6705,11 +10381,11 @@ class DockWidgetPluginGui:
 
 	pass
 
-class QWidgetPluginGui:
+class QWidgetPluginGui(PluginGui):
 
 	pass
 
-class ScreenGui:
+class ScreenGui(LayerCollector):
 	ClipToDeviceSafeArea: bool
 	DisplayOrder: int
 	IgnoreGuiInset: bool
@@ -6718,23 +10394,23 @@ class ScreenGui:
 
 	pass
 
-class GuiMain:
+class GuiMain(ScreenGui):
 
 	pass
 
-class SurfaceGuiBase:
+class SurfaceGuiBase(LayerCollector):
 	Active: bool
 	Adornee: Instance
 	Face: NormalId
 
 	pass
 
-class AdGui:
+class AdGui(SurfaceGuiBase):
 	AdShape: AdShape
 
 	pass
 
-class SurfaceGui:
+class SurfaceGui(SurfaceGuiBase):
 	AlwaysOnTop: bool
 	Brightness: float
 	CanvasSize: Vector2
@@ -6747,7 +10423,7 @@ class SurfaceGui:
 
 	pass
 
-class GuiBase3d:
+class GuiBase3d(GuiBase):
 	Color: BrickColor
 	Transparency: float
 	Visible: bool
@@ -6755,7 +10431,7 @@ class GuiBase3d:
 
 	pass
 
-class FloorWire:
+class FloorWire(GuiBase3d):
 	CycleOffset: float
 	From: 'BasePart'
 	StudsBetweenTextures: float
@@ -6767,12 +10443,12 @@ class FloorWire:
 
 	pass
 
-class InstanceAdornment:
+class InstanceAdornment(GuiBase3d):
 	Adornee: Instance
 
 	pass
 
-class SelectionBox:
+class SelectionBox(InstanceAdornment):
 	LineThickness: float
 	SurfaceColor: BrickColor
 	SurfaceColor3: Color3
@@ -6780,12 +10456,12 @@ class SelectionBox:
 
 	pass
 
-class PVAdornment:
+class PVAdornment(GuiBase3d):
 	Adornee: 'PVInstance'
 
 	pass
 
-class HandleAdornment:
+class HandleAdornment(PVAdornment):
 	AlwaysOnTop: bool
 	SizeRelativeOffset: Vector3
 	ZIndex: int
@@ -6794,18 +10470,18 @@ class HandleAdornment:
 
 	pass
 
-class BoxHandleAdornment:
+class BoxHandleAdornment(HandleAdornment):
 	Size: Vector3
 
 	pass
 
-class ConeHandleAdornment:
+class ConeHandleAdornment(HandleAdornment):
 	Height: float
 	Radius: float
 
 	pass
 
-class CylinderHandleAdornment:
+class CylinderHandleAdornment(HandleAdornment):
 	Angle: float
 	Height: float
 	InnerRadius: float
@@ -6813,24 +10489,24 @@ class CylinderHandleAdornment:
 
 	pass
 
-class ImageHandleAdornment:
+class ImageHandleAdornment(HandleAdornment):
 	Image: Content
 	Size: Vector2
 
 	pass
 
-class LineHandleAdornment:
+class LineHandleAdornment(HandleAdornment):
 	Length: float
 	Thickness: float
 
 	pass
 
-class SphereHandleAdornment:
+class SphereHandleAdornment(HandleAdornment):
 	Radius: float
 
 	pass
 
-class WireframeHandleAdornment:
+class WireframeHandleAdornment(HandleAdornment):
 	@abstractmethod
 	def AddLine(self, from_: Vector3, to: Vector3) -> None:
 		pass
@@ -6850,67 +10526,67 @@ class WireframeHandleAdornment:
 
 	pass
 
-class ParabolaAdornment:
+class ParabolaAdornment(PVAdornment):
 	A: float
 	B: float
 	C: float
 	Range: float
 	Thickness: float
 	@abstractmethod
-	def FindPartOnParabola(self, ignoreDescendentsTable: dict[int, Instance]) -> tuple[Any]:
+	def FindPartOnParabola(self, ignoreDescendentsTable: list[Instance]) -> tuple[Any]:
 		pass
 
 
 	pass
 
-class SelectionSphere:
+class SelectionSphere(PVAdornment):
 	SurfaceColor: BrickColor
 	SurfaceColor3: Color3
 	SurfaceTransparency: float
 
 	pass
 
-class PartAdornment:
+class PartAdornment(GuiBase3d):
 	Adornee: 'BasePart'
 
 	pass
 
-class HandlesBase:
+class HandlesBase(PartAdornment):
 
 	pass
 
-class ArcHandles:
+class ArcHandles(HandlesBase):
 	Axes: Axes
 
 	pass
 
-class Handles:
+class Handles(HandlesBase):
 	Style: HandlesStyle
 	Faces: Faces
 
 	pass
 
-class SurfaceSelection:
+class SurfaceSelection(PartAdornment):
 	TargetSurface: NormalId
 
 	pass
 
-class SelectionLasso:
+class SelectionLasso(GuiBase3d):
 	Humanoid: 'Humanoid'
 
 	pass
 
-class SelectionPartLasso:
+class SelectionPartLasso(SelectionLasso):
 	Part: 'BasePart'
 
 	pass
 
-class SelectionPointLasso:
+class SelectionPointLasso(SelectionLasso):
 	Point: Vector3
 
 	pass
 
-class GuiService:
+class GuiService(Instance):
 	AutoSelectGuiEnabled: bool
 	CoreEffectFolder: Folder
 	CoreGuiFolder: Folder
@@ -7117,11 +10793,11 @@ class GuiService:
 
 	pass
 
-class GuidRegistryService:
+class GuidRegistryService(Instance):
 
 	pass
 
-class HapticService:
+class HapticService(Instance):
 	@abstractmethod
 	def GetMotor(self, inputType: UserInputType, vibrationMotor: VibrationMotor) -> tuple[Any]:
 		pass
@@ -7141,7 +10817,7 @@ class HapticService:
 
 	pass
 
-class HeightmapImporterService:
+class HeightmapImporterService(Instance):
 	@abstractmethod
 	def CancelImportHeightmap(self) -> None:
 		pass
@@ -7169,11 +10845,11 @@ class HeightmapImporterService:
 
 	pass
 
-class HiddenSurfaceRemovalAsset:
+class HiddenSurfaceRemovalAsset(Instance):
 
 	pass
 
-class Highlight:
+class Highlight(Instance):
 	Adornee: Instance
 	DepthMode: HighlightDepthMode
 	Enabled: bool
@@ -7186,11 +10862,11 @@ class Highlight:
 
 	pass
 
-class Hopper:
+class Hopper(Instance):
 
 	pass
 
-class HttpRbxApiService:
+class HttpRbxApiService(Instance):
 	@abstractmethod
 	def GetDocumentationUrl(self, partialUrl: str) -> str:
 		pass
@@ -7222,7 +10898,7 @@ class HttpRbxApiService:
 
 	pass
 
-class HttpRequest:
+class HttpRequest(Instance):
 	@abstractmethod
 	def Cancel(self) -> None:
 		pass
@@ -7234,7 +10910,7 @@ class HttpRequest:
 
 	pass
 
-class HttpService:
+class HttpService(Instance):
 	HttpEnabled: bool
 	@abstractmethod
 	def GenerateGUID(self, wrapInCurlyBraces: bool) -> str:
@@ -7283,7 +10959,7 @@ class HttpService:
 
 	pass
 
-class Humanoid:
+class Humanoid(Instance):
 	AutoJumpEnabled: bool
 	AutoRotate: bool
 	AutomaticScalingEnabled: bool
@@ -7472,7 +11148,7 @@ class Humanoid:
 
 	pass
 
-class HumanoidDescription:
+class HumanoidDescription(Instance):
 	AccessoryBlob: str
 	BackAccessory: str
 	BodyTypeScale: float
@@ -7548,7 +11224,7 @@ class HumanoidDescription:
 
 	pass
 
-class IKControl:
+class IKControl(Instance):
 	AlignmentOffset: CFrame
 	ChainRoot: Instance
 	Enabled: bool
@@ -7562,15 +11238,15 @@ class IKControl:
 
 	pass
 
-class ILegacyStudioBridge:
+class ILegacyStudioBridge(Instance):
 
 	pass
 
-class LegacyStudioBridge:
+class LegacyStudioBridge(ILegacyStudioBridge):
 
 	pass
 
-class IXPService:
+class IXPService(Instance):
 	@abstractmethod
 	def ClearUserLayers(self) -> None:
 		pass
@@ -7622,7 +11298,7 @@ class IXPService:
 
 	pass
 
-class ImporterBaseSettings:
+class ImporterBaseSettings(Instance):
 	Id: str
 	ImportName: str
 	ShouldImport: bool
@@ -7633,26 +11309,26 @@ class ImporterBaseSettings:
 
 	pass
 
-class ImporterAnimationSettings:
+class ImporterAnimationSettings(ImporterBaseSettings):
 
 	pass
 
-class ImporterFacsSettings:
+class ImporterFacsSettings(ImporterBaseSettings):
 
 	pass
 
-class ImporterGroupSettings:
+class ImporterGroupSettings(ImporterBaseSettings):
 	Anchored: bool
 	ImportAsModelAsset: bool
 	InsertInWorkspace: bool
 
 	pass
 
-class ImporterJointSettings:
+class ImporterJointSettings(ImporterBaseSettings):
 
 	pass
 
-class ImporterMaterialSettings:
+class ImporterMaterialSettings(ImporterBaseSettings):
 	DiffuseFilePath: str
 	IsPbr: bool
 	MetalnessFilePath: str
@@ -7661,7 +11337,7 @@ class ImporterMaterialSettings:
 
 	pass
 
-class ImporterMeshSettings:
+class ImporterMeshSettings(ImporterBaseSettings):
 	Anchored: bool
 	CageManifold: bool
 	CageMeshIntersectedPreview: bool
@@ -7685,7 +11361,7 @@ class ImporterMeshSettings:
 
 	pass
 
-class ImporterRootSettings:
+class ImporterRootSettings(ImporterBaseSettings):
 	Anchored: bool
 	FileDimensions: Vector3
 	ImportAsModelAsset: bool
@@ -7702,13 +11378,13 @@ class ImporterRootSettings:
 
 	pass
 
-class IncrementalPatchBuilder:
+class IncrementalPatchBuilder(Instance):
 	HighCompression: bool
 	ZstdCompression: bool
 
 	pass
 
-class InputObject:
+class InputObject(Instance):
 	Delta: Vector3
 	Position: Vector3
 	KeyCode: KeyCode
@@ -7721,7 +11397,7 @@ class InputObject:
 
 	pass
 
-class InsertService:
+class InsertService(Instance):
 	AllowClientInsertModels: bool
 	AllowInsertFreeModels: bool
 	@abstractmethod
@@ -7741,7 +11417,7 @@ class InsertService:
 		pass
 
 	@abstractmethod
-	def LoadPackageAsset(self, url: Content) -> dict[int, Instance]:
+	def LoadPackageAsset(self, url: Content) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -7789,7 +11465,7 @@ class InsertService:
 		pass
 
 	@abstractmethod
-	def LoadPackageAssetAsync(self, url: Content) -> dict[int, Instance]:
+	def LoadPackageAssetAsync(self, url: Content) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -7799,7 +11475,7 @@ class InsertService:
 
 	pass
 
-class JointInstance:
+class JointInstance(Instance):
 	Active: bool
 	C0: CFrame
 	C1: CFrame
@@ -7810,20 +11486,20 @@ class JointInstance:
 
 	pass
 
-class DynamicRotate:
+class DynamicRotate(JointInstance):
 	BaseAngle: float
 
 	pass
 
-class RotateP:
+class RotateP(DynamicRotate):
 
 	pass
 
-class RotateV:
+class RotateV(DynamicRotate):
 
 	pass
 
-class Glue:
+class Glue(JointInstance):
 	F0: Vector3
 	F1: Vector3
 	F2: Vector3
@@ -7831,19 +11507,19 @@ class Glue:
 
 	pass
 
-class ManualSurfaceJointInstance:
+class ManualSurfaceJointInstance(JointInstance):
 
 	pass
 
-class ManualGlue:
+class ManualGlue(ManualSurfaceJointInstance):
 
 	pass
 
-class ManualWeld:
+class ManualWeld(ManualSurfaceJointInstance):
 
 	pass
 
-class Motor:
+class Motor(JointInstance):
 	CurrentAngle: float
 	DesiredAngle: float
 	MaxVelocity: float
@@ -7854,22 +11530,22 @@ class Motor:
 
 	pass
 
-class Motor6D:
+class Motor6D(Motor):
 	ChildName: str
 	ParentName: str
 	Transform: CFrame
 
 	pass
 
-class Rotate:
+class Rotate(JointInstance):
 
 	pass
 
-class Snap:
+class Snap(JointInstance):
 
 	pass
 
-class VelocityMotor:
+class VelocityMotor(JointInstance):
 	CurrentAngle: float
 	DesiredAngle: float
 	MaxVelocity: float
@@ -7877,11 +11553,11 @@ class VelocityMotor:
 
 	pass
 
-class Weld:
+class Weld(JointInstance):
 
 	pass
 
-class JointsService:
+class JointsService(Instance):
 	@abstractmethod
 	def ClearJoinAfterMoveJoints(self) -> None:
 		pass
@@ -7905,11 +11581,11 @@ class JointsService:
 
 	pass
 
-class KeyboardService:
+class KeyboardService(Instance):
 
 	pass
 
-class Keyframe:
+class Keyframe(Instance):
 	Time: float
 	@abstractmethod
 	def AddMarker(self, marker: Instance) -> None:
@@ -7920,11 +11596,11 @@ class Keyframe:
 		pass
 
 	@abstractmethod
-	def GetMarkers(self) -> dict[int, Instance]:
+	def GetMarkers(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def GetPoses(self) -> dict[int, Instance]:
+	def GetPoses(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -7938,12 +11614,12 @@ class Keyframe:
 
 	pass
 
-class KeyframeMarker:
+class KeyframeMarker(Instance):
 	Value: str
 
 	pass
 
-class KeyframeSequenceProvider:
+class KeyframeSequenceProvider(Instance):
 	@abstractmethod
 	def GetKeyframeSequence(self, assetId: Content) -> Instance:
 		pass
@@ -7975,15 +11651,15 @@ class KeyframeSequenceProvider:
 
 	pass
 
-class LSPFileSyncService:
+class LSPFileSyncService(Instance):
 
 	pass
 
-class LanguageService:
+class LanguageService(Instance):
 
 	pass
 
-class Light:
+class Light(Instance):
 	Brightness: float
 	Color: Color3
 	Enabled: bool
@@ -7991,26 +11667,26 @@ class Light:
 
 	pass
 
-class PointLight:
+class PointLight(Light):
 	Range: float
 
 	pass
 
-class SpotLight:
+class SpotLight(Light):
 	Angle: float
 	Face: NormalId
 	Range: float
 
 	pass
 
-class SurfaceLight:
+class SurfaceLight(Light):
 	Angle: float
 	Face: NormalId
 	Range: float
 
 	pass
 
-class Lighting:
+class Lighting(Instance):
 	Ambient: Color3
 	Brightness: float
 	ClockTime: float
@@ -8062,7 +11738,7 @@ class Lighting:
 
 	pass
 
-class LocalStorageService:
+class LocalStorageService(Instance):
 	@abstractmethod
 	def Flush(self) -> None:
 		pass
@@ -8082,15 +11758,15 @@ class LocalStorageService:
 
 	pass
 
-class AppStorageService:
+class AppStorageService(LocalStorageService):
 
 	pass
 
-class UserStorageService:
+class UserStorageService(LocalStorageService):
 
 	pass
 
-class LocalizationService:
+class LocalizationService(Instance):
 	ForcePlayModeGameLocaleId: str
 	ForcePlayModeRobloxLocaleId: str
 	IsTextScraperRunning: bool
@@ -8099,7 +11775,7 @@ class LocalizationService:
 	RobloxLocaleId: str
 	SystemLocaleId: str
 	@abstractmethod
-	def GetCorescriptLocalizations(self) -> dict[int, Instance]:
+	def GetCorescriptLocalizations(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -8153,7 +11829,7 @@ class LocalizationService:
 
 	pass
 
-class LocalizationTable:
+class LocalizationTable(Instance):
 	DevelopmentLanguage: str
 	Root: Instance
 	SourceLocaleId: str
@@ -8228,20 +11904,20 @@ class LocalizationTable:
 
 	pass
 
-class CloudLocalizationTable:
+class CloudLocalizationTable(LocalizationTable):
 
 	pass
 
-class LodDataEntity:
+class LodDataEntity(Instance):
 	EntityLodEnabled: bool
 
 	pass
 
-class LodDataService:
+class LodDataService(Instance):
 
 	pass
 
-class LogService:
+class LogService(Instance):
 	@abstractmethod
 	def ExecuteScript(self, source: str) -> None:
 		pass
@@ -8269,7 +11945,7 @@ class LogService:
 
 	pass
 
-class LoginService:
+class LoginService(Instance):
 	@abstractmethod
 	def Logout(self) -> None:
 		pass
@@ -8281,16 +11957,16 @@ class LoginService:
 
 	pass
 
-class LuaSettings:
+class LuaSettings(Instance):
 
 	pass
 
-class LuaSourceContainer:
+class LuaSourceContainer(Instance):
 	CurrentEditor: Instance
 
 	pass
 
-class BaseScript:
+class BaseScript(LuaSourceContainer):
 	Disabled: bool
 	Enabled: bool
 	LinkedSource: Content
@@ -8298,11 +11974,11 @@ class BaseScript:
 
 	pass
 
-class CoreScript:
+class CoreScript(BaseScript):
 
 	pass
 
-class Script:
+class Script(BaseScript):
 	Source: ProtectedString
 	@abstractmethod
 	def GetHash(self) -> str:
@@ -8311,25 +11987,25 @@ class Script:
 
 	pass
 
-class LocalScript:
+class LocalScript(Script):
 
 	pass
 
-class ModuleScript:
+class ModuleScript(LuaSourceContainer):
 	LinkedSource: Content
 	Source: ProtectedString
 
 	pass
 
-class LuaWebService:
+class LuaWebService(Instance):
 
 	pass
 
-class LuauScriptAnalyzerService:
+class LuauScriptAnalyzerService(Instance):
 
 	pass
 
-class MarkerCurve:
+class MarkerCurve(Instance):
 	Length: int
 	@abstractmethod
 	def GetMarkerAtIndex(self, index: int) -> dict[Any, Any]:
@@ -8350,7 +12026,7 @@ class MarkerCurve:
 
 	pass
 
-class MarketplaceService:
+class MarketplaceService(Instance):
 	@abstractmethod
 	def PlayerCanMakePurchases(self, player: Instance) -> bool:
 		pass
@@ -8486,7 +12162,7 @@ class MarketplaceService:
 
 	pass
 
-class MaterialService:
+class MaterialService(Instance):
 	AsphaltName: str
 	BasaltName: str
 	BrickName: str
@@ -8543,7 +12219,7 @@ class MaterialService:
 
 	pass
 
-class MaterialVariant:
+class MaterialVariant(Instance):
 	BaseMaterial: Material
 	ColorMap: Content
 	CustomPhysicalProperties: PhysicalProperties
@@ -8555,7 +12231,7 @@ class MaterialVariant:
 
 	pass
 
-class MemStorageConnection:
+class MemStorageConnection(Instance):
 	@abstractmethod
 	def Disconnect(self) -> None:
 		pass
@@ -8563,7 +12239,7 @@ class MemStorageConnection:
 
 	pass
 
-class MemStorageService:
+class MemStorageService(Instance):
 	@abstractmethod
 	def Bind(self, key: str, callback: Callable[..., Any]) -> MemStorageConnection:
 		pass
@@ -8599,7 +12275,7 @@ class MemStorageService:
 
 	pass
 
-class MemoryStoreQueue:
+class MemoryStoreQueue(Instance):
 	@abstractmethod
 	def AddAsync(self, value: Any, expiration: int, priority: float) -> None:
 		pass
@@ -8615,7 +12291,7 @@ class MemoryStoreQueue:
 
 	pass
 
-class MemoryStoreService:
+class MemoryStoreService(Instance):
 	@abstractmethod
 	def GetQueue(self, name: str, invisibilityTimeout: int) -> MemoryStoreQueue:
 		pass
@@ -8627,7 +12303,7 @@ class MemoryStoreService:
 
 	pass
 
-class MemoryStoreSortedMap:
+class MemoryStoreSortedMap(Instance):
 	@abstractmethod
 	def GetAsync(self, key: str) -> Any:
 		pass
@@ -8651,16 +12327,16 @@ class MemoryStoreSortedMap:
 
 	pass
 
-class Message:
+class Message(Instance):
 	Text: str
 
 	pass
 
-class Hint:
+class Hint(Message):
 
 	pass
 
-class MessageBusConnection:
+class MessageBusConnection(Instance):
 	@abstractmethod
 	def Disconnect(self) -> None:
 		pass
@@ -8668,7 +12344,7 @@ class MessageBusConnection:
 
 	pass
 
-class MessageBusService:
+class MessageBusService(Instance):
 	@abstractmethod
 	def Call(self, key: str, input: Any) -> Any:
 		pass
@@ -8716,7 +12392,7 @@ class MessageBusService:
 
 	pass
 
-class MessagingService:
+class MessagingService(Instance):
 	@abstractmethod
 	def PublishAsync(self, topic: str, message: Any) -> None:
 		pass
@@ -8728,7 +12404,7 @@ class MessagingService:
 
 	pass
 
-class MetaBreakpoint:
+class MetaBreakpoint(Instance):
 	Condition: str
 	ContinueExecution: bool
 	Enabled: bool
@@ -8743,7 +12419,7 @@ class MetaBreakpoint:
 		pass
 
 	@abstractmethod
-	def Remove(self, status: Callable[..., Any]) -> int:
+	def RemoveMetaBreakpoint(self, status: Callable[..., Any]) -> int: # Overloading + Overriding
 		pass
 
 	@abstractmethod
@@ -8769,11 +12445,11 @@ class MetaBreakpoint:
 
 	pass
 
-class MetaBreakpointContext:
+class MetaBreakpointContext(Instance):
 
 	pass
 
-class MetaBreakpointManager:
+class MetaBreakpointManager(Instance):
 	@abstractmethod
 	def AddBreakpoint(self, script: Instance, line: int, condition: Instance) -> Instance:
 		pass
@@ -8789,7 +12465,7 @@ class MetaBreakpointManager:
 
 	pass
 
-class Mouse:
+class Mouse(Instance):
 	Hit: CFrame
 	Icon: Content
 	Origin: CFrame
@@ -8806,28 +12482,28 @@ class Mouse:
 
 	pass
 
-class PlayerMouse:
+class PlayerMouse(Mouse):
 
 	pass
 
-class PluginMouse:
+class PluginMouse(Mouse):
 
 	pass
 
-class MouseService:
+class MouseService(Instance):
 
 	pass
 
-class MultipleDocumentInterfaceInstance:
+class MultipleDocumentInterfaceInstance(Instance):
 	FocusedDataModelSession: Instance
 
 	pass
 
-class NetworkMarker:
+class NetworkMarker(Instance):
 
 	pass
 
-class NetworkPeer:
+class NetworkPeer(Instance):
 	@abstractmethod
 	def SetOutgoingKBPSLimit(self, limit: int) -> None:
 		pass
@@ -8835,11 +12511,11 @@ class NetworkPeer:
 
 	pass
 
-class NetworkClient:
+class NetworkClient(NetworkPeer):
 
 	pass
 
-class NetworkServer:
+class NetworkServer(NetworkPeer):
 	@abstractmethod
 	def EncryptStringForPlayerId(self, toEncrypt: str, playerId: int) -> str:
 		pass
@@ -8847,7 +12523,7 @@ class NetworkServer:
 
 	pass
 
-class NetworkReplicator:
+class NetworkReplicator(Instance):
 	@abstractmethod
 	def GetPlayer(self) -> Instance:
 		pass
@@ -8855,7 +12531,7 @@ class NetworkReplicator:
 
 	pass
 
-class ClientReplicator:
+class ClientReplicator(NetworkReplicator):
 	@abstractmethod
 	def RequestRCCProfilerData(self, frameRate: int, timeFrame: int) -> None:
 		pass
@@ -8871,11 +12547,11 @@ class ClientReplicator:
 
 	pass
 
-class ServerReplicator:
+class ServerReplicator(NetworkReplicator):
 
 	pass
 
-class NetworkSettings:
+class NetworkSettings(Instance):
 	EmulatedTotalMemoryInMB: int
 	FreeMemoryMBytes: float
 	HttpProxyEnabled: bool
@@ -8890,14 +12566,14 @@ class NetworkSettings:
 
 	pass
 
-class NoCollisionConstraint:
+class NoCollisionConstraint(Instance):
 	Enabled: bool
 	Part0: 'BasePart'
 	Part1: 'BasePart'
 
 	pass
 
-class NotificationService:
+class NotificationService(Instance):
 	IsConnected: bool
 	IsLuaChatEnabled: bool
 	IsLuaGameDetailsEnabled: bool
@@ -8933,7 +12609,7 @@ class NotificationService:
 
 	pass
 
-class PVInstance:
+class PVInstance(Instance):
 	OriginOrientation: Vector3
 	OriginPosition: Vector3
 	PivotOffsetOrientation: Vector3
@@ -8949,13 +12625,13 @@ class PVInstance:
 
 	pass
 
-class BasePart:
+class BasePart(PVInstance):
 	Anchored: bool
 	AssemblyAngularVelocity: Vector3
 	AssemblyCenterOfMass: Vector3
 	AssemblyLinearVelocity: Vector3
 	AssemblyMass: float
-	AssemblyRootPart: Self
+	AssemblyRootPart: 'BasePart'
 	BackParamA: float
 	BackParamB: float
 	BackSurface: SurfaceType
@@ -9040,11 +12716,11 @@ class BasePart:
 		pass
 
 	@abstractmethod
-	def GetConnectedParts(self, recursive: bool) -> dict[int, Instance]:
+	def GetConnectedParts(self, recursive: bool) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def GetJoints(self) -> dict[int, Instance]:
+	def GetJoints(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -9068,7 +12744,7 @@ class BasePart:
 		pass
 
 	@abstractmethod
-	def GetTouchingParts(self) -> dict[int, Instance]:
+	def GetTouchingParts(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -9112,41 +12788,41 @@ class BasePart:
 		pass
 
 	@abstractmethod
-	def SubtractAsync(self, parts: dict[int, Instance], collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity) -> Instance:
+	def SubtractAsync(self, parts: list[Instance], collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity) -> Instance:
 		pass
 
 	@abstractmethod
-	def UnionAsync(self, parts: dict[int, Instance], collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity) -> Instance:
+	def UnionAsync(self, parts: list[Instance], collisionfidelity: CollisionFidelity, renderFidelity: RenderFidelity) -> Instance:
 		pass
 
 
 	pass
 
-class CornerWedgePart:
+class CornerWedgePart(BasePart):
 
 	pass
 
-class FormFactorPart:
+class FormFactorPart(BasePart):
 	formFactor: FormFactor
 	FormFactor: FormFactor
 
 	pass
 
-class Part:
+class Part(FormFactorPart):
 	Shape: PartType
 
 	pass
 
-class FlagStand:
+class FlagStand(Part):
 	TeamColor: BrickColor
 
 	pass
 
-class Platform:
+class Platform(Part):
 
 	pass
 
-class Seat:
+class Seat(Part):
 	Disabled: bool
 	Occupant: Humanoid
 	@abstractmethod
@@ -9156,7 +12832,7 @@ class Seat:
 
 	pass
 
-class SkateboardPlatform:
+class SkateboardPlatform(Part):
 	Controller: SkateboardController
 	ControllingHumanoid: Humanoid
 	Steer: int
@@ -9169,7 +12845,7 @@ class SkateboardPlatform:
 
 	pass
 
-class SpawnLocation:
+class SpawnLocation(Part):
 	AllowTeamChangeOnTouch: bool
 	Duration: int
 	Enabled: bool
@@ -9178,11 +12854,11 @@ class SpawnLocation:
 
 	pass
 
-class WedgePart:
+class WedgePart(FormFactorPart):
 
 	pass
 
-class Terrain:
+class Terrain(BasePart):
 	Decoration: bool
 	IsSmooth: bool
 	LastUsedModificationMethod: TerrainAcquisitionMethod
@@ -9320,13 +12996,13 @@ class Terrain:
 
 	pass
 
-class TriangleMeshPart:
+class TriangleMeshPart(BasePart):
 	MeshSize: Vector3
 	CollisionFidelity: CollisionFidelity
 
 	pass
 
-class MeshPart:
+class MeshPart(TriangleMeshPart):
 	DoubleSided: bool
 	HasJointOffset: bool
 	HasSkinnedMesh: bool
@@ -9341,7 +13017,7 @@ class MeshPart:
 
 	pass
 
-class PartOperation:
+class PartOperation(TriangleMeshPart):
 	SmoothingAngle: float
 	TriangleCount: int
 	UsePartColor: bool
@@ -9349,20 +13025,20 @@ class PartOperation:
 
 	pass
 
-class NegateOperation:
+class NegateOperation(PartOperation):
 
 	pass
 
-class UnionOperation:
+class UnionOperation(PartOperation):
 
 	pass
 
-class TrussPart:
+class TrussPart(BasePart):
 	Style: Style
 
 	pass
 
-class VehicleSeat:
+class VehicleSeat(BasePart):
 	AreHingesDetected: int
 	Disabled: bool
 	HeadsUpDisplay: bool
@@ -9381,7 +13057,7 @@ class VehicleSeat:
 
 	pass
 
-class Model:
+class Model(PVInstance):
 	LevelOfDetail: ModelLevelOfDetail
 	PrimaryPart: BasePart
 	WorldPivotOrientation: Vector3
@@ -9455,21 +13131,21 @@ class Model:
 
 	pass
 
-class Actor:
+class Actor(Model):
 
 	pass
 
-class Status:
+class Status(Model):
 
 	pass
 
-class WorldRoot:
+class WorldRoot(Model):
 	@abstractmethod
-	def ArePartsTouchingOthers(self, partList: dict[int, Instance], overlapIgnored: float) -> bool:
+	def ArePartsTouchingOthers(self, partList: list[Instance], overlapIgnored: float) -> bool:
 		pass
 
 	@abstractmethod
-	def BulkMoveTo(self, partList: dict[int, Instance], cframeList: list[Any], eventMode: BulkMoveMode) -> None:
+	def BulkMoveTo(self, partList: list[Instance], cframeList: list[Any], eventMode: BulkMoveMode) -> None:
 		pass
 
 	@abstractmethod
@@ -9477,35 +13153,35 @@ class WorldRoot:
 		pass
 
 	@abstractmethod
-	def FindPartOnRayWithIgnoreList(self, ray: Ray, ignoreDescendantsTable: dict[int, Instance], terrainCellsAreCubes: bool, ignoreWater: bool) -> tuple[Any]:
+	def FindPartOnRayWithIgnoreList(self, ray: Ray, ignoreDescendantsTable: list[Instance], terrainCellsAreCubes: bool, ignoreWater: bool) -> tuple[Any]:
 		pass
 
 	@abstractmethod
-	def FindPartOnRayWithWhitelist(self, ray: Ray, whitelistDescendantsTable: dict[int, Instance], ignoreWater: bool) -> tuple[Any]:
+	def FindPartOnRayWithWhitelist(self, ray: Ray, whitelistDescendantsTable: list[Instance], ignoreWater: bool) -> tuple[Any]:
 		pass
 
 	@abstractmethod
-	def FindPartsInRegion3(self, region: 'Region3', ignoreDescendantsInstance: Instance, maxParts: int) -> dict[int, Instance]:
+	def FindPartsInRegion3(self, region: 'Region3', ignoreDescendantsInstance: Instance, maxParts: int) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def FindPartsInRegion3WithIgnoreList(self, region: 'Region3', ignoreDescendantsTable: dict[int, Instance], maxParts: int) -> dict[int, Instance]:
+	def FindPartsInRegion3WithIgnoreList(self, region: 'Region3', ignoreDescendantsTable: list[Instance], maxParts: int) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def FindPartsInRegion3WithWhiteList(self, region: 'Region3', whitelistDescendantsTable: dict[int, Instance], maxParts: int) -> dict[int, Instance]:
+	def FindPartsInRegion3WithWhiteList(self, region: 'Region3', whitelistDescendantsTable: list[Instance], maxParts: int) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def GetPartBoundsInBox(self, cframe: CFrame, size: Vector3, overlapParams: 'OverlapParams') -> dict[int, Instance]:
+	def GetPartBoundsInBox(self, cframe: CFrame, size: Vector3, overlapParams: 'OverlapParams') -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def GetPartBoundsInRadius(self, position: Vector3, radius: float, overlapParams: 'OverlapParams') -> dict[int, Instance]:
+	def GetPartBoundsInRadius(self, position: Vector3, radius: float, overlapParams: 'OverlapParams') -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def GetPartsInPart(self, part: BasePart, overlapParams: 'OverlapParams') -> dict[int, Instance]:
+	def GetPartsInPart(self, part: BasePart, overlapParams: 'OverlapParams') -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -9517,7 +13193,7 @@ class WorldRoot:
 		pass
 
 	@abstractmethod
-	def IsRegion3EmptyWithIgnoreList(self, region: 'Region3', ignoreDescendentsTable: dict[int, Instance]) -> bool:
+	def IsRegion3EmptyWithIgnoreList(self, region: 'Region3', ignoreDescendentsTable: list[Instance]) -> bool:
 		pass
 
 	@abstractmethod
@@ -9533,13 +13209,13 @@ class WorldRoot:
 		pass
 
 	@abstractmethod
-	def findPartsInRegion3(self, region: 'Region3', ignoreDescendantsInstance: Instance, maxParts: int) -> dict[int, Instance]:
+	def findPartsInRegion3(self, region: 'Region3', ignoreDescendantsInstance: Instance, maxParts: int) -> list[Instance]:
 		pass
 
 
 	pass
 
-class Workspace:
+class Workspace(WorldRoot):
 	AllowThirdPartySales: bool
 	AnimationWeightedBlendFix: NewAnimationRuntimeSetting
 	ClientAnimatorThrottling: ClientAnimatorThrottlingMode
@@ -9565,7 +13241,7 @@ class Workspace:
 	Terrain: Terrain
 	UnionsScaleNonuniformly: UnionsScaleNonuniformly
 	@abstractmethod
-	def BreakJoints(self, objects: dict[int, Instance]) -> None:
+	def BreakJointsWorkspace(self, objects: list[Instance]) -> None: # Overloading + Overriding
 		pass
 
 	@abstractmethod
@@ -9601,11 +13277,11 @@ class Workspace:
 		pass
 
 	@abstractmethod
-	def JoinToOutsiders(self, objects: dict[int, Instance], jointType: JointCreationMode) -> None:
+	def JoinToOutsiders(self, objects: list[Instance], jointType: JointCreationMode) -> None:
 		pass
 
 	@abstractmethod
-	def MakeJoints(self, objects: dict[int, Instance]) -> None:
+	def MakeJointsWorkspace(self, objects: list[Instance]) -> None: # Overloading + Overriding
 		pass
 
 	@abstractmethod
@@ -9621,7 +13297,7 @@ class Workspace:
 		pass
 
 	@abstractmethod
-	def UnjoinFromOutsiders(self, objects: dict[int, Instance]) -> None:
+	def UnjoinFromOutsiders(self, objects: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
@@ -9631,11 +13307,11 @@ class Workspace:
 
 	pass
 
-class WorldModel:
+class WorldModel(WorldRoot):
 
 	pass
 
-class PackageLink:
+class PackageLink(Instance):
 	AutoUpdate: bool
 	Creator: str
 	PackageAssetName: str
@@ -9646,13 +13322,13 @@ class PackageLink:
 
 	pass
 
-class PackageService:
+class PackageService(Instance):
 
 	pass
 
-class PackageUIService:
+class PackageUIService(Instance):
 	@abstractmethod
-	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: dict[int, Instance], originalInstances: dict[int, Instance]) -> None:
+	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: list[Instance], originalInstances: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
@@ -9670,7 +13346,7 @@ class PackageUIService:
 
 	pass
 
-class Pages:
+class Pages(Instance):
 	IsFinished: bool
 	@abstractmethod
 	def GetCurrentPage(self) -> list[Any]:
@@ -9683,53 +13359,53 @@ class Pages:
 
 	pass
 
-class CatalogPages:
+class CatalogPages(Pages):
 
 	pass
 
-class DataStoreKeyPages:
+class DataStoreKeyPages(Pages):
 	Cursor: str
 
 	pass
 
-class DataStoreListingPages:
+class DataStoreListingPages(Pages):
 	Cursor: str
 
 	pass
 
-class DataStorePages:
+class DataStorePages(Pages):
 
 	pass
 
-class DataStoreVersionPages:
+class DataStoreVersionPages(Pages):
 
 	pass
 
-class FriendPages:
+class FriendPages(Pages):
 
 	pass
 
-class InventoryPages:
+class InventoryPages(Pages):
 
 	pass
 
-class EmotesPages:
+class EmotesPages(InventoryPages):
 
 	pass
 
-class OutfitPages:
+class OutfitPages(Pages):
 
 	pass
 
-class StandardPages:
+class StandardPages(Pages):
 
 	pass
 
-class PartOperationAsset:
+class PartOperationAsset(Instance):
 
 	pass
 
-class ParticleEmitter:
+class ParticleEmitter(Instance):
 	Acceleration: Vector3
 	Brightness: float
 	Color: ColorSequence
@@ -9778,7 +13454,7 @@ class ParticleEmitter:
 
 	pass
 
-class Path:
+class Path(Instance):
 	Status: PathStatus
 	@abstractmethod
 	def GetPointCoordinates(self) -> list[Any]:
@@ -9799,7 +13475,7 @@ class Path:
 
 	pass
 
-class PathfindingLink:
+class PathfindingLink(Instance):
 	Attachment0: Attachment
 	Attachment1: Attachment
 	IsBidirectional: bool
@@ -9807,13 +13483,13 @@ class PathfindingLink:
 
 	pass
 
-class PathfindingModifier:
+class PathfindingModifier(Instance):
 	Label: str
 	PassThrough: bool
 
 	pass
 
-class PathfindingService:
+class PathfindingService(Instance):
 	EmptyCutoff: float
 	@abstractmethod
 	def CreatePath(self, agentParameters: dict[Any, Any]) -> Instance:
@@ -9834,24 +13510,24 @@ class PathfindingService:
 
 	pass
 
-class PausedState:
+class PausedState(Instance):
 	AllThreadsPaused: bool
 	Reason: DebuggerPauseReason
 	ThreadId: int
 
 	pass
 
-class PausedStateBreakpoint:
+class PausedStateBreakpoint(PausedState):
 	Breakpoint: Breakpoint
 
 	pass
 
-class PausedStateException:
+class PausedStateException(PausedState):
 	ExceptionText: str
 
 	pass
 
-class PermissionsService:
+class PermissionsService(Instance):
 	@abstractmethod
 	def GetIsThirdPartyAssetAllowed(self) -> bool:
 		pass
@@ -9875,7 +13551,7 @@ class PermissionsService:
 
 	pass
 
-class PhysicsService:
+class PhysicsService(Instance):
 	@abstractmethod
 	def CollisionGroupContainsPart(self, name: str, part: BasePart) -> bool:
 		pass
@@ -9947,7 +13623,7 @@ class PhysicsService:
 
 	pass
 
-class PhysicsSettings:
+class PhysicsSettings(Instance):
 	AllowSleep: bool
 	AreAnchorsShown: bool
 	AreAssembliesShown: bool
@@ -9977,7 +13653,7 @@ class PhysicsSettings:
 
 	pass
 
-class Player:
+class Player(Instance):
 	AccountAge: int
 	AppearanceDidLoad: bool
 	AutoJumpEnabled: bool
@@ -10244,7 +13920,7 @@ class Player:
 
 	pass
 
-class PlayerEmulatorService:
+class PlayerEmulatorService(Instance):
 	CustomPoliciesEnabled: bool
 	EmulatedCountryCode: str
 	EmulatedGameLocale: str
@@ -10265,7 +13941,7 @@ class PlayerEmulatorService:
 
 	pass
 
-class PlayerScripts:
+class PlayerScripts(Instance):
 	@abstractmethod
 	def ClearComputerCameraMovementModes(self) -> None:
 		pass
@@ -10317,7 +13993,7 @@ class PlayerScripts:
 
 	pass
 
-class Players:
+class Players(Instance):
 	BubbleChat: bool
 	CharacterAutoLoads: bool
 	ClassicChat: bool
@@ -10347,7 +14023,7 @@ class Players:
 		pass
 
 	@abstractmethod
-	def GetPlayers(self) -> dict[int, Instance]:
+	def GetPlayers(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -10375,7 +14051,7 @@ class Players:
 		pass
 
 	@abstractmethod
-	def getPlayers(self) -> dict[int, Instance]:
+	def getPlayers(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -10383,7 +14059,7 @@ class Players:
 		pass
 
 	@abstractmethod
-	def players(self) -> dict[int, Instance]:
+	def players(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -10429,7 +14105,7 @@ class Players:
 
 	pass
 
-class Plugin:
+class Plugin(Instance):
 	CollisionEnabled: bool
 	GridSize: float
 	HostDataModelType: StudioDataModelType
@@ -10493,7 +14169,7 @@ class Plugin:
 		pass
 
 	@abstractmethod
-	def Negate(self, objects: dict[int, Instance]) -> dict[int, Instance]:
+	def Negate(self, objects: list[Instance]) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -10533,7 +14209,7 @@ class Plugin:
 		pass
 
 	@abstractmethod
-	def Separate(self, objects: dict[int, Instance]) -> dict[int, Instance]:
+	def Separate(self, objects: list[Instance]) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -10561,7 +14237,7 @@ class Plugin:
 		pass
 
 	@abstractmethod
-	def Union(self, objects: dict[int, Instance]) -> Instance:
+	def Union(self, objects: list[Instance]) -> Instance:
 		pass
 
 	@abstractmethod
@@ -10591,7 +14267,7 @@ class Plugin:
 
 	pass
 
-class PluginAction:
+class PluginAction(Instance):
 	ActionId: str
 	AllowBinding: bool
 	Checked: bool
@@ -10602,11 +14278,11 @@ class PluginAction:
 
 	pass
 
-class PluginDebugService:
+class PluginDebugService(Instance):
 
 	pass
 
-class PluginDragEvent:
+class PluginDragEvent(Instance):
 	Data: str
 	MimeType: str
 	Position: Vector2
@@ -10614,11 +14290,11 @@ class PluginDragEvent:
 
 	pass
 
-class PluginGuiService:
+class PluginGuiService(Instance):
 
 	pass
 
-class PluginManagementService:
+class PluginManagementService(Instance):
 	@abstractmethod
 	def SetAutoUpdate(self, pluginId: int, state: bool) -> None:
 		pass
@@ -10626,7 +14302,7 @@ class PluginManagementService:
 
 	pass
 
-class PluginManager:
+class PluginManager(Instance):
 	@abstractmethod
 	def CreatePlugin(self) -> Instance:
 		pass
@@ -10642,7 +14318,7 @@ class PluginManager:
 
 	pass
 
-class PluginManagerInterface:
+class PluginManagerInterface(Instance):
 	@abstractmethod
 	def CreatePlugin(self) -> Instance:
 		pass
@@ -10658,7 +14334,7 @@ class PluginManagerInterface:
 
 	pass
 
-class PluginMenu:
+class PluginMenu(Instance):
 	Icon: str
 	Title: str
 	@abstractmethod
@@ -10688,7 +14364,7 @@ class PluginMenu:
 
 	pass
 
-class PluginPolicyService:
+class PluginPolicyService(Instance):
 	@abstractmethod
 	def GetPluginPolicy(self, pluginName: str) -> dict[Any, Any]:
 		pass
@@ -10696,7 +14372,7 @@ class PluginPolicyService:
 
 	pass
 
-class PluginToolbar:
+class PluginToolbar(Instance):
 	@abstractmethod
 	def CreateButton(self, buttonId: str, tooltip: str, iconname: str, text: str) -> Instance:
 		pass
@@ -10704,7 +14380,7 @@ class PluginToolbar:
 
 	pass
 
-class PluginToolbarButton:
+class PluginToolbarButton(Instance):
 	ClickableWhenViewportHidden: bool
 	Enabled: bool
 	Icon: Content
@@ -10715,7 +14391,7 @@ class PluginToolbarButton:
 
 	pass
 
-class PointsService:
+class PointsService(Instance):
 	@abstractmethod
 	def GetAwardablePoints(self) -> int:
 		pass
@@ -10735,7 +14411,7 @@ class PointsService:
 
 	pass
 
-class PolicyService:
+class PolicyService(Instance):
 	IsLuobuServer: TriStateBoolean
 	LuobuWhitelisted: TriStateBoolean
 	@abstractmethod
@@ -10749,19 +14425,19 @@ class PolicyService:
 
 	pass
 
-class PoseBase:
+class PoseBase(Instance):
 	EasingDirection: PoseEasingDirection
 	EasingStyle: PoseEasingStyle
 	Weight: float
 
 	pass
 
-class NumberPose:
+class NumberPose(PoseBase):
 	Value: float
 
 	pass
 
-class Pose:
+class Pose(PoseBase):
 	MaskWeight: float
 	CFrame: CFrame
 	@abstractmethod
@@ -10769,7 +14445,7 @@ class Pose:
 		pass
 
 	@abstractmethod
-	def GetSubPoses(self) -> dict[int, Instance]:
+	def GetSubPoses(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -10779,24 +14455,24 @@ class Pose:
 
 	pass
 
-class PostEffect:
+class PostEffect(Instance):
 	Enabled: bool
 
 	pass
 
-class BloomEffect:
+class BloomEffect(PostEffect):
 	Intensity: float
 	Size: float
 	Threshold: float
 
 	pass
 
-class BlurEffect:
+class BlurEffect(PostEffect):
 	Size: float
 
 	pass
 
-class ColorCorrectionEffect:
+class ColorCorrectionEffect(PostEffect):
 	Brightness: float
 	Contrast: float
 	Saturation: float
@@ -10804,7 +14480,7 @@ class ColorCorrectionEffect:
 
 	pass
 
-class DepthOfFieldEffect:
+class DepthOfFieldEffect(PostEffect):
 	FarIntensity: float
 	FocusDistance: float
 	InFocusRadius: float
@@ -10812,17 +14488,17 @@ class DepthOfFieldEffect:
 
 	pass
 
-class SunRaysEffect:
+class SunRaysEffect(PostEffect):
 	Intensity: float
 	Spread: float
 
 	pass
 
-class ProcessInstancePhysicsService:
+class ProcessInstancePhysicsService(Instance):
 
 	pass
 
-class ProximityPrompt:
+class ProximityPrompt(Instance):
 	ActionText: str
 	AutoLocalize: bool
 	ClickablePrompt: bool
@@ -10848,13 +14524,13 @@ class ProximityPrompt:
 
 	pass
 
-class ProximityPromptService:
+class ProximityPromptService(Instance):
 	Enabled: bool
 	MaxPromptsVisible: int
 
 	pass
 
-class PublishService:
+class PublishService(Instance):
 	@abstractmethod
 	def PublishDescendantAssets(self, instance: Instance) -> bool:
 		pass
@@ -10866,7 +14542,7 @@ class PublishService:
 
 	pass
 
-class RbxAnalyticsService:
+class RbxAnalyticsService(Instance):
 	@abstractmethod
 	def AddGlobalPointsField(self, key: str, value: int) -> None:
 		pass
@@ -10950,31 +14626,31 @@ class RbxAnalyticsService:
 
 	pass
 
-class ReflectionMetadata:
+class ReflectionMetadata(Instance):
 
 	pass
 
-class ReflectionMetadataCallbacks:
+class ReflectionMetadataCallbacks(Instance):
 
 	pass
 
-class ReflectionMetadataClasses:
+class ReflectionMetadataClasses(Instance):
 
 	pass
 
-class ReflectionMetadataEnums:
+class ReflectionMetadataEnums(Instance):
 
 	pass
 
-class ReflectionMetadataEvents:
+class ReflectionMetadataEvents(Instance):
 
 	pass
 
-class ReflectionMetadataFunctions:
+class ReflectionMetadataFunctions(Instance):
 
 	pass
 
-class ReflectionMetadataItem:
+class ReflectionMetadataItem(Instance):
 	Browsable: bool
 	ClassCategory: str
 	ClientOnly: bool
@@ -10994,7 +14670,7 @@ class ReflectionMetadataItem:
 
 	pass
 
-class ReflectionMetadataClass:
+class ReflectionMetadataClass(ReflectionMetadataItem):
 	ExplorerImageIndex: int
 	ExplorerOrder: int
 	Insertable: bool
@@ -11002,31 +14678,31 @@ class ReflectionMetadataClass:
 
 	pass
 
-class ReflectionMetadataEnum:
+class ReflectionMetadataEnum(ReflectionMetadataItem):
 
 	pass
 
-class ReflectionMetadataEnumItem:
+class ReflectionMetadataEnumItem(ReflectionMetadataItem):
 
 	pass
 
-class ReflectionMetadataMember:
+class ReflectionMetadataMember(ReflectionMetadataItem):
 
 	pass
 
-class ReflectionMetadataProperties:
+class ReflectionMetadataProperties(Instance):
 
 	pass
 
-class ReflectionMetadataYieldFunctions:
+class ReflectionMetadataYieldFunctions(Instance):
 
 	pass
 
-class RemoteDebuggerServer:
+class RemoteDebuggerServer(Instance):
 
 	pass
 
-class RemoteEvent:
+class RemoteEvent(Instance):
 	@abstractmethod
 	def FireAllClients(self, arguments: tuple[Any]) -> None:
 		pass
@@ -11042,7 +14718,7 @@ class RemoteEvent:
 
 	pass
 
-class RemoteFunction:
+class RemoteFunction(Instance):
 	@abstractmethod
 	def InvokeClient(self, player: Player, arguments: tuple[Any]) -> tuple[Any]:
 		pass
@@ -11054,7 +14730,7 @@ class RemoteFunction:
 
 	pass
 
-class RenderSettings:
+class RenderSettings(Instance):
 	AutoFRMLevel: int
 	EagerBulkExecution: bool
 	EditQualityLevel: QualityLevel
@@ -11075,7 +14751,7 @@ class RenderSettings:
 
 	pass
 
-class RenderingTest:
+class RenderingTest(Instance):
 	ComparisonDiffThreshold: int
 	ComparisonMethod: RenderingTestComparisonMethod
 	ComparisonPsnrThreshold: float
@@ -11094,7 +14770,7 @@ class RenderingTest:
 
 	pass
 
-class ReplicatedFirst:
+class ReplicatedFirst(Instance):
 	@abstractmethod
 	def IsDefaultLoadingGuiRemoved(self) -> bool:
 		pass
@@ -11114,19 +14790,19 @@ class ReplicatedFirst:
 
 	pass
 
-class ReplicatedStorage:
+class ReplicatedStorage(Instance):
 
 	pass
 
-class RobloxPluginGuiService:
+class RobloxPluginGuiService(Instance):
 
 	pass
 
-class RobloxReplicatedStorage:
+class RobloxReplicatedStorage(Instance):
 
 	pass
 
-class RotationCurve:
+class RotationCurve(Instance):
 	Length: int
 	@abstractmethod
 	def GetKeyAtIndex(self, index: int) -> 'RotationCurveKey':
@@ -11159,11 +14835,11 @@ class RotationCurve:
 
 	pass
 
-class RtMessagingService:
+class RtMessagingService(Instance):
 
 	pass
 
-class RunService:
+class RunService(Instance):
 	ClientGitHash: str
 	@abstractmethod
 	def BindToRenderStep(self, name: str, priority: int, function: Callable[..., Any]) -> None:
@@ -11240,11 +14916,11 @@ class RunService:
 
 	pass
 
-class RuntimeScriptService:
+class RuntimeScriptService(Instance):
 
 	pass
 
-class ScreenshotHud:
+class ScreenshotHud(Instance):
 	CameraButtonIcon: Content
 	CameraButtonPosition: UDim2
 	CloseButtonPosition: UDim2
@@ -11256,27 +14932,27 @@ class ScreenshotHud:
 
 	pass
 
-class ScriptBuilder:
+class ScriptBuilder(Instance):
 
 	pass
 
-class CoreScriptBuilder:
+class CoreScriptBuilder(ScriptBuilder):
 
 	pass
 
-class ScriptChangeService:
+class ScriptChangeService(Instance):
 
 	pass
 
-class ScriptCloneWatcher:
+class ScriptCloneWatcher(Instance):
 
 	pass
 
-class ScriptCloneWatcherHelper:
+class ScriptCloneWatcherHelper(Instance):
 
 	pass
 
-class ScriptContext:
+class ScriptContext(Instance):
 	ScriptsDisabled: bool
 	@abstractmethod
 	def AddCoreScriptLocal(self, name: str, parent: Instance) -> None:
@@ -11313,7 +14989,7 @@ class ScriptContext:
 
 	pass
 
-class ScriptDebugger:
+class ScriptDebugger(Instance):
 	CurrentLine: int
 	IsDebugging: bool
 	IsPaused: bool
@@ -11323,7 +14999,7 @@ class ScriptDebugger:
 		pass
 
 	@abstractmethod
-	def GetBreakpoints(self) -> dict[int, Instance]:
+	def GetBreakpoints(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -11347,7 +15023,7 @@ class ScriptDebugger:
 		pass
 
 	@abstractmethod
-	def GetWatches(self) -> dict[int, Instance]:
+	def GetWatches(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -11369,7 +15045,7 @@ class ScriptDebugger:
 
 	pass
 
-class ScriptDocument:
+class ScriptDocument(Instance):
 	@abstractmethod
 	def GetInternalUri(self) -> str:
 		pass
@@ -11437,7 +15113,7 @@ class ScriptDocument:
 
 	pass
 
-class ScriptEditorService:
+class ScriptEditorService(Instance):
 	@abstractmethod
 	def DeregisterAutocompleteCallback(self, name: str) -> None:
 		pass
@@ -11447,7 +15123,7 @@ class ScriptEditorService:
 		pass
 
 	@abstractmethod
-	def GetScriptDocuments(self) -> dict[int, Instance]:
+	def GetScriptDocuments(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -11461,7 +15137,7 @@ class ScriptEditorService:
 
 	pass
 
-class ScriptRegistrationService:
+class ScriptRegistrationService(Instance):
 	@abstractmethod
 	def GetSourceContainerByScriptGuid(self, guid: str) -> LuaSourceContainer:
 		pass
@@ -11469,16 +15145,16 @@ class ScriptRegistrationService:
 
 	pass
 
-class ScriptService:
+class ScriptService(Instance):
 
 	pass
 
-class Selection:
+class Selection(Instance):
 	ActiveInstance: Instance
 	SelectionLineThickness: int
 	SelectionThickness: float
 	@abstractmethod
-	def Add(self, instancesToAdd: dict[int, Instance]) -> None:
+	def Add(self, instancesToAdd: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
@@ -11486,15 +15162,15 @@ class Selection:
 		pass
 
 	@abstractmethod
-	def Get(self) -> dict[int, Instance]:
+	def Get(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def Remove(self, instancesToRemove: dict[int, Instance]) -> None:
+	def RemoveSelection(self, instancesToRemove: list[Instance]) -> None: # Overloading + Overriding
 		pass
 
 	@abstractmethod
-	def Set(self, selection: dict[int, Instance]) -> None:
+	def Set(self, selection: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
@@ -11504,16 +15180,16 @@ class Selection:
 
 	pass
 
-class ServerScriptService:
+class ServerScriptService(Instance):
 	LoadStringEnabled: bool
 
 	pass
 
-class ServerStorage:
+class ServerStorage(Instance):
 
 	pass
 
-class ServiceProvider:
+class ServiceProvider(Instance):
 	@abstractmethod
 	def FindService(self, className: str) -> Instance:
 		pass
@@ -11533,7 +15209,7 @@ class ServiceProvider:
 
 	pass
 
-class DataModel:
+class DataModel(ServiceProvider):
 	CreatorId: int
 	GameId: int
 	IsSFFlagsLoaded: bool
@@ -11591,11 +15267,11 @@ class DataModel:
 		pass
 
 	@abstractmethod
-	def GetObjects(self, url: Content) -> dict[int, Instance]:
+	def GetObjects(self, url: Content) -> list[Instance]:
 		pass
 
 	@abstractmethod
-	def GetObjectsAllOrNone(self, url: Content) -> dict[int, Instance]:
+	def GetObjectsAllOrNone(self, url: Content) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -11655,7 +15331,7 @@ class DataModel:
 		pass
 
 	@abstractmethod
-	def GetObjectsAsync(self, url: Content) -> dict[int, Instance]:
+	def GetObjectsAsync(self, url: Content) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -11667,7 +15343,7 @@ class DataModel:
 		pass
 
 	@abstractmethod
-	def InsertObjectsAndJoinIfLegacyAsync(self, url: Content) -> dict[int, Instance]:
+	def InsertObjectsAndJoinIfLegacyAsync(self, url: Content) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -11677,15 +15353,15 @@ class DataModel:
 
 	pass
 
-class GenericSettings:
+class GenericSettings(ServiceProvider):
 
 	pass
 
-class AnalysticsSettings:
+class AnalysticsSettings(GenericSettings):
 
 	pass
 
-class GlobalSettings:
+class GlobalSettings(GenericSettings):
 	@abstractmethod
 	def GetFFlag(self, name: str) -> bool:
 		pass
@@ -11697,7 +15373,7 @@ class GlobalSettings:
 
 	pass
 
-class UserSettings:
+class UserSettings(GenericSettings):
 	@abstractmethod
 	def IsUserFeatureEnabled(self, name: str) -> bool:
 		pass
@@ -11709,7 +15385,7 @@ class UserSettings:
 
 	pass
 
-class SessionService:
+class SessionService(Instance):
 	@abstractmethod
 	def GetCreatedTimestampUtcMs(self, sid: str) -> int:
 		pass
@@ -11753,7 +15429,7 @@ class SessionService:
 
 	pass
 
-class Sky:
+class Sky(Instance):
 	CelestialBodiesShown: bool
 	MoonAngularSize: float
 	MoonTextureId: Content
@@ -11769,7 +15445,7 @@ class Sky:
 
 	pass
 
-class Smoke:
+class Smoke(Instance):
 	Color: Color3
 	Enabled: bool
 	Opacity: float
@@ -11783,11 +15459,11 @@ class Smoke:
 
 	pass
 
-class SnippetService:
+class SnippetService(Instance):
 
 	pass
 
-class SocialService:
+class SocialService(Instance):
 	@abstractmethod
 	def InvokeGameInvitePromptClosed(self, player: Instance, recipientIds: list[Any]) -> None:
 		pass
@@ -11803,7 +15479,7 @@ class SocialService:
 
 	pass
 
-class Sound:
+class Sound(Instance):
 	ChannelCount: int
 	EmitterSize: float
 	IsLoaded: bool
@@ -11861,24 +15537,24 @@ class Sound:
 
 	pass
 
-class SoundEffect:
+class SoundEffect(Instance):
 	Enabled: bool
 	Priority: int
 
 	pass
 
-class AssetSoundEffect:
+class AssetSoundEffect(SoundEffect):
 
 	pass
 
-class ChorusSoundEffect:
+class ChorusSoundEffect(SoundEffect):
 	Depth: float
 	Mix: float
 	Rate: float
 
 	pass
 
-class CompressorSoundEffect:
+class CompressorSoundEffect(SoundEffect):
 	Attack: float
 	GainMakeup: float
 	Ratio: float
@@ -11888,21 +15564,21 @@ class CompressorSoundEffect:
 
 	pass
 
-class CustomSoundEffect:
+class CustomSoundEffect(SoundEffect):
 
 	pass
 
-class ChannelSelectorSoundEffect:
+class ChannelSelectorSoundEffect(CustomSoundEffect):
 	Channel: int
 
 	pass
 
-class DistortionSoundEffect:
+class DistortionSoundEffect(SoundEffect):
 	Level: float
 
 	pass
 
-class EchoSoundEffect:
+class EchoSoundEffect(SoundEffect):
 	Delay: float
 	DryLevel: float
 	Feedback: float
@@ -11910,26 +15586,26 @@ class EchoSoundEffect:
 
 	pass
 
-class EqualizerSoundEffect:
+class EqualizerSoundEffect(SoundEffect):
 	HighGain: float
 	LowGain: float
 	MidGain: float
 
 	pass
 
-class FlangeSoundEffect:
+class FlangeSoundEffect(SoundEffect):
 	Depth: float
 	Mix: float
 	Rate: float
 
 	pass
 
-class PitchShiftSoundEffect:
+class PitchShiftSoundEffect(SoundEffect):
 	Octave: float
 
 	pass
 
-class ReverbSoundEffect:
+class ReverbSoundEffect(SoundEffect):
 	DecayTime: float
 	Density: float
 	Diffusion: float
@@ -11938,19 +15614,19 @@ class ReverbSoundEffect:
 
 	pass
 
-class TremoloSoundEffect:
+class TremoloSoundEffect(SoundEffect):
 	Depth: float
 	Duty: float
 	Frequency: float
 
 	pass
 
-class SoundGroup:
+class SoundGroup(Instance):
 	Volume: float
 
 	pass
 
-class SoundService:
+class SoundService(Instance):
 	AmbientReverb: ReverbType
 	DistanceFactor: float
 	DopplerScale: float
@@ -12004,7 +15680,7 @@ class SoundService:
 
 	pass
 
-class Sparkles:
+class Sparkles(Instance):
 	Color: Color3
 	Enabled: bool
 	SparkleColor: Color3
@@ -12016,11 +15692,11 @@ class Sparkles:
 
 	pass
 
-class SpawnerService:
+class SpawnerService(Instance):
 
 	pass
 
-class Speaker:
+class Speaker(Instance):
 	ChannelCount: int
 	PlaybackLoudness: float
 	RollOffMaxDistance: float
@@ -12032,7 +15708,7 @@ class Speaker:
 
 	pass
 
-class StackFrame:
+class StackFrame(Instance):
 	FrameId: int
 	FrameName: str
 	FrameType: DebuggerFrameType
@@ -12045,19 +15721,19 @@ class StackFrame:
 
 	pass
 
-class StandalonePluginScripts:
+class StandalonePluginScripts(Instance):
 
 	pass
 
-class StarterGear:
+class StarterGear(Instance):
 
 	pass
 
-class StarterPack:
+class StarterPack(Instance):
 
 	pass
 
-class StarterPlayer:
+class StarterPlayer(Instance):
 	AllowCustomAnimations: bool
 	AutoJumpEnabled: bool
 	CameraMaxZoomDistance: float
@@ -12105,15 +15781,15 @@ class StarterPlayer:
 
 	pass
 
-class StarterPlayerScripts:
+class StarterPlayerScripts(Instance):
 
 	pass
 
-class StarterCharacterScripts:
+class StarterCharacterScripts(StarterPlayerScripts):
 
 	pass
 
-class Stats:
+class Stats(Instance):
 	ContactsCount: int
 	DataReceiveKbps: float
 	DataSendKbps: float
@@ -12143,7 +15819,7 @@ class Stats:
 
 	pass
 
-class StatsItem:
+class StatsItem(Instance):
 	DisplayName: str
 	@abstractmethod
 	def GetValue(self) -> float:
@@ -12156,23 +15832,23 @@ class StatsItem:
 
 	pass
 
-class RunningAverageItemDouble:
+class RunningAverageItemDouble(StatsItem):
 
 	pass
 
-class RunningAverageItemInt:
+class RunningAverageItemInt(StatsItem):
 
 	pass
 
-class RunningAverageTimeIntervalItem:
+class RunningAverageTimeIntervalItem(StatsItem):
 
 	pass
 
-class TotalCountTimeIntervalItem:
+class TotalCountTimeIntervalItem(StatsItem):
 
 	pass
 
-class StopWatchReporter:
+class StopWatchReporter(Instance):
 	@abstractmethod
 	def FinishTask(self, taskId: int) -> None:
 		pass
@@ -12188,7 +15864,7 @@ class StopWatchReporter:
 
 	pass
 
-class Studio:
+class Studio(Instance):
 	TODOColor: Color3
 	functionColor: Color3
 	localColor: Color3
@@ -12334,26 +16010,26 @@ class Studio:
 
 	pass
 
-class StudioAssetService:
+class StudioAssetService(Instance):
 	@abstractmethod
-	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: dict[int, Instance], originalInstances: dict[int, Instance]) -> None:
+	def ConvertToPackageUpload(self, uploadUrl: str, cloneInstances: list[Instance], originalInstances: list[Instance]) -> None:
 		pass
 
 	@abstractmethod
-	def SerializeInstances(self, instances: dict[int, Instance]) -> str:
+	def SerializeInstances(self, instances: list[Instance]) -> str:
 		pass
 
 
 	pass
 
-class StudioData:
+class StudioData(Instance):
 	EnableScriptCollabByDefaultOnLoad: bool
 	SrcPlaceId: int
 	SrcUniverseId: int
 
 	pass
 
-class StudioDeviceEmulatorService:
+class StudioDeviceEmulatorService(Instance):
 	HasMultiTouchStarted: bool
 	IsMultiTouchEmulationOn: bool
 	IsMultiTouchEnabled: bool
@@ -12397,7 +16073,7 @@ class StudioDeviceEmulatorService:
 
 	pass
 
-class StudioHighDpiService:
+class StudioHighDpiService(Instance):
 	@abstractmethod
 	def IsNotHighDPIAwareBuild(self) -> bool:
 		pass
@@ -12405,7 +16081,7 @@ class StudioHighDpiService:
 
 	pass
 
-class StudioPublishService:
+class StudioPublishService(Instance):
 	@abstractmethod
 	def ClearUploadNames(self) -> None:
 		pass
@@ -12441,11 +16117,11 @@ class StudioPublishService:
 
 	pass
 
-class StudioScriptDebugEventListener:
+class StudioScriptDebugEventListener(Instance):
 
 	pass
 
-class StudioService:
+class StudioService(Instance):
 	ActiveScript: Instance
 	AlignDraggedObjects: bool
 	DraggerSolveConstraints: bool
@@ -12552,7 +16228,7 @@ class StudioService:
 		pass
 
 	@abstractmethod
-	def PromptImportFiles(self, fileTypeFilter: list[Any]) -> dict[int, Instance]:
+	def PromptImportFiles(self, fileTypeFilter: list[Any]) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -12562,7 +16238,7 @@ class StudioService:
 
 	pass
 
-class StudioTheme:
+class StudioTheme(Instance):
 	@abstractmethod
 	def GetColor(self, styleguideitem: StudioStyleGuideColor, modifier: StudioStyleGuideModifier) -> Color3:
 		pass
@@ -12570,7 +16246,7 @@ class StudioTheme:
 
 	pass
 
-class SurfaceAppearance:
+class SurfaceAppearance(Instance):
 	ColorMap: Content
 	MetalnessMap: Content
 	NormalMap: Content
@@ -12580,7 +16256,7 @@ class SurfaceAppearance:
 
 	pass
 
-class TaskScheduler:
+class TaskScheduler(Instance):
 	SchedulerDutyCycle: float
 	SchedulerRate: float
 	ThreadPoolSize: int
@@ -12588,20 +16264,20 @@ class TaskScheduler:
 
 	pass
 
-class Team:
+class Team(Instance):
 	AutoAssignable: bool
 	AutoColorCharacters: bool
 	ChildOrder: int
 	Score: int
 	TeamColor: BrickColor
 	@abstractmethod
-	def GetPlayers(self) -> dict[int, Instance]:
+	def GetPlayers(self) -> list[Instance]:
 		pass
 
 
 	pass
 
-class TeamCreateService:
+class TeamCreateService(Instance):
 	@abstractmethod
 	def SendUnarchiveUniverseAsync(self, universeId: int) -> None:
 		pass
@@ -12609,9 +16285,9 @@ class TeamCreateService:
 
 	pass
 
-class Teams:
+class Teams(Instance):
 	@abstractmethod
-	def GetTeams(self) -> dict[int, Instance]:
+	def GetTeams(self) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -12621,13 +16297,13 @@ class Teams:
 
 	pass
 
-class TeleportAsyncResult:
+class TeleportAsyncResult(Instance):
 	PrivateServerId: str
 	ReservedServerAccessCode: str
 
 	pass
 
-class TeleportOptions:
+class TeleportOptions(Instance):
 	ReservedServerAccessCode: str
 	ServerInstanceId: str
 	ShouldReserveServer: bool
@@ -12642,7 +16318,7 @@ class TeleportOptions:
 
 	pass
 
-class TeleportService:
+class TeleportService(Instance):
 	CustomizedTeleportUI: bool
 	@abstractmethod
 	def Block(self) -> None:
@@ -12681,7 +16357,7 @@ class TeleportService:
 		pass
 
 	@abstractmethod
-	def TeleportToPrivateServer(self, placeId: int, reservedServerAccessCode: str, players: dict[int, Instance], spawnName: str, teleportData: Any, customLoadingScreen: Instance) -> None:
+	def TeleportToPrivateServer(self, placeId: int, reservedServerAccessCode: str, players: list[Instance], spawnName: str, teleportData: Any, customLoadingScreen: Instance) -> None:
 		pass
 
 	@abstractmethod
@@ -12697,11 +16373,11 @@ class TeleportService:
 		pass
 
 	@abstractmethod
-	def TeleportAsync(self, placeId: int, players: dict[int, Instance], teleportOptions: Instance) -> Instance:
+	def TeleportAsync(self, placeId: int, players: list[Instance], teleportOptions: Instance) -> Instance:
 		pass
 
 	@abstractmethod
-	def TeleportPartyAsync(self, placeId: int, players: dict[int, Instance], teleportData: Any, customLoadingScreen: Instance) -> str:
+	def TeleportPartyAsync(self, placeId: int, players: list[Instance], teleportData: Any, customLoadingScreen: Instance) -> str:
 		pass
 
 	@abstractmethod
@@ -12711,15 +16387,15 @@ class TeleportService:
 
 	pass
 
-class TemporaryCageMeshProvider:
+class TemporaryCageMeshProvider(Instance):
 
 	pass
 
-class TemporaryScriptService:
+class TemporaryScriptService(Instance):
 
 	pass
 
-class TerrainDetail:
+class TerrainDetail(Instance):
 	ColorMap: Content
 	Face: TerrainFace
 	MetalnessMap: Content
@@ -12730,7 +16406,7 @@ class TerrainDetail:
 
 	pass
 
-class TerrainRegion:
+class TerrainRegion(Instance):
 	IsSmooth: bool
 	SizeInCells: Vector3
 	@abstractmethod
@@ -12740,7 +16416,7 @@ class TerrainRegion:
 
 	pass
 
-class TestService:
+class TestService(Instance):
 	AutoRuns: bool
 	Description: str
 	ErrorCount: int
@@ -12800,11 +16476,11 @@ class TestService:
 
 	pass
 
-class TextBoxService:
+class TextBoxService(Instance):
 
 	pass
 
-class TextChannel:
+class TextChannel(Instance):
 	@abstractmethod
 	def DisplaySystemMessage(self, systemMessage: str, metadata: str) -> 'TextChatMessage':
 		pass
@@ -12820,18 +16496,18 @@ class TextChannel:
 
 	pass
 
-class TextChatCommand:
+class TextChatCommand(Instance):
 	Enabled: bool
 	PrimaryAlias: str
 	SecondaryAlias: str
 
 	pass
 
-class TextChatConfigurations:
+class TextChatConfigurations(Instance):
 
 	pass
 
-class BubbleChatConfiguration:
+class BubbleChatConfiguration(TextChatConfigurations):
 	AdorneeName: str
 	BackgroundColor3: Color3
 	BubbleDuration: float
@@ -12847,7 +16523,7 @@ class BubbleChatConfiguration:
 
 	pass
 
-class ChatInputBarConfiguration:
+class ChatInputBarConfiguration(TextChatConfigurations):
 	AbsolutePosition: Vector2
 	AbsolutePositionWrite: Vector2
 	AbsoluteSize: Vector2
@@ -12857,7 +16533,7 @@ class ChatInputBarConfiguration:
 
 	pass
 
-class ChatWindowConfiguration:
+class ChatWindowConfiguration(TextChatConfigurations):
 	AbsolutePosition: Vector2
 	AbsolutePositionWrite: Vector2
 	AbsoluteSize: Vector2
@@ -12868,7 +16544,7 @@ class ChatWindowConfiguration:
 
 	pass
 
-class TextChatMessage:
+class TextChatMessage(Instance):
 	MessageId: str
 	Metadata: str
 	PrefixText: str
@@ -12880,20 +16556,20 @@ class TextChatMessage:
 
 	pass
 
-class TextChatMessageProperties:
+class TextChatMessageProperties(Instance):
 	PrefixText: str
 	Text: str
 
 	pass
 
-class TextChatService:
+class TextChatService(Instance):
 	CreateDefaultCommands: bool
 	CreateDefaultTextChannels: bool
 	ChatVersion: ChatVersion
 
 	pass
 
-class TextFilterResult:
+class TextFilterResult(Instance):
 	@abstractmethod
 	def GetChatForUserAsync(self, toUserId: int) -> str:
 		pass
@@ -12909,7 +16585,7 @@ class TextFilterResult:
 
 	pass
 
-class TextService:
+class TextService(Instance):
 	@abstractmethod
 	def GetTextSize(self, string: str, fontSize: int, font: Font, frameSize: Vector2) -> Vector2:
 		pass
@@ -12933,13 +16609,13 @@ class TextService:
 
 	pass
 
-class TextSource:
+class TextSource(Instance):
 	CanSend: bool
 	UserId: int
 
 	pass
 
-class ThirdPartyUserService:
+class ThirdPartyUserService(Instance):
 	@abstractmethod
 	def GetUserPlatformId(self) -> str:
 		pass
@@ -12967,7 +16643,7 @@ class ThirdPartyUserService:
 
 	pass
 
-class ThreadState:
+class ThreadState(Instance):
 	FrameCount: int
 	Populated: bool
 	ThreadId: int
@@ -12979,11 +16655,11 @@ class ThreadState:
 
 	pass
 
-class TimerService:
+class TimerService(Instance):
 
 	pass
 
-class ToastNotificationService:
+class ToastNotificationService(Instance):
 	@abstractmethod
 	def HideNotification(self, notificationId: str) -> None:
 		pass
@@ -12995,15 +16671,15 @@ class ToastNotificationService:
 
 	pass
 
-class TouchInputService:
+class TouchInputService(Instance):
 
 	pass
 
-class TouchTransmitter:
+class TouchTransmitter(Instance):
 
 	pass
 
-class TracerService:
+class TracerService(Instance):
 	@abstractmethod
 	def FinishSpan(self, spanId: str) -> None:
 		pass
@@ -13015,7 +16691,7 @@ class TracerService:
 
 	pass
 
-class TrackerLodController:
+class TrackerLodController(Instance):
 	AudioMode: TrackerLodFlagMode
 	VideoExtrapolationMode: TrackerExtrapolationFlagMode
 	VideoLodMode: TrackerLodValueMode
@@ -13039,11 +16715,11 @@ class TrackerLodController:
 
 	pass
 
-class TrackerStreamAnimation:
+class TrackerStreamAnimation(Instance):
 
 	pass
 
-class Trail:
+class Trail(Instance):
 	Attachment0: Attachment
 	Attachment1: Attachment
 	Brightness: float
@@ -13067,7 +16743,7 @@ class Trail:
 
 	pass
 
-class Translator:
+class Translator(Instance):
 	LocaleId: str
 	@abstractmethod
 	def FormatByKey(self, key: str, args: Any) -> str:
@@ -13084,7 +16760,7 @@ class Translator:
 
 	pass
 
-class TweenBase:
+class TweenBase(Instance):
 	PlaybackState: PlaybackState
 	@abstractmethod
 	def Cancel(self) -> None:
@@ -13101,13 +16777,13 @@ class TweenBase:
 
 	pass
 
-class Tween:
+class Tween(TweenBase):
 	Instance: Instance
 	TweenInfo: TweenInfo
 
 	pass
 
-class TweenService:
+class TweenService(Instance):
 	@abstractmethod
 	def Create(self, instance: Instance, tweenInfo: TweenInfo, propertyTable: dict[Any, Any]) -> Tween:
 		pass
@@ -13119,7 +16795,7 @@ class TweenService:
 
 	pass
 
-class UGCValidationService:
+class UGCValidationService(Instance):
 	@abstractmethod
 	def GetMeshTriCountSync(self, meshId: str) -> int:
 		pass
@@ -13141,7 +16817,7 @@ class UGCValidationService:
 		pass
 
 	@abstractmethod
-	def FetchAssetWithFormat(self, url: Content, assetFormat: str) -> dict[int, Instance]:
+	def FetchAssetWithFormat(self, url: Content, assetFormat: str) -> list[Instance]:
 		pass
 
 	@abstractmethod
@@ -13199,43 +16875,43 @@ class UGCValidationService:
 
 	pass
 
-class UIBase:
+class UIBase(Instance):
 
 	pass
 
-class UIComponent:
+class UIComponent(UIBase):
 
 	pass
 
-class UIConstraint:
+class UIConstraint(UIComponent):
 
 	pass
 
-class UIAspectRatioConstraint:
+class UIAspectRatioConstraint(UIConstraint):
 	AspectRatio: float
 	AspectType: AspectType
 	DominantAxis: DominantAxis
 
 	pass
 
-class UISizeConstraint:
+class UISizeConstraint(UIConstraint):
 	MaxSize: Vector2
 	MinSize: Vector2
 
 	pass
 
-class UITextSizeConstraint:
+class UITextSizeConstraint(UIConstraint):
 	MaxTextSize: int
 	MinTextSize: int
 
 	pass
 
-class UICorner:
+class UICorner(UIComponent):
 	CornerRadius: UDim
 
 	pass
 
-class UIGradient:
+class UIGradient(UIComponent):
 	Color: ColorSequence
 	Enabled: bool
 	Offset: Vector2
@@ -13244,11 +16920,11 @@ class UIGradient:
 
 	pass
 
-class UILayout:
+class UILayout(UIComponent):
 
 	pass
 
-class UIGridStyleLayout:
+class UIGridStyleLayout(UILayout):
 	AbsoluteContentSize: Vector2
 	FillDirection: FillDirection
 	HorizontalAlignment: HorizontalAlignment
@@ -13265,7 +16941,7 @@ class UIGridStyleLayout:
 
 	pass
 
-class UIGridLayout:
+class UIGridLayout(UIGridStyleLayout):
 	AbsoluteCellCount: Vector2
 	AbsoluteCellSize: Vector2
 	CellPadding: UDim2
@@ -13275,12 +16951,12 @@ class UIGridLayout:
 
 	pass
 
-class UIListLayout:
+class UIListLayout(UIGridStyleLayout):
 	Padding: UDim
 
 	pass
 
-class UIPageLayout:
+class UIPageLayout(UIGridStyleLayout):
 	Animated: bool
 	Circular: bool
 	CurrentPage: GuiObject
@@ -13310,7 +16986,7 @@ class UIPageLayout:
 
 	pass
 
-class UITableLayout:
+class UITableLayout(UIGridStyleLayout):
 	FillEmptySpaceColumns: bool
 	FillEmptySpaceRows: bool
 	MajorAxis: TableMajorAxis
@@ -13318,7 +16994,7 @@ class UITableLayout:
 
 	pass
 
-class UIPadding:
+class UIPadding(UIComponent):
 	PaddingBottom: UDim
 	PaddingLeft: UDim
 	PaddingRight: UDim
@@ -13326,12 +17002,12 @@ class UIPadding:
 
 	pass
 
-class UIScale:
+class UIScale(UIComponent):
 	Scale: float
 
 	pass
 
-class UIStroke:
+class UIStroke(UIComponent):
 	Color: Color3
 	Enabled: bool
 	Thickness: float
@@ -13341,7 +17017,7 @@ class UIStroke:
 
 	pass
 
-class UnvalidatedAssetService:
+class UnvalidatedAssetService(Instance):
 	@abstractmethod
 	def AppendTempAssetId(self, userId: int, id: int, lookAt: Vector3, camPos: Vector3, usage: str) -> None:
 		pass
@@ -13357,7 +17033,7 @@ class UnvalidatedAssetService:
 
 	pass
 
-class UserGameSettings:
+class UserGameSettings(Instance):
 	AllTutorialsDisabled: bool
 	CameraMode: CustomCameraMode
 	CameraYInverted: bool
@@ -13441,7 +17117,7 @@ class UserGameSettings:
 
 	pass
 
-class UserInputService:
+class UserInputService(Instance):
 	AccelerometerEnabled: bool
 	BottomBarSize: Vector2
 	GamepadEnabled: bool
@@ -13572,7 +17248,7 @@ class UserInputService:
 
 	pass
 
-class UserService:
+class UserService(Instance):
 	@abstractmethod
 	def GetUserInfosByUserIdsAsync(self, userIds: list[Any]) -> list[Any]:
 		pass
@@ -13580,7 +17256,7 @@ class UserService:
 
 	pass
 
-class VRService:
+class VRService(Instance):
 	DidPointerHit: bool
 	GuiInputUserCFrame: UserCFrame
 	LaserDistance: float
@@ -13623,35 +17299,35 @@ class VRService:
 
 	pass
 
-class ValueBase:
+class ValueBase(Instance):
 
 	pass
 
-class BinaryStringValue:
+class BinaryStringValue(ValueBase):
 
 	pass
 
-class BoolValue:
+class BoolValue(ValueBase):
 	Value: bool
 
 	pass
 
-class BrickColorValue:
+class BrickColorValue(ValueBase):
 	Value: BrickColor
 
 	pass
 
-class CFrameValue:
+class CFrameValue(ValueBase):
 	Value: CFrame
 
 	pass
 
-class Color3Value:
+class Color3Value(ValueBase):
 	Value: Color3
 
 	pass
 
-class DoubleConstrainedValue:
+class DoubleConstrainedValue(ValueBase):
 	ConstrainedValue: float
 	MaxValue: float
 	MinValue: float
@@ -13659,7 +17335,7 @@ class DoubleConstrainedValue:
 
 	pass
 
-class IntConstrainedValue:
+class IntConstrainedValue(ValueBase):
 	ConstrainedValue: int
 	MaxValue: int
 	MinValue: int
@@ -13667,37 +17343,37 @@ class IntConstrainedValue:
 
 	pass
 
-class IntValue:
+class IntValue(ValueBase):
 	Value: int
 
 	pass
 
-class NumberValue:
+class NumberValue(ValueBase):
 	Value: float
 
 	pass
 
-class ObjectValue:
+class ObjectValue(ValueBase):
 	Value: Instance
 
 	pass
 
-class RayValue:
+class RayValue(ValueBase):
 	Value: Ray
 
 	pass
 
-class StringValue:
+class StringValue(ValueBase):
 	Value: str
 
 	pass
 
-class Vector3Value:
+class Vector3Value(ValueBase):
 	Value: Vector3
 
 	pass
 
-class Vector3Curve:
+class Vector3Curve(Instance):
 	@abstractmethod
 	def GetValueAtTime(self, time: float) -> list[Any]:
 		pass
@@ -13717,12 +17393,12 @@ class Vector3Curve:
 
 	pass
 
-class VersionControlService:
+class VersionControlService(Instance):
 	ScriptCollabEnabled: bool
 
 	pass
 
-class VideoCaptureService:
+class VideoCaptureService(Instance):
 	Active: bool
 	CameraID: str
 	@abstractmethod
@@ -13732,7 +17408,7 @@ class VideoCaptureService:
 
 	pass
 
-class VirtualInputManager:
+class VirtualInputManager(Instance):
 	AdditionalLuaState: str
 	@abstractmethod
 	def Dump(self) -> None:
@@ -13829,7 +17505,7 @@ class VirtualInputManager:
 
 	pass
 
-class VirtualUser:
+class VirtualUser(Instance):
 	@abstractmethod
 	def Button1Down(self, position: Vector2, camera: CFrame) -> None:
 		pass
@@ -13885,15 +17561,15 @@ class VirtualUser:
 
 	pass
 
-class VisibilityService:
+class VisibilityService(Instance):
 
 	pass
 
-class Visit:
+class Visit(Instance):
 
 	pass
 
-class VoiceChannel:
+class VoiceChannel(Instance):
 	@abstractmethod
 	def AddUserAsync(self, userId: int) -> 'VoiceSource':
 		pass
@@ -13901,7 +17577,7 @@ class VoiceChannel:
 
 	pass
 
-class VoiceChatInternal:
+class VoiceChatInternal(Instance):
 	VoiceChatState: VoiceChatState
 	@abstractmethod
 	def GetAndClearCallFailureMessage(self) -> str:
@@ -14002,7 +17678,7 @@ class VoiceChatInternal:
 
 	pass
 
-class VoiceChatService:
+class VoiceChatService(Instance):
 	EnableDefaultVoice: bool
 	VoiceChatEnabledForPlaceOnRcc: bool
 	VoiceChatEnabledForUniverseOnRcc: bool
@@ -14013,12 +17689,12 @@ class VoiceChatService:
 
 	pass
 
-class VoiceSource:
+class VoiceSource(Instance):
 	UserId: int
 
 	pass
 
-class WeldConstraint:
+class WeldConstraint(Instance):
 	Active: bool
 	Enabled: bool
 	Part0: BasePart

@@ -16,7 +16,6 @@ pytypes: dict[str, str] = {
     "double": "float",
     "Variant": "Any",
     "Function": "Callable[..., Any]",
-    "Array": "list[Any]",
     "Tuple": "tuple[Any]",
     "void": "None",
     "Dictionary": "dict[Any, Any]",
@@ -30,7 +29,7 @@ pyenums: dict[str, str] = {
     "Font": "FONT",
     "Platform": "PLATFORM",
     "Status": "STATUS",
-}
+}    
 
 py_keywords: dict[str, str] = {
     "class": "className",
@@ -128,39 +127,17 @@ class Generator:
             class_string += f"\t{re.sub('[^0-9a-zA-Z]+', '', member['Name'])}: {cls.convert_py_type(member['ValueType']['Name'])}\n"
 
         if(_class["Name"] == "Instance"):
-            # @singledispatchmethod
             # @classmethod
-            # def new(cls, className: str, parent: Self | None = None) -> None:
-            #   
-
-            class_string += f"\t@singledispatchmethod\n"
+            #    def new(cls, className: str, parent: Self | None = None) -> Any:
+            #       if not className in __InstanceClasses__:
+			#           raise Exception(f"Invalid class name: {className}")
+            #       return __InstanceClasses__[className]()
+		
             class_string += f"\t@classmethod\n"
-            class_string += f"\tdef new(cls, className: str, parent: Self | None = None) -> None:\n"
-
-            # loop through all classes with superclass Instance
-            for roblox_class in api_tracker["Classes"]:
-                superclass = cls.get_class_by_name(roblox_class["Superclass"], api_tracker);
-                is_instance = False;
-                
-                while superclass and superclass["Name"] != "Instance":
-                    superclass = cls.get_class_by_name(superclass["Superclass"], api_tracker);
-
-                if superclass and superclass["Name"] == "Instance":
-                    is_instance = True;
-
-                # example for Part:
-                # if isinstance(className, Literal["Part"]):
-                #   a = Part()
-                #   if parent is not None:
-                #       a.Parent = parent
-                #   return a
-
-                if is_instance and superclass:
-                    class_string += f"\t\tif isinstance(className, Literal[\"{roblox_class['Name']}\"]):\n"
-                    class_string += f"\t\t\ta = {roblox_class['Name']}()\n"
-                    class_string += f"\t\t\tif parent is not None:\n"
-                    class_string += f"\t\t\t\ta.Parent = parent\n"
-                    class_string += f"\t\t\treturn a\n\n"
+            class_string += f"\tdef new(cls, className: str, parent: Self | None = None) -> Any:\n"
+            class_string += f"\t\tif not className in __InstanceClasses__:\n"
+            class_string += f"\t\t\traise Exception(f\"Invalid class name: {{className}}\")\n"
+            class_string += f"\t\treturn __InstanceClasses__[className]()\n\n"
 
         # check the functions
         for member in _class['Members']:
@@ -204,6 +181,19 @@ class Generator:
 
         # return the class
         return class_string
+
+    @classmethod
+    def issubclass(cls, api_tracker: ApiTracker, roblox_class: RobloxClass, superclass_name: str) -> bool:
+        superclass = cls.get_class_by_name(roblox_class["Superclass"], api_tracker);
+        is_instance = False;
+                
+        while superclass and superclass["Name"] != superclass_name:
+            superclass = cls.get_class_by_name(superclass["Superclass"], api_tracker);
+
+        if superclass and superclass["Name"] == superclass_name:
+            is_instance = True;
+
+        return is_instance
 
     @classmethod
     def is_method_overloading(cls, _class: RobloxClass, api_tracker: ApiTracker, member: RobloxMemberFunction) -> bool:
@@ -333,14 +323,47 @@ class Generator:
         return api_tracker;
 
     @classmethod
+    def generate_instance_classes_map(cls, api_tracker: ApiTracker) -> str:
+        # generate the instance classes map
+        instance_classes_map_string = "__InstanceClasses__: dict[str, Type[Instance]] = {\n"
+
+        for roblox_class in api_tracker["Classes"]:
+            # check if the class is an instance
+            is_instance = cls.issubclass(api_tracker, roblox_class, "Instance")
+
+            if is_instance:
+                instance_classes_map_string += f"\t\"{roblox_class['Name']}\":"
+                instance_classes_map_string += f" {roblox_class['Name']},\n"
+
+        instance_classes_map_string += "}\n\n"
+
+        return instance_classes_map_string
+
+    @classmethod
+    def generate_builtin_variables(cls, api_tracker: ApiTracker) -> str:
+        # workspace = Workspace()
+        # script = LuaSourceContainer()
+        # game = DataModel()
+        # shared = Array()
+        # plugin = Plugin()
+
+        result = "workspace: Workspace = Workspace()\n"
+        result += "script: LuaSourceContainer = LuaSourceContainer()\n"
+        result += "game: DataModel = DataModel()\n"
+        result += "shared: Array = Array()\n"
+        result += "plugin: Plugin = Plugin()\n"
+        result += "\n"
+
+        return result;
+
+    @classmethod
     def generate_string(cls, api_tracker: ApiTracker) -> str:
         # this is the string that will be returned
         api_tracker = cls.sort_model(api_tracker)
         generated_string = "from typing_extensions import Self\n"
-        generated_string += "from typing import Any, Callable, Literal\n"
+        generated_string += "from typing import Any, Callable, Type\n"
         generated_string += "from abc import abstractmethod\n"
-        generated_string += "from enum import Enum\n"
-        generated_string += "from functools import singledispatchmethod\n\n"
+        generated_string += "from enum import Enum\n\n"
 
         # add the datatypes
         for datatype in api_tracker['DataTypes']:
@@ -357,5 +380,8 @@ class Generator:
         # add the classes
         for _class in api_tracker["Classes"]:
             generated_string += cls.generate_class(_class, api_tracker)
+        
+        generated_string += cls.generate_instance_classes_map(api_tracker)
+        generated_string += cls.generate_builtin_variables(api_tracker)
 
         return generated_string;
